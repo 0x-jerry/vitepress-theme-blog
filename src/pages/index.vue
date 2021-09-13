@@ -1,11 +1,4 @@
-<script setup lang="ts">
-import conf from 'virtual:blog'
-
-const isDev = import.meta.env.DEV
-if (isDev) {
-  console.log('site config', conf)
-}
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <ul class="flex flex-wrap">
