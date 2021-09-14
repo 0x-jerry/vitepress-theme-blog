@@ -11,8 +11,8 @@ import WindiCSS from 'vite-plugin-windicss'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
-import { VitePluginBlog } from './vite/vite-plugin-blog'
 import { setupMarkdownIt } from './vite/markdown'
+import { getArticleConfigSync } from './vite/vite-plugin-blog/resolveData'
 
 const markdownWrapperClasses = 'prose m-auto text-left'
 
@@ -46,9 +46,16 @@ export default defineConfig({
               if (/\/docs\//.test(route.path)) {
                 route.meta ||= {}
                 route.meta.layout = 'docs'
+
+                const filePath = path.resolve('./' + route.component)
+                const info = getArticleConfigSync(filePath)
+                route.meta.info = info
               }
 
-              route.path = encodeURI(route.path)
+              route.path = route.path
+                .split('/')
+                .map((n) => encodeURIComponent(n))
+                .join('/')
             }
           }
         }
@@ -141,9 +148,6 @@ export default defineConfig({
       // change this to enable inspect for debugging
       enabled: false,
     }),
-
-    // Blog
-    VitePluginBlog('docs'),
   ],
 
   server: {

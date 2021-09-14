@@ -1,40 +1,12 @@
 import path from 'path'
-import { promises as fs } from 'fs'
+import { readFileSync } from 'fs'
 import matter from 'gray-matter'
-import glob from 'fast-glob'
-import { ArticleInfo, BlogConfig } from 'virtual:blog'
+import { ArticleInfo } from 'virtual:blog'
 
-export async function getBlogData(dir: string, isDev: boolean) {
-  const articles: ArticleInfo[] = []
-  const cwd = path.resolve(dir)
-
-  const files = await glob('**/*.md', { cwd })
-
-  const allPromise = files.map(async (file) => {
-    const filePath = path.join(cwd, file)
-
-    const d = await getArticleConfig(filePath)
-    d.routePath = encodeURI(file.replace(/\.md$/, ''))
-
-    if (d.visible || isDev) {
-      articles.push(d)
-    }
-  })
-
-  await Promise.all(allPromise)
-  articles.sort((a, b) => b.date - a.date)
-
-  const config: BlogConfig = {
-    articles: articles,
-  }
-
-  return config
-}
-
-export async function getArticleConfig(filePath: string) {
+export function getArticleConfigSync(filePath: string) {
   const parsedPath = path.parse(filePath)
 
-  const content = await fs.readFile(filePath, { encoding: 'utf-8' })
+  const content = readFileSync(filePath, { encoding: 'utf-8' })
 
   const c = matter(content, {
     excerpt_separator: '<!-- more -->',

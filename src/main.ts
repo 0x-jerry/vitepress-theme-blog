@@ -15,7 +15,10 @@ import 'virtual:windi-utilities.css'
 import 'virtual:windi-devtools'
 
 const routes = setupLayouts(generatedRoutes)
-console.log(routes)
+
+if (!import.meta.env.SSR) {
+  console.log(routes)
+}
 
 // https://github.com/antfu/vite-ssg
 export const createApp = ViteSSG(App, { routes }, (ctx) => {
