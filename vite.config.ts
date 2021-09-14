@@ -13,6 +13,7 @@ import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import { setupMarkdownIt } from './vite/markdown'
 import { getArticleConfigSync } from './vite/vite-plugin-blog/resolveData'
+import ViteFixResource from './vite/vite-fix-resource'
 
 const markdownWrapperClasses = 'prose m-auto text-left'
 
@@ -148,6 +149,7 @@ export default defineConfig({
       // change this to enable inspect for debugging
       enabled: false,
     }),
+    ViteFixResource,
   ],
 
   server: {
