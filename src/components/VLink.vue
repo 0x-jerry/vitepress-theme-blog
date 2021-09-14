@@ -28,7 +28,7 @@ function scrollToAnchorEvent(e: MouseEvent) {
   scrollToAnchor(props.href, router)
 }
 
-const url = computed(() => encodeURI(props.href))
+const url = computed(() => props.href)
 </script>
 
 <template>
