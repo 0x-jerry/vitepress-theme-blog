@@ -6,4 +6,4 @@ visible: false
 
 Some Test
 
-[test-index](./test-extra.md)
+[test-index](./testx/index.md)

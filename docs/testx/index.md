@@ -5,7 +5,7 @@ visible: false
 
 # Custom Test
 
-[test](test.md)
+[test](../test.md)
 
 [external](https://test.md)
 

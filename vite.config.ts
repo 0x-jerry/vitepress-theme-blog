@@ -42,6 +42,11 @@ export default defineConfig({
               if (/index\.md$/.test(route.component)) {
                 route.path += route.path ? '/index' : 'index'
               }
+
+              if (/\/docs\//.test(route.path)) {
+                route.meta ||= {}
+                route.meta.layout = 'docs'
+              }
             }
           }
         }
