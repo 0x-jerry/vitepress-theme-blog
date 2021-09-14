@@ -17,6 +17,27 @@ import ViteFixResource from './vite/vite-fix-resource'
 
 const markdownWrapperClasses = 'prose m-auto text-left'
 
+/**
+ * generate a url valid link.
+ * @param str
+ * @returns
+ */
+const permalink = (str: string) => {
+  const isValidChar = /[a-z0-9-+\/]/
+
+  let s = ''
+  for (const char of str) {
+    if (isValidChar.test(char)) {
+      s += char
+    } else if (/\s/.test(char)) {
+      s += '-'
+    } else {
+      s += char.charCodeAt(0).toString(36)
+    }
+  }
+  return s
+}
+
 export default defineConfig({
   base: '/',
   resolve: {
@@ -53,10 +74,7 @@ export default defineConfig({
                 route.meta.info = info
               }
 
-              route.path = route.path
-                .split('/')
-                .map((n) => encodeURIComponent(n))
-                .join('/')
+              route.path = permalink(route.path)
             }
           }
         }
