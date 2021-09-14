@@ -1,22 +1,5 @@
 @import './markdown.css';
 
-@font-face {
-  font-family: 'LXGW';
-  src: url('/fonts/LXGWWenKaiMono-Light.ttf') format('truetype');
-  font-weight: light;
-}
-
-@font-face {
-  font-family: 'LXGW';
-  src: url('/fonts/LXGWWenKaiMono-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'LXGW';
-  src: url('/fonts/LXGWWenKaiMono-Bold.ttf') format('truetype');
-  font-weight: bold;
-}
-
 html,
 body,
 #app {
