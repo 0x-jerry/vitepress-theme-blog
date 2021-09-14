@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { watchEffect, reactive } from 'vue'
+import { watchEffect, reactive, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { scrollToAnchor } from '../utils'
 
@@ -27,17 +27,19 @@ function scrollToAnchorEvent(e: MouseEvent) {
   e.preventDefault()
   scrollToAnchor(props.href, router)
 }
+
+const url = computed(() => encodeURI(props.href))
 </script>
 
 <template>
   <span class="link" :class="theme">
-    <a v-if="data.isAnchor" :href="props.href" @click="scrollToAnchorEvent">
+    <a v-if="data.isAnchor" :href="url" @click="scrollToAnchorEvent">
       <slot />
     </a>
-    <router-link v-else-if="data.isRelative" :to="props.href">
+    <router-link v-else-if="data.isRelative" :to="url">
       <slot />
     </router-link>
-    <a v-else :href="props.href" target="_blank">
+    <a v-else :href="url" target="_blank">
       <span>
         <slot />
       </span>

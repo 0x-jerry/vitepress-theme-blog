@@ -47,6 +47,8 @@ export default defineConfig({
                 route.meta ||= {}
                 route.meta.layout = 'docs'
               }
+
+              route.path = encodeURI(route.path)
             }
           }
         }

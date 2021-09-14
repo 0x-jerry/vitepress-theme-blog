@@ -13,21 +13,9 @@ import './styles/main.css'
 import 'virtual:windi-utilities.css'
 // windicss devtools support (dev only)
 import 'virtual:windi-devtools'
-import { RouteRecordRaw } from 'vue-router'
-
-// fix chinese filename.
-const fixUnicodeChar = (routes: RouteRecordRaw[]) => {
-  for (const route of routes) {
-    if (route.children) {
-      fixUnicodeChar(route.children)
-    } else {
-      route.path = encodeURI(route.path)
-    }
-  }
-}
 
 const routes = setupLayouts(generatedRoutes)
-fixUnicodeChar(routes)
+console.log(routes)
 
 // https://github.com/antfu/vite-ssg
 export const createApp = ViteSSG(App, { routes }, (ctx) => {

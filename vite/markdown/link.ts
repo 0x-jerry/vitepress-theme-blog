@@ -67,7 +67,6 @@ export const linkPlugin = (md: MarkdownIt, externalAttrs: Record<string, string>
       url = './' + url
     }
 
-    // markdown-it encodes the uri
-    hrefAttr[1] = decodeURI(url)
+    hrefAttr[1] = url
   }
 }
