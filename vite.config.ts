@@ -12,31 +12,10 @@ import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import { setupMarkdownIt } from './vite/markdown'
-import { getArticleConfigSync } from './vite/vite-plugin-blog/resolveData'
+import { updateRouteMeta } from './vite/vite-plugin-blog/resolveData'
 import ViteFixResource from './vite/vite-fix-resource'
 
 const markdownWrapperClasses = 'prose m-auto text-left'
-
-/**
- * generate a url valid link.
- * @param str
- * @returns
- */
-const permalink = (str: string) => {
-  const isValidChar = /[a-z0-9-+\/]/
-
-  let s = ''
-  for (const char of str) {
-    if (isValidChar.test(char)) {
-      s += char
-    } else if (/\s/.test(char)) {
-      s += '-'
-    } else {
-      s += char.charCodeAt(0).toString(36)
-    }
-  }
-  return s
-}
 
 export default defineConfig({
   base: '/',
@@ -55,31 +34,8 @@ export default defineConfig({
       extensions: ['vue', 'md'],
 
       // fix link in markdown file
-      onRoutesGenerated(routes) {
-        const visit = (routes: Route[]) => {
-          for (const route of routes) {
-            if (route.children) {
-              visit(route.children)
-            } else {
-              if (/index\.md$/.test(route.component)) {
-                route.path += route.path ? '/index' : 'index'
-              }
-
-              if (/\/docs\//.test(route.path)) {
-                route.meta ||= {}
-                route.meta.layout = 'docs'
-
-                const filePath = path.resolve('./' + route.component)
-                const info = getArticleConfigSync(filePath)
-                route.meta.info = info
-              }
-
-              route.path = permalink(route.path)
-            }
-          }
-        }
-
-        visit(routes)
+      async onRoutesGenerated(routes) {
+        await updateRouteMeta(routes)
       },
     }),
 
