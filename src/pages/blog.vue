@@ -10,11 +10,11 @@ const articles = isDev ? blogConfig.articles : blogConfig.articles.filter((o) =>
 </script>
 
 <template>
+  <v-logo width="100"></v-logo>
+
   <ul class="flex flex-wrap">
-    <li v-for="o in articles">
-      <router-link class="mx-10 my-5" :to="o.routePath">
-        {{ o.title }}
-      </router-link>
+    <li v-for="o in articles" display="block">
+      <v-excerpt :info="o" />
     </li>
   </ul>
 </template>
