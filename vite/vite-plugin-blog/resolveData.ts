@@ -3,6 +3,11 @@ import { promises as fs } from 'fs'
 import matter from 'gray-matter'
 import { ArticleInfo } from 'virtual:blog'
 import { Route } from 'vite-plugin-pages'
+import MarkdownIt from 'markdown-it'
+import { setupMarkdownIt } from '../markdown'
+import { JSDOM } from 'jsdom'
+import { fileToUrl } from './asset'
+import { globalData } from './global'
 
 interface ArticleCacheInfo extends ArticleInfo {
   ms: number
@@ -33,7 +38,7 @@ async function getArticleConfigSync(filePath: string) {
     routePath: '',
     date: 0,
     tags: [],
-    excerpt: c.excerpt?.trim() || '',
+    excerpt: await renderMarkdown(c.excerpt?.trim() || '', filePath),
   }
 
   const d = Object.assign(articleInfo, c.data)
@@ -85,4 +90,45 @@ function permalink(str: string) {
     }
   }
   return s
+}
+
+async function renderMarkdown(content: string, importer: string) {
+  const markdown = new MarkdownIt({
+    html: true,
+    linkify: true,
+    typographer: true,
+  })
+
+  setupMarkdownIt(markdown)
+
+  const result = markdown.render(content)
+
+  // dome
+  const $ = new JSDOM(result)
+
+  const doc = $.window.document
+
+  // remove toc
+  doc.querySelector('.table-content')?.remove()
+
+  const images = doc.querySelectorAll('img')
+
+  // get correct url, it is a hack solution.
+  for (let idx = 0; idx < images.length; idx++) {
+    const img = images[idx]
+    const resource = (await globalData.ctx.resolve(img.src, importer))!
+
+    img.src = await fileToUrl(resource.id, globalData.conf, globalData.ctx)
+
+    const parsed = path.parse(resource.id)
+
+    if (globalData.conf.command === 'build') {
+      // ex. __VITE_ASSET__5db78800__
+      const hash = img.src.slice('__VITE_ASSET__'.length, -'__'.length)
+
+      img.src = `/assets/${parsed.name}.${hash}${parsed.ext}`
+    }
+  }
+
+  return doc.body.innerHTML
 }

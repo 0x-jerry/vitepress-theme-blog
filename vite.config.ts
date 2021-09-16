@@ -1,7 +1,7 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
-import Pages, { Route } from 'vite-plugin-pages'
+import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -14,6 +14,8 @@ import Inspect from 'vite-plugin-inspect'
 import { setupMarkdownIt } from './vite/markdown'
 import { updateRouteMeta } from './vite/vite-plugin-blog/resolveData'
 import ViteFixResource from './vite/vite-fix-resource'
+import { globalData } from './vite/vite-plugin-blog/global'
+import { assetCache, assetHashToFilenameMap, emittedHashMap } from './vite/vite-plugin-blog/asset'
 
 const markdownWrapperClasses = 'prose m-auto text-left'
 
@@ -25,6 +27,19 @@ export default defineConfig({
     },
   },
   plugins: [
+    {
+      name: 'vite-plugin-get-ctx',
+      enforce: 'pre',
+      configResolved(c) {
+        globalData.conf = c
+        assetCache.set(c, new Map())
+        emittedHashMap.set(c, new Set())
+        assetHashToFilenameMap.set(c, new Map())
+      },
+      buildStart() {
+        globalData.ctx = this
+      },
+    },
     Vue({
       include: [/\.vue$/, /\.md$/],
     }),
