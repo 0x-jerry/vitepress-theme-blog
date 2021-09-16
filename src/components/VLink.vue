@@ -4,8 +4,9 @@ import { useRouter } from 'vue-router'
 import { scrollToAnchor } from '../utils'
 
 interface VLinkProps {
-  theme?: 'blue' | 'gray'
+  theme?: 'blue' | 'gray' | 'white'
   href: string
+  icon?: boolean
 }
 
 const props = defineProps<VLinkProps>()
@@ -13,17 +14,21 @@ const props = defineProps<VLinkProps>()
 const data = reactive({
   isRelative: false,
   isAnchor: false,
+  isEmail: false,
   theme: '',
 })
 
 watchEffect(() => {
   data.isRelative = !/^https?/.test(props.href)
+  data.isEmail = /^mailto:/.test(props.href)
   data.isAnchor = props.href.startsWith('#')
 })
 
 const router = useRouter()
 
 function scrollToAnchorEvent(e: MouseEvent) {
+  if (!data.isAnchor) return
+
   e.preventDefault()
   scrollToAnchor(props.href, router)
 }
@@ -32,8 +37,8 @@ const url = computed(() => props.href)
 </script>
 
 <template>
-  <span class="link" :class="theme">
-    <a v-if="data.isAnchor" :href="url" @click="scrollToAnchorEvent">
+  <span class="link" :class="theme" :title="url">
+    <a v-if="data.isAnchor || data.isEmail" :href="url" @click="scrollToAnchorEvent">
       <slot />
     </a>
     <router-link v-else-if="data.isRelative" :to="url">
@@ -43,7 +48,7 @@ const url = computed(() => props.href)
       <span>
         <slot />
       </span>
-      <line-md-external-link-rounded />
+      <line-md-external-link-rounded v-if="icon ?? true" />
     </a>
   </span>
 </template>
@@ -55,6 +60,10 @@ const url = computed(() => props.href)
 
   &.gray {
     @apply text-gray-800 hover:text-blue-600;
+  }
+
+  &.white {
+    @apply text-light-900 hover:text-white;
   }
 }
 </style>
