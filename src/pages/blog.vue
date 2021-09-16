@@ -12,8 +12,8 @@ const articles = isDev ? blogConfig.articles : blogConfig.articles.filter((o) =>
 <template>
   <v-logo width="100"></v-logo>
 
-  <ul class="flex flex-wrap">
-    <li v-for="o in articles" display="block">
+  <ul>
+    <li v-for="o in articles">
       <v-excerpt :info="o" />
     </li>
   </ul>
