@@ -1,7 +1,7 @@
 import path from 'path'
 import { promises as fs } from 'fs'
 import matter from 'gray-matter'
-import { ArticleInfo } from 'virtual:blog'
+import { ArticleInfo, TocLink } from 'virtual:blog'
 import { Route } from 'vite-plugin-pages'
 import MarkdownIt from 'markdown-it'
 import { setupMarkdownIt } from '../markdown'
@@ -14,6 +14,14 @@ interface ArticleCacheInfo extends ArticleInfo {
 }
 
 const cache = new Map<string, ArticleCacheInfo>()
+
+const md = new MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: true,
+})
+
+setupMarkdownIt(md)
 
 async function getArticleConfigSync(filePath: string) {
   const parsedPath = path.parse(filePath)
@@ -32,6 +40,8 @@ async function getArticleConfigSync(filePath: string) {
     excerpt_separator: '<!-- more -->',
   })
 
+  const tocLinks = getHeaders(c.content)
+
   const articleInfo: ArticleInfo = {
     visible: true,
     title: parsedPath.name,
@@ -39,6 +49,7 @@ async function getArticleConfigSync(filePath: string) {
     date: 0,
     tags: [],
     excerpt: await renderMarkdown(c.excerpt?.trim() || '', filePath),
+    toc: tocLinks,
   }
 
   const d = Object.assign(articleInfo, c.data)
@@ -93,17 +104,9 @@ function permalink(str: string) {
 }
 
 async function renderMarkdown(content: string, importer: string) {
-  const markdown = new MarkdownIt({
-    html: true,
-    linkify: true,
-    typographer: true,
-  })
+  const result = md.render(content)
 
-  setupMarkdownIt(markdown)
-
-  const result = markdown.render(content)
-
-  // dome
+  // dom
   const $ = new JSDOM(result)
 
   const doc = $.window.document
@@ -131,4 +134,19 @@ async function renderMarkdown(content: string, importer: string) {
   }
 
   return doc.body.innerHTML
+}
+
+function getHeaders(content: string): TocLink[] {
+  const result = md.render(content)
+
+  // dom
+  const $ = new JSDOM(result)
+
+  const nodes = $.window.document.querySelectorAll('h1,h2,h3,h4,h5,h6,h7')
+
+  return Array.from(nodes).map((node) => ({
+    level: +node.tagName.replace(/h/i, ''),
+    label: node.textContent!.replace(/#$/, ''),
+    id: node.id,
+  }))
 }
