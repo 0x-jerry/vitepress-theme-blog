@@ -24,6 +24,14 @@ declare module 'virtual:blog' {
      *
      */
     excerpt: string
+
+    toc: TocLink[]
+  }
+
+  export interface TocLink {
+    level: number
+    label: string
+    id: string
   }
 
   export interface BlogConfig {
