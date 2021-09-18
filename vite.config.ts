@@ -17,8 +17,6 @@ import ViteFixResource from './vite/vite-fix-resource'
 import { globalData } from './vite/vite-plugin-blog/global'
 import { assetCache, assetHashToFilenameMap, emittedHashMap } from './vite/vite-plugin-blog/asset'
 
-const markdownWrapperClasses = 'prose m-auto text-left'
-
 export default defineConfig({
   base: '/',
   resolve: {
@@ -85,16 +83,23 @@ export default defineConfig({
     Icons(),
 
     // https://github.com/antfu/vite-plugin-windicss
-    WindiCSS({
-      safelist: markdownWrapperClasses,
-    }),
+    WindiCSS(),
 
     // https://github.com/antfu/vite-plugin-md
     // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
     Markdown({
-      wrapperClasses: markdownWrapperClasses,
-      headEnabled: true,
       markdownItSetup: setupMarkdownIt,
+      transforms: {
+        after(code, id) {
+          const wrap = (comp: string) => `<${comp} v-bind="frontmatter">${code}</${comp}>`
+
+          if (/components\/notes/.test(id)) return wrap('v-note')
+
+          if (/pages\/docs/.test(id)) return wrap('v-post')
+
+          return code
+        },
+      },
     }),
 
     // https://github.com/antfu/vite-plugin-pwa

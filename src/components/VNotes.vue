@@ -15,8 +15,8 @@ defineComponent({
 </script>
 
 <template>
-  <div class="notes">
-    <div class="note" v-for="o in all">
+  <div class="v-notes">
+    <div class="mt-2" v-for="o in all">
       <component :is="o"></component>
     </div>
   </div>
