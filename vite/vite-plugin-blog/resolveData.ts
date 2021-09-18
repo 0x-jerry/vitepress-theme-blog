@@ -75,9 +75,9 @@ export async function updateRouteMeta(routes: Route[]) {
         const filePath = path.resolve('./' + route.component)
         const info = await getArticleConfigSync(filePath)
         route.meta.info = info
-      }
 
-      route.path = permalink(route.path)
+        route.path = permalink(route.path)
+      }
     }
   }
 }

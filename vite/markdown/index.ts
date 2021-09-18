@@ -15,7 +15,7 @@ export function setupMarkdownIt(md: MarkdownIt) {
     }),
   })
     .use(prism, {
-      defaultLanguageForUnspecified: 'markup',
+      defaultLanguage: 'markup',
     })
     .use(toc, {
       includeLevel: [2, 3],

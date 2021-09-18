@@ -32,6 +32,10 @@ export const highlight = (str: string, lang: string) => {
   if (lang === 'py') {
     lang = 'python'
   }
+  if (['sh'].includes(lang)) {
+    lang = 'shell'
+  }
+
   if (!prism.languages[lang]) {
     try {
       loadLanguages([lang])
