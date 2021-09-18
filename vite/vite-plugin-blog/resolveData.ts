@@ -23,7 +23,7 @@ const md = new MarkdownIt({
 
 setupMarkdownIt(md)
 
-async function getArticleConfigSync(filePath: string) {
+async function getArticleConfig(filePath: string) {
   const parsedPath = path.parse(filePath)
   const stat = await fs.stat(filePath)
 
@@ -70,10 +70,9 @@ export async function updateRouteMeta(routes: Route[]) {
 
       if (/\/docs\//.test(route.path)) {
         route.meta ||= {}
-        route.meta.layout = 'docs'
 
         const filePath = path.resolve('./' + route.component)
-        const info = await getArticleConfigSync(filePath)
+        const info = await getArticleConfig(filePath)
         route.meta.info = info
 
         route.path = permalink(route.path)

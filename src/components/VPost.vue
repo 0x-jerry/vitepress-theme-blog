@@ -17,7 +17,9 @@ useHead({
 </script>
 
 <template>
-  <div class="v-post prose m-auto text-left">
-    <slot></slot>
+  <div class="v-post">
+    <div class="prose m-auto text-left">
+      <slot></slot>
+    </div>
   </div>
 </template>
