@@ -1,18 +1,1 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-
-<svg width="512" height="512" viewBox="0 0 512 512" fill="none"
-  xmlns="http://www.w3.org/2000/svg">
-  <style>
-    path,rect,line { stroke: #222; }
-
-    @media (prefers-color-scheme: dark) {
-      path,rect,line { stroke: #fff; }
-    }
-  </style>
-
-  <rect x="56" y="256" width="282.843" height="282.843" transform="rotate(-45 56 256)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="20 70"/>
-  <line x1="223.858" y1="253.513" x2="280.854" y2="352.234" stroke-width="18" stroke-linecap="round"/>
-  <line x1="237.057" y1="169.603" x2="294.054" y2="268.324" stroke-width="18" stroke-linecap="round"/>
-  <line x1="208.269" y1="343.072" x2="302.978" y2="179.031" stroke-width="18" stroke-linecap="round"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" fill="none" viewBox="0 0 512 512"><style>line,rect{stroke:#222}@media (prefers-color-scheme:dark){line,rect{stroke:#fff}}</style><rect width="282.843" height="282.843" x="56" y="256" stroke-dasharray="20 70" stroke-linecap="round" stroke-linejoin="round" stroke-width="26" transform="rotate(-45 56 256)"/><line x1="223.858" x2="280.854" y1="253.513" y2="352.234" stroke-linecap="round" stroke-width="18"/><line x1="237.057" x2="294.054" y1="169.603" y2="268.324" stroke-linecap="round" stroke-width="18"/><line x1="208.269" x2="302.978" y1="343.072" y2="179.031" stroke-linecap="round" stroke-width="18"/></svg>
