@@ -10,7 +10,9 @@ const articles = isDev ? blogConfig.articles : blogConfig.articles.filter((o) =>
 </script>
 
 <template>
-  <v-logo class="relative top-10 left-10" width="100"></v-logo>
+  <router-link to="/">
+    <v-logo class="relative top-10 left-10" width="100"></v-logo>
+  </router-link>
 
   <ul>
     <li v-for="o in articles">

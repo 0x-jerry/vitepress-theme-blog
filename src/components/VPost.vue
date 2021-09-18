@@ -4,7 +4,8 @@ import { HeadObject, useHead } from '@vueuse/head'
 interface PostProps {
   title?: string
   tags?: string[]
-  meta: HeadObject[]
+  date?: string
+  meta?: HeadObject[]
 }
 
 const props = defineProps<PostProps>()

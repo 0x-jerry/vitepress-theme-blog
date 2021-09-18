@@ -17,11 +17,11 @@
       display="flex"
       justify="center"
       align="items-center"
-      bg="black opacity-10"
+      bg="black opacity-30"
       text="white"
     >
-      <div>
-        <h1 text="4xl" p="x-10 y-5" border="rounded-md" font="mono">0x-Jerry's Blog</h1>
+      <div text="shadow-lg">
+        <h1 text="4xl" p="x-10 y-5" font="mono">0x-Jerry's Blog</h1>
         <br />
         <ul
           w="min-content"
