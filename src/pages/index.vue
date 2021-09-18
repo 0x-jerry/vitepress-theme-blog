@@ -39,6 +39,16 @@
             </VLink>
           </li>
           <li class="mx-5">
+            <VLink href="/notes" theme="white">
+              <mdi:notebook></mdi:notebook>
+            </VLink>
+          </li>
+          <li class="mx-5">
+            <VLink href="/timeline" theme="white">
+              <mdi:timeline></mdi:timeline>
+            </VLink>
+          </li>
+          <li class="mx-5">
             <VLink href="https://github.com/0x-jerry" :icon="false" theme="white">
               <mdi:github></mdi:github>
             </VLink>
