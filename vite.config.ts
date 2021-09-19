@@ -28,11 +28,12 @@ export default defineConfig({
     {
       name: 'vite-plugin-get-ctx',
       enforce: 'pre',
-      configResolved(c) {
-        globalData.conf = c
-        assetCache.set(c, new Map())
-        emittedHashMap.set(c, new Set())
-        assetHashToFilenameMap.set(c, new Map())
+      configResolved(conf) {
+        globalData.conf = conf
+
+        assetCache.set(conf, new Map())
+        emittedHashMap.set(conf, new Set())
+        assetHashToFilenameMap.set(conf, new Map())
       },
       buildStart() {
         globalData.ctx = this

@@ -110,12 +110,9 @@ async function renderMarkdown(content: string, importer: string) {
 
   const doc = $.window.document
 
-  // remove toc
-  doc.querySelector('.table-content')?.remove()
-
   const images = doc.querySelectorAll('img')
 
-  // get correct url, it is a hack solution.
+  // get correct url, this is a hack solution.
   for (let idx = 0; idx < images.length; idx++) {
     const img = images[idx]
     const resource = (await globalData.ctx.resolve(img.src, importer))!
@@ -128,7 +125,9 @@ async function renderMarkdown(content: string, importer: string) {
       // ex. __VITE_ASSET__5db78800__
       const hash = img.src.slice('__VITE_ASSET__'.length, -'__'.length)
 
-      img.src = `/assets/${parsed.name}.${hash}${parsed.ext}`
+      const buildAssetDir = globalData.conf.build.assetsDir
+
+      img.src = `/${buildAssetDir}/${parsed.name}.${hash}${parsed.ext}`
     }
   }
 
