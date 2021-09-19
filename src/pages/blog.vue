@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { blogConfig } from '~/blog'
+import { blog } from '~/blog'
 
 const isDev = import.meta.env.DEV
 if (isDev) {
-  console.log('site config', blogConfig)
+  console.log('site config', blog)
 }
 
-const articles = isDev ? blogConfig.articles : blogConfig.articles.filter((o) => o.visible)
+const articles = isDev ? blog.articles : blog.articles.filter((o) => o.visible)
 </script>
 
 <template>
