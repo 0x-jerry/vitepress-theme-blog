@@ -25,7 +25,6 @@ specifiers:
   markdown-it: ^12.2.0
   markdown-it-anchor: ^8.3.0
   markdown-it-prism: ^2.2.0
-  markdown-it-table-of-contents: ^0.5.2
   mime: ^2.5.2
   nprogress: ^0.2.0
   pinia: ^2.0.0-rc.9
@@ -83,7 +82,6 @@ devDependencies:
   markdown-it: registry.nlark.com/markdown-it/12.2.0
   markdown-it-anchor: registry.nlark.com/markdown-it-anchor/8.3.0_markdown-it@12.2.0
   markdown-it-prism: registry.nlark.com/markdown-it-prism/2.2.0
-  markdown-it-table-of-contents: registry.nlark.com/markdown-it-table-of-contents/0.5.2
   mime: registry.nlark.com/mime/2.5.2
   prismjs: registry.nlark.com/prismjs/1.24.1
   rollup: registry.nlark.com/rollup/2.56.3
@@ -4065,13 +4063,6 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       prismjs: registry.nlark.com/prismjs/1.24.1
-    dev: true
-
-  registry.nlark.com/markdown-it-table-of-contents/0.5.2:
-    resolution: {integrity: sha1-L5QdOGwneIeRDyx6ihb1oXrLgpw=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/markdown-it-table-of-contents/download/markdown-it-table-of-contents-0.5.2.tgz}
-    name: markdown-it-table-of-contents
-    version: 0.5.2
-    engines: {node: '>6.4.0'}
     dev: true
 
   registry.nlark.com/markdown-it/12.2.0:
