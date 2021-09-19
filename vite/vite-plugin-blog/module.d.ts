@@ -15,7 +15,7 @@ declare module 'virtual:blog' {
     /**
      * create date
      */
-    date: number
+    date: Date
     /**
      * @default []
      */

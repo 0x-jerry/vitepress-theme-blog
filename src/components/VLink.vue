@@ -75,7 +75,7 @@ const url = computed(() => props.href)
     @apply text-gray-600 hover:text-gray-900;
 
     &.disabled {
-      @apply text-gray-200;
+      @apply text-gray-400;
     }
   }
 }

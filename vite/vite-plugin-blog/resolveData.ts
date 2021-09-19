@@ -23,7 +23,7 @@ const md = new MarkdownIt({
 
 setupMarkdownIt(md)
 
-async function getArticleConfig(filePath: string) {
+export async function getArticleConfig(filePath: string) {
   const parsedPath = path.parse(filePath)
   const stat = await fs.stat(filePath)
 
@@ -46,7 +46,7 @@ async function getArticleConfig(filePath: string) {
     visible: true,
     title: parsedPath.name,
     routePath: '',
-    date: 0,
+    date: new Date(),
     tags: [],
     excerpt: await renderMarkdown(c.excerpt?.trim() || '', filePath),
     toc: tocLinks,

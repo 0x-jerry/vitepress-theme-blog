@@ -17,14 +17,14 @@ interface Menu {
 
 const menus: Menu[] = [
   {
-    label: 'Timeline',
-    path: '/timeline',
-    icon: IconTimeline,
-  },
-  {
     label: 'Tags',
     path: '/tags',
     icon: IconTag,
+  },
+  {
+    label: 'Timeline',
+    path: '/timeline',
+    icon: IconTimeline,
   },
   {
     label: 'Notes',
@@ -71,7 +71,7 @@ const activeClass = computed(() => {
       </router-link>
     </div>
     <div flex="~ 1" align="items-center" justify="end">
-      <v-link theme="text" v-for="o in menus" :href="o.path" m="l-2" :disabled="isDisabled(o)">
+      <v-link theme="text" v-for="o in menus" :href="o.path" m="l-4" :disabled="isDisabled(o)">
         <span flex="~ inline" align="items-center">
           <component :is="o.icon" />
           <span class="ml-1"> {{ o.label }}</span>
@@ -80,7 +80,7 @@ const activeClass = computed(() => {
     </div>
   </header>
   <div w="full" h="70px"></div>
-  <div w="4/5" m="auto">
+  <div w="max-1200px" m="auto">
     <router-view />
   </div>
   <v-go-top />
