@@ -3,8 +3,11 @@ import IconBook from '~icons/mdi/book'
 import IconTag from '~icons/mdi/tag'
 import IconTimeline from '~icons/mdi/timeline'
 import IconNoteBook from '~icons/mdi/notebook'
+import { computed } from 'vue'
 import type { Component } from 'vue'
 import { useRouter } from 'vue-router'
+import VGoTop from '~/components/VGoTop.vue'
+import { useWindowScroll } from '@vueuse/core'
 
 interface Menu {
   label: string
@@ -40,10 +43,27 @@ const router = useRouter()
 function isDisabled(o: Menu) {
   return router.currentRoute.value.path === o.path
 }
+
+const top = useWindowScroll()
+
+const activeClass = computed(() => {
+  return top.y.value > 10 ? 'active' : ''
+})
 </script>
 
 <template>
-  <header h="70px" flex="~" align="items-center" p="x-10">
+  <header
+    w="full"
+    h="70px"
+    flex="~"
+    align="items-center"
+    transition="~ shadow"
+    p="x-10"
+    bg="white"
+    class="header top-0 fixed"
+    :class="activeClass"
+    z="10"
+  >
     <div flex="~">
       <router-link to="/" class="relative inline-block" flex="~" align="items-center">
         <v-logo width="40"></v-logo>
@@ -59,5 +79,17 @@ function isDisabled(o: Menu) {
       </v-link>
     </div>
   </header>
-  <router-view />
+  <div w="full" h="70px"></div>
+  <div w="4/5" m="auto">
+    <router-view />
+  </div>
+  <v-go-top />
 </template>
+
+<style lang="less" scoped>
+.header {
+  &.active {
+    @apply shadow-md;
+  }
+}
+</style>
