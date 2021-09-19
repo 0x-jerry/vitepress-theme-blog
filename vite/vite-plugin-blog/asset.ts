@@ -270,7 +270,6 @@ async function fileToBuiltUrl(
     return config.base + id.slice(1)
   }
 
-  console.log('------------1')
   const cache = assetCache.get(config)!
   const cached = cache.get(id)
   if (cached) {
@@ -280,7 +279,6 @@ async function fileToBuiltUrl(
   const file = cleanUrl(id)
   const content = await fsp.readFile(file)
 
-  console.log('------------2')
   let url: string
   if (
     config.build.lib ||

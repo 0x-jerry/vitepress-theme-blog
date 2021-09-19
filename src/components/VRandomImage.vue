@@ -18,6 +18,11 @@ const isLoading = ref(true)
 watchEffect(() => {
   isLoading.value = true
 
+  if (import.meta.env.SSR) {
+    isLoading.value = false
+    return
+  }
+
   const img = new Image()
   img.onload = () => (isLoading.value = false)
 
