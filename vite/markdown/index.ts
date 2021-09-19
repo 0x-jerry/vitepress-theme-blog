@@ -1,7 +1,5 @@
 import MarkdownIt from 'markdown-it'
 import anchor from 'markdown-it-anchor'
-// @ts-ignore
-import toc from 'markdown-it-table-of-contents'
 import { linkPlugin } from './link'
 import { preWrapperPlugin } from './preWrapper'
 import { lineNumberPlugin } from './lineNumber'
@@ -16,9 +14,6 @@ export function setupMarkdownIt(md: MarkdownIt) {
   })
     .use(prism, {
       defaultLanguage: 'markup',
-    })
-    .use(toc, {
-      includeLevel: [2, 3],
     })
     .use(linkPlugin, {
       target: '_blank',
