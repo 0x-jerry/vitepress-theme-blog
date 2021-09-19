@@ -16,6 +16,11 @@ html.dark {
   background: #121212;
 }
 
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 #nprogress {
   pointer-events: none;
 }
