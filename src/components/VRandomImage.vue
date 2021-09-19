@@ -19,7 +19,6 @@ watchEffect(() => {
   isLoading.value = true
 
   if (import.meta.env.SSR) {
-    isLoading.value = false
     return
   }
 
