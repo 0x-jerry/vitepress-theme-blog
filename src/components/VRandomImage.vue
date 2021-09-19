@@ -16,11 +16,12 @@ const url = computed(() => {
 const isLoading = ref(true)
 
 watchEffect(() => {
-  isLoading.value = true
-
   if (import.meta.env.SSR) {
+    isLoading.value = false
     return
   }
+
+  isLoading.value = true
 
   const img = new Image()
   img.onload = () => (isLoading.value = false)
