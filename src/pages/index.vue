@@ -1,4 +1,39 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { Component } from 'vue'
+import IconGithub from '~icons/mdi/github'
+import IconBook from '~icons/mdi/book'
+import IconNoteBook from '~icons/mdi/notebook'
+import IconEmail from '~icons/mdi/email'
+import IconTimeline from '~icons/mdi/timeline'
+
+interface Menu {
+  icon: Component
+  href: string
+}
+
+const menus: Menu[] = [
+  {
+    icon: IconBook,
+    href: '/posts',
+  },
+  {
+    icon: IconNoteBook,
+    href: '/notes',
+  },
+  {
+    icon: IconTimeline,
+    href: '/timeline',
+  },
+  {
+    icon: IconGithub,
+    href: 'https://github.com/0x-jerry',
+  },
+  {
+    icon: IconEmail,
+    href: 'mailto:x.jerry.wang@gmail.com',
+  },
+]
+</script>
 
 <template>
   <div w="screen" h="screen" overflow="hidden" class="relative" bg="black">
@@ -32,7 +67,7 @@
           object="cover"
         />
         <div class="relative" z="10">
-          <h1 text="4xl" p="x-10 y-5" font="mono">0x-Jerry's Blog</h1>
+          <h1 text="4xl" p="x-10 y-5" font="mono">{{ $t('name') }}'s Blog</h1>
           <br />
           <ul
             w="min-content"
@@ -44,29 +79,9 @@
             p="y-3 x-5"
             border="rounded-md"
           >
-            <li class="mx-5">
-              <VLink href="/blog" theme="white">
-                <mdi:book></mdi:book>
-              </VLink>
-            </li>
-            <li class="mx-5">
-              <VLink href="/notes" theme="white">
-                <mdi:notebook></mdi:notebook>
-              </VLink>
-            </li>
-            <li class="mx-5">
-              <VLink href="/timeline" theme="white">
-                <mdi:timeline></mdi:timeline>
-              </VLink>
-            </li>
-            <li class="mx-5">
-              <VLink href="https://github.com/0x-jerry" :icon="false" theme="white">
-                <mdi:github></mdi:github>
-              </VLink>
-            </li>
-            <li class="mx-5">
-              <VLink href="mailto:x.jerry.wang@gmail.com" :icon="false" theme="white">
-                <mdi:email></mdi:email>
+            <li class="mx-5" v-for="o in menus">
+              <VLink :href="o.href" theme="white">
+                <component :is="o.icon" />
               </VLink>
             </li>
           </ul>
@@ -77,3 +92,8 @@
 </template>
 
 <style lang="less"></style>
+
+<route lang="yaml">
+meta:
+  layout: blank
+</route>

@@ -1,6 +1,14 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { blog } from '~/blog'
+import { useHead } from '@vueuse/head'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+useHead({
+  title: `${t('name')}'s Tags`,
+})
 
 interface Tag {
   label: string

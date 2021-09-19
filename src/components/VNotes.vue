@@ -1,16 +1,10 @@
 <script lang="ts" setup>
-import { defineComponent } from 'vue'
-
 const NotesComponent = import.meta.globEager('./notes/**.md')
 
 const all: Record<string, any> = {}
 
 Object.entries(NotesComponent).forEach(([key, value]) => {
   all[key] = value.default
-})
-
-defineComponent({
-  components: all,
 })
 </script>
 

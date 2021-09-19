@@ -4,9 +4,10 @@ import { useRouter } from 'vue-router'
 import { scrollToAnchor } from '../utils'
 
 interface VLinkProps {
-  theme?: 'blue' | 'gray' | 'white'
+  theme?: 'blue' | 'gray' | 'white' | 'text'
   href: string
   icon?: boolean
+  disabled?: boolean
 }
 
 const props = defineProps<VLinkProps>()
@@ -37,7 +38,7 @@ const url = computed(() => props.href)
 </script>
 
 <template>
-  <span class="link" :class="theme" :title="url">
+  <span :class="`link ${theme} ${disabled ?? false ? 'disabled' : ''}`" :title="url">
     <a v-if="data.isAnchor || data.isEmail" :href="url" @click="scrollToAnchorEvent">
       <slot />
     </a>
@@ -58,12 +59,24 @@ const url = computed(() => props.href)
   @apply transition-colors;
   @apply text-blue-500 hover:text-blue-600;
 
+  &.disabled {
+    pointer-events: none;
+  }
+
   &.gray {
     @apply text-gray-800 hover:text-blue-600;
   }
 
   &.white {
     @apply text-light-900 hover:text-white;
+  }
+
+  &.text {
+    @apply text-gray-600 hover:text-gray-900;
+
+    &.disabled {
+      @apply text-gray-200;
+    }
   }
 }
 </style>
