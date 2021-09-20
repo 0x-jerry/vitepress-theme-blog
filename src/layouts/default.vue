@@ -80,8 +80,9 @@ const activeClass = computed(() => {
     </div>
   </header>
   <div w="full" h="70px"></div>
-  <div w="max-1200px" m="auto">
+  <div w="max-1200px" m="x-auto">
     <router-view />
+    <br />
   </div>
   <v-go-top />
 </template>

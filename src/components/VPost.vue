@@ -39,7 +39,7 @@ const time = computed(() => dayjs(props.date).format('YYYY-MM-DD HH:mm'))
       </div>
     </div>
     <hr m="t-4" />
-    <div class="prose m-auto text-left">
+    <div class="prose text-left" m="x-10">
       <slot></slot>
     </div>
   </div>

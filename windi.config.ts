@@ -1,5 +1,4 @@
 import { defineConfig } from 'windicss/helpers'
-import colors from 'windicss/colors'
 import typography from 'windicss/plugin/typography'
 
 export default defineConfig({
@@ -19,10 +18,10 @@ export default defineConfig({
               color: 'inherit',
               opacity: 0.75,
               fontWeight: '500',
-              textDecoration: 'underline',
+              textDecoration: 'none',
               '&:hover': {
                 opacity: 1,
-                color: colors.teal[600],
+                textDecoration: 'underline',
               },
             },
             b: { color: 'inherit' },
