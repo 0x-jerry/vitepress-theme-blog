@@ -4,7 +4,5 @@
   "i18n-ally.localesPaths": "locales",
   "i18n-ally.sortKeys": true,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "volar.tsPlugin": true,
-  "volar.tsPluginStatus": false,
   "editor.formatOnSave": true
 }

@@ -1,7 +1,7 @@
 ---
 title: Nginx-Location
 date: 2020-12-17T10:57:15+08:00
-tags: []
+tags: [Nginx]
 # CC BY-NC 4.0
 license: CC BY-NC 4.0
 ---
@@ -59,7 +59,6 @@ location ~* \.(gif|jpg|jpeg)$ {
 | /images/1.gif            | D    |
 | /documents/1.jpg         | E    |
 
-
-问：为什么  `/documents/1.jpg` 匹配到的是 E 二不是 C ？
+问：为什么 `/documents/1.jpg` 匹配到的是 E 二不是 C ？
 
 答：因为 E 中 url 表达式比 C 中长。

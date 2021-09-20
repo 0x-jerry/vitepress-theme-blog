@@ -19,4 +19,35 @@ export const blog = reactive({
 
     return docs
   }),
+  tags: computed(() => {
+    const tags: Tag[] = []
+
+    const getTag = (label: string) => {
+      const hit = tags.find((t) => t.label === label)
+
+      if (hit) return hit
+
+      const tag: Tag = {
+        label,
+        count: 0,
+      }
+
+      tags.push(tag)
+      return tag
+    }
+
+    blog.articles.forEach((info) => {
+      info.tags.forEach((label) => {
+        const t = getTag(label)
+        t.count++
+      })
+    })
+
+    return tags
+  }),
 })
+
+interface Tag {
+  label: string
+  count: number
+}

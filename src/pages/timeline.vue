@@ -9,6 +9,8 @@ useHead({
 })
 </script>
 
-<template>Timeline</template>
+<template>
+  <div text="center xl" m="t-4" font="mono">Working In Progress.</div>
+</template>
 
 <style></style>

@@ -11,8 +11,11 @@ const posts = computed(() => blog.articles.filter((p) => p.tags.includes(label.v
 </script>
 
 <template>
-  <div class="v-tag-detail">
-    <v-tag>{{ label }} | {{ posts.length }}</v-tag>
+  <div class="v-tag-detail" m="t-4">
+    <header text="center">
+      <v-tag>{{ label }} | {{ posts.length }}</v-tag>
+    </header>
+    <hr m="t-4" />
 
     <v-excerpt v-for="o in posts" :info="o"></v-excerpt>
   </div>

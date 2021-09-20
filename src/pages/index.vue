@@ -69,6 +69,8 @@ const menus: Menu[] = [
         <div class="relative" z="10">
           <h1 text="4xl" p="x-10 y-5" font="mono">{{ $t('name') }}'s Blog</h1>
           <br />
+          <p text="center" font="mono" v-html="$t('motto')"></p>
+          <br />
           <ul
             w="min-content"
             m="auto"

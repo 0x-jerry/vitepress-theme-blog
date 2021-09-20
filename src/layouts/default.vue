@@ -47,7 +47,7 @@ function isDisabled(o: Menu) {
 const top = useWindowScroll()
 
 const activeClass = computed(() => {
-  return top.y.value > 10 ? 'active' : ''
+  return top.y.value > 5 ? 'active' : ''
 })
 </script>
 
