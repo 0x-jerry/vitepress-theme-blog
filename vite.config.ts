@@ -97,6 +97,8 @@ export default defineConfig({
 
           if (/pages\/docs/.test(id)) return wrap('v-post')
 
+          if (/config\/events/.test(id)) return wrap('v-timeline-item')
+
           return code
         },
       },

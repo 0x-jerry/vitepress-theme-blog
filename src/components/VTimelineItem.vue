@@ -1,40 +1,26 @@
 <script lang="ts" setup>
+import { HeadObject } from '@vueuse/head'
 import dayjs from 'dayjs'
 import { computed } from 'vue'
-import { TimelineOption } from './TimelineLayout/typing'
 
-const layouts = import.meta.globEager('./TimelineLayout/*.vue')
-
-console.log(layouts)
-
-const layoutComponents: any = {}
-
-for (const key in layouts) {
-  layoutComponents[key.replace('./TimelineLayout/', '').slice(0, -4).toLowerCase()] =
-    layouts[key].default
+interface TimelineItemProps {
+  title: string
+  start: string
+  end?: string
+  meta?: HeadObject[]
 }
 
-console.log(layoutComponents)
-
-const props = defineProps<{ info: TimelineOption }>()
-
-const layout = computed(() => {
-  const layout = props.info.layout || 'default'
-
-  const layoutName = layout in layoutComponents ? layout : 'default'
-
-  return layoutComponents[layoutName]
-})
+const props = defineProps<TimelineItemProps>()
 
 const date = computed(() => {
-  const start = dayjs(props.info.start).format('YYYY-MM-DD')
+  const start = dayjs(props.start).format('YYYY-MM-DD')
 
-  if (!props.info.end) {
+  if (!props.end) {
     return start
   }
 
-  const end = dayjs(props.info.end).format('YYYY-MM-DD')
-  return `${start} - ${end}`
+  const end = dayjs(props.end).format('YYYY-MM-DD')
+  return `${start} --- ${end}`
 })
 </script>
 
@@ -51,7 +37,8 @@ const date = computed(() => {
       border="rounded-full"
       z="10"
     >
-      <mdi:circle-slice-8 />
+      <mdi:circle-double />
+      <!-- <mdi:circle-slice-8 /> -->
     </div>
     <div
       class="v-timeline-line absolute top-0 left-0"
@@ -68,11 +55,16 @@ const date = computed(() => {
       flex="~"
       align="items-center"
     >
-      <span m="r-2">{{ info.title }}</span>
-      <small text="gray-400">( {{ date }} )</small>
+      <small text="gray-400">{{ date }}</small>
     </div>
     <div class="v-timeline-content" p="5">
-      <component :is="layout" :info="info" />
+      <div p="5" shadow="~ inner">
+        <h1 text="lg">{{ title }}</h1>
+        <hr m="y-3" />
+        <div prose="~ sm" text="gray-500">
+          <slot></slot>
+        </div>
+      </div>
     </div>
   </div>
 </template>
