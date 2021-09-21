@@ -10,6 +10,8 @@ const pos = useWindowScroll()
 const activeLabel = ref('')
 
 function updateToc() {
+  if (import.meta.env.SSR) return
+
   const y = pos.y.value
 
   activeLabel.value = ''
