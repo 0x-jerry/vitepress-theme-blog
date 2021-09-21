@@ -13,6 +13,7 @@ import './styles/main.css'
 import 'virtual:windi-utilities.css'
 // windicss devtools support (dev only)
 import 'virtual:windi-devtools'
+import { nextTick } from 'vue'
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -25,11 +26,18 @@ export const createApp = ViteSSG(
   App,
   {
     routes,
-    scrollBehavior(to, _, savePoint) {
+    async scrollBehavior(to, _, savePoint) {
       if (savePoint) return savePoint
 
       if (to.hash) {
-        return { el: to.hash, behavior: 'smooth' }
+        // Ensure component has rendered
+        await nextTick()
+        const el = document.getElementById(to.hash.slice(1)) as HTMLDivElement
+
+        return {
+          top: el.offsetTop - 100,
+          behavior: 'smooth',
+        }
       } else {
         return { left: 0, top: 0 }
       }
