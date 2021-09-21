@@ -2,6 +2,8 @@
 import { HeadObject, useHead } from '@vueuse/head'
 import { computed } from 'vue'
 import dayjs from 'dayjs'
+import { useRouter } from 'vue-router'
+import { ArticleInfo } from 'virtual:blog'
 
 interface PostProps {
   title: string
@@ -18,6 +20,10 @@ useHead({
 })
 
 const time = computed(() => dayjs(props.date).format('YYYY-MM-DD HH:mm'))
+
+const router = useRouter()
+
+const toc = computed(() => (router.currentRoute.value.meta.info as ArticleInfo).toc)
 </script>
 
 <template>
@@ -38,9 +44,12 @@ const time = computed(() => dayjs(props.date).format('YYYY-MM-DD HH:mm'))
         </router-link>
       </div>
     </div>
+
     <hr m="t-4" />
+
     <div class="prose text-left" m="x-10">
       <slot></slot>
     </div>
+    <v-post-toc :toc="toc" class="fixed top-100px right-100px" hidden />
   </div>
 </template>
