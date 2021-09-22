@@ -7,8 +7,8 @@ defineProps<{
 </script>
 
 <template>
-  <v-card m="10" p="5">
-    <router-link class="mx-10 my-5" :to="info.routePath">
+  <v-card text="break-words">
+    <router-link :to="info.routePath">
       <h2 text="xl blue-500">
         {{ info.title }}
       </h2>

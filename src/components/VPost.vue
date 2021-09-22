@@ -29,9 +29,9 @@ const toc = computed(() => (router.currentRoute.value.meta.info as ArticleInfo).
 <template>
   <div class="v-post">
     <br />
-    <div class="v-post-header" flex="~" align="items-center">
+    <div class="v-post-header" flex="~" align="items-center" p="x-5">
       <div flex="~" align="items-end">
-        <h1 text="4xl" m="r-2">
+        <h1 text="2xl md:4xl" m="r-2">
           {{ title }}
         </h1>
         <small font="normal">{{ time }}</small>
@@ -47,7 +47,7 @@ const toc = computed(() => (router.currentRoute.value.meta.info as ArticleInfo).
 
     <hr m="t-4" />
 
-    <div class="prose text-left" m="x-10">
+    <div class="prose text-left" m="x-10" text="break-words">
       <slot></slot>
     </div>
     <v-post-toc :toc="toc" class="fixed top-100px right-100px" hidden />

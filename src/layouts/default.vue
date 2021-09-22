@@ -7,7 +7,7 @@ import { computed } from 'vue'
 import type { Component } from 'vue'
 import { useRouter } from 'vue-router'
 import VGoTop from '~/components/VGoTop.vue'
-import { useWindowScroll } from '@vueuse/core'
+import { breakpointsTailwind, useBreakpoints, useWindowScroll } from '@vueuse/core'
 
 interface Menu {
   label: string
@@ -49,12 +49,16 @@ const top = useWindowScroll()
 const activeClass = computed(() => {
   return top.y.value > 5 ? 'active' : ''
 })
+
+const breaks = useBreakpoints(breakpointsTailwind)
+
+const logoWidth = computed(() => (breaks.greater('sm').value ? 50 : 30))
 </script>
 
 <template>
   <header
     w="full"
-    h="70px"
+    h="50px md:70px"
     flex="~"
     align="items-center"
     transition="~ shadow"
@@ -66,21 +70,21 @@ const activeClass = computed(() => {
   >
     <div flex="~">
       <router-link to="/" class="relative inline-block" flex="~" align="items-center">
-        <v-logo width="40"></v-logo>
-        <span m="l-2" font="mono">{{ $t('name') }}'s Blog</span>
+        <v-logo :width="logoWidth"></v-logo>
+        <span m="l-2" font="mono" class="hidden md:block">{{ $t('name') }}'s Blog</span>
       </router-link>
     </div>
     <div flex="~ 1" align="items-center" justify="end">
       <v-link theme="text" v-for="o in menus" :href="o.path" m="l-4" :disabled="isDisabled(o)">
         <span flex="~ inline" align="items-center">
           <component :is="o.icon" />
-          <span class="ml-1"> {{ o.label }}</span>
+          <span class="ml-1 hidden md:block"> {{ o.label }}</span>
         </span>
       </v-link>
     </div>
   </header>
-  <div w="full" h="70px"></div>
-  <div w="max-1200px" m="x-auto">
+  <div w="full" h="50px md:70px"></div>
+  <div w="full md:max-1200px" m="x-auto">
     <router-view />
     <br />
   </div>

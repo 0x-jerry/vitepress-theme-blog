@@ -20,7 +20,7 @@ const articles = isDev ? blog.articles : blog.articles.filter((o) => o.visible)
 <template>
   <ul>
     <li v-for="o in articles">
-      <v-excerpt :info="o" />
+      <v-excerpt :info="o" p="5" m="y-5" />
     </li>
   </ul>
 </template>

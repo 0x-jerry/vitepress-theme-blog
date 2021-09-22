@@ -15,9 +15,9 @@ const posts = computed(() => blog.articles.filter((p) => p.tags.includes(label.v
     <header text="center">
       <v-tag>{{ label }} | {{ posts.length }}</v-tag>
     </header>
-    <hr m="t-4" />
+    <hr m="t-4" class="hidden md:block" />
 
-    <v-excerpt v-for="o in posts" :info="o"></v-excerpt>
+    <v-excerpt v-for="o in posts" :info="o" p="5" m="y-5"></v-excerpt>
   </div>
 </template>
 

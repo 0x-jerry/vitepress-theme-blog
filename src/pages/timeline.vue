@@ -11,7 +11,7 @@ useHead({
 </script>
 
 <template>
-  <div class="timeline">
+  <div class="timeline" p="l-5">
     <h1 text="center xl" m="t-4" font="mono">Working In Progress.</h1>
     <v-timeline :events="configs.timeline.events" />
   </div>
