@@ -51,21 +51,13 @@ const menus: Menu[] = [
     >
       <div
         class="relative"
-        bg="white"
-        border="rounded-3xl"
+        bg="black opacity-10"
+        backdrop="~ blur-md"
+        border="rounded-3xl t white opacity-40"
         p="y-20 x-20"
         overflow="hidden"
         shadow="lg"
       >
-        <v-random-image
-          w="min-screen"
-          h="min-screen"
-          class="absolute top-1/2 left-1/2"
-          transform="~ -translate-x-1/2 -translate-y-1/2"
-          filter="~ blur-sm brightness-70"
-          display="block"
-          object="cover"
-        />
         <div class="relative" z="10">
           <h1 text="4xl" p="x-10 y-5" font="mono">{{ $t('name') }}'s Blog</h1>
           <br />
