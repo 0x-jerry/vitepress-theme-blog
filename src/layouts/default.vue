@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import IconBook from '~icons/mdi/book'
-import IconTag from '~icons/mdi/tag'
+import IconTagText from '~icons/mdi/tag-text'
 import IconTimeline from '~icons/mdi/timeline'
 import IconNoteBook from '~icons/mdi/notebook'
 import { computed } from 'vue'
@@ -19,7 +19,7 @@ const menus: Menu[] = [
   {
     label: 'Tags',
     path: '/tags',
-    icon: IconTag,
+    icon: IconTagText,
   },
   {
     label: 'Timeline',

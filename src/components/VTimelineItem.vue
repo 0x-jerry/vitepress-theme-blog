@@ -58,13 +58,13 @@ const date = computed(() => {
       <small text="gray-400">{{ date }}</small>
     </div>
     <div class="v-timeline-content" p="5">
-      <div p="5" shadow="~ inner">
+      <v-card p="5">
         <h1 text="lg">{{ title }}</h1>
         <hr m="y-3" />
         <div prose="~ sm" text="gray-500">
           <slot></slot>
         </div>
-      </div>
+      </v-card>
     </div>
   </div>
 </template>

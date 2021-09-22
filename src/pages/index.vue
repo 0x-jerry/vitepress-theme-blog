@@ -9,28 +9,34 @@ import IconTimeline from '~icons/mdi/timeline'
 interface Menu {
   icon: Component
   href: string
+  label: string
 }
 
 const menus: Menu[] = [
   {
     icon: IconBook,
     href: '/posts',
+    label: 'Posts',
   },
   {
     icon: IconNoteBook,
     href: '/notes',
+    label: 'Notes',
   },
   {
     icon: IconTimeline,
     href: '/timeline',
+    label: 'Timeline',
   },
   {
     icon: IconGithub,
     href: 'https://github.com/0x-jerry',
+    label: 'Github',
   },
   {
     icon: IconEmail,
     href: 'mailto:x.jerry.wang@gmail.com',
+    label: 'Email',
   },
 ]
 </script>
@@ -49,17 +55,16 @@ const menus: Menu[] = [
       bg="black opacity-30"
       text="light-900 shadow-sm"
     >
-      <div
+      <v-card
         class="relative"
         bg="black opacity-10"
         backdrop="~ blur-md"
         border="rounded-3xl t white opacity-40"
-        p="y-20 x-20"
+        p="2 md:20"
         overflow="hidden"
-        shadow="lg"
       >
         <div class="relative" z="10">
-          <h1 text="4xl" p="x-10 y-5" font="mono">{{ $t('name') }}'s Blog</h1>
+          <h1 text="4xl center" p="x-10 y-5" font="mono">{{ $t('name') }}'s Blog</h1>
           <br />
           <p text="center" font="mono" v-html="$t('motto')"></p>
           <br />
@@ -75,12 +80,15 @@ const menus: Menu[] = [
           >
             <li class="mx-5" v-for="o in menus">
               <VLink :href="o.href" theme="white">
-                <component :is="o.icon" />
+                <div flex="~ inline" justify="center" w="full">
+                  <component :is="o.icon" />
+                </div>
+                <p text="sm">{{ o.label }}</p>
               </VLink>
             </li>
           </ul>
         </div>
-      </div>
+      </v-card>
     </div>
   </div>
 </template>

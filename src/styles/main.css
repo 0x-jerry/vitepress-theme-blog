@@ -5,7 +5,7 @@ body,
 #app {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  font-size: 18px;
+  @apply text-12px md:text-18px;
 
   height: 100%;
   margin: 0;
