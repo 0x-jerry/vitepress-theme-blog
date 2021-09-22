@@ -1,8 +1,9 @@
 {
   "recommendations": [
-    "johnsoncodehk.volar",
     "lokalise.i18n-ally",
     "antfu.iconify",
-    "voorjaar.windicss-intellisense"
+    "voorjaar.windicss-intellisense",
+    "johnsoncodehk.volar",
+    "johnsoncodehk.vscode-typescript-vue-plugin"
   ]
 }
