@@ -7,7 +7,8 @@ import { computed } from 'vue'
 import type { Component } from 'vue'
 import { useRouter } from 'vue-router'
 import VGoTop from '~/components/VGoTop.vue'
-import { breakpointsTailwind, useBreakpoints, useWindowScroll } from '@vueuse/core'
+import { useWindowScroll } from '@vueuse/core'
+import { breakpoints } from '~/logic'
 
 interface Menu {
   label: string
@@ -50,9 +51,7 @@ const activeClass = computed(() => {
   return top.y.value > 5 ? 'active' : ''
 })
 
-const breaks = useBreakpoints(breakpointsTailwind)
-
-const logoWidth = computed(() => (breaks.greater('sm').value ? 50 : 30))
+const logoWidth = computed(() => (breakpoints.greater('sm').value ? 50 : 30))
 </script>
 
 <template>
