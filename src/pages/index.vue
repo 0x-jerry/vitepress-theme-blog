@@ -62,6 +62,7 @@ const menus: Menu[] = [
         border="rounded-3xl t white opacity-40"
         p="2 md:20"
         overflow="hidden"
+        shadow="md md:lg"
       >
         <div class="relative" z="10">
           <h1 text="4xl center" p="x-10 y-5" font="mono">{{ $t('name') }}'s Blog</h1>

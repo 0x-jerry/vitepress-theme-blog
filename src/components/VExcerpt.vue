@@ -12,6 +12,7 @@ defineProps<{
       <h2 text="xl blue-500">
         {{ info.title }}
       </h2>
+      <hr m="y-4" />
       <div class="prose m-auto text-left" v-html="info.excerpt"></div>
     </router-link>
   </v-card>
