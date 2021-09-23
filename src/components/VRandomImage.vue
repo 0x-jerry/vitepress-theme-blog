@@ -10,7 +10,7 @@ const props = defineProps<{
 const route = useRoute()
 
 const url = computed(() => {
-  return `https://api.tiny-online.online/img/random?id=${props.id || route.path}`
+  return `https://api.0x-jerry.icu/img/random?id=${props.id || route.path}`
 })
 
 const isLoading = ref(true)
