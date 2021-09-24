@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { HeadObject, useHead } from '@vueuse/head'
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
 import dayjs from 'dayjs'
 import { useRouter } from 'vue-router'
 import { ArticleInfo } from 'virtual:blog'
@@ -12,6 +12,7 @@ interface PostProps {
   meta?: HeadObject[]
 }
 
+const attrs = useAttrs()
 const props = defineProps<PostProps>()
 
 useHead({
@@ -24,6 +25,8 @@ const time = computed(() => dayjs(props.date).format('YYYY-MM-DD HH:mm'))
 const router = useRouter()
 
 const toc = computed(() => (router.currentRoute.value.meta.info as ArticleInfo).toc)
+
+const enableComment = computed(() => attrs.comment ?? true)
 </script>
 
 <template>
@@ -49,6 +52,12 @@ const toc = computed(() => (router.currentRoute.value.meta.info as ArticleInfo).
 
     <div class="prose text-left" m="x-10" text="break-words">
       <slot></slot>
+
+      <template v-if="enableComment">
+        <hr m="t-4" />
+
+        <v-giscus />
+      </template>
     </div>
     <v-post-toc :toc="toc" class="fixed top-100px right-100px" hidden />
   </div>

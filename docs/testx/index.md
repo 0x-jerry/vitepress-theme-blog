@@ -1,6 +1,7 @@
 ---
 test: hello
 visible: false
+comment: false
 ---
 
 [test](../test.md)
