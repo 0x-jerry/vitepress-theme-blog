@@ -6,7 +6,7 @@ import { scrollToAnchor } from '../utils'
 interface VLinkProps {
   theme?: 'blue' | 'gray' | 'white' | 'text'
   href: string
-  icon?: boolean
+  hiddenIcon?: boolean
   disabled?: boolean
 }
 
@@ -45,11 +45,11 @@ const url = computed(() => props.href)
     <router-link v-else-if="data.isRelative" :to="url">
       <slot />
     </router-link>
-    <a v-else :href="url" target="_blank">
+    <a v-else :href="url" target="_blank" flex="~ inline">
       <span>
         <slot />
       </span>
-      <line-md-external-link-rounded v-if="icon ?? true" />
+      <line-md-external-link-rounded v-if="!hiddenIcon" m="l-1" />
     </a>
   </span>
 </template>
