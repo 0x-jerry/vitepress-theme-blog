@@ -34,7 +34,7 @@ export async function generateRSS(routes: Route[], opt: GenerateRSSOption) {
   })
 
   routes
-    .filter((r) => r.path.startsWith('/docs/'))
+    .filter((r) => r.path.startsWith('/docs/') && ((r.meta as any).info as ArticleInfo).visible)
     .forEach((post) => {
       const info = (post.meta as any).info as ArticleInfo
 
