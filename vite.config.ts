@@ -58,7 +58,10 @@ export default defineConfig({
       async onRoutesGenerated(routes) {
         // fix link in markdown file
         await updateRouteMeta(routes, { base: blogConf.base })
-        await fs.writeFile(conf.tempRouteFilePath, JSON.stringify(routes))
+
+        if (globalData.conf.command === 'build') {
+          await fs.writeFile(conf.tempRouteFilePath, JSON.stringify(routes))
+        }
       },
     }),
 
