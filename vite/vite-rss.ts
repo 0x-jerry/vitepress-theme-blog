@@ -1,7 +1,7 @@
 import { Route } from 'vite-plugin-pages'
 import { Feed } from 'feed'
 import { ArticleInfo } from 'virtual:blog'
-import fs from 'fs/promises'
+import { promises as fs, existsSync } from 'fs'
 import path from 'path'
 
 interface GenerateRSSOption {
@@ -27,7 +27,7 @@ export async function generateRSS(routes: Route[], opt: GenerateRSSOption) {
       atom: `${rootUri}/atom`,
     },
     author: {
-      name: 'jerry Wang',
+      name: 'Jerry Wang',
       email: 'x.jerry.wang@gmail.com',
       link: rootUri,
     },
@@ -48,14 +48,18 @@ export async function generateRSS(routes: Route[], opt: GenerateRSSOption) {
         content: info.excerpt,
         author: [
           {
-            name: 'Joe Smith',
-            email: 'joesmith@example.com',
-            link: 'https://example.com/joesmith',
+            name: 'Jerry Wang',
+            email: 'x.jerry.wang@email.com',
+            link: rootUri,
           },
         ],
         date: info.date,
       })
     })
 
-  await fs.writeFile(path.join(__dirname, '..', 'dist', 'rss.xml'), feed.rss2())
+  const distDir = path.join(__dirname, '..', 'dist')
+  if (!existsSync(distDir)) {
+    await fs.mkdir(distDir)
+  }
+  await fs.writeFile(path.join(distDir, 'rss.xml'), feed.rss2())
 }
