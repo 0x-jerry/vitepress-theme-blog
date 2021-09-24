@@ -12,6 +12,21 @@
   border: 1px solid #cfcfcf;
 }
 
+.prose table {
+  & th,
+  & td {
+    @apply !p-2;
+  }
+
+  & th {
+    @apply bg-gray-100;
+  }
+
+  & td {
+    @apply bg-gray-50;
+  }
+}
+
 html:not(.dark) .prose {
   --prism-foreground: #393a34;
   --prism-background: #fbfbfb;
