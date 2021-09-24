@@ -1,7 +1,7 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
-import Pages from 'vite-plugin-pages'
+import Pages, { Route } from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -18,6 +18,12 @@ import { globalData } from './vite/vite-plugin-blog/global'
 import { assetCache, assetHashToFilenameMap, emittedHashMap } from './vite/vite-plugin-blog/asset'
 import { generateRSS } from './vite/vite-rss'
 import { blogConf } from './config'
+import { ArticleInfo } from 'virtual:blog'
+import { promises as fs } from 'fs'
+
+const conf = {
+  tempRouteFilePath: path.join(__dirname, 'routes.json'),
+}
 
 export default defineConfig({
   base: '/',
@@ -52,7 +58,7 @@ export default defineConfig({
       async onRoutesGenerated(routes) {
         // fix link in markdown file
         await updateRouteMeta(routes, { base: blogConf.base })
-        await generateRSS(routes, { base: blogConf.base })
+        await fs.writeFile(conf.tempRouteFilePath, JSON.stringify(routes))
       },
     }),
 
@@ -148,6 +154,7 @@ export default defineConfig({
       // change this to enable inspect for debugging
       enabled: false,
     }),
+
     ViteFixResource,
   ],
 
@@ -161,6 +168,35 @@ export default defineConfig({
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
+    async onFinished() {
+      const routes: Route[] = JSON.parse(
+        await fs.readFile(conf.tempRouteFilePath, { encoding: 'utf-8' }),
+      )
+
+      if (!routes) return
+
+      routes.forEach((route) => {
+        const info = (route.meta as any)?.info as ArticleInfo
+        if (!info) return
+
+        info.date = new Date(info.date)
+      })
+
+      const postsRoutes = routes.filter(
+        (r) => r.path.startsWith('/docs/') && ((r.meta as any).info as ArticleInfo).visible,
+      )
+
+      await generateRSS(postsRoutes, {
+        base: blogConf.base,
+        author: {
+          name: 'Jerry Wang',
+          email: 'x.jerry.wang@gmail.com',
+          link: blogConf.base,
+        },
+      })
+
+      await fs.unlink(conf.tempRouteFilePath)
+    },
   },
 
   optimizeDeps: {

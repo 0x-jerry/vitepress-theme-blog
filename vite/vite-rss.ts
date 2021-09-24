@@ -1,15 +1,18 @@
 import { Route } from 'vite-plugin-pages'
-import { Feed } from 'feed'
+import { Feed, Author } from 'feed'
 import { ArticleInfo } from 'virtual:blog'
-import { promises as fs, existsSync } from 'fs'
+import { promises as fs } from 'fs'
 import path from 'path'
+import { JSDOM } from 'jsdom'
 
 interface GenerateRSSOption {
   base: string
+  author: Author
 }
 
 export async function generateRSS(routes: Route[], opt: GenerateRSSOption) {
   const rootUri = opt.base
+  const distDir = path.join(__dirname, '..', 'dist')
 
   const feed = new Feed({
     title: "0x-Jerry's Blog",
@@ -26,40 +29,34 @@ export async function generateRSS(routes: Route[], opt: GenerateRSSOption) {
       json: `${rootUri}/json`,
       atom: `${rootUri}/atom`,
     },
-    author: {
-      name: 'Jerry Wang',
-      email: 'x.jerry.wang@gmail.com',
-      link: rootUri,
-    },
+    author: opt.author,
   })
 
-  routes
-    .filter((r) => r.path.startsWith('/docs/') && ((r.meta as any).info as ArticleInfo).visible)
-    .forEach((post) => {
-      const info = (post.meta as any).info as ArticleInfo
+  const p = routes.map(async (post) => {
+    const info = (post.meta as any).info as ArticleInfo
 
-      const url = rootUri + post.path
+    const url = rootUri + post.path
 
-      feed.addItem({
-        title: info.title,
-        id: url,
-        link: url,
-        description: info.excerpt,
-        content: info.excerpt,
-        author: [
-          {
-            name: 'Jerry Wang',
-            email: 'x.jerry.wang@email.com',
-            link: rootUri,
-          },
-        ],
-        date: info.date,
-      })
+    const contentFilePath = path.join(distDir, post.path + '.html')
+
+    const html = await fs.readFile(contentFilePath, { encoding: 'utf-8' })
+
+    const $ = new JSDOM(html)
+
+    const htmlContent = $.window.document.querySelector('.markdown-body')
+
+    feed.addItem({
+      title: info.title,
+      date: info.date,
+      id: url,
+      link: url,
+      description: info.excerpt,
+      content: htmlContent?.outerHTML || '',
+      author: [opt.author],
     })
+  })
 
-  const distDir = path.join(__dirname, '..', 'dist')
-  if (!existsSync(distDir)) {
-    await fs.mkdir(distDir)
-  }
+  await Promise.all(p)
+
   await fs.writeFile(path.join(distDir, 'rss.xml'), feed.rss2())
 }
