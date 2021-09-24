@@ -19,6 +19,7 @@ specifiers:
   dayjs: ^1.10.7
   escape-html: ^1.0.3
   fast-glob: ^3.2.7
+  feed: ^4.2.2
   gray-matter: ^4.0.3
   jsdom: ^17.0.0
   less: ^4.1.1
@@ -77,6 +78,7 @@ devDependencies:
   critters: registry.nlark.com/critters/0.0.10
   escape-html: registry.nlark.com/escape-html/1.0.3
   fast-glob: registry.nlark.com/fast-glob/3.2.7
+  feed: registry.npmmirror.com/feed/4.2.2
   gray-matter: registry.nlark.com/gray-matter/4.0.3
   jsdom: registry.nlark.com/jsdom/17.0.0
   less: registry.nlark.com/less/4.1.1
@@ -4884,7 +4886,6 @@ packages:
     name: sax
     version: 1.2.4
     dev: true
-    optional: true
 
   registry.nlark.com/saxes/5.0.1:
     resolution: {integrity: sha1-7rq5U/o7dgjb6U5drbFciI+maW0=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/saxes/download/saxes-5.0.1.tgz}
@@ -6260,4 +6261,22 @@ packages:
       string-width: registry.nlark.com/string-width/4.2.2
       y18n: registry.nlark.com/y18n/5.0.8
       yargs-parser: registry.nlark.com/yargs-parser/20.2.9
+    dev: true
+
+  registry.npmmirror.com/feed/4.2.2:
+    resolution: {integrity: sha1-hleD727RJXnixEu+88kRO8SVan4=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/feed/download/feed-4.2.2.tgz}
+    name: feed
+    version: 4.2.2
+    engines: {node: '>=0.4.0'}
+    dependencies:
+      xml-js: registry.npmmirror.com/xml-js/1.6.11
+    dev: true
+
+  registry.npmmirror.com/xml-js/1.6.11:
+    resolution: {integrity: sha1-kn0vaUf38cGaMW3Y7qNhTosY+Ok=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/xml-js/download/xml-js-1.6.11.tgz}
+    name: xml-js
+    version: 1.6.11
+    hasBin: true
+    dependencies:
+      sax: registry.nlark.com/sax/1.2.4
     dev: true

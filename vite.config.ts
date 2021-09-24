@@ -16,6 +16,8 @@ import { updateRouteMeta } from './vite/vite-plugin-blog/resolveData'
 import ViteFixResource from './vite/vite-fix-resource'
 import { globalData } from './vite/vite-plugin-blog/global'
 import { assetCache, assetHashToFilenameMap, emittedHashMap } from './vite/vite-plugin-blog/asset'
+import { generateRSS } from './vite/vite-rss'
+import { blogConf } from './config'
 
 export default defineConfig({
   base: '/',
@@ -47,9 +49,10 @@ export default defineConfig({
     Pages({
       extensions: ['vue', 'md'],
 
-      // fix link in markdown file
       async onRoutesGenerated(routes) {
-        await updateRouteMeta(routes)
+        // fix link in markdown file
+        await updateRouteMeta(routes, { base: blogConf.base })
+        await generateRSS(routes, { base: blogConf.base })
       },
     }),
 

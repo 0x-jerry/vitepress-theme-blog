@@ -23,7 +23,7 @@ const md = new MarkdownIt({
 
 setupMarkdownIt(md)
 
-export async function getArticleConfig(filePath: string) {
+export async function getArticleConfig(filePath: string, opt: UpdateRouteMetaOption) {
   const parsedPath = path.parse(filePath)
   const stat = await fs.stat(filePath)
 
@@ -48,7 +48,7 @@ export async function getArticleConfig(filePath: string) {
     routePath: '',
     date: new Date(),
     tags: [],
-    excerpt: await renderMarkdown(c.excerpt?.trim() || '', filePath),
+    excerpt: await renderMarkdown(c.excerpt?.trim() || '', filePath, opt),
     toc: tocLinks,
   }
 
@@ -59,10 +59,14 @@ export async function getArticleConfig(filePath: string) {
   return d
 }
 
-export async function updateRouteMeta(routes: Route[]) {
+interface UpdateRouteMetaOption {
+  base: string
+}
+
+export async function updateRouteMeta(routes: Route[], opt: UpdateRouteMetaOption) {
   for (const route of routes) {
     if (route.children) {
-      await updateRouteMeta(route.children)
+      await updateRouteMeta(route.children, opt)
     } else {
       if (/index\.md$/.test(route.component)) {
         route.path += route.path ? '/index' : 'index'
@@ -72,7 +76,7 @@ export async function updateRouteMeta(routes: Route[]) {
         route.meta ||= {}
 
         const filePath = path.resolve('./' + route.component)
-        const info = await getArticleConfig(filePath)
+        const info = await getArticleConfig(filePath, opt)
         route.meta.info = info
 
         route.path = permalink(route.path)
@@ -102,7 +106,7 @@ function permalink(str: string) {
   return s
 }
 
-async function renderMarkdown(content: string, importer: string) {
+async function renderMarkdown(content: string, importer: string, opt: UpdateRouteMetaOption) {
   const result = md.render(content)
 
   // dom
@@ -127,7 +131,7 @@ async function renderMarkdown(content: string, importer: string) {
 
       const buildAssetDir = globalData.conf.build.assetsDir
 
-      img.src = `/${buildAssetDir}/${parsed.name}.${hash}${parsed.ext}`
+      img.src = `${opt.base}/${buildAssetDir}/${parsed.name}.${hash}${parsed.ext}`
     }
   }
 
