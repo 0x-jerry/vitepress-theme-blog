@@ -32,30 +32,31 @@ const enableComment = computed(() => attrs.comment ?? true)
 <template>
   <div class="v-post">
     <br />
-    <div class="v-post-header" flex="~" align="items-center" p="x-5">
-      <div flex="~" align="items-end">
-        <h1 text="2xl md:4xl" m="r-2">
-          {{ title }}
-        </h1>
-        <small font="normal">{{ time }}</small>
+    <div class="v-post-header" p="x-5" flex="~ wrap" align="items-end">
+      <h1 text="2xl md:4xl" m="r-2">
+        {{ title }}
+      </h1>
+      <small font="normal">{{ time }}</small>
+    </div>
+
+    <hr m="t-4" />
+
+    <div m="x-5" text="break-words">
+      <div class="prose text-left">
+        <slot></slot>
       </div>
-      <div flex="~ 1" justify="end" align="items-center">
-        <router-link v-for="o in tags || []" :to="`/tag/${o}`">
+
+      <hr m="y-4" />
+      <div flex="~ wrap" justify="center" align="items-center">
+        <router-link v-for="o in tags || []" :to="`/tag/${o}`" m="b-2">
           <v-tag>
             {{ o }}
           </v-tag>
         </router-link>
       </div>
-    </div>
-
-    <hr m="t-4" />
-
-    <div class="prose text-left" m="x-10" text="break-words">
-      <slot></slot>
+      <br />
 
       <template v-if="enableComment">
-        <hr m="t-4" />
-
         <v-giscus />
       </template>
     </div>
