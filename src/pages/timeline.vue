@@ -6,13 +6,13 @@ import { configs } from '~/config'
 const { t } = useI18n()
 
 useHead({
-  title: `${t('name')}'s Timeline`,
+  title: t('title.timeline', [t('name')]),
 })
 </script>
 
 <template>
   <div class="timeline" p="l-5">
-    <h1 text="center xl" m="t-4" font="mono">Working In Progress.</h1>
+    <h1 text="center xl" m="t-4" font="mono">{{ $t('WIP') }}</h1>
     <v-timeline :events="configs.timeline.events" />
   </div>
 </template>

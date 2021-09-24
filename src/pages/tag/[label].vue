@@ -1,5 +1,7 @@
 <script lang="ts" setup>
+import { useHead } from '@vueuse/head'
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { blog } from '~/blog'
 
@@ -8,6 +10,12 @@ const route = useRoute()
 const label = computed(() => route.params.label as string)
 
 const posts = computed(() => blog.articles.filter((p) => p.tags.includes(label.value)))
+
+const { t } = useI18n()
+
+useHead({
+  title: t('title.tag', [label.value]),
+})
 </script>
 
 <template>

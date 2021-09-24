@@ -5,6 +5,7 @@ import IconBook from '~icons/mdi/book'
 import IconNoteBook from '~icons/mdi/notebook'
 import IconEmail from '~icons/mdi/email'
 import IconTimeline from '~icons/mdi/timeline'
+import { useI18n } from 'vue-i18n'
 
 interface Menu {
   icon: Component
@@ -12,31 +13,33 @@ interface Menu {
   label: string
 }
 
+const { t } = useI18n()
+
 const menus: Menu[] = [
   {
     icon: IconBook,
     href: '/posts',
-    label: 'Posts',
+    label: t('menu.title.posts'),
   },
   {
     icon: IconNoteBook,
     href: '/notes',
-    label: 'Notes',
+    label: t('menu.title.notes'),
   },
   {
     icon: IconTimeline,
     href: '/timeline',
-    label: 'Timeline',
+    label: t('menu.title.timeline'),
   },
   {
     icon: IconGithub,
     href: 'https://github.com/0x-jerry',
-    label: 'Github',
+    label: t('menu.title.github'),
   },
   {
     icon: IconEmail,
     href: 'mailto:x.jerry.wang@gmail.com',
-    label: 'Email',
+    label: t('menu.title.email'),
   },
 ]
 </script>
@@ -65,7 +68,7 @@ const menus: Menu[] = [
         shadow="md md:lg"
       >
         <div class="relative" z="10">
-          <h1 text="4xl center" p="x-10 y-5" font="mono">{{ $t('name') }}'s Blog</h1>
+          <h1 text="4xl center" p="x-10 y-5" font="mono">{{ $t('title.index', [$t('name')]) }}</h1>
           <br />
           <p class="leading-relaxed" text="center" font="mono" v-html="$t('motto')"></p>
           <br />

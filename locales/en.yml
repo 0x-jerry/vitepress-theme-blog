@@ -1,7 +1,22 @@
+WIP: Working In Progress.
 button:
   back: Go back
+menu:
+  title:
+    email: Email
+    github: Github
+    notes: Notes
+    posts: Posts
+    timeline: Timeline
 motto: >-
   Life was like a box of chocolates. <br /> You never know what you're gonna
   get.
 name: 0x-Jerry
 not-found: Not found
+title:
+  index: '{0}''s Blog'
+  notes: '{0}''s Notes'
+  posts: '{0}''s Posts'
+  tag: Tag - {0}
+  tags: '{0}''s Tags'
+  timeline: '{0}''s Timeline'

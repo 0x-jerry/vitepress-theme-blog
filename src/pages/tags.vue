@@ -6,7 +6,7 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 useHead({
-  title: `${t('name')}'s Tags`,
+  title: t('title.tags', [t('name')]),
 })
 
 const tags = blog.tags

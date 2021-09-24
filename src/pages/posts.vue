@@ -6,7 +6,7 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 useHead({
-  title: `${t('name')}'s Posts`,
+  title: t('title.posts', [t('name')]),
 })
 
 const isDev = import.meta.env.DEV
