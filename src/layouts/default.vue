@@ -74,10 +74,16 @@ const logoWidth = computed(() => (breakpoints.greater('sm').value ? 50 : 30))
       </router-link>
     </div>
     <div flex="~ 1" align="items-center" justify="end">
-      <v-link theme="text" v-for="o in menus" :href="o.path" m="l-4" :disabled="isDisabled(o)">
+      <v-link
+        theme="text"
+        v-for="o in menus"
+        :href="o.path"
+        m="l-2 md:l-4"
+        :disabled="isDisabled(o)"
+      >
         <span flex="~ inline" align="items-center">
           <component :is="o.icon" />
-          <span class="ml-1 hidden md:block"> {{ o.label }}</span>
+          <span class="ml-1"> {{ o.label }}</span>
         </span>
       </v-link>
     </div>

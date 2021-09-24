@@ -8,7 +8,7 @@ defineProps<NoteProps>()
 </script>
 
 <template>
-  <div class="v-note prose prose-sm w-prose m-auto">
+  <div class="v-note prose prose-sm w-prose m-auto" w="full">
     <h2>{{ name ?? '' }}</h2>
     <div class="tags">
       <v-tag v-for="o in tags ?? []">
