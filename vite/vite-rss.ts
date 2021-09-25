@@ -47,6 +47,13 @@ export async function generateRSS(routes: Route[], opt: GenerateRSSOption) {
 
     const htmlContent = $.window.document.querySelector('.markdown-body')
 
+    // remove highlight lines for rss
+    const lines = htmlContent?.querySelectorAll('.highlight-lines')
+
+    if (lines) {
+      lines.forEach((line) => line.remove())
+    }
+
     feed.addItem({
       title: info.title,
       date: info.date,

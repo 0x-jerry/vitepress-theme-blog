@@ -22,7 +22,7 @@ import { ArticleInfo } from 'virtual:blog'
 import { promises as fs } from 'fs'
 
 const conf = {
-  tempRouteFilePath: path.join(__dirname, 'routes.json'),
+  tempRouteFilePath: path.join(__dirname, 'temp_routes.json'),
 }
 
 export default defineConfig({
