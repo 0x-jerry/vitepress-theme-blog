@@ -12,6 +12,25 @@
   border: 1px solid #cfcfcf;
 }
 
+.prose .code {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+
+  .highlight-lines {
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .highlighted {
+    font-size: inherit;
+    @apply bg-black bg-opacity-5;
+    pointer-events: none;
+  }
+}
+
 .prose table {
   & th,
   & td {

@@ -19,7 +19,7 @@ export function setupMarkdownIt(md: MarkdownIt) {
       target: '_blank',
       rel: 'noopener noreferrer',
     })
-  // .use(highlightLinePlugin)
+    .use(highlightLinePlugin)
   // .use(preWrapperPlugin)
   // .use(lineNumberPlugin)
 }

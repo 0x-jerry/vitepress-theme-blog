@@ -21,7 +21,7 @@ export const highlightLinePlugin = (md: MarkdownIt) => {
 
     const lineNumbers = RE.exec(rawInfo)![1]
       .split(',')
-      .map(v => v.split('-').map(v => parseInt(v, 10)))
+      .map((v) => v.split('-').map((v) => parseInt(v, 10)))
 
     const code = options.highlight ? options.highlight(token.content, langName, '') : token.content
 
@@ -45,6 +45,6 @@ export const highlightLinePlugin = (md: MarkdownIt) => {
 
     const highlightLinesWrapperCode = `<div class="highlight-lines">${highlightLinesCode}</div>`
 
-    return highlightLinesWrapperCode + code
+    return `<div class="language-${langName} code">${highlightLinesWrapperCode}<pre class="language-${langName}"><code class="language-${langName}">${code}</code></pre></div>`
   }
 }
