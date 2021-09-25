@@ -1,4 +1,4 @@
-// Modified from https://github.com/egoist/markdown-it-highlight-lines
+// Modify based on https://github.com/egoist/markdown-it-highlight-lines
 import MarkdownIt from 'markdown-it'
 
 const RE = /{([\d,-]+)}/
