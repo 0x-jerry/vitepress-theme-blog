@@ -16,7 +16,7 @@ import { updateRouteMeta } from './vite/vite-plugin-blog/resolveData'
 import ViteFixResource from './vite/vite-fix-resource'
 import { globalData } from './vite/vite-plugin-blog/global'
 import { assetCache, assetHashToFilenameMap, emittedHashMap } from './vite/vite-plugin-blog/asset'
-import { generateRSS } from './vite/vite-rss'
+import { generateRSS, generateSitemap } from './vite/vite-rss'
 import { blogConf } from './config'
 import { ArticleInfo } from 'virtual:blog'
 import { promises as fs } from 'fs'
@@ -199,6 +199,11 @@ export default defineConfig({
       })
 
       await fs.unlink(conf.tempRouteFilePath)
+
+      await generateSitemap(
+        routes.filter((r) => !/[:]/.test(r.path)),
+        { base: blogConf.base },
+      )
     },
   },
 

@@ -4,6 +4,8 @@ import { ArticleInfo } from 'virtual:blog'
 import { promises as fs } from 'fs'
 import path from 'path'
 import { JSDOM } from 'jsdom'
+import { SitemapStream, streamToPromise } from 'sitemap'
+import { Readable } from 'stream'
 
 interface GenerateRSSOption {
   base: string
@@ -59,4 +61,30 @@ export async function generateRSS(routes: Route[], opt: GenerateRSSOption) {
   await Promise.all(p)
 
   await fs.writeFile(path.join(distDir, 'rss.xml'), feed.rss2())
+}
+
+export async function generateSitemap(routes: Route[], opt: Omit<GenerateRSSOption, 'author'>) {
+  // An array with your links
+  const links = routes.map((r) => {
+    return {
+      url: opt.base + r.path,
+      priority: 0.6,
+    }
+  })
+
+  links.push({
+    url: opt.base,
+    priority: 1,
+  })
+
+  // Create a stream to write to
+  const stream = new SitemapStream({ hostname: opt.base })
+
+  // Return a promise that resolves with your XML string
+  const xml = await streamToPromise(Readable.from(links).pipe(stream)).then((data) =>
+    data.toString(),
+  )
+
+  const output = path.join(__dirname, '..', 'dist', 'sitemap.xml')
+  await fs.writeFile(output, xml)
 }
