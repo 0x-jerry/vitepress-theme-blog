@@ -14,14 +14,16 @@
 
 .prose .code {
   position: relative;
-  padding: 0;
-  margin: 0;
-  background: transparent;
 
   .highlight-lines {
     position: absolute;
     width: 100%;
     pointer-events: none;
+
+    background: transparent;
+
+    padding: var(--prism-block-padding-y) 0;
+    margin: 0;
   }
 
   .highlighted {

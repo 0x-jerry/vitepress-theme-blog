@@ -43,8 +43,8 @@ export const highlightLinePlugin = (md: MarkdownIt) => {
       })
       .join('')
 
-    const highlightLinesWrapperCode = `<div class="highlight-lines">${highlightLinesCode}</div>`
+    const highlightLinesWrapperCode = `<div class="language-${langName} highlight-lines">${highlightLinesCode}</div>`
 
-    return `<div class="language-${langName} code">${highlightLinesWrapperCode}<pre class="language-${langName}"><code class="language-${langName}">${code}</code></pre></div>`
+    return `<div class="code">${highlightLinesWrapperCode}<pre class="language-${langName}"><code class="language-${langName}">${code}</code></pre></div>`
   }
 }
