@@ -55,7 +55,7 @@ const menus: Menu[] = [
       display="flex"
       justify="center"
       align="items-center"
-      bg="black opacity-30"
+      bg="black opacity-10"
       text="light-900 shadow-sm"
     >
       <v-card
