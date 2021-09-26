@@ -46,6 +46,7 @@ specifiers:
   vite-plugin-windicss: ^1.4.3
   vite-ssg: ^0.15.1
   vue: ^3.2.11
+  vue-gtag-next: ^1.14.0
   vue-i18n: ^9.1.7
   vue-router: ^4.0.11
   windicss: ^3.1.7
@@ -59,6 +60,7 @@ dependencies:
   pinia: registry.nlark.com/pinia/2.0.0-rc.9_typescript@4.4.3+vue@3.2.11
   prism-theme-vars: registry.nlark.com/prism-theme-vars/0.2.2
   vue: registry.nlark.com/vue/3.2.11
+  vue-gtag-next: registry.nlark.com/vue-gtag-next/1.14.0_vue@3.2.11
   vue-i18n: registry.nlark.com/vue-i18n/9.1.7_vue@3.2.11
   vue-router: registry.nlark.com/vue-router/4.0.11_vue@3.2.11
   windicss: registry.nlark.com/windicss/3.1.7
@@ -5779,6 +5781,17 @@ packages:
     peerDependenciesMeta:
       '@vue/composition-api':
         optional: true
+    dependencies:
+      vue: registry.nlark.com/vue/3.2.11
+    dev: false
+
+  registry.nlark.com/vue-gtag-next/1.14.0_vue@3.2.11:
+    resolution: {integrity: sha1-eTrvC5Df9CE7nzp5gnzZmwbmeN0=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/vue-gtag-next/download/vue-gtag-next-1.14.0.tgz}
+    id: registry.nlark.com/vue-gtag-next/1.14.0
+    name: vue-gtag-next
+    version: 1.14.0
+    peerDependencies:
+      vue: ^3.0.0-rc.11
     dependencies:
       vue: registry.nlark.com/vue/3.2.11
     dev: false
