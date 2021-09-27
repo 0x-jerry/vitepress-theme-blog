@@ -1,5 +1,5 @@
 ---
-title: 设计一个像 hexo 的博客系统
+title: 设计一个像 hexo 的博客系统(1)
 date: 2021-09-26 15:37:40
 tags: [blog, system-design]
 ---
