@@ -9,6 +9,8 @@ tags: [blog, system-design]
 
 ## 为什么抛弃虚拟文件
 
+<!-- more -->
+
 要回答这个问题，先看看 `v-blog` 目的，`v-blog` 的目的就是为了利用更加现代化的系统来开发博客系统。
 
 在开发的时候，尝试去实现一个 `layout` 的功能，使用方式 [Hexo:layout]。
