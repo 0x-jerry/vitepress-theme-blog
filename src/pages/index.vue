@@ -46,7 +46,7 @@ const menus: Menu[] = [
 
 <template>
   <div w="screen" h="screen" overflow="hidden" class="relative" bg="black">
-    <v-random-image w="screen" h="screen" />
+    <v-random-image w="screen" h="screen" :id="Math.random().toString()" />
     <div
       class="absolute top-0 left-0"
       h="screen"
@@ -70,7 +70,9 @@ const menus: Menu[] = [
         <div class="relative" z="10">
           <h1 text="4xl center" p="x-10 y-5" font="mono">{{ $t('title.index', [$t('name')]) }}</h1>
           <br />
-          <p class="leading-relaxed" text="center" font="mono" v-html="$t('motto')"></p>
+          <v-sentence>
+            <p class="leading-relaxed" text="center" font="mono italic" v-html="$t('motto')"></p>
+          </v-sentence>
           <br />
           <ul
             w="min-content"
