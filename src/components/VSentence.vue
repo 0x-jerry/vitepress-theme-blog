@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useFetch } from '@vueuse/core'
 
-const url = 'https://api.0x-jerry.icu/hitokoto'
+const url = 'https://api.0x-jerry.icu/hitokoto?t=' + new Date().getTime()
 
 const { data, isFetching } = useFetch(url).get().json()
 </script>
