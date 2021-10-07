@@ -1,16 +1,13 @@
 <script lang="ts" setup>
 import { computed, ref, watchEffect } from 'vue'
-import { useRoute } from 'vue-router'
 import loadingImg from '~/assets/loading.svg'
 
 const props = defineProps<{
   id?: number
 }>()
 
-const route = useRoute()
-
 const url = computed(() => {
-  return `https://api.0x-jerry.icu/img/random?id=${props.id || route.path}`
+  return `https://api.0x-jerry.icu/img/random?id=${props.id || new Date().getTime()}`
 })
 
 const isLoading = ref(true)

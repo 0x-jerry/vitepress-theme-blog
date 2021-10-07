@@ -46,7 +46,7 @@ const menus: Menu[] = [
 
 <template>
   <div w="screen" h="screen" overflow="hidden" class="relative" bg="black">
-    <v-random-image w="screen" h="screen" :id="new Date().getTime()" />
+    <v-random-image w="screen" h="screen" />
     <div
       class="absolute top-0 left-0"
       h="screen"
