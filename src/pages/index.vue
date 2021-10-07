@@ -46,7 +46,7 @@ const menus: Menu[] = [
 
 <template>
   <div w="screen" h="screen" overflow="hidden" class="relative" bg="black">
-    <v-random-image w="screen" h="screen" :id="Math.random().toString()" />
+    <v-random-image w="screen" h="screen" :id="new Date().getTime()" />
     <div
       class="absolute top-0 left-0"
       h="screen"
@@ -56,11 +56,11 @@ const menus: Menu[] = [
       justify="center"
       align="items-center"
       bg="black opacity-10"
-      text="light-900 shadow-sm"
     >
       <v-card
         class="relative"
-        bg="black opacity-10"
+        bg="black opacity-30"
+        text="white shadow-sm"
         backdrop="~ blur-md"
         border="rounded-3xl t white opacity-40"
         p="2 md:20"

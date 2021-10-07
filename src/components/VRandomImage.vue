@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router'
 import loadingImg from '~/assets/loading.svg'
 
 const props = defineProps<{
-  id?: string
+  id?: number
 }>()
 
 const route = useRoute()

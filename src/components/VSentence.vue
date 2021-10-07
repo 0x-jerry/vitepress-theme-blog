@@ -11,7 +11,7 @@ const { data, isFetching } = useFetch(url).get().json()
     <slot></slot>
   </template>
   <div v-else class="v-sentence" text="center">
-    <p font="italic">{{ data?.hitokoto }}</p>
+    <p font="italic">「 {{ data?.hitokoto }} 」</p>
     <br />
     <p text="right">
       --- 《{{ data?.from }}<span v-if="data?.from_who"> - {{ data?.from_who }}</span
