@@ -63,17 +63,21 @@ const menus: Menu[] = [
         text="white shadow-sm"
         backdrop="~ blur-md"
         border="rounded-3xl t white opacity-40"
-        p="2 md:20"
+        p="2 md:x-10 md:y-14"
         overflow="hidden"
         shadow="md md:lg"
       >
         <div class="relative" z="10">
-          <h1 text="4xl center" p="x-10 y-5" font="mono">{{ $t('title.index', [$t('name')]) }}</h1>
-          <br />
-          <v-sentence>
-            <p class="leading-relaxed" text="center" font="mono italic" v-html="$t('motto')"></p>
-          </v-sentence>
-          <br />
+          <h1 text="4xl center" font="mono">
+            {{ $t('title.index', [$t('name')]) }}
+          </h1>
+
+          <div m="y-20">
+            <v-sentence>
+              <p class="leading-relaxed" text="center" font="mono italic" v-html="$t('motto')"></p>
+            </v-sentence>
+          </div>
+
           <ul
             w="min-content"
             m="auto"
@@ -81,7 +85,6 @@ const menus: Menu[] = [
             justify="center"
             align="items-center"
             text="2xl"
-            p="y-3 x-5"
             border="rounded-md"
           >
             <li class="mx-5" v-for="o in menus">
