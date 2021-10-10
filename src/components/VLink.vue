@@ -1,18 +1,16 @@
 <script lang="ts" setup>
-import { watchEffect, reactive, computed, useAttrs } from 'vue'
+import { watchEffect, reactive, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { scrollToAnchor } from '../utils'
 
 interface VLinkProps {
   theme?: 'blue' | 'gray' | 'white' | 'text'
   href: string
+  hiddenIcon?: boolean
   disabled?: boolean
 }
 
 const props = defineProps<VLinkProps>()
-const attrs = useAttrs()
-
-const hiddenIcon = computed(() => !!(attrs.hiddenIcon ?? 1))
 
 const data = reactive({
   isRelative: false,
