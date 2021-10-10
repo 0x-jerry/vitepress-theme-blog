@@ -36,7 +36,7 @@ specifiers:
   unplugin-icons: ^0.9.0
   unplugin-vue-components: ^0.15.1
   vite: ^2.5.7
-  vite-plugin-blog: ^0.2.4
+  vite-plugin-blog: ^0.2.5
   vite-plugin-inspect: ^0.3.6
   vite-plugin-md: ^0.11.0
   vite-plugin-pages: ^0.18.0
@@ -94,7 +94,7 @@ devDependencies:
   unplugin-icons: registry.nlark.com/unplugin-icons/0.9.0_9f61bea8ac123ca534a0268c9d85a8ed
   unplugin-vue-components: registry.nlark.com/unplugin-vue-components/0.15.1_2b5d8a1b98134ca64e19040c9906f2bf
   vite: registry.nlark.com/vite/2.5.7
-  vite-plugin-blog: registry.npmmirror.com/vite-plugin-blog/0.2.4_vite@2.5.7
+  vite-plugin-blog: registry.npmmirror.com/vite-plugin-blog/0.2.5_vite@2.5.7
   vite-plugin-inspect: registry.nlark.com/vite-plugin-inspect/0.3.6_vite@2.5.7
   vite-plugin-md: registry.nlark.com/vite-plugin-md/0.11.0_vite@2.5.7
   vite-plugin-pages: registry.nlark.com/vite-plugin-pages/0.18.0_041358ba81d59a005a183d4d5bfada61
@@ -6394,11 +6394,11 @@ packages:
     hasBin: true
     dev: true
 
-  registry.npmmirror.com/vite-plugin-blog/0.2.4_vite@2.5.7:
-    resolution: {integrity: sha1-9EGmlgUK+LLmqJcjxZTKlVs9L64=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite-plugin-blog/download/vite-plugin-blog-0.2.4.tgz}
-    id: registry.npmmirror.com/vite-plugin-blog/0.2.4
+  registry.npmmirror.com/vite-plugin-blog/0.2.5_vite@2.5.7:
+    resolution: {integrity: sha1-75fWUw3buP8Zl4/K35o0NaES8hQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite-plugin-blog/download/vite-plugin-blog-0.2.5.tgz}
+    id: registry.npmmirror.com/vite-plugin-blog/0.2.5
     name: vite-plugin-blog
-    version: 0.2.4
+    version: 0.2.5
     peerDependencies:
       vite: ^2.5.10
     dependencies:

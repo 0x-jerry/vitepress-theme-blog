@@ -33,7 +33,7 @@ const enableComment = computed(() => attrs.comment ?? true)
       <small font="normal">{{ time }}</small>
     </div>
 
-    <hr m="t-4" />
+    <hr m="t-4 b-8" />
 
     <div m="x-5" text="break-words">
       <div class="prose text-left">

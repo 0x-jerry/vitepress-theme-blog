@@ -3,13 +3,13 @@ import { useHead } from '@vueuse/head'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
-import { blog } from '~/blog'
+import { modules } from '~blog/excerpts/entry'
 
 const route = useRoute()
 
 const label = computed(() => route.params.label as string)
 
-const posts = computed(() => blog.articles.filter((p) => p.tags.includes(label.value)))
+const posts = modules.filter((m) => m.data.tags?.includes(label.value))
 
 const { t } = useI18n()
 
@@ -24,7 +24,7 @@ useHead({
       <v-tag>{{ label }} | {{ posts.length }}</v-tag>
     </header>
 
-    <v-excerpt v-for="o in posts" :info="o" p="5" m="y-5"></v-excerpt>
+    <component v-for="o in posts" :is="o.module" p="5" m="y-5"></component>
   </div>
 </template>
 
