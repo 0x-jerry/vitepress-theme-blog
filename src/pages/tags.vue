@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { blog } from '~/blog'
 import { useHead } from '@vueuse/head'
 import { useI18n } from 'vue-i18n'
+import { modules } from '~blog/excerpts/entry'
 
 const { t } = useI18n()
 
@@ -9,7 +9,23 @@ useHead({
   title: t('title.tags', [t('name')]),
 })
 
-const tags = blog.tags
+const tags: { label: string; count: number }[] = []
+
+modules.forEach((m) => {
+  const _tags: string[] = (m.data.tags as string[]) || []
+
+  for (const tag of _tags) {
+    const hit = tags.find((t) => t.label === tag)
+    if (!hit) {
+      tags.push({
+        label: tag,
+        count: 1,
+      })
+    } else {
+      hit.count++
+    }
+  }
+})
 </script>
 
 <template>

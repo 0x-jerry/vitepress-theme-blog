@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
 import { useI18n } from 'vue-i18n'
-import { components as articles } from '~blog/excerpts/entry'
+import { modules } from '~blog/excerpts/entry'
 
 const { t } = useI18n()
 
@@ -12,8 +12,8 @@ useHead({
 
 <template>
   <ul>
-    <li v-for="o in articles">
-      <component :is="o" p="5" m="y-5 x-5 md:x-10"></component>
+    <li v-for="o in modules">
+      <component :is="o.module" p="5" m="y-5 x-5 md:x-10"></component>
       <!-- <v-excerpt :info="o" /> -->
     </li>
   </ul>
