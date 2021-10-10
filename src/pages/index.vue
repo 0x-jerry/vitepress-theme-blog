@@ -89,7 +89,7 @@ const menus: Menu[] = [
             border="rounded-md"
           >
             <li class="mx-5" v-for="o in menus">
-              <VLink :href="o.href" theme="white" hidden-icon>
+              <VLink :href="o.href" theme="white" :hidden-icon="true">
                 <div flex="~ inline" justify="center" w="full">
                   <component :is="o.icon" />
                 </div>
