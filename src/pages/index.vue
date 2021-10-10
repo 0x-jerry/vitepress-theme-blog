@@ -66,6 +66,7 @@ const menus: Menu[] = [
         p="2 md:x-10 md:y-14"
         overflow="hidden"
         shadow="md md:lg"
+        w="md:max-4/5"
       >
         <div class="relative" z="10">
           <h1 text="4xl center" font="mono">
