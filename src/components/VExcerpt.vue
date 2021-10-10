@@ -1,12 +1,13 @@
 <script lang="ts" setup>
 defineProps<{
   title: string
+  href: string
 }>()
 </script>
 
 <template>
   <v-card text="break-words">
-    <router-link to="/">
+    <router-link :to="href">
       <h2 text="xl blue-500">
         {{ title }}
       </h2>

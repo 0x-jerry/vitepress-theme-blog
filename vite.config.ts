@@ -6,26 +6,14 @@ import Layouts from 'vite-plugin-vue-layouts'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
-import Markdown from 'vite-plugin-md'
 import WindiCSS from 'vite-plugin-windicss'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
-import { setupMarkdownIt } from './vite/markdown'
-import { updateRouteMeta } from './vite/vite-plugin-blog/resolveData'
-import ViteFixResource from './vite/vite-fix-resource'
 import { globalData } from './vite/vite-plugin-blog/global'
 import { assetCache, assetHashToFilenameMap, emittedHashMap } from './vite/vite-plugin-blog/asset'
-import { generateRSS, generateSitemap } from './vite/vite-rss'
-import { blogConf } from './config'
-import { ArticleInfo } from 'virtual:blog'
-import { promises as fs } from 'fs'
 import { createBlogPlugin } from 'vite-plugin-blog'
 import { MdRenderOption } from 'vite-plugin-blog/src/md2vue'
-
-const conf = {
-  tempRouteFilePath: path.join(__dirname, 'temp_routes.json'),
-}
 
 export default defineConfig({
   base: '/',
@@ -60,19 +48,10 @@ export default defineConfig({
       pagesDir: [
         'src/pages',
         {
-          dir: '.blog/docs',
-          baseRoute: 'docs',
+          dir: '.blog/posts',
+          baseRoute: 'post',
         },
       ],
-
-      async onRoutesGenerated(routes) {
-        // fix link in markdown file
-        await updateRouteMeta(routes, { base: blogConf.base })
-
-        if (globalData.conf.command === 'build') {
-          await fs.writeFile(conf.tempRouteFilePath, JSON.stringify(routes))
-        }
-      },
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -151,10 +130,6 @@ export default defineConfig({
 
     // ViteFixResource,
     createBlogPlugin({
-      includes: ['docs/**/*.md'],
-      folder: {
-        posts: 'docs',
-      },
       pluginOpt: {
         changeHref: {
           tag: 'v-link',
@@ -165,13 +140,14 @@ export default defineConfig({
           const id = info.path
           const opt: MdRenderOption = {
             wrapper: 'div',
+            extra: {},
           }
 
           if (/notes/.test(id)) {
             opt.wrapper = 'v-note'
           }
 
-          if (/docs/.test(id)) {
+          if (/posts/.test(id)) {
             opt.wrapper = 'v-post'
           }
 
@@ -181,6 +157,8 @@ export default defineConfig({
 
           if (info.type === 'excerpt') {
             opt.wrapper = 'v-excerpt'
+            opt.extra!.href =
+              '/post' + id.replace(path.join(process.cwd(), 'posts'), '').replace(/\.md$/, '')
           }
 
           return opt
@@ -210,40 +188,6 @@ export default defineConfig({
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
-    async onFinished() {
-      const routes: Route[] = JSON.parse(
-        await fs.readFile(conf.tempRouteFilePath, { encoding: 'utf-8' }),
-      )
-
-      if (!routes) return
-
-      routes.forEach((route) => {
-        const info = (route.meta as any)?.info as ArticleInfo
-        if (!info) return
-
-        info.date = new Date(info.date)
-      })
-
-      const postsRoutes = routes.filter(
-        (r) => r.path.startsWith('/docs/') && ((r.meta as any).info as ArticleInfo).visible,
-      )
-
-      await generateRSS(postsRoutes, {
-        base: blogConf.base,
-        author: {
-          name: 'Jerry Wang',
-          email: 'x.jerry.wang@gmail.com',
-          link: blogConf.base,
-        },
-      })
-
-      await fs.unlink(conf.tempRouteFilePath)
-
-      await generateSitemap(
-        routes.filter((r) => !/[:]/.test(r.path)),
-        { base: blogConf.base },
-      )
-    },
   },
 
   optimizeDeps: {
