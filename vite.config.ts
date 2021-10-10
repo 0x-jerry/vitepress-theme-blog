@@ -1,7 +1,7 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
-import Pages, { Route } from 'vite-plugin-pages'
+import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -175,6 +175,7 @@ export default defineConfig({
   },
 
   // https://github.com/antfu/vite-ssg
+  // @ts-ignore
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
