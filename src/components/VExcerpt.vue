@@ -11,18 +11,10 @@ defineProps<{
       <h2 text="xl blue-500">
         {{ title }}
       </h2>
-      <hr m="y-4" />
-      <div class="excerpt-content prose m-auto text-left">
-        <slot />
-      </div>
     </router-link>
+    <hr m="y-4" />
+    <div class="prose m-auto text-left">
+      <slot />
+    </div>
   </v-card>
 </template>
-
-<style lang="less">
-.excerpt-content {
-  a {
-    pointer-events: none;
-  }
-}
-</style>

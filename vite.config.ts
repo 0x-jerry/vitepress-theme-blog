@@ -119,8 +119,10 @@ export default defineConfig({
     // ViteFixResource,
     createBlogPlugin({
       pluginOpt: {
-        changeHref: {
-          tag: 'v-link',
+        changeTag: {
+          map: {
+            a: 'v-link',
+          },
         },
       },
       transform: {
