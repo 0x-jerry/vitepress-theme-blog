@@ -13,6 +13,8 @@ import Inspect from 'vite-plugin-inspect'
 import { createBlogPlugin } from 'vite-plugin-blog'
 import { MdRenderOption } from 'vite-plugin-blog/src/md2vue'
 
+const postHrefPrefix = 'post'
+
 export default defineConfig({
   base: '/',
   resolve: {
@@ -22,10 +24,6 @@ export default defineConfig({
     },
   },
   plugins: [
-    {
-      name: 'vite-plugin-get-ctx',
-      enforce: 'pre',
-    },
     Vue({
       include: [/\.vue$/, /\.md$/],
     }),
@@ -37,7 +35,7 @@ export default defineConfig({
         'src/pages',
         {
           dir: '.blog/posts',
-          baseRoute: 'post',
+          baseRoute: postHrefPrefix,
         },
       ],
     }),
@@ -118,12 +116,9 @@ export default defineConfig({
 
     // ViteFixResource,
     createBlogPlugin({
-      pluginOpt: {
-        changeTag: {
-          map: {
-            a: 'v-link',
-          },
-        },
+      postHrefPrefix: '/' + postHrefPrefix,
+      changeTagMap: {
+        a: 'v-link',
       },
       transform: {
         before(info) {
