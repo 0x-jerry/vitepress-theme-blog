@@ -20,6 +20,8 @@ import { generateRSS, generateSitemap } from './vite/vite-rss'
 import { blogConf } from './config'
 import { ArticleInfo } from 'virtual:blog'
 import { promises as fs } from 'fs'
+import { createBlogPlugin } from 'vite-plugin-blog'
+import { MdRenderOption } from 'vite-plugin-blog/src/md2vue'
 
 const conf = {
   tempRouteFilePath: path.join(__dirname, 'temp_routes.json'),
@@ -30,6 +32,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
+      '~blog/': `${path.resolve(__dirname, '.blog')}/`,
     },
   },
   plugins: [
@@ -53,7 +56,8 @@ export default defineConfig({
 
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
-      extensions: ['vue', 'md'],
+      extensions: ['vue'],
+      pagesDir: ['src/pages', '.blog/docs'],
 
       async onRoutesGenerated(routes) {
         // fix link in markdown file
@@ -71,12 +75,12 @@ export default defineConfig({
     // https://github.com/antfu/unplugin-vue-components
     Components({
       // allow auto load markdown components under `./src/components/`
-      extensions: ['vue', 'md'],
+      extensions: ['vue'],
 
       dts: true,
 
       // allow auto import and register components used in markdown
-      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      include: [/\.vue$/, /\.vue\?vue/],
 
       // fix folder name contain `.git`, ex: `0x-jerry.github.io`
       exclude: [/node_modules/, /\.git\//],
@@ -97,24 +101,6 @@ export default defineConfig({
 
     // https://github.com/antfu/vite-plugin-windicss
     WindiCSS(),
-
-    // https://github.com/antfu/vite-plugin-md
-    Markdown({
-      markdownItSetup: setupMarkdownIt,
-      transforms: {
-        after(code, id) {
-          const wrap = (comp: string) => `<${comp} v-bind="frontmatter">${code}</${comp}>`
-
-          if (/components\/notes/.test(id)) return wrap('v-note')
-
-          if (/pages\/docs/.test(id)) return wrap('v-post')
-
-          if (/config\/events/.test(id)) return wrap('v-timeline-item')
-
-          return code
-        },
-      },
-    }),
 
     // https://github.com/antfu/vite-plugin-pwa
     VitePWA({
@@ -157,7 +143,55 @@ export default defineConfig({
       enabled: false,
     }),
 
-    ViteFixResource,
+    // ViteFixResource,
+    createBlogPlugin({
+      includes: ['docs/**/*.md'],
+      folder: {
+        posts: 'docs',
+      },
+      pluginOpt: {
+        changeHref: {
+          tag: 'v-link',
+        },
+      },
+      transform: {
+        before(info) {
+          const id = info.path
+          const opt: MdRenderOption = {
+            wrapper: 'div',
+          }
+
+          if (/notes/.test(id)) {
+            opt.wrapper = 'v-note'
+          }
+
+          if (/docs/.test(id)) {
+            opt.wrapper = 'v-post'
+          }
+
+          if (/events/.test(id)) {
+            opt.wrapper = 'v-timeline-item'
+          }
+
+          if (info.type === 'excerpt') {
+            opt.wrapper = 'v-excerpt'
+          }
+
+          return opt
+        },
+      },
+      async onAfterBuild(ctx) {
+        await ctx.generateImportAll({
+          filePattern: 'notes/**/*.md',
+          filename: 'notes.ts',
+        })
+
+        await ctx.generateImportAll({
+          filePattern: 'events/**/*.md',
+          filename: 'events.ts',
+        })
+      },
+    }),
   ],
 
   server: {

@@ -3,6 +3,7 @@ import VueGtag, { trackRouter } from 'vue-gtag-next'
 
 export const install: UserModule = ({ isClient, app, router }) => {
   if (!isClient) return
+  if (import.meta.env.DEV) return
 
   app.use(VueGtag, {
     property: {

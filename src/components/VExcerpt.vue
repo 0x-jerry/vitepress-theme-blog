@@ -1,19 +1,19 @@
 <script lang="ts" setup>
-import { ArticleInfo } from 'virtual:blog'
-
 defineProps<{
-  info: ArticleInfo
+  title: string
 }>()
 </script>
 
 <template>
   <v-card text="break-words">
-    <router-link :to="info.routePath">
+    <router-link to="/">
       <h2 text="xl blue-500">
-        {{ info.title }}
+        {{ title }}
       </h2>
       <hr m="y-4" />
-      <div class="prose m-auto text-left" v-html="info.excerpt"></div>
+      <div class="prose m-auto text-left">
+        <slot />
+      </div>
     </router-link>
   </v-card>
 </template>
