@@ -73,7 +73,7 @@ const menus: Menu[] = [
             {{ $t('title.index', [$t('name')]) }}
           </h1>
 
-          <div m="y-20">
+          <div class="leading-7" m="y-20">
             <v-sentence>
               <p class="leading-relaxed" text="center" font="mono italic" v-html="$t('motto')"></p>
             </v-sentence>
