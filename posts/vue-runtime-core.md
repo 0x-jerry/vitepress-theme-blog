@@ -23,7 +23,7 @@ createApp(App).mount('#app')
 
 本来想写一些过程的，但是光画脑图，都花了半天时间。还是直接贴脑图结果吧。剩下的发下一篇文章
 
-![Vue 3](./Vue3-Runtime%20Core/Vue3.png)
+![Vue 3](./vue-runtime-core/Vue3.png)
 
 ## 目录结构
 

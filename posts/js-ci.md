@@ -7,16 +7,16 @@ license: CC BY-NC 4.0
 
 这篇文章的目标就是在 GitHub 上显示如下图标。当然不是简单的显示两张图片，而是显示当前项目的一些状态。
 
-![icon](./JavaScript-持续集成/icon.png)
+![icon](./js-ci/icon.png)
 
 持续集成官网： [Travis-ci](https://travis-ci.org/)
 测试覆盖率官网：[COVERALLS](https://coveralls.io/)
 
 <!-- more -->
 
-![Build 状态](./JavaScript-持续集成/build.png)
+![Build 状态](./js-ci/build.png)
 
-![测试状态](./JavaScript-持续集成/test.png)
+![测试状态](./js-ci/test.png)
 
 ## 持续集成
 
@@ -24,7 +24,7 @@ license: CC BY-NC 4.0
 
 首先创建一个简单的项目
 
-![项目](./JavaScript-持续集成/project.png)
+![项目](./js-ci/project.png)
 
 那么第一步，当然是选择跟着[官方文档](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/)走啦，先创建 `.travis.yml` 文件，查看 `node` 版本 `node -v`。然后填进去，我的是 8.5.0，所以我的文件是这样的：
 
@@ -36,7 +36,7 @@ node_js:
 
 然后 `git push` 到 GitHub ，然后刷新 Travis CI 的页面：
 
-![Test](./JavaScript-持续集成/test1.png)
+![Test](./js-ci/test1.png)
 
 就这样，持续集成就 OK 了，是不是很简单，然后点击 passing 图标，选择 Markdown 写到 readme 里面就可以在 GitHub 上看到了。
 
@@ -46,7 +46,7 @@ node_js:
 
 测试项目的目录：
 
-![测试项目](./JavaScript-持续集成/testProject.png)
+![测试项目](./js-ci/testProject.png)
 
 在 [node-coveralls](https://github.com/nickmerwin/node-coveralls) 里面有很多钟方式，我选择 [Istanbul](https://github.com/gotwarlost/istanbul) + [mocha](https://github.com/mochajs/mocha)。
 
@@ -62,7 +62,7 @@ npm install coveralls --save-dev #安装 coveralls
 
 然后写测试，测试为：
 
-![测试项目](./JavaScript-持续集成/testProject1.png)
+![测试项目](./js-ci/testProject1.png)
 
 修改 `package.json` 里面的 `test` 脚本为
 
@@ -72,11 +72,11 @@ istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && c
 
 然后运行 `npm test` 命令，会提示一个错误，那个是因为没有在 `package.json' 里面添加 repository 地址，可以忽略。
 
-![测试结果](./JavaScript-持续集成/testResult.png)
+![测试结果](./js-ci/testResult.png)
 
 到这一步，就可以把项目 push 到 GitHub 上去了。然后刷新在 [COVERALLS](https://coveralls.io/) 上的项目的网页。
 
-![测试覆盖率](./JavaScript-持续集成/cover.png)
+![测试覆盖率](./js-ci/cover.png)
 
 就可以看到成功了！然后点击 EMBED 图标，选择 Markdown 复制到 readme 里面，就可以显示在 GitHub 上了。
 

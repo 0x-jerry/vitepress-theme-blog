@@ -45,7 +45,7 @@ sudo njit-client 用户名 密码 网卡 &
 
 如图：
 
-![设置网卡](./校园网-iNode-解决方案/dhcp.png)
+![设置网卡](./inode/dhcp.png)
 
 ### 修改 dns
 
@@ -56,6 +56,6 @@ sudo vim /etc/resolv.conf #修改 nameserver 后面的地址就好了。
 
 也可以直接在设置面板里面设置 dns，设置如图：
 
-![设置 dns](./校园网-iNode-解决方案/dns.png)
+![设置 dns](./inode/dns.png)
 
 在 Additional DNS servers 后面填上 dns 地址即可。我填的的是阿里提供的 DNS 地址。
