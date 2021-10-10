@@ -10,8 +10,6 @@ import WindiCSS from 'vite-plugin-windicss'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
-import { globalData } from './vite/vite-plugin-blog/global'
-import { assetCache, assetHashToFilenameMap, emittedHashMap } from './vite/vite-plugin-blog/asset'
 import { createBlogPlugin } from 'vite-plugin-blog'
 import { MdRenderOption } from 'vite-plugin-blog/src/md2vue'
 
@@ -27,16 +25,6 @@ export default defineConfig({
     {
       name: 'vite-plugin-get-ctx',
       enforce: 'pre',
-      configResolved(conf) {
-        globalData.conf = conf
-
-        assetCache.set(conf, new Map())
-        emittedHashMap.set(conf, new Set())
-        assetHashToFilenameMap.set(conf, new Map())
-      },
-      buildStart() {
-        globalData.ctx = this
-      },
     },
     Vue({
       include: [/\.vue$/, /\.md$/],

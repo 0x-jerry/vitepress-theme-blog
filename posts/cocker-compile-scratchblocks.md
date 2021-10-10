@@ -25,7 +25,7 @@ license: CC BY-NC 4.0
 
 有时候可能还需要 `package.json` 文件，这里也加上
 
-```Dockerfile Dockerfile
+```Dockerfile
 # linux core, only 5M
 FROM alpine
 
