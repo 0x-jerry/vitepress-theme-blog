@@ -57,7 +57,13 @@ export default defineConfig({
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
       extensions: ['vue'],
-      pagesDir: ['src/pages', '.blog/docs'],
+      pagesDir: [
+        'src/pages',
+        {
+          dir: '.blog/docs',
+          baseRoute: 'docs',
+        },
+      ],
 
       async onRoutesGenerated(routes) {
         // fix link in markdown file

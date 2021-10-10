@@ -78,32 +78,9 @@ export async function updateRouteMeta(routes: Route[], opt: UpdateRouteMetaOptio
         const filePath = path.resolve('./' + route.component)
         const info = await getArticleConfig(filePath, opt)
         route.meta.info = info
-
-        route.path = permalink(route.path)
       }
     }
   }
-}
-
-/**
- * generate a url valid link.
- * @param str
- * @returns
- */
-function permalink(str: string) {
-  const isValidChar = /[a-z0-9-+\/]/
-
-  let s = ''
-  for (const char of str) {
-    if (isValidChar.test(char)) {
-      s += char
-    } else if (/\s/.test(char)) {
-      s += '-'
-    } else {
-      s += char.charCodeAt(0).toString(36)
-    }
-  }
-  return s
 }
 
 async function renderMarkdown(content: string, importer: string, opt: UpdateRouteMetaOption) {

@@ -32,10 +32,7 @@ license: CC BY-NC 4.0
  */
 function dataURIToBlob(dataURI, sliceSize = 512) {
   const b64Data = dataURI.trim().split(',')[1]
-  const contentType = dataURI
-    .split(',')[0]
-    .split(':')[1]
-    .split(';')[0]
+  const contentType = dataURI.split(',')[0].split(':')[1].split(';')[0]
 
   const byteCharacters = atob(b64Data)
   const byteArrays = []
