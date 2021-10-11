@@ -20,7 +20,7 @@ specifiers:
   unplugin-icons: ^0.12.12
   unplugin-vue-components: ^0.15.6
   vite: ^2.6.5
-  vite-plugin-blog: ^0.4.1
+  vite-plugin-blog: ^0.4.3
   vite-plugin-inspect: ^0.3.8
   vite-plugin-pages: ^0.18.1
   vite-plugin-pwa: ^0.11.3
@@ -61,7 +61,7 @@ devDependencies:
   unplugin-icons: registry.npmmirror.com/unplugin-icons/0.12.12_7eb66f080fbe23aeb40a75477d83445d
   unplugin-vue-components: registry.npmmirror.com/unplugin-vue-components/0.15.6_vite@2.6.5+vue@3.2.20
   vite: registry.npmmirror.com/vite/2.6.5_less@4.1.2
-  vite-plugin-blog: registry.npmmirror.com/vite-plugin-blog/0.4.1_vite@2.6.5
+  vite-plugin-blog: registry.npmmirror.com/vite-plugin-blog/0.4.3_vite@2.6.5
   vite-plugin-inspect: registry.npmmirror.com/vite-plugin-inspect/0.3.8_vite@2.6.5
   vite-plugin-pages: registry.npmmirror.com/vite-plugin-pages/0.18.1_7eb66f080fbe23aeb40a75477d83445d
   vite-plugin-pwa: registry.npmmirror.com/vite-plugin-pwa/0.11.3_vite@2.6.5
@@ -509,7 +509,7 @@ packages:
     dev: true
 
   registry.nlark.com/fsevents/2.3.2:
-    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/fsevents/download/fsevents-2.3.2.tgz}
+    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/fsevents/download/fsevents-2.3.2.tgz?cache=0&sync_timestamp=1631501075609&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ffsevents%2Fdownload%2Ffsevents-2.3.2.tgz}
     name: fsevents
     version: 2.3.2
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -5510,11 +5510,11 @@ packages:
       spdx-expression-parse: registry.npmmirror.com/spdx-expression-parse/3.0.1
     dev: true
 
-  registry.npmmirror.com/vite-plugin-blog/0.4.1_vite@2.6.5:
-    resolution: {integrity: sha1-fvFNgap4cCbjBfyjX1PBwvCe8Hw=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite-plugin-blog/download/vite-plugin-blog-0.4.1.tgz}
-    id: registry.npmmirror.com/vite-plugin-blog/0.4.1
+  registry.npmmirror.com/vite-plugin-blog/0.4.3_vite@2.6.5:
+    resolution: {integrity: sha1-LNysXD7wemURlBYU8YXUbSigrAc=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite-plugin-blog/download/vite-plugin-blog-0.4.3.tgz?cache=0&sync_timestamp=1633957530469&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fvite-plugin-blog%2Fdownload%2Fvite-plugin-blog-0.4.3.tgz}
+    id: registry.npmmirror.com/vite-plugin-blog/0.4.3
     name: vite-plugin-blog
-    version: 0.4.1
+    version: 0.4.3
     peerDependencies:
       vite: '*'
     dependencies:
