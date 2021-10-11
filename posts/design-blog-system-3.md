@@ -18,7 +18,7 @@ tags: [blog, system-design]
 初步尝试，是利用 [vite-plugin-pages] 以及 [vite-plugin-vue-layout] 这两个插件，但是 [vite-plugin-pages] 处理 `route` 自定义块
 是用 `fs` 读取文件的方式，也就是说，无法利用虚拟文件的方式，去生成 `route` 自定义块。
 
-考虑到之后，可能还有类似的插件，因此，方式用虚拟文件的方式，采用直接生成文件。
+考虑到之后，可能还有类似使用 `fs` 读取文件的插件。因此，放弃使用虚拟文件的方式，采用直接生成文件。
 
 ## 下一步
 
