@@ -50,6 +50,8 @@ export default defineConfig({
 
       dts: true,
 
+      dirs: ['src/components', 'posts'],
+
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/],
 
