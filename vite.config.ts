@@ -78,6 +78,7 @@ export default defineConfig({
     // https://github.com/antfu/vite-plugin-pwa
     VitePWA({
       includeAssets: ['favicon.svg', 'robots.txt', 'safari-pinned-tab.svg'],
+      registerType: 'prompt',
       manifest: {
         name: "0x-Jerry's Blog",
         short_name: 'Blog',
