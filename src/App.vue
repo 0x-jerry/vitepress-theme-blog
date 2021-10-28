@@ -15,4 +15,7 @@ useHead({
 
 <template>
   <router-view />
+  <v-client-only>
+    <v-prompt-pwa />
+  </v-client-only>
 </template>
