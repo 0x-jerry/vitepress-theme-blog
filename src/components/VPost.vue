@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import { HeadObject, useHead } from '@vueuse/head'
-import { computed, onMounted, useAttrs } from 'vue'
+import { computed, onMounted, ref, useAttrs, watch } from 'vue'
 import dayjs from 'dayjs'
 import { scrollToAnchor } from '~/utils'
 import { useRouter } from 'vue-router'
+import type { TocLink } from '~/types'
 
 interface PostProps {
   title: string
@@ -29,10 +30,41 @@ const enableComment = computed(() => attrs.comment ?? true)
 onMounted(() => {
   if (import.meta.env.SSR) return
 
+  // update toc
+  updateToc()
+
+  // scroll to anchor
   const hash = location.hash
   if (!hash) return
   scrollToAnchor(hash, router)
 })
+
+const content = ref<HTMLDivElement>()
+const toc = ref<TocLink[]>([])
+
+watch(
+  () => router.currentRoute.value.path,
+  () => {
+    updateToc()
+  },
+)
+
+function updateToc() {
+  if (!content.value) return
+  const headings = content.value.querySelectorAll('h2[id],h3[id],h4[id],h5[id]')
+
+  const links: TocLink[] = []
+  headings.forEach((heading) => {
+    links.push({
+      id: heading.id,
+      label: (heading.textContent || '').replace(/#$/, ''),
+      level: parseInt(heading.tagName.slice(1)),
+    })
+  })
+
+  toc.value = links
+  console.log(toc.value)
+}
 </script>
 
 <template>
@@ -48,7 +80,7 @@ onMounted(() => {
     <hr m="t-4 b-8" />
 
     <div m="x-5" text="break-words">
-      <div class="prose text-left">
+      <div class="prose text-left" ref="content">
         <slot></slot>
       </div>
 
@@ -66,5 +98,14 @@ onMounted(() => {
         <v-giscus />
       </template>
     </div>
+
+    <div class="toc fixed top-100px right-10 hidden" z="100" bg="white" xl="block">
+      <v-post-toc :toc="toc" />
+    </div>
   </div>
 </template>
+
+<style lang="less" scoped>
+.toc {
+}
+</style>

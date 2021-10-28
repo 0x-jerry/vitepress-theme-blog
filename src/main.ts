@@ -38,7 +38,7 @@ export const createApp = ViteSSG(
         const el = document.getElementById(hash) as HTMLDivElement
 
         return {
-          top: el.offsetTop - 100,
+          top: el.offsetTop - 80,
           behavior: 'smooth',
         }
       } else {

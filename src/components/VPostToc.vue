@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useWindowScroll } from '@vueuse/core'
-import { TocLink } from 'virtual:blog'
 import { onMounted, ref, watchEffect } from 'vue'
+import type { TocLink } from '~/types'
 
 const props = defineProps<{ toc: TocLink[] }>()
 
@@ -22,7 +22,7 @@ function updateToc() {
     const el = document.getElementById(toc.id)
     if (!el) return
 
-    const top = el.offsetTop - 70
+    const top = el.offsetTop - 100
 
     if (y <= top) {
       activeLabel.value = (props.toc[idx - 1] || props.toc[idx]).label
@@ -40,7 +40,7 @@ watchEffect(() => updateToc())
 </script>
 
 <template>
-  <ul class="v-post-toc">
+  <ul class="v-post-toc leading-relaxed" text="sm">
     <li v-for="o in toc">
       <v-link :href="`#${o.id}`" theme="text">
         <span
