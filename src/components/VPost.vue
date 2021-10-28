@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { HeadObject, useHead } from '@vueuse/head'
-import { computed, useAttrs } from 'vue'
+import { computed, onMounted, useAttrs } from 'vue'
 import dayjs from 'dayjs'
+import { scrollToAnchor } from '~/utils'
+import { useRouter } from 'vue-router'
 
 interface PostProps {
   title: string
@@ -13,6 +15,8 @@ interface PostProps {
 const attrs = useAttrs()
 const props = defineProps<PostProps>()
 
+const router = useRouter()
+
 useHead({
   title: props.title,
   meta: props.meta,
@@ -21,6 +25,14 @@ useHead({
 const time = computed(() => dayjs(props.date).format('YYYY-MM-DD HH:mm'))
 
 const enableComment = computed(() => attrs.comment ?? true)
+
+onMounted(() => {
+  if (import.meta.env.SSR) return
+
+  const hash = location.hash
+  if (!hash) return
+  scrollToAnchor(hash, router)
+})
 </script>
 
 <template>
