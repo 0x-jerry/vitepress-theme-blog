@@ -32,7 +32,10 @@ export const createApp = ViteSSG(
       if (to.hash) {
         // Ensure component has rendered
         await nextTick()
-        const el = document.getElementById(to.hash.slice(1)) as HTMLDivElement
+
+        const hash = decodeURI(to.hash).slice(1)
+
+        const el = document.getElementById(hash) as HTMLDivElement
 
         return {
           top: el.offsetTop - 100,
