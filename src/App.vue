@@ -8,7 +8,7 @@ const { t } = useI18n()
 // you can use this to manipulate the document head in any components,
 // they will be rendered correctly in the html results with vite-ssg
 useHead({
-  title: `${t('name')}\'s Blog`,
+  title: `${t('name')}'s Blog`,
   meta: [{ name: 'description', content: 'Just a blog' }],
 })
 </script>

@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "vite --port 3333",
     "build": "vite-ssg build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint **/*.{ts,vue}"
   },
   "dependencies": {
     "@vueuse/core": "^6.7.4",
@@ -19,6 +20,7 @@
     "windicss": "^3.1.9"
   },
   "devDependencies": {
+    "@0x-jerry/eslint-config": "^0.1.0",
     "@iconify/json": "^1.1.417",
     "@intlify/vite-plugin-vue-i18n": "^2.4.0",
     "@types/nprogress": "^0.2.0",
@@ -27,6 +29,7 @@
     "@vue/server-renderer": "^3.2.20",
     "chalk": "^4.1.2",
     "critters": "^0.0.10",
+    "eslint": "^7.32.0",
     "less": "^4.1.2",
     "typescript": "^4.4.4",
     "unplugin-icons": "^0.12.16",
