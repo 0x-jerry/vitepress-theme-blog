@@ -12,9 +12,8 @@ useHead({
 
 <template>
   <ul>
-    <li v-for="o in modules">
+    <li v-for="o in modules" :key="o.uuid">
       <component :is="o.module" p="5" m="y-5 x-5 md:x-10"></component>
-      <!-- <v-excerpt :info="o" /> -->
     </li>
   </ul>
 </template>

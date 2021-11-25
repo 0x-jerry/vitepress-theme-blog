@@ -24,7 +24,7 @@ useHead({
       <v-tag>{{ label }} | {{ posts.length }}</v-tag>
     </header>
 
-    <component v-for="o in posts" :is="o.module" p="5" m="y-5"></component>
+    <component v-for="o in posts" :key="o.uuid" :is="o.module" p="5" m="y-5"></component>
   </div>
 </template>
 

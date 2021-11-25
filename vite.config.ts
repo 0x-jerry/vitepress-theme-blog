@@ -173,7 +173,6 @@ export default defineConfig({
   },
 
   // https://github.com/antfu/vite-ssg
-  // @ts-ignore
   ssgOptions: {
     script: 'async',
     formatting: 'minify',

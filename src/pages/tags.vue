@@ -12,7 +12,7 @@ useHead({
 const tags: { label: string; count: number }[] = []
 
 modules.forEach((m) => {
-  const _tags: string[] = (m.data.tags as string[]) || []
+  const _tags: string[] = m.data.tags || []
 
   for (const tag of _tags) {
     const hit = tags.find((t) => t.label === tag)
