@@ -18,7 +18,7 @@ function calcId() {
 
   if (props.range) {
     const [min, max] = props.range
-    return min + Math.random() * (max - min)
+    return min + ~~(Math.random() * (max - min))
   }
 
   return new Date().getTime()
