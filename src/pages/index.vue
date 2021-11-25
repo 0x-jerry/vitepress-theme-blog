@@ -46,7 +46,7 @@ const menus: Menu[] = [
 
 <template>
   <div w="screen" h="screen" overflow="hidden" class="relative" bg="black">
-    <v-random-image w="screen" h="screen" />
+    <v-random-image w="screen" h="screen" :range="[1000, 1010]" />
     <div
       class="absolute top-0 left-0"
       h="screen"
@@ -88,7 +88,7 @@ const menus: Menu[] = [
             text="2xl"
             border="rounded-md"
           >
-            <li class="mx-5" v-for="o in menus">
+            <li class="mx-5" v-for="(o, idx) in menus" :key="idx">
               <VLink :href="o.href" theme="white" :hidden-icon="true">
                 <div flex="~ inline" justify="center" w="full">
                   <component :is="o.icon" />

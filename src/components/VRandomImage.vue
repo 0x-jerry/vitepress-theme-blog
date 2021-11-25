@@ -4,11 +4,25 @@ import loadingImg from '~/assets/loading.svg'
 
 const props = defineProps<{
   id?: number
+  range?: [number, number]
 }>()
 
 const url = computed(() => {
-  return `https://api.0x-jerry.icu/img/random?id=${props.id || new Date().getTime()}`
+  return `https://api.0x-jerry.icu/img/random?id=${calcId()}`
 })
+
+function calcId() {
+  if (props.id) {
+    return props.id
+  }
+
+  if (props.range) {
+    const [min, max] = props.range
+    return min + Math.random() * (max - min)
+  }
+
+  return new Date().getTime()
+}
 
 const isLoading = ref(true)
 
