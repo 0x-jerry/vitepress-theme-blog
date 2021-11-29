@@ -47,27 +47,8 @@ const menus: Menu[] = [
 <template>
   <div w="screen" h="screen" overflow="hidden" class="relative" bg="black">
     <v-random-image w="screen" h="screen" :range="[1000, 1010]" />
-    <div
-      class="absolute top-0 left-0"
-      h="screen"
-      w="screen"
-      z="10"
-      display="flex"
-      justify="center"
-      align="items-center"
-      bg="black opacity-10"
-    >
-      <v-card
-        class="relative"
-        bg="black opacity-30"
-        text="white shadow-sm"
-        backdrop="~ blur-md"
-        border="rounded-3xl t white opacity-40"
-        p="2 md:x-10 md:y-14"
-        overflow="hidden"
-        shadow="md md:lg"
-        w="md:max-4/5"
-      >
+    <div class="page-bg">
+      <v-card class="relative card-bg" p="2 md:x-10 md:y-14">
         <div class="relative" z="10">
           <h1 text="4xl center" font="mono">
             {{ $t('title.index', [$t('name')]) }}
@@ -103,7 +84,31 @@ const menus: Menu[] = [
   </div>
 </template>
 
-<style lang="less"></style>
+<style lang="less" scoped>
+.page-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.card-bg {
+  background: rgba(0, 0, 0, 0.1);
+  color: white;
+  text-shadow: 0 0 5px gray;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+  max-width: 80%;
+
+  @apply backdrop-filter backdrop-blur-md;
+}
+</style>
 
 <route lang="yaml">
 meta:
