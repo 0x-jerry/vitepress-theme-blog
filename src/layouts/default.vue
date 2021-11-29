@@ -3,6 +3,7 @@ import IconBook from '~icons/mdi/book'
 import IconTagText from '~icons/mdi/tag-text'
 import IconTimeline from '~icons/mdi/timeline'
 import IconNoteBook from '~icons/mdi/notebook'
+import IconAccount from '~icons/mdi/account'
 import { computed } from 'vue'
 import type { Component } from 'vue'
 import { useRouter } from 'vue-router'
@@ -18,6 +19,16 @@ interface Menu {
 
 const menus: Menu[] = [
   {
+    label: 'Posts',
+    path: '/posts',
+    icon: IconBook,
+  },
+  {
+    label: 'Notes',
+    path: '/notes',
+    icon: IconNoteBook,
+  },
+  {
     label: 'Tags',
     path: '/tags',
     icon: IconTagText,
@@ -28,14 +39,9 @@ const menus: Menu[] = [
     icon: IconTimeline,
   },
   {
-    label: 'Notes',
-    path: '/notes',
-    icon: IconNoteBook,
-  },
-  {
-    label: 'Posts',
-    path: '/posts',
-    icon: IconBook,
+    label: 'About me',
+    path: '/about',
+    icon: IconAccount,
   },
 ]
 
@@ -77,6 +83,7 @@ const logoWidth = computed(() => (breakpoints.greater('sm').value ? 50 : 30))
       <v-link
         theme="text"
         v-for="o in menus"
+        :key="o.path"
         :href="o.path"
         m="l-2 md:l-4"
         :disabled="isDisabled(o)"
