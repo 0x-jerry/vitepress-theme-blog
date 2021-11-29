@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
+import { ref } from 'vue'
 import IconGithub from '~icons/mdi/github'
 import IconBook from '~icons/mdi/book'
 import IconNoteBook from '~icons/mdi/notebook'
@@ -42,13 +43,24 @@ const menus: Menu[] = [
     label: t('menu.title.email'),
   },
 ]
+
+const randomImageId = ref(1000)
+
+function updateRandomImageId() {
+  const [min, max] = [1000, 1010]
+
+  const id = min + ~~(Math.random() * (max - min))
+  randomImageId.value = id
+}
+
+updateRandomImageId()
 </script>
 
 <template>
   <div w="screen" h="screen" overflow="hidden" class="relative" bg="black">
-    <v-random-image w="screen" h="screen" :range="[1000, 1010]" />
-    <div class="page-bg">
-      <v-card class="relative card-bg" p="2 md:x-10 md:y-14">
+    <v-random-image w="screen" h="screen" :id="randomImageId" />
+    <div class="page-bg" @click.self="updateRandomImageId" cursor="pointer">
+      <v-card class="relative card-bg" p="2 md:x-10 md:y-14" cursor="auto">
         <div class="relative" z="10">
           <h1 text="4xl center" font="mono">
             {{ $t('title.index', [$t('name')]) }}
