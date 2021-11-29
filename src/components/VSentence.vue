@@ -14,7 +14,7 @@ async function fetchHitokoto() {
 
 const from = computed(() => [data.value?.from, data.value?.from_who].filter(Boolean).join(' - '))
 
-fetchHitokoto()
+if (!import.meta.env.SSR) fetchHitokoto()
 </script>
 
 <template>
