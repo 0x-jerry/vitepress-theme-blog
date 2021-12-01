@@ -73,15 +73,14 @@ updateRandomImageId()
           </div>
 
           <ul
-            w="min-content"
             m="auto"
-            display="flex"
+            flex="~ wrap"
             justify="center"
             align="items-center"
             text="2xl"
             border="rounded-md"
           >
-            <li class="mx-5" v-for="(o, idx) in menus" :key="idx">
+            <li m="4" v-for="(o, idx) in menus" :key="idx">
               <VLink :href="o.href" theme="white" :hidden-icon="true">
                 <div flex="~ inline" justify="center" w="full">
                   <component :is="o.icon" />
@@ -117,6 +116,7 @@ updateRandomImageId()
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   overflow: hidden;
   max-width: 80%;
+  width: 700px;
 
   @apply backdrop-filter backdrop-blur-md;
 }

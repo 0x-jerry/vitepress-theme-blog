@@ -90,7 +90,7 @@ const logoWidth = computed(() => (breakpoints.greater('sm').value ? 50 : 30))
       >
         <span flex="~ inline" align="items-center">
           <component :is="o.icon" />
-          <span class="ml-1"> {{ o.label }}</span>
+          <span class="hidden md:block" m="l-1"> {{ o.label }}</span>
         </span>
       </v-link>
     </div>

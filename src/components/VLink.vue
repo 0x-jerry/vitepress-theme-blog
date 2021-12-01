@@ -58,6 +58,7 @@ const url = computed(() => props.href)
 .link {
   @apply transition-colors;
   @apply text-blue-500 hover:text-blue-600;
+  @apply break-all;
 
   &.disabled {
     pointer-events: none;
