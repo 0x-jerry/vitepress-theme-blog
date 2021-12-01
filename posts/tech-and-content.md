@@ -2,7 +2,7 @@
 title: 对内容与技术的思考
 date: 2021-12-01 09:58:48
 tags: [think, diary]
-publish: false
+publish: true
 ---
 
 对于稍微有点洁癖的技术人来说，总是想不断的改善现有的 Code、UI/UX，却忽略了更具有价值的东西 --- 内容。
@@ -43,7 +43,12 @@ publish: false
 
 如果仅仅是为了打发时间，让自己的业余生活充实起来，这样也挺好的。
 
-现在，回头看过去的两年，却是
+现在，回头看过去的两年，实质性的输出却是比较少。同理，有时候在做一件事情的时候，找工具却喧宾夺主了，占据了主要的时间，
+导致实际想做的事情后置了。
+
+虽然这个事实早些时候就已经发现，但当具体执行的时候，却还是会陷入这个陷阱。
+
+遂，记录于此，铭记于心。
 
 [vscode-hexo-utils]: https://github.com/0x-jerry/vscode-hexo-utils
 [hexo-simple-theme]: https://github.com/0x-jerry/hexo-theme-simple
