@@ -163,6 +163,12 @@ export default defineConfig({
           filename: 'events.ts',
         })
       },
+      markedPluginOption: {
+        highlight: {
+          theme: 'vitesse-light',
+          highlightLines: true,
+        },
+      },
     }),
   ],
 
