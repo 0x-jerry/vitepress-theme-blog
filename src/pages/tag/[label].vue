@@ -9,7 +9,7 @@ const route = useRoute()
 
 const label = computed(() => route.params.label as string)
 
-const posts = modules.filter((m) => m.data.tags?.includes(label.value))
+const posts = computed(() => modules.filter((m) => m.data.tags?.includes(label.value)))
 
 const { t } = useI18n()
 
