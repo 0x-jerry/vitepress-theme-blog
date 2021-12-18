@@ -68,7 +68,7 @@ function updateToc() {
 </script>
 
 <template>
-  <div class="v-post">
+  <div class="v-post" p="x-4 xl:r-200px 2xl:0">
     <br />
     <div class="v-post-header" p="x-5" flex="~ wrap" align="items-end">
       <h1 text="2xl md:4xl" m="r-2">

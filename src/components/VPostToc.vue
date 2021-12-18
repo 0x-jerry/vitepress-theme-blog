@@ -40,7 +40,7 @@ watchEffect(() => updateToc())
 </script>
 
 <template>
-  <ul class="v-post-toc leading-relaxed" text="sm">
+  <ul class="v-post-toc leading-relaxed" text="sm" shadow="~ md" p="4">
     <li v-for="o in toc">
       <v-link :href="`#${o.id}`" theme="text">
         <span
