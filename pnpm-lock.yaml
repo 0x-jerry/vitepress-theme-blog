@@ -17,7 +17,6 @@ specifiers:
   less: ^4.1.2
   nprogress: ^0.2.0
   pinia: ^2.0.6
-  prism-theme-vars: ^0.2.2
   typescript: ^4.5.4
   unplugin-icons: ^0.12.23
   unplugin-vue-components: ^0.17.9
@@ -40,7 +39,6 @@ dependencies:
   dayjs: registry.nlark.com/dayjs/1.10.7
   nprogress: registry.nlark.com/nprogress/0.2.0
   pinia: registry.npmmirror.com/pinia/2.0.6_typescript@4.5.4+vue@3.2.26
-  prism-theme-vars: registry.npmmirror.com/prism-theme-vars/0.2.2
   vue: registry.npmmirror.com/vue/3.2.26
   vue-gtag-next: registry.npmmirror.com/vue-gtag-next/1.14.0_vue@3.2.26
   vue-i18n: registry.npmmirror.com/vue-i18n/9.2.0-beta.23_vue@3.2.26
@@ -4027,12 +4025,6 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
-
-  registry.npmmirror.com/prism-theme-vars/0.2.2:
-    resolution: {integrity: sha1-pMjdC/23bJtQpq2M2ZqevnqSGmQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/prism-theme-vars/download/prism-theme-vars-0.2.2.tgz}
-    name: prism-theme-vars
-    version: 0.2.2
-    dev: false
 
   registry.npmmirror.com/rollup/2.61.1:
     resolution: {integrity: sha512-BbTXlEvB8d+XFbK/7E5doIcRtxWPRiqr0eb5vQ0+2paMM04Ye4PZY5nHOQef2ix24l/L0SpLd5hwcH15QHPdvA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/rollup/download/rollup-2.61.1.tgz}
