@@ -2,7 +2,7 @@
 title: 对于前端工程的思考
 date: 2021-12-14 10:47:47
 tags: [web, foundation]
-publish: false
+publish: true
 ---
 
 _此文，仅是自己对过去的一个梳理，其中的 **最佳实践** 和 **总结** 并不一定 **正确**，请酌情阅读，也欢迎讨论。_
@@ -114,9 +114,11 @@ _此文，仅是自己对过去的一个梳理，其中的 **最佳实践** 和 
 
 测试代码也可以直接在本地跑一遍。如果能集成在一起，当然是最好的。
 
+关于这一块，之后整理一个基于 Docker 搭建的一系列内网服务，再仔细记录一下。
+
 ## 总结
 
-最后记录一下，目前的最佳实践吧
+最后记录一下，目前自己的最佳实践吧，基于 [vitesse] 改造的模板：[project-v](https://github.com/0x-jerry/project-v)
 
 [parcel]: https://parceljs.org/
 [rome]: https://github.com/rome/tools
