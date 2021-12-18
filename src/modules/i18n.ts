@@ -19,5 +19,6 @@ export const install: UserModule = ({ app }) => {
 
   app.use(i18n)
 
+  // @ts-ignore
   app.config.globalProperties.$t = i18n.global.t
 }
