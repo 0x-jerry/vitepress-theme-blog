@@ -1,8 +1,7 @@
 ---
 title: 加密工作区的实现方案
 date: 2021-12-25 23:48:57
-tags: [encrypt, workspace]
-publish: false
+tags: [encrypt, workspace, vscode]
 ---
 
 自己有时候会写一些私人笔记，但又习惯用 `vscode` 来码字。也习惯了 `github` 来管理版本，存储也就直接选择同步到 `github` 了。
@@ -80,4 +79,4 @@ publish: false
 整体思考下来，利用 [lfs][git-lfs] 实现第一种方案，也是一个不错的选择。但感觉还不是最好的方案。
 
 [git-lfs]: https://git-lfs.github.com/
-[vscode-writing]: https://marketplace.visualstudio.com/items?itemName=fantasy.vscode-writing
+[vscode-writing]: https://github.com/0x-jerry/vscode-private-notes
