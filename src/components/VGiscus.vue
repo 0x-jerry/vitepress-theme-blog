@@ -1,22 +1,37 @@
-<template>
-  <div class="comments" ref="el"></div>
-</template>
-
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 const el = ref<HTMLDivElement>()
+
+const loading = ref(true)
+
+const giscusHost = 'https://giscus.0x-jerry.icu'
 
 onMounted(() => {
   if (el.value) {
     const script = createScript()
     el.value.appendChild(script)
   }
+
+  window.addEventListener('message', handleGiscusMessage)
 })
+
+onUnmounted(() => {
+  window.removeEventListener('message', handleGiscusMessage)
+})
+
+function handleGiscusMessage(event: MessageEvent) {
+  if (event.origin !== giscusHost) return
+  if (!(typeof event.data === 'object' && event.data.giscus)) return
+
+  // const giscusData = event.data.giscus
+
+  loading.value = false
+}
 
 function createScript() {
   const script = document.createElement('script')
 
-  script.src = 'https://giscus.0x-jerry.icu/client.js'
+  script.src = giscusHost + '/client.js'
   script.crossOrigin = 'anonymous'
   script.async = true
 
@@ -31,3 +46,15 @@ function createScript() {
   return script
 }
 </script>
+
+<template>
+  <div class="comments" :class="{ loading }" ref="el" w="full" h="min-100px"></div>
+</template>
+
+<style lang="less" scoped>
+.comments {
+  &.loading {
+    //
+  }
+}
+</style>
