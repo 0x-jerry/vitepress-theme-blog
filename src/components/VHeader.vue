@@ -73,7 +73,7 @@ const logoWidth = computed(() => (breakpoints.greater('sm').value ? 50 : 30))
     bg="white"
     class="header top-0 fixed"
     :class="activeClass"
-    z="10"
+    z="100"
   >
     <div flex="~">
       <router-link to="/" class="relative inline-block" flex="~" align="items-center">
