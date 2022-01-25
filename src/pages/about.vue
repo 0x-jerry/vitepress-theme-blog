@@ -62,13 +62,13 @@ updateRandomImageId()
     <div class="page-bg" @click.self="updateRandomImageId" cursor="pointer">
       <v-card class="relative card-bg" p="2 md:x-10 md:y-14" cursor="auto">
         <div class="relative" z="10">
-          <h1 text="4xl center" font="mono">
+          <h1 text="4xl center">
             {{ $t('title.index', [$t('name')]) }}
           </h1>
 
           <div class="leading-7" m="y-20">
             <v-sentence>
-              <p class="leading-relaxed" text="center" font="mono italic" v-html="$t('motto')"></p>
+              <p class="leading-relaxed" text="center" font="italic" v-html="$t('motto')"></p>
             </v-sentence>
           </div>
 

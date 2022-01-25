@@ -74,19 +74,20 @@ function updateToc() {
       <h1 text="2xl md:4xl" m="r-2">
         {{ title }}
       </h1>
-      <small font="normal">{{ time }}</small>
+      <small class="tag" font="normal">{{ time }}</small>
     </div>
 
-    <hr m="t-4 b-8" />
+    <hr m="t-3 b-5" />
 
     <div m="x-5" text="break-words">
       <div class="heti text-left" ref="content">
         <slot></slot>
       </div>
 
-      <hr m="y-4" />
+      <hr m="t-3 b-5" />
+
       <div flex="~ wrap" justify="center" align="items-center">
-        <router-link v-for="o in tags || []" :to="`/tag/${o}`" m="b-2">
+        <router-link v-for="o in tags || []" :key="o" :to="`/tag/${o}`" m="b-2">
           <v-tag>
             {{ o }}
           </v-tag>
@@ -107,5 +108,10 @@ function updateToc() {
 
 <style lang="less" scoped>
 .toc {
+}
+
+.tag {
+  @apply px-2 py-1px  mr-1;
+  @apply border rounded-full bg-light-400;
 }
 </style>

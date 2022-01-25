@@ -19,7 +19,7 @@ const formateDate = computed(() => dayjs(new Date(props.date)).format('YYYY-MM-D
         {{ title }}
       </h2>
     </router-link>
-    <div m="t-1 b-5" text="gray-400 xs">
+    <div m="t-2 b-5" text="gray-400 xs">
       <span class="tag">{{ formateDate }}</span>
       <span class="tag" v-for="o in tags" :key="o">
         <v-link theme="text" :href="`/tag/${o}`">

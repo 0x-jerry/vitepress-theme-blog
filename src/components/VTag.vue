@@ -7,7 +7,6 @@
     flex="~ inline"
     justify="center"
     align="items-center"
-    font="mono"
   >
     <mdi:tag-text class="mr-1"></mdi:tag-text>
     <slot />

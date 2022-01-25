@@ -79,7 +79,7 @@ const logoWidth = computed(() => (breakpoints.greater('sm').value ? 50 : 30))
     <div flex="~">
       <router-link to="/" class="relative inline-block" flex="~" align="items-center">
         <v-logo :width="logoWidth"></v-logo>
-        <span m="l-2" font="mono" class="hidden md:block">{{ $t('name') }}'s Blog</span>
+        <span m="l-2" class="hidden md:block">{{ $t('name') }}'s Blog</span>
       </router-link>
     </div>
     <div flex="~ 1" align="items-center" justify="end">

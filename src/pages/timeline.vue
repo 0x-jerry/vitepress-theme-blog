@@ -12,8 +12,8 @@ useHead({
 
 <template>
   <div class="timeline" p="l-5">
-    <h1 text="center xl" m="t-4" font="mono">{{ $t('WIP') }}</h1>
-    <component v-for="o in modules" :is="o.module"></component>
+    <h1 text="center xl" m="t-4">{{ $t('WIP') }}</h1>
+    <component v-for="o in modules" :key="o.uuid" :is="o.module"></component>
   </div>
 </template>
 
