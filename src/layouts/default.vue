@@ -103,6 +103,7 @@ const logoWidth = computed(() => (breakpoints.greater('sm').value ? 50 : 30))
     <router-view />
     <br />
   </div>
+  <v-footer />
   <v-go-top />
 </template>
 
