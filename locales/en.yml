@@ -3,10 +3,12 @@ button:
   back: Go back
 menu:
   title:
+    about: About me
     email: Email
     github: Github
     notes: Notes
     posts: Posts
+    tags: Tags
     timeline: Timeline
 motto: >-
   Life was like a box of chocolates. <br /> You never know what you're gonna

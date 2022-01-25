@@ -10,6 +10,9 @@ import { useRouter } from 'vue-router'
 import VGoTop from '~/components/VGoTop.vue'
 import { useWindowScroll } from '@vueuse/core'
 import { breakpoints } from '~/logic'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 interface Menu {
   label: string
@@ -19,27 +22,27 @@ interface Menu {
 
 const menus: Menu[] = [
   {
-    label: 'Posts',
+    label: t('menu.title.posts'),
     path: '/posts',
     icon: IconBook,
   },
   {
-    label: 'Notes',
+    label: t('menu.title.notes'),
     path: '/notes',
     icon: IconNoteBook,
   },
   {
-    label: 'Tags',
+    label: t('menu.title.tags'),
     path: '/tags',
     icon: IconTagText,
   },
   {
-    label: 'Timeline',
+    label: t('menu.title.timeline'),
     path: '/timeline',
     icon: IconTimeline,
   },
   {
-    label: 'About me',
+    label: t('menu.title.about'),
     path: '/about',
     icon: IconAccount,
   },
