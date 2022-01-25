@@ -112,7 +112,7 @@ updateRandomImageId()
 .card-bg {
   background: rgba(0, 0, 0, 0.1);
   color: white;
-  text-shadow: 0 0 5px gray;
+  text-shadow: 0 0 2px rgb(240, 240, 240);
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   overflow: hidden;
   max-width: 80%;
