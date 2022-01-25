@@ -8,7 +8,7 @@ defineProps<NoteProps>()
 </script>
 
 <template>
-  <v-card p="y-3">
+  <v-card p="5">
     <div class="v-note heti heti--classic m-auto" w="full">
       <h2>{{ name ?? '' }}</h2>
       <div class="tags">
