@@ -99,7 +99,7 @@ function updateToc() {
       </template>
     </div>
 
-    <div class="toc fixed top-100px right-10 hidden" z="100" bg="white" xl="block">
+    <div class="toc fixed top-100px right-10 hidden" w="max-260px" z="100" bg="white" xl="block">
       <v-post-toc :toc="toc" />
     </div>
   </div>

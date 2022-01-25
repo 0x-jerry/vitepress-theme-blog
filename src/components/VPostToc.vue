@@ -41,11 +41,10 @@ watchEffect(() => updateToc())
 
 <template>
   <ul class="v-post-toc leading-relaxed" text="sm" shadow="~ md" p="4">
-    <li v-for="o in toc">
-      <v-link :href="`#${o.id}`" theme="text">
+    <li v-for="o in toc" text="truncate">
+      <v-link :href="`#${o.id}`">
         <span
           :class="[{ active: o.label === activeLabel }, `level level-${o.level}`]"
-          text="gray-300 hover:gray-500"
           transition="~ colors"
         >
           {{ o.label }}
@@ -70,7 +69,8 @@ watchEffect(() => updateToc())
   }
 
   &.active {
-    @apply text-gray-600;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
   }
 }
 </style>
