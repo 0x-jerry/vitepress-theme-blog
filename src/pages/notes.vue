@@ -10,7 +10,7 @@ useHead({
 </script>
 
 <template>
-  <div class="notes" p="x-4">
+  <div class="notes" p="y-5 x-4">
     <v-notes />
   </div>
 </template>

@@ -13,7 +13,7 @@ useHead({
 <template>
   <ul>
     <li v-for="o in modules" :key="o.uuid">
-      <component v-if="o.data.publish !== false" :is="o.module" p="5" m="y-5 x-5 md:x-10" />
+      <component v-if="o.data.publish !== false" :is="o.module" p="5" m="y-5 x-4" />
     </li>
   </ul>
 </template>
