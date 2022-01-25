@@ -14,5 +14,7 @@ useHead({
 </script>
 
 <template>
-  <router-view />
+  <div class="heti--classic">
+    <router-view />
+  </div>
 </template>

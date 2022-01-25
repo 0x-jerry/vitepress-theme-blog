@@ -28,7 +28,7 @@ const formateDate = computed(() => dayjs(new Date(props.date)).format('YYYY-MM-D
       </span>
     </div>
     <!-- <hr m="y-4" /> -->
-    <div class="prose m-auto text-left">
+    <div class="heti !max-w-full m-auto text-left">
       <slot />
     </div>
   </v-card>

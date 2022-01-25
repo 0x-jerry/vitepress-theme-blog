@@ -80,7 +80,7 @@ function updateToc() {
     <hr m="t-4 b-8" />
 
     <div m="x-5" text="break-words">
-      <div class="prose text-left" ref="content">
+      <div class="heti heti--classic text-left" ref="content">
         <slot></slot>
       </div>
 

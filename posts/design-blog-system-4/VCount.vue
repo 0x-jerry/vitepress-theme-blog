@@ -5,7 +5,7 @@ const count = ref(0)
 </script>
 
 <template>
-  <div class="count prose">
+  <div class="count">
     <h3>count 组件</h3>
     <div>
       count: {{ count }}

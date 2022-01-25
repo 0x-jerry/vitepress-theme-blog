@@ -1,43 +1,9 @@
-.prose img {
-  display: block;
-  margin: auto;
-  max-width: 100%;
-  border: 1px solid #cfcfcf;
-}
+.heti {
+  max-width: inherit;
 
-.prose .code {
-  position: relative;
-
-  .highlight-lines {
-    position: absolute;
-    width: 100%;
-    pointer-events: none;
-
-    background: transparent;
-
-    padding: 14px 0;
-    margin: 0;
-  }
-
-  .highlighted {
-    font-size: inherit;
-
-    @apply bg-black bg-opacity-5;
-    pointer-events: none;
-  }
-}
-
-.prose table {
-  & th,
-  & td {
-    @apply !p-2;
-  }
-
-  & th {
-    @apply bg-gray-100;
-  }
-
-  & td {
-    @apply bg-gray-50;
+  // fixed bump up and down when hover
+  a {
+    border-block-end: 1px solid transparent;
+    padding-block-end: 1px;
   }
 }

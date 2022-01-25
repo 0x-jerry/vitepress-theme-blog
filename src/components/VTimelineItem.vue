@@ -61,7 +61,7 @@ const date = computed(() => {
       <v-card p="5">
         <h1 text="lg">{{ title }}</h1>
         <hr m="y-3" />
-        <div prose="~ sm" text="gray-500">
+        <div class="heti heti--classic" text="gray-500">
           <slot></slot>
         </div>
       </v-card>

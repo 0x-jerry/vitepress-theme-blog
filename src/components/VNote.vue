@@ -9,7 +9,7 @@ defineProps<NoteProps>()
 
 <template>
   <v-card p="y-3">
-    <div class="v-note prose prose-sm w-prose m-auto" w="full">
+    <div class="v-note heti heti--classic m-auto" w="full">
       <h2>{{ name ?? '' }}</h2>
       <div class="tags">
         <v-tag v-for="o in tags ?? []">
