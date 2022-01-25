@@ -14,7 +14,7 @@ useHead({
 </script>
 
 <template>
-  <div class="heti--classic">
+  <div>
     <router-view />
     <v-client-only>
       <v-pwa />
