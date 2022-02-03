@@ -10,7 +10,6 @@ import { computed } from 'vue'
 import type { Component } from 'vue'
 import { useRouter } from 'vue-router'
 import { useWindowScroll } from '@vueuse/core'
-import { breakpoints } from '~/logic'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -68,8 +67,6 @@ const top = useWindowScroll()
 const activeClass = computed(() => {
   return top.y.value > 5 ? 'active' : ''
 })
-
-const logoWidth = computed(() => (breakpoints.greater('sm').value ? 50 : 30))
 </script>
 
 <template>
@@ -87,8 +84,8 @@ const logoWidth = computed(() => (breakpoints.greater('sm').value ? 50 : 30))
   >
     <div flex="~">
       <router-link to="/" class="relative inline-block" flex="~" align="items-center">
-        <v-logo :width="logoWidth"></v-logo>
-        <span m="l-2" class="hidden md:block">{{ $t('name') }}'s Blog</span>
+        <v-logo class="w-30px md:w-50px"></v-logo>
+        <span m="l-2" class="hidden lg:block"> {{ $t('name') }}'s Blog </span>
       </router-link>
     </div>
     <div flex="~ 1" align="items-center" justify="end">
@@ -102,7 +99,9 @@ const logoWidth = computed(() => (breakpoints.greater('sm').value ? 50 : 30))
       >
         <span flex="~ inline" align="items-center">
           <component :is="o.icon" />
-          <span class="md:block" m="l-1"> {{ o.label }}</span>
+          <span display="hidden sm:block" m="l-1">
+            {{ o.label }}
+          </span>
         </span>
       </v-link>
 

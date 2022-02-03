@@ -2,12 +2,16 @@
 import dayjs from 'dayjs'
 import { computed } from 'vue'
 
-const props = defineProps<{
+interface VExcerptProps {
   title: string
   href: string
   date: string
-  tags: string[]
-}>()
+  tags?: string[]
+}
+
+const props = withDefaults(defineProps<VExcerptProps>(), {
+  tags: () => [],
+})
 
 const formateDate = computed(() => dayjs(new Date(props.date)).format('YYYY-MM-DD'))
 </script>

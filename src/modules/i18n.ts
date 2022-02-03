@@ -1,6 +1,6 @@
 import { watch } from 'vue'
 import { createI18n } from 'vue-i18n'
-import { locale } from '~/logic/locale'
+import { locale } from '~/logic'
 import { UserModule } from '~/types'
 
 // Import i18n resources

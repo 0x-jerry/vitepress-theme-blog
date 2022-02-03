@@ -1,2 +1,2 @@
 export * from './dark'
-export * from './breakpoints'
+export * from './locale'

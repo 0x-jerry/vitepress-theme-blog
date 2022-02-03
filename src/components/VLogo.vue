@@ -5,5 +5,5 @@ defineProps<{
 </script>
 
 <template>
-  <img src="/favicon.svg" :width="width ?? 50" />
+  <img src="/favicon.svg" w="full" />
 </template>

@@ -24,7 +24,7 @@ const strokeDashoffset = computed(
 </script>
 
 <template>
-  <svg :height="radius * 2" :width="radius * 2" transform="~ -rotate-90">
+  <svg :height="radius * 2" :width="radius * 2" class="transform rotate-90">
     <circle
       :stroke="color"
       fill="transparent"
