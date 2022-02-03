@@ -5,12 +5,12 @@ import { scrollToAnchor } from '../utils'
 
 interface VLinkProps {
   theme?: 'blue' | 'gray' | 'white' | 'text'
-  href: string
+  href?: string
   hiddenIcon?: boolean
   disabled?: boolean
 }
 
-const props = defineProps<VLinkProps>()
+const props = withDefaults(defineProps<VLinkProps>(), { href: '' })
 
 const data = reactive({
   isRelative: false,

@@ -1,4 +1,6 @@
+import { watch } from 'vue'
 import { createI18n } from 'vue-i18n'
+import { locale } from '~/logic/locale'
 import { UserModule } from '~/types'
 
 // Import i18n resources
@@ -13,13 +15,18 @@ const messages = Object.fromEntries(
 export const install: UserModule = ({ app }) => {
   const i18n = createI18n({
     legacy: false,
-    locale: 'zh',
+    locale: locale.value,
     fallbackLocale: 'en',
+    globalInjection: true,
     messages,
   })
 
-  app.use(i18n)
+  watch(
+    () => i18n.global.locale.value,
+    (newLocale) => {
+      locale.value = newLocale
+    },
+  )
 
-  // @ts-ignore
-  app.config.globalProperties.$t = i18n.global.t
+  app.use(i18n)
 }

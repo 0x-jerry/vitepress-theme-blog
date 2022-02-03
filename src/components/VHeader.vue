@@ -4,6 +4,8 @@ import IconTagText from '~icons/mdi/tag-text'
 import IconTimeline from '~icons/mdi/timeline'
 import IconNoteBook from '~icons/mdi/notebook'
 import IconAccount from '~icons/mdi/account'
+import IconTranslate from '~icons/mdi/translate'
+
 import { computed } from 'vue'
 import type { Component } from 'vue'
 import { useRouter } from 'vue-router'
@@ -19,33 +21,41 @@ interface Menu {
   icon: Component
 }
 
-const menus: Menu[] = [
-  {
-    label: t('menu.title.posts'),
-    path: '/posts',
-    icon: IconBook,
-  },
-  {
-    label: t('menu.title.notes'),
-    path: '/notes',
-    icon: IconNoteBook,
-  },
-  {
-    label: t('menu.title.tags'),
-    path: '/tags',
-    icon: IconTagText,
-  },
-  {
-    label: t('menu.title.timeline'),
-    path: '/timeline',
-    icon: IconTimeline,
-  },
-  {
-    label: t('menu.title.about'),
-    path: '/about',
-    icon: IconAccount,
-  },
-]
+const menus = computed(() => {
+  const _menus: Menu[] = [
+    {
+      label: t('menu.title.posts'),
+      path: '/posts',
+      icon: IconBook,
+    },
+    {
+      label: t('menu.title.notes'),
+      path: '/notes',
+      icon: IconNoteBook,
+    },
+    {
+      label: t('menu.title.tags'),
+      path: '/tags',
+      icon: IconTagText,
+    },
+    {
+      label: t('menu.title.timeline'),
+      path: '/timeline',
+      icon: IconTimeline,
+    },
+    {
+      label: t('menu.title.about'),
+      path: '/about',
+      icon: IconAccount,
+    },
+  ]
+
+  return _menus
+})
+
+const langConf = {
+  icon: IconTranslate,
+}
 
 const router = useRouter()
 
@@ -84,8 +94,8 @@ const logoWidth = computed(() => (breakpoints.greater('sm').value ? 50 : 30))
     <div flex="~ 1" align="items-center" justify="end">
       <v-link
         theme="text"
-        v-for="o in menus"
-        :key="o.path"
+        v-for="(o, idx) in menus"
+        :key="idx"
         :href="o.path"
         m="l-2 md:l-4"
         :disabled="isDisabled(o)"
@@ -95,6 +105,19 @@ const logoWidth = computed(() => (breakpoints.greater('sm').value ? 50 : 30))
           <span class="md:block" m="l-1"> {{ o.label }}</span>
         </span>
       </v-link>
+
+      <label flex="~ inline" align="items-center" m="l-2 md:l-4">
+        <component :is="langConf.icon" />
+        <select v-model="$i18n.locale">
+          <option
+            v-for="locale in $i18n.availableLocales"
+            :key="`locale-${locale}`"
+            :value="locale"
+          >
+            {{ t('language', '', { locale }) }}
+          </option>
+        </select>
+      </label>
     </div>
   </header>
   <div w="full" h="50px md:70px"></div>

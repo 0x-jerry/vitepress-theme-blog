@@ -1,3 +1,4 @@
+language: English
 WIP: Working In Progress.
 button:
   back: Go back
@@ -16,9 +17,9 @@ motto: >-
 name: 0x-Jerry
 not-found: Not found
 title:
-  index: '{0}''s Blog'
-  notes: '{0}''s Notes'
-  posts: '{0}''s Posts'
+  index: "{0}'s Blog"
+  notes: "{0}'s Notes"
+  posts: "{0}'s Posts"
   tag: Tag - {0}
-  tags: '{0}''s Tags'
-  timeline: '{0}''s Timeline'
+  tags: "{0}'s Tags"
+  timeline: "{0}'s Timeline"
