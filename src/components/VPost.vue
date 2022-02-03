@@ -63,7 +63,6 @@ function updateToc() {
   })
 
   toc.value = links
-  console.log(toc.value)
 }
 </script>
 
