@@ -1,5 +1,17 @@
 {
-  "private": true,
+  "name": "blog",
+  "description": "0x-Jerry's Blog",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0x-jerry/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/0x-jerry/blog/issues"
+  },
+  "homepage": "https://github.com/0x-jerry/blog#readme",
   "scripts": {
     "dev": "vite --port 3333",
     "build": "vite-ssg build",
