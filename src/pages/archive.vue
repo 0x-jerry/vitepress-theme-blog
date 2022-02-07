@@ -17,56 +17,88 @@ interface ArchiveItem {
   href: string
 }
 
-function isTheSameMouth(d1: Dayjs, d2: Dayjs) {
-  return d1.year() === d2.year() && d1.month() === d2.month()
+interface Month {
+  month: number
+  items: ArchiveItem[]
 }
 
-const data: { date: Dayjs; items: ArchiveItem[] }[] = []
+interface Year {
+  year: number
+  items: Month[]
+}
+
+const data: Year[] = []
 
 modules.forEach((m) => {
-  const lastOne = data[data.length - 1]
+  const date = dayjs(m.data.date)
 
   const item: ArchiveItem = {
-    date: dayjs(m.data.date),
+    date,
     title: m.data.title,
     tags: m.data.tags || [],
     href: m.extra.href,
   }
 
-  if (lastOne && isTheSameMouth(lastOne.date, item.date)) {
-    lastOne.items.push(item)
-  } else {
-    data.push({
-      date: item.date,
-      items: [item],
-    })
+  //  ---------
+
+  const year = date.year()
+  const month = date.month() + 1
+
+  let theYear = data.find((n) => n.year === year)
+  if (!theYear) {
+    theYear = { year, items: [] }
+    data.push(theYear)
   }
+
+  let theMonth = theYear.items.find((n) => n.month === month)
+
+  if (!theMonth) {
+    theMonth = { month, items: [] }
+    theYear.items.push(theMonth)
+  }
+
+  theMonth.items.push(item)
 })
 </script>
 
 <template>
   <div class="v-archives" flex="~ col" grid="gap-y-6" m="t-4" p="x-4">
-    <div v-for="o in data" :key="o.date.format('YYYY-MM')" class="flex flex-col gap-y-6">
-      <h2 font="bold" text="2xl">{{ o.date.format('YYYY-MM') }}</h2>
+    <div v-for="yearItem in data" :key="yearItem.year" class="flex flex-col gap-y-6">
+      <div v-for="monthItem in yearItem.items" :key="monthItem.month">
+        <h2 font="bold" text="2xl" m="y-4">{{ yearItem.year }} - {{ monthItem.month }}</h2>
 
-      <a v-for="i in o.items" :key="i.date.unix()" @click="$router.push(i.href)" cursor="pointer">
-        <v-card p="x-6 y-4">
-          <div>
-            <h1 m="b-2">
-              <span m="r-2" text="gray-500">{{ i.date.format('YYYY-MM-DD') }}</span>
-              <v-link :href="i.href" class="text-xl mr-2">
-                {{ i.title }}
-              </v-link>
-            </h1>
+        <div p="l-4" class="flex flex-col gap-y-6">
+          <a
+            v-for="i in monthItem.items"
+            :key="i.date.unix()"
+            @click="$router.push(i.href)"
+            cursor="pointer"
+          >
+            <v-card p="x-6 y-4">
+              <div>
+                <h1 m="b-2">
+                  <span m="r-2" text="gray-500">{{ i.date.format('YYYY-MM-DD') }}</span>
+                  <v-link :href="i.href" class="text-xl mr-2">
+                    {{ i.title }}
+                  </v-link>
+                </h1>
 
-            <div>
-              <router-link class="py-2" v-for="o in i.tags" :key="o" :to="`/tag/${o}`" @click.stop>
-                <v-tag>{{ o }} </v-tag>
-              </router-link>
-            </div>
-          </div>
-        </v-card>
-      </a>
+                <div>
+                  <router-link
+                    class="py-2"
+                    v-for="o in i.tags"
+                    :key="o"
+                    :to="`/tag/${o}`"
+                    @click.stop
+                  >
+                    <v-tag>{{ o }} </v-tag>
+                  </router-link>
+                </div>
+              </div>
+            </v-card>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
