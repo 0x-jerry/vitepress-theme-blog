@@ -1,7 +1,7 @@
 ---
 title: Hexo 入门
 date: 2017-10-25 21:08:27
-tag: [Blog, Hexo]
+tags: [Blog, Hexo]
 license: CC BY-NC 4.0
 ---
 
@@ -11,7 +11,7 @@ license: CC BY-NC 4.0
 
 ## 安装之前的准备
 
-安装 [Nodejs](http://nodejs.cn/) 和 [npm](https://www.npmjs.com/)，推荐使用 [nvm](https://github.com/creationix/nvm) 来安装。既然都推荐使用 [nvm](https://github.com/creationix/nvm) 了，那就再推荐一下包管理工具 [Yarn](https://yarnpkg.com/zh-Hans/) 
+安装 [Nodejs](http://nodejs.cn/) 和 [npm](https://www.npmjs.com/)，推荐使用 [nvm](https://github.com/creationix/nvm) 来安装。既然都推荐使用 [nvm](https://github.com/creationix/nvm) 了，那就再推荐一下包管理工具 [Yarn](https://yarnpkg.com/zh-Hans/)
 
 <!-- more -->
 
@@ -43,7 +43,6 @@ npm install # 或者 yarn
 然后，就好了～
 
 > Tips：这里需要全局安装，若不是全局安装，则需要在安装 Hexo 的那个目录下的 config.json 里面的配置相应的命令然后使用 npm 或者 yarn 运行
-
 
 ## 配置
 
@@ -89,7 +88,7 @@ hexo s
 npm install hexo-deployer-git
 ```
 
-### 配置 deploy 
+### 配置 deploy
 
 然后在之前介绍的配置文件中配置 deploy
 
