@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import IconBook from '~icons/mdi/book'
 import IconTagText from '~icons/mdi/tag-text'
+import IconArchive from '~icons/mdi/archive'
 import IconTimeline from '~icons/mdi/timeline'
 import IconNoteBook from '~icons/mdi/notebook'
 import IconAccount from '~icons/mdi/account'
@@ -36,6 +37,11 @@ const menus = computed(() => {
       label: t('menu.title.tags'),
       path: '/tags',
       icon: IconTagText,
+    },
+    {
+      label: t('menu.title.archive'),
+      path: '/archive',
+      icon: IconArchive,
     },
     {
       label: t('menu.title.timeline'),

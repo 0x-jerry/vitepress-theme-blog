@@ -57,7 +57,7 @@ updateRandomImageId()
 </script>
 
 <template>
-  <div w="screen" h="screen" overflow="hidden" class="relative" bg="black">
+  <div w="screen" h="screen" class="relative" bg="black">
     <v-random-image w="screen" h="screen" :id="randomImageId" />
     <div class="page-bg" @click.self="updateRandomImageId" cursor="pointer">
       <v-card class="relative card-bg" p="2 md:x-10 md:y-14" cursor="auto">

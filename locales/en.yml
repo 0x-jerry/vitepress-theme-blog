@@ -1,10 +1,11 @@
-language: English
 WIP: Working In Progress.
 button:
   back: Go back
+language: English
 menu:
   title:
     about: About me
+    archive: Archive
     email: Email
     github: Github
     notes: Notes
@@ -17,6 +18,7 @@ motto: >-
 name: 0x-Jerry
 not-found: Not found
 title:
+  archive: "{0}'s archive"
   index: "{0}'s Blog"
   notes: "{0}'s Notes"
   posts: "{0}'s Posts"

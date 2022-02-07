@@ -94,11 +94,21 @@ export default defineConfig({
         a: 'v-link',
       },
       transform: {
+        afterRead(info) {
+          const id = info.path
+          const postPrefix = path.join(process.cwd(), 'posts')
+
+          if (id.startsWith(postPrefix)) {
+            return {
+              href:
+                '/post' + id.replace(path.join(process.cwd(), 'posts'), '').replace(/\.md$/, ''),
+            }
+          }
+        },
         before(info) {
           const id = info.path
           const opt: MdRenderOption = {
             wrapper: 'div',
-            extra: {},
           }
 
           if (/notes/.test(id)) {
@@ -115,8 +125,6 @@ export default defineConfig({
 
           if (info.type === 'excerpt') {
             opt.wrapper = 'v-excerpt'
-            opt.extra!.href =
-              '/post' + id.replace(path.join(process.cwd(), 'posts'), '').replace(/\.md$/, '')
           }
 
           return opt
