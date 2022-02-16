@@ -26,6 +26,8 @@ modules.forEach((m) => {
     }
   }
 })
+
+tags.sort((a, b) => b.count - a.count)
 </script>
 
 <template>
