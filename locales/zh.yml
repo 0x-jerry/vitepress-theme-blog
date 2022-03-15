@@ -15,6 +15,8 @@ menu:
 motto: 人生就像一盒巧克力，你永远不知道里面装的是什么。
 name: 0x-Jerry
 not-found: 丢失了
+time:
+  minutes: 分钟
 title:
   archive: '{0} 的归档'
   index: '{0} 的博客'

@@ -25,3 +25,6 @@ title:
   tag: Tag - {0}
   tags: "{0}'s Tags"
   timeline: "{0}'s Timeline"
+
+time:
+  minutes: minutes
