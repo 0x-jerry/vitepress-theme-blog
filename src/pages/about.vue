@@ -60,7 +60,7 @@ updateRandomImageId()
   <div w="screen" h="screen" class="relative" bg="black">
     <v-random-image w="screen" h="screen" :id="randomImageId" />
     <div class="page-bg" @click.self="updateRandomImageId" cursor="pointer">
-      <v-card class="relative card-bg" p="2 md:x-10 md:y-14" cursor="auto">
+      <div class="relative card-bg" p="2 md:x-10 md:y-14" cursor="auto">
         <div class="relative" z="10">
           <h1 text="4xl center">
             {{ $t('title.index', [$t('name')]) }}
@@ -90,7 +90,7 @@ updateRandomImageId()
             </li>
           </ul>
         </div>
-      </v-card>
+      </div>
     </div>
   </div>
 </template>
@@ -113,7 +113,9 @@ updateRandomImageId()
   background: rgba(0, 0, 0, 0.1);
   color: white;
   text-shadow: 0 0 2px rgb(240, 240, 240);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 2px rgb(255, 255, 255);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
   overflow: hidden;
   max-width: 80%;
   width: 700px;

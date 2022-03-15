@@ -11,6 +11,7 @@ import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import { createBlogPlugin } from 'vite-plugin-blog'
 import { MdRenderOption } from 'vite-plugin-blog/src/md2vue'
+import readingTime from 'reading-time'
 
 const postHrefPrefix = 'post'
 
@@ -102,6 +103,7 @@ export default defineConfig({
             return {
               href:
                 '/post' + id.replace(path.join(process.cwd(), 'posts'), '').replace(/\.md$/, ''),
+              read: readingTime(info.content),
             }
           }
         },

@@ -31,8 +31,8 @@ tags.sort((a, b) => b.count - a.count)
 </script>
 
 <template>
-  <div class="v-tags" flex="~ wrap" m="t-4" p="x-4">
-    <router-link class="py-2" v-for="o in tags" :key="o.label" :to="`/tag/${o.label}`">
+  <div class="v-tags" flex="~ wrap" m="t-4" p="x-4" grid="gap-2">
+    <router-link v-for="o in tags" :key="o.label" :to="`/tag/${o.label}`">
       <v-tag>{{ o.label }} | {{ o.count }} </v-tag>
     </router-link>
   </div>

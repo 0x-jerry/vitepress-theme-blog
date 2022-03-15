@@ -6,7 +6,7 @@ const year = dayjs().year()
 
 <template>
   <div w="full" text="center" m="t-4 y-6">
-    © 2017-{{ year }} 0x-Jerry. Built top on
+    © 2017-{{ year }} @ 0x-Jerry. Built top on
     <v-link href="https://vitejs.dev/"> vite </v-link>
     and
     <v-link href="https://v3.vuejs.org/"> vue </v-link>.

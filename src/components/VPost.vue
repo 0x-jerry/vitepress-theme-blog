@@ -1,16 +1,17 @@
 <script lang="ts" setup>
 import { HeadObject, useHead } from '@vueuse/head'
 import { computed, onMounted, ref, useAttrs, watch } from 'vue'
-import dayjs from 'dayjs'
 import { scrollToAnchor } from '~/utils'
 import { useRouter } from 'vue-router'
 import type { TocLink } from '~/types'
+import type { ReadTimeResults } from 'reading-time'
 
 interface PostProps {
   title: string
   date: string
   tags?: string[]
   meta?: HeadObject[]
+  read: ReadTimeResults
 }
 
 const attrs = useAttrs()
@@ -22,8 +23,6 @@ useHead({
   title: props.title,
   meta: props.meta,
 })
-
-const time = computed(() => dayjs(props.date).format('YYYY-MM-DD HH:mm'))
 
 const enableComment = computed(() => attrs.comment ?? true)
 
@@ -67,39 +66,39 @@ function updateToc() {
 </script>
 
 <template>
-  <div class="v-post" p="x-4 xl:r-200px 2xl:0">
+  <div class="v-post" p="xl:r-200px 2xl:0">
     <br />
-    <div class="v-post-header" flex="~ wrap" align="items-end">
-      <h1 text="2xl md:4xl" m="r-2">
+
+    <div text="break-words" bg="light-200" p="4">
+      <h1 text="2xl md:3xl center" m="r-2">
         {{ title }}
       </h1>
-      <small class="tag" font="normal">{{ time }}</small>
-    </div>
 
-    <hr m="t-3 b-5" />
+      <div m="t-3">
+        <v-post-labels v-bind="props" class="justify-center" />
+      </div>
 
-    <div text="break-words">
+      <hr m="y-4" />
+
       <div class="heti text-left" ref="content">
         <slot></slot>
       </div>
-
-      <hr m="t-3 b-5" />
-
-      <div flex="~ wrap" justify="center" align="items-center">
-        <router-link v-for="o in tags || []" :key="o" :to="`/tag/${o}`" m="b-2">
-          <v-tag>
-            {{ o }}
-          </v-tag>
-        </router-link>
-      </div>
-      <br />
-
-      <template v-if="enableComment">
-        <v-giscus />
-      </template>
     </div>
 
-    <div class="toc fixed top-100px right-10 hidden" w="max-260px" z="100" bg="white" xl="block">
+    <br />
+
+    <template v-if="enableComment">
+      <v-giscus />
+    </template>
+
+    <div
+      v-if="toc.length"
+      class="toc fixed top-100px right-10 hidden"
+      w="max-260px"
+      z="100"
+      bg="white"
+      xl="block"
+    >
       <v-post-toc :toc="toc" />
     </div>
   </div>

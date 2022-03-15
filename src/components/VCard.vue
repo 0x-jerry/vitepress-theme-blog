@@ -2,9 +2,9 @@
   <div
     class="v-card"
     border="~ md:none"
-    shadow="md:md md:hover:lg"
+    shadow="md:sm md:hover:md"
     backdrop="md:blur-md"
-    bg="white opacity-10"
+    bg="light-200"
     transition="~ shadow"
   >
     <slot></slot>

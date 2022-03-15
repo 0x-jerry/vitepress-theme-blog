@@ -24,7 +24,7 @@ if (!import.meta.env.SSR) fetchHitokoto()
   <div v-else class="v-sentence" text="center" @click="fetchHitokoto" cursor="pointer">
     <p font="italic">「 {{ data?.hitokoto }} 」</p>
     <br />
-    <p text="right">--- 《{{ from }}》</p>
+    <p text="right">--- {{ from }}</p>
   </div>
 </template>
 

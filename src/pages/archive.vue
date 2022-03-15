@@ -3,6 +3,7 @@ import { useHead } from '@vueuse/head'
 import dayjs, { Dayjs } from 'dayjs'
 import { useI18n } from 'vue-i18n'
 import { modules } from '~blog/excerpts/entry'
+import type { ReadTimeResults } from 'reading-time'
 
 const { t } = useI18n()
 
@@ -15,6 +16,7 @@ interface ArchiveItem {
   title: string
   tags: string[]
   href: string
+  read: ReadTimeResults
 }
 
 interface Month {
@@ -37,6 +39,7 @@ modules.forEach((m) => {
     title: m.data.title,
     tags: m.data.tags || [],
     href: m.extra.href,
+    read: m.extra.read,
   }
 
   //  ---------
@@ -83,17 +86,7 @@ modules.forEach((m) => {
                   </v-link>
                 </h1>
 
-                <div>
-                  <router-link
-                    class="py-2"
-                    v-for="o in i.tags"
-                    :key="o"
-                    :to="`/tag/${o}`"
-                    @click.stop
-                  >
-                    <v-tag>{{ o }} </v-tag>
-                  </router-link>
-                </div>
+                <v-post-labels :read="i.read" :tags="i.tags" />
               </div>
             </v-card>
           </a>

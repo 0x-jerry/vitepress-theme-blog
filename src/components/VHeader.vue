@@ -84,7 +84,7 @@ const activeClass = computed(() => {
     transition="~ shadow"
     p="x-4 md:x-10"
     bg="white"
-    class="header top-0 fixed"
+    class="v-header top-0 fixed"
     :class="activeClass"
     z="100"
   >
@@ -127,3 +127,11 @@ const activeClass = computed(() => {
   </header>
   <div w="full" h="50px md:70px"></div>
 </template>
+
+<style lang="less" scoped>
+.v-header {
+  &.active {
+    @apply shadow-lg;
+  }
+}
+</style>
