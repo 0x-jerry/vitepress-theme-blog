@@ -3,7 +3,6 @@
     "lokalise.i18n-ally",
     "antfu.iconify",
     "voorjaar.windicss-intellisense",
-    "johnsoncodehk.volar",
-    "johnsoncodehk.vscode-typescript-vue-plugin"
+    "johnsoncodehk.volar"
   ]
 }
