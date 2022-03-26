@@ -15,8 +15,8 @@ tags: [Rust, WebAssembly]
 借用官网的一段话：
 
 > WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications.
->
-> WebAssembly（缩写为 Wasm）是一种用于基于堆栈的虚拟机的二进制指令格式。Wasm 被设计为编程语言的可移植编译目标，支持 web 客户端部署以及服务器应用程序部署。
+> <br><br>
+> WebAssembly（缩写为 Wasm）是一种用于基于堆栈的虚拟机的二进制指令格式。Wasm 被设计为编程语言的可移植编译目标，支持部署在 web 端以及服务器端。
 
 这么看来， [Wasm] 就是一个中间产物，不管你用什么编程语言写，只要编译成 [Wasm]，那么，其他应用程序，只要支持执行 [Wasm]，就可以执行你编写的程序。
 
