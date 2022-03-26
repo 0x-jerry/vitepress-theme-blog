@@ -69,7 +69,7 @@ function updateToc() {
   <div class="v-post" p="xl:r-200px 2xl:0">
     <br />
 
-    <div text="break-words" bg="light-200" p="4">
+    <div text="break-words" bg="light-200" p="4 b-6 md:12 md:b-20">
       <h1 text="2xl md:3xl center" m="r-2">
         {{ title }}
       </h1>
