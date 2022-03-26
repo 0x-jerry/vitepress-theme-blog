@@ -1,6 +1,6 @@
 ---
 title: Nginx-Location
-date: 2020-12-17T10:57:15+08:00
+date: 2020-12-16T18:57:15.000Z
 tags: [Nginx]
 # CC BY-NC 4.0
 license: CC BY-NC 4.0

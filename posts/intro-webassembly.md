@@ -1,6 +1,6 @@
 ---
 title: WebAssembly 入门
-date: 2022-03-27 22:25:25
+date: 2022-03-27T14:25:25.000Z
 tags: [Rust, WebAssembly]
 ---
 

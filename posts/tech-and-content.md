@@ -1,6 +1,6 @@
 ---
 title: 对内容与技术的思考
-date: 2021-12-01 09:58:48
+date: 2021-12-01T01:58:48.000Z
 tags: [think, diary]
 publish: true
 ---

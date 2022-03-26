@@ -1,6 +1,6 @@
 ---
 title: Vue3 - Runtime Dom
-date: 2020-03-05T16:46:31+08:00
+date: 2020-03-05T00:46:31.000Z
 tags: [Vue, Vue3]
 # CC BY-NC 4.0
 license: CC BY-NC 4.0

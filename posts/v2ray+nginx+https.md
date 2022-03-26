@@ -1,6 +1,6 @@
 ---
 title: V2Ray+Nginx+TLS
-date: 2019-08-14T15:08:11.906Z
+date: 2019-08-14T07:08:11.906Z
 tags: [Nginx, V2Ray, TLS]
 # CC BY-NC 4.0
 license: CC BY-NC 4.0

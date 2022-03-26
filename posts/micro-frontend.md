@@ -1,6 +1,6 @@
 ---
 title: 微前端
-date: 2021-06-01T02:03:01.122Z
+date: 2021-05-31T18:03:01.122Z
 tags: [micro-frontend, web]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Ubuntu 装机清单
-date: 2017-09-23 09:00:49
+date: 2017-09-23T01:00:49.000Z
 tags: [Linux, Ubuntu]
 license: CC BY-NC 4.0
 ---

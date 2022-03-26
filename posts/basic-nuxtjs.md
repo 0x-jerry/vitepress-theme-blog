@@ -1,6 +1,6 @@
 ---
 title: NuxtJS 初识
-date: 2020-03-28T23:13:46+08:00
+date: 2020-03-28T07:13:46.000Z
 tags: [SSR, Vue, NuxtJS]
 # CC BY-NC 4.0
 license: CC BY-NC 4.0

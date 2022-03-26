@@ -1,6 +1,6 @@
 ---
 title: Vue3 - Reactivity
-date: 2020-03-06T13:37:20+08:00
+date: 2020-03-05T21:37:20.000Z
 tags: [Vue, Vue3]
 # CC BY-NC 4.0
 license: CC BY-NC 4.0

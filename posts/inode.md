@@ -1,6 +1,6 @@
 ---
 title: Linux 下 iNode 解决方案
-date: 2017-09-19 09:04:54
+date: 2017-09-19T01:04:54.000Z
 tags: [iNode, Linux]
 license: CC BY-NC 4.0
 ---

@@ -1,6 +1,6 @@
 ---
 title: JavaScript 持续集成
-date: 2017-09-29 09:25:18
+date: 2017-09-29T01:25:18.000Z
 tags: [JavaScript, Coveralls, Travis CI]
 license: CC BY-NC 4.0
 ---

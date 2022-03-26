@@ -1,6 +1,6 @@
 ---
 title: Hexo 入门
-date: 2017-10-25 21:08:27
+date: 2017-10-25T13:08:27.000Z
 tags: [Blog, Hexo]
 license: CC BY-NC 4.0
 ---

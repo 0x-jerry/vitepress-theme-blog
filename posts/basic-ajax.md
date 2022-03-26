@@ -1,6 +1,6 @@
 ---
 title: AJAX 基础
-date: 2017-10-27 21:08:27
+date: 2017-10-27T13:08:27.000Z
 tags: [Ajax]
 license: CC BY-NC 4.0
 ---

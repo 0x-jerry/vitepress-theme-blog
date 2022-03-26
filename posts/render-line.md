@@ -1,7 +1,7 @@
 ---
 title: VSCode 如何渲染代码
 tags: [vscode, js, virtual-list, performance]
-date: 2021-09-09T23:13:46+08:00
+date: 2021-09-09T07:13:46.000Z
 ---
 
 本文主要探索， VSCode 是如何把 1w+ 行代码呈现出来，且做到滚动不卡顿的。

@@ -1,6 +1,6 @@
 ---
 title: 正则表达式
-date: 2017-03-27 09:49:44
+date: 2017-03-27T01:49:44.000Z
 tags: [Regex, JavaScript]
 license: CC BY-NC 4.0
 ---

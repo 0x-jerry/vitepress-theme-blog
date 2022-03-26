@@ -1,6 +1,6 @@
 ---
 title: hexo+git+travis自动部署
-date: 2018-11-08 13:41:11
+date: 2018-11-08T05:41:11.000Z
 tags: [Hexo, Git, Travis CI]
 license: CC BY-NC 4.0
 ---
