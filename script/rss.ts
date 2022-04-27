@@ -7,7 +7,7 @@ export const site = {
   host: 'blog.0x-jerry.icu',
   postPathPrefix: '/post',
   language: 'zh',
-  title: "0x Jerry's Blob",
+  title: "0x-Jerry's Blog",
   description: 'Just a blog.',
   author: {
     name: 'Jerry Wang',
