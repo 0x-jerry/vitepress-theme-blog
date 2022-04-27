@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { HeadObject, useHead } from '@vueuse/head'
+import { HeadAttrs, useHead } from '@vueuse/head'
 import { computed, onMounted, ref, useAttrs, watch } from 'vue'
 import { scrollToAnchor } from '~/utils'
 import { useRouter } from 'vue-router'
@@ -10,7 +10,7 @@ interface PostProps {
   title: string
   date: string
   tags?: string[]
-  meta?: HeadObject[]
+  meta?: HeadAttrs[]
   read: ReadTimeResults
 }
 
@@ -21,7 +21,21 @@ const router = useRouter()
 
 useHead({
   title: props.title,
-  meta: props.meta,
+  meta: [
+    ...(props.meta || []),
+    {
+      name: 'tags',
+      content: props.tags?.join(','),
+    },
+    {
+      name: 'date',
+      content: props.date,
+    },
+    {
+      name: 'og:title',
+      content: props.title,
+    },
+  ],
 })
 
 const enableComment = computed(() => attrs.comment ?? true)

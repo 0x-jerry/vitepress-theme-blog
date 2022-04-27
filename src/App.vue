@@ -9,7 +9,11 @@ const { t } = useI18n()
 // they will be rendered correctly in the html results with vite-ssg
 useHead({
   title: t('title.index', [t('name')]),
-  meta: [{ name: 'description', content: 'Just a blog' }],
+  meta: [
+    { name: 'description', content: 'Just a blog' },
+    { name: 'rss', content: '/rss2.xml' },
+  ],
+  link: [{ href: '/rss2.xml', rel: 'alternate', title: 'RSS', type: 'application/rss+xml' }],
 })
 </script>
 

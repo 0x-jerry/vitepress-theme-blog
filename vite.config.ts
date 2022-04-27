@@ -12,6 +12,7 @@ import Inspect from 'vite-plugin-inspect'
 import { createBlogPlugin } from 'vite-plugin-blog'
 import { MdRenderOption } from 'vite-plugin-blog/src/md2vue'
 import readingTime from 'reading-time'
+import { generateFeed } from './script/rss'
 
 const postHrefPrefix = 'post'
 
@@ -162,6 +163,9 @@ export default defineConfig({
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
+    onFinished() {
+      generateFeed()
+    },
   },
 
   optimizeDeps: {
