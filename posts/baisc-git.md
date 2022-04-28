@@ -24,11 +24,12 @@ sudo apt-get install git
 **配置文件**
 
 三种配置文件：
+
 1. `/etc/gitconfig` 文件：包含系统上每一个用户及他们仓库的通用配置。如果使用带有 `--system` 选项的 `git config` 时，它会从此文件读写配置变量。
 2. `~/.gitconfig` 或 `~/.config/git/config` 文件：只针对当前用户。可以传递 `--global` 选项让 Git 读写此文件。
 3. 当前使用仓库的 Git 目录中的 `config` 文件（就是 `.git/config`）：针对该仓库。
 
-每一个级别覆盖上一个级别的配置：3 中的配置覆盖 2 中的配置，2 中的配置覆盖 1中的配置。
+每一个级别覆盖上一个级别的配置：3 中的配置覆盖 2 中的配置，2 中的配置覆盖 1 中的配置。
 
 **配置用户信息**
 
@@ -94,7 +95,7 @@ git commit -a -m 'creat github' #直接提交所以已跟踪的文件并附上�
 查看每个跟踪的文件的状态
 
 ```
-git status 
+git status
 ```
 
 **忽略文件**
@@ -117,7 +118,7 @@ git diff
 
 ```bash
 git rm README #移除 README 文件，会删除相应的文件
-git rm --cached README #仅移除 Git 对 README 文件的追踪，不会删除文件 
+git rm --cached README #仅移除 Git 对 README 文件的追踪，不会删除文件
 ```
 
 **移动文件**
@@ -148,7 +149,7 @@ git log -p -2 #查看最近的两次提交记录，以及详细信息
 **撤销操作**
 
 ```
-git commit --amend 
+git commit --amend
 #在你上次提交之后，追加提交，只算一次提交，即这一次提交会覆盖上一次提交
 ```
 
@@ -165,6 +166,7 @@ git checkout --README #撤销对 README 文件的修改，回到上一次提交�
 ```
 
 ## 工具
+
 - Git 教学：https://git-scm.com/book/zh/v2
 - Git 指令参考：https://git-scm.com/docs
 - Liunx 下的图形界面 Git：https://www.gitkraken.com/
