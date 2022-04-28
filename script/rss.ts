@@ -44,8 +44,9 @@ export async function generateFeed() {
 
   const posts: { link: string; content: string; title: string; date: Date }[] = []
 
-  const dateReg = /meta name="date" content="([0-9a-zA-Z.:\-]+)"/
+  const dateReg = /meta name="date" content="([0-9a-zA-Z.:-]+)"/
   const titleReg = /<title>(.+)?<\/title>/
+  const removeHeaderReg = /<header.+<\/header>/
   for (const file of files) {
     const postTitle = file.replace(/\.html$/, '')
 
@@ -60,7 +61,7 @@ export async function generateFeed() {
     posts.push({
       date: dayjs(date, 'YYYY-MM-DDTHH:mm:ss.SSS.Z').toDate(),
       link,
-      content: html,
+      content: html.replace(removeHeaderReg, ''),
       title,
     })
   }
