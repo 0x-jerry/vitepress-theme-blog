@@ -31,7 +31,7 @@ export async function generateFeed() {
     id: site.baseUrl,
     link: site.baseUrl,
     language: 'en', // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
-    favicon: site.url('/favicon.svg'),
+    favicon: site.url('/favicon.ico'),
     copyright: 'All rights reserved 2022, 0x-Jerry',
     feedLinks: {
       rss2: site.url('rss2.xml'),

@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/0x-jerry/static/fonts/LXGW/style.css" />
 
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/0x-jerry/static/fonts/LXGW/style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  </head>
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-</head>
+  <body>
+    <div id="app"></div>
 
-<body>
-  <div id="app"></div>
-
-  <script>
-    ; (function () {
-      const prefersDark =
-        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-      const setting = localStorage.getItem('vueuse-color-scheme') || 'auto'
-      if (setting === 'dark' || (prefersDark && setting !== 'light'))
-        document.documentElement.classList.toggle('dark', true)
-    })()
-  </script>
-  <script type="module" src="/src/main.ts"></script>
-</body>
-
+    <script>
+      ;(function () {
+        const prefersDark =
+          window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        const setting = localStorage.getItem('vueuse-color-scheme') || 'auto'
+        if (setting === 'dark' || (prefersDark && setting !== 'light'))
+          document.documentElement.classList.toggle('dark', true)
+      })()
+    </script>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
