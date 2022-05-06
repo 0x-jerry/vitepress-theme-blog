@@ -46,7 +46,11 @@ tags: [Rust, WebAssembly]
 
 ## 结语
 
-[WebAssembly] 应用的场景主要重在计算方面，在计算量不高的场景下，JS 已经足够了。另附一些相关参考的资料。
+[WebAssembly] 应用的场景主要重在计算方面，在计算量不高的场景下，JS 已经足够了。另附一些相关参考的资料：
+
+- [wasm-pack]
+- [WebAssembly]
+- [mmcq.js]
 
 [wasm-pack]: https://github.com/rustwasm/wasm-pack
 [webassembly]: https://webassembly.org/
