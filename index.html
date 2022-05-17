@@ -7,20 +7,17 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/0x-jerry/static/fonts/LXGW/style.css" />
 
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <script
+      async
+      defer
+      data-website-id="11ac5c86-f341-454d-8ce8-09acd333bf07"
+      src="https://umami.0x-jerry.icu/umami.js"
+    ></script>
   </head>
 
   <body>
     <div id="app"></div>
 
-    <script>
-      ;(function () {
-        const prefersDark =
-          window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-        const setting = localStorage.getItem('vueuse-color-scheme') || 'auto'
-        if (setting === 'dark' || (prefersDark && setting !== 'light'))
-          document.documentElement.classList.toggle('dark', true)
-      })()
-    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
