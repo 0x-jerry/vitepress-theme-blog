@@ -90,7 +90,7 @@ const activeClass = computed(() => {
   >
     <div flex="~">
       <router-link to="/" class="relative inline-block" flex="~" align="items-center">
-        <v-logo class="w-30px md:w-50px"></v-logo>
+        <v-logo class="w-30px md:w-50px" width="50"></v-logo>
         <span m="l-2" class="hidden lg:block"> {{ $t('name') }}'s Blog </span>
       </router-link>
     </div>

@@ -1,8 +1,4 @@
-<script lang="ts" setup>
-defineProps<{
-  width?: string | number
-}>()
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <img src="/favicon.svg" w="full" />
