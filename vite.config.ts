@@ -10,7 +10,6 @@ import WindiCSS from 'vite-plugin-windicss'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import { createBlogPlugin } from 'vite-plugin-blog'
-import { MdRenderOption } from 'vite-plugin-blog/src/md2vue'
 import readingTime from 'reading-time'
 import { generateFeed } from './script/rss'
 
@@ -110,7 +109,7 @@ export default defineConfig({
         },
         before(info) {
           const id = info.path
-          const opt: MdRenderOption = {
+          const opt = {
             wrapper: 'div',
           }
 
@@ -161,7 +160,7 @@ export default defineConfig({
 
   // https://github.com/antfu/vite-ssg
   ssgOptions: {
-    script: 'async',
+    script: 'async defer',
     formatting: 'minify',
     onFinished() {
       generateFeed()
