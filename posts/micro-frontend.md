@@ -185,7 +185,7 @@ export const routes = [
 
 虽然支持 `shadow-dom`，但是建议不要使用 `shadow dom`，因为这会导致一些其它问题，例如第三方库中的 `Modal` 无法使用。
 
-关于通信，[QianKun] 实现了一套基本的状态管理方案 [Global-State](https://qiankun.umijs.org/api#initglobalstatestate)。具体原理，则是通过 全局 实例来处理的。[source: Global-State](https://github.com/umijs/qiankun/blob/HEAD/src/globalState.ts)
+关于通信，[QianKun] 实现了一套基本的状态管理方案 [Global-State](https://qiankun.umijs.org/api#initglobalstatestate)。具体原理，则是通过 全局 实例来处理的。[source: Global-State](https://github.com/umijs/qiankun/blob/HEAD/src/globalState.ts#)
 
 ### 小结
 

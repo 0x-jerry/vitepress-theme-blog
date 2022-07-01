@@ -80,7 +80,7 @@ function updateToc() {
 </script>
 
 <template>
-  <div class="v-post" p="xl:r-200px 2xl:0">
+  <div class="v-post" p="xl:r-100px 2xl:0" w="max-800px" m="auto">
     <br />
 
     <div text="break-words" bg="light-200" p="4 b-6 md:12 md:b-20">
