@@ -1,6 +1,10 @@
 {
   "[markdown]": {
-    "editor.quickSuggestions": true
+    "editor.quickSuggestions": {
+      "comments": true,
+      "other": true,
+      "strings": true
+    }
   },
   "remote-snippets.js": [".snippets/post.js"],
   "i18n-ally.keystyle": "nested",
