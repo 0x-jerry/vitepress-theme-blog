@@ -94,6 +94,7 @@ const activeClass = computed(() => {
         <span m="l-2" class="hidden lg:block"> {{ $t('name') }}'s Blog </span>
       </router-link>
     </div>
+    <v-algolia></v-algolia>
     <div flex="~ 1" align="items-center" justify="end">
       <v-link
         theme="text"
