@@ -22,7 +22,7 @@ _此文，仅是自己对过去的一个梳理，其中的 **最佳实践** 和 
 于此，记一记关于 **工程项目** 相关的思考。包括：
 
 1. 规范，包括项目结构规范，代码规范，前后端协议（接口）规范
-2. 项目编译，如 webpack 等编译工具
+2. 项目编译，如 Webpack 等编译工具
 3. 持续集成，包括自动化测试，发布，回滚
 
 ## 规范
@@ -42,13 +42,13 @@ _此文，仅是自己对过去的一个梳理，其中的 **最佳实践** 和 
 除了基础结构，还可以添加 `lib` 目录，用于一些自己沉淀的无关业务的相关库，其作用和 `utils` 类似，只不过代码量比 `utils` 要大一些，
 通常是一整块逻辑。`utils` 适合放一些小函数（代码不超过 30 行）。
 
-另外的一些规范，可根据具体的框架和工具链进行调整。例如基于 [vite] 工具链的开源模板 [vitesse]。
+另外的一些规范，可根据具体的框架和工具链进行调整。例如基于 [Vite] 工具链的开源模板 [Vitesse]。
 
-其实具体的目录名称到并不是特别的重要，重要的是，要有这些规范，且要根据项目，适当的增加规范。这样，写或者看代码的人，才知道对应的代码，放什么位置。
+其实具体的目录名称倒并不是特别的重要，重要的是，要有这些规范，且要根据项目，适当的增加规范。这样，写或者看代码的人，才知道对应的代码，放什么位置。
 
 ### 代码规范
 
-个人认为，能避免的错误的代码风格约束一定要有，至于其他的约束，最好配合代码格式化程序，例如 [eslint-standard] + [eslint-prettier]
+个人认为，能避免错误的代码风格约束一定要有，至于其他的约束，最好配合代码格式化程序，例如 [ESLint-Standard] + [ESLint-Prettier]
 
 这一块，主要目的有两个：
 
@@ -65,39 +65,39 @@ _此文，仅是自己对过去的一个梳理，其中的 **最佳实践** 和 
 
 ## 项目编译
 
-这两年，编译工具领域可谓是百花齐放，[vite]，[esbuild], [swc], [rome] 这些工具一起冒了出来。
-[webpack] 也更新到 5.x，一堆破坏性的变更。总算是加上了一堆默认配置，可以开箱即用（但是感觉很鸡肋）。
+这两年，编译工具领域可谓是百花齐放，[Vite]，[ESBuild], [SWC], [rome] 这些工具一起冒了出来。
+[Webpack] 也更新到 5.x，一堆破坏性的变更。总算是加上了一堆默认配置，可以开箱即用（但是感觉很鸡肋）。
 简单介绍一下，这些工具
 
-- [vite]，一个新起之秀，基于 [esbuild] + [rollup] 的编译工具
-- [esbuild]，一个基于 Golang 的 `js/ts` 编译器，功能与 `babel/rollup` 相同
-- [swc]，一个基于 Rust 的 `js/ts` 编译器，功能与 `babel/rollup` 相同
-- [rome]，一个新的前端工程工具链，目标是集成所有前端用到的工具，可以理解成，集成 `webpack/eslint/prettier` 等这些工具的功能于一体，目前正在用 `Rust` 重写（个人不是特别看好）
+- [Vite]，一个新起之秀，基于 [ESBuild] + [Rollup] 的编译工具
+- [ESBuild]，一个基于 Golang 的 `js/ts` 编译器，功能与 `Babel/Rollup` 相同
+- [SWC]，一个基于 Rust 的 `js/ts` 编译器，功能与 `Babel/Rollup` 相同
+- [rome]，一个新的前端工程工具链，目标是集成所有前端用到的工具，可以理解成，集成 `Webpack/ESLint/Prettier` 等这些工具的功能于一体，目前正在用 `Rust` 重写（个人不是特别看好）
 
-在这些工具出来之前，有一个开玩笑的职称叫 **webpack 配置工程师**，可见 [webpack] 的配置还是很复杂的。
+在这些工具出来之前，有一个开玩笑的职称叫 **Webpack 配置工程师**，可见 [Webpack] 的配置还是很复杂的。
 
-在此，讲讲我与 [webpack] 5.x 的故事，在 [vite] 刚出来的时候，[webpack] 也更新到了 5.x，当时公司的项目都还是用的 [webpack] 4.x。
-我的一个业余目标，就是想统一一下公司的打包工具，公司之前的项目，都是一个项目一个 [webpack] 配置，就想写一个库支持打包所有的项目，就当练手。借此机会，研究了一下
-[webpack] 5.x 的并写了一个 `xxx-compile`（脱敏处理一下） 的内部工具，开箱支持 `ts/vue/react`，以及热更新。
+在此，讲讲我与 [Webpack] 5.x 的故事，在 [Vite] 刚出来的时候，[Webpack] 也更新到了 5.x，当时公司的项目都还是用的 [Webpack] 4.x。
+我的一个业余目标，就是想统一一下公司的打包工具，公司之前的项目，都是一个项目一个 [Webpack] 配置，就想写一个库支持打包所有的项目，就当练手。借此机会，研究了一下
+[Webpack] 5.x 的并写了一个 `xxx-compile`（脱敏处理一下） 的内部工具，开箱支持 `TS/Vue/React`，以及热更新。
 
-说着也巧，正是在我差不多写完这个库之后，[vite] 1.0 出来了！之后，开始接触 [vite]，真香！今年 10 月左右的时候，换了一个项目组，接手了几个新项目，
-看到是新项目，接手的第一件事情，就是把项目从 [webpack] 切换到 [vite]。真香！
+说着也巧，正是在我差不多写完这个库之后，[Vite] 1.0 出来了！之后，开始接触 [Vite]，真香！今年 10 月左右的时候，换了一个项目组，接手了几个新项目，
+看到是新项目，接手的第一件事情，就是把项目从 [Webpack] 切换到 [Vite]。真香！
 
-从我的经历来看，[vite] 的配置相比 [webpack] 要简单很多。
+从我的经历来看，[Vite] 的配置相比 [Webpack] 要简单很多。
 
-但即使是这样，我也更倾向于使用类似 [parcel] 这样的一键打包工具。为什么没选 [parcel] 呢？因为定制天花板不是特别高。
+但即使是这样，我也更倾向于使用类似 [Parcel] 这样的一键打包工具。为什么没选 [Parcel] 呢？因为定制天花板不是特别高。
 
-基于此，我更倾向于，公司基于 [webpack] 或者 [vite] 这样的工具，自己封装一个编译工具，自己根据规范抽象一套配置。
+基于此，我更倾向于，公司基于 [Webpack] 或者 [Vite] 这样的工具，自己封装一个编译工具，自己根据规范抽象一套配置。
 封装的编译工具也能根据规范去实现对应的功能，这样就几乎不需要配置项。
 
-为什么要抽象一套配置，而不是基于已有的 [webpack] 配置或者 [vite] 配置。支持抽象一套配置的好处有两点：
+为什么要抽象一套配置，而不是基于已有的 [Webpack] 配置或者 [Vite] 配置。支持抽象一套配置的好处有两点：
 
 1. 因为是根据规范抽象的配置，所以配置应当非常简单，最好是不需要配置
-2. 将来如果要更换编译工具，例如从 [webpack] 切换到 [vite]，项目不需要做大的更新，只需更新一下封装的编译工具即可
+2. 将来如果要更换编译工具，例如从 [Webpack] 切换到 [Vite]，项目不需要做大的更新，只需更新一下封装的编译工具即可
 
 ## 持续集成
 
-一个项目一定要有一个自动化相关的辅助系统，例如 `Github Action`
+一个项目一定要有一个自动化相关的辅助系统，例如 `Github Actions`
 
 必要的相关集成：
 
@@ -118,15 +118,15 @@ _此文，仅是自己对过去的一个梳理，其中的 **最佳实践** 和 
 
 ## 总结
 
-最后记录一下，目前自己的最佳实践吧，基于 [vitesse] 改造的模板：[project-v](https://github.com/0x-jerry/project-v)
+最后记录一下，目前自己的最佳实践吧，基于 [Vitesse] 改造的模板：[project-v](https://github.com/0x-jerry/project-v)
 
 [parcel]: https://parceljs.org/
 [rome]: https://github.com/rome/tools
-[swc]: https://swc.rs/
+[swc]: https://SWC.rs/
 [rollup]: https://rollupjs.org/
-[esbuild]: https://esbuild.github.io/
-[vite]: https://vitejs.dev
-[webpack]: https://webpack.js.org/
-[vitesse]: https://github.com/antfu/vitesse
-[eslint-standard]: https://github.com/standard/eslint-config-standard
-[eslint-prettier]: https://github.com/prettier/eslint-config-prettier
+[esbuild]: https://ESBuild.github.io/
+[vite]: https://Vitejs.dev
+[webpack]: https://Webpack.js.org/
+[vitesse]: https://github.com/antfu/Vitesse
+[eslint-standard]: https://github.com/Standard/ESLint-config-Standard
+[eslint-prettier]: https://github.com/Prettier/ESLint-config-Prettier
