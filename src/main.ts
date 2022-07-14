@@ -10,6 +10,7 @@ import 'virtual:windi.css'
 // custom styles here
 import './styles/main.less'
 import { nextTick } from 'vue'
+import { UserModule } from './types'
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -44,6 +45,8 @@ export const createApp = ViteSSG(
   },
   (ctx) => {
     // install all modules under `modules/`
-    Object.values(import.meta.globEager('./modules/*.ts')).map((i) => i.install?.(ctx))
+    Object.values(
+      import.meta.glob<{ install?: UserModule }>('./modules/*.ts', { eager: true }),
+    ).map((i) => i.install?.(ctx))
   },
 )

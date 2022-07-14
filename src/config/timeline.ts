@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import { Component } from 'vue'
 
-const mds = import.meta.globEager('./events/*.md')
+const mds = import.meta.glob<any>('./events/*.md', { eager: true })
 
 const keys = Object.keys(mds).map((n) => ({
   time: dayjs(n.slice(-'YYYY-HH-MM.md'.length, -'.md'.length)).unix(),
