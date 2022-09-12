@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useHead } from '@vueuse/head'
 import { useI18n } from 'vue-i18n'
-import { modules } from '~blog/events'
+import { modules } from '@blog/events'
 
 const { t } = useI18n()
 

@@ -3,7 +3,7 @@ import { useHead } from '@vueuse/head'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
-import { modules } from '~blog/excerpts/entry'
+import { modules } from '@blog/excerpts/entry'
 
 const route = useRoute()
 

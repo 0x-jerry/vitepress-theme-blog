@@ -2,7 +2,7 @@
 import { useHead } from '@vueuse/head'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { modules } from '~blog/excerpts/entry'
+import { modules } from '@blog/excerpts/entry'
 
 const { t } = useI18n()
 

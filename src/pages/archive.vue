@@ -2,7 +2,7 @@
 import { useHead } from '@vueuse/head'
 import dayjs, { Dayjs } from 'dayjs'
 import { useI18n } from 'vue-i18n'
-import { modules } from '~blog/excerpts/entry'
+import { modules } from '@blog/excerpts/entry'
 import type { ReadTimeResults } from 'reading-time'
 
 const { t } = useI18n()

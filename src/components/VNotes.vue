@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { modules } from '~blog/notes'
+import { modules } from '@blog/notes'
 </script>
 
 <template>

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { HeadAttrs, useHead } from '@vueuse/head'
 import { computed, onMounted, ref, useAttrs, watch } from 'vue'
-import { scrollToAnchor } from '~/utils'
+import { scrollToAnchor } from '@/utils'
 import { useRouter } from 'vue-router'
-import type { TocLink } from '~/types'
+import type { TocLink } from '@/types'
 import type { ReadTimeResults } from 'reading-time'
 
 interface PostProps {

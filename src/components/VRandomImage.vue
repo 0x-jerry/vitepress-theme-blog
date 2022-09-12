@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed, ref, watchEffect } from 'vue'
-import loadingImg from '~/assets/loading.svg'
+import loadingImg from '@/assets/loading.svg'
 
 const props = defineProps<{
   id?: number

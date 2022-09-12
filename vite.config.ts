@@ -19,8 +19,8 @@ export default defineConfig({
   base: '/',
   resolve: {
     alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
-      '~blog/': `${path.resolve(__dirname, '.blog')}/`,
+      '@/': `${path.resolve(__dirname, 'src')}/`,
+      '@blog/': `${path.resolve(__dirname, '.blog')}/`,
     },
   },
   plugins: [
@@ -151,12 +151,6 @@ export default defineConfig({
       },
     }),
   ],
-
-  server: {
-    fs: {
-      strict: true,
-    },
-  },
 
   // https://github.com/antfu/vite-ssg
   ssgOptions: {

@@ -1,7 +1,7 @@
 import { watch } from 'vue'
 import { createI18n } from 'vue-i18n'
-import { locale } from '~/logic'
-import { UserModule } from '~/types'
+import { locale } from '@/logic'
+import { UserModule } from '@/types'
 import messages from '@intlify/unplugin-vue-i18n/messages'
 
 export const install: UserModule = ({ app }) => {
