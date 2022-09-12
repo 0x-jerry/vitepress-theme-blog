@@ -7,7 +7,7 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import WindiCSS from 'vite-plugin-windicss'
-import VueI18n from '@intlify/vite-plugin-vue-i18n'
+import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import Inspect from 'vite-plugin-inspect'
 import { createBlogPlugin } from 'vite-plugin-blog'
 import readingTime from 'reading-time'
@@ -77,7 +77,7 @@ export default defineConfig({
 
     // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
     VueI18n({
-      runtimeOnly: true,
+      runtimeOnly: false,
       compositionOnly: true,
       include: [path.resolve(__dirname, 'locales/**')],
     }),

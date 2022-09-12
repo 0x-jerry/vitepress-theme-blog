@@ -2,17 +2,7 @@ import { watch } from 'vue'
 import { createI18n } from 'vue-i18n'
 import { locale } from '~/logic'
 import { UserModule } from '~/types'
-
-// Import i18n resources
-// https://vitejs.dev/guide/features.html#glob-import
-const messages = Object.fromEntries(
-  Object.entries(import.meta.glob<any>('../../locales/*.y(a)?ml', { eager: true })).map(
-    ([key, value]) => {
-      const yaml = key.endsWith('.yaml')
-      return [key.slice(14, yaml ? -5 : -4), value.default]
-    },
-  ),
-)
+import messages from '@intlify/unplugin-vue-i18n/messages'
 
 export const install: UserModule = ({ app }) => {
   const i18n = createI18n({
