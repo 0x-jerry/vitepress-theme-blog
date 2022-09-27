@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@0x-jerry/eslint-config': ^0.2.1
   '@iconify/json': ^2.1.105
-  '@intlify/unplugin-vue-i18n': ^0.5.0
+  '@intlify/unplugin-vue-i18n': ^0.7.0
   '@types/node': ^18.7.16
   '@types/nprogress': ^0.2.0
   '@vitejs/plugin-vue': ^3.1.0
@@ -50,7 +50,7 @@ dependencies:
 devDependencies:
   '@0x-jerry/eslint-config': 0.2.1_itqs5654cmlnjraw6gjzqacppi
   '@iconify/json': 2.1.105
-  '@intlify/unplugin-vue-i18n': 0.5.0_vite@3.1.0+vue-i18n@9.2.2
+  '@intlify/unplugin-vue-i18n': 0.7.0_vite@3.1.0+vue-i18n@9.2.2
   '@types/node': 18.7.16
   '@types/nprogress': 0.2.0
   '@vitejs/plugin-vue': 3.1.0_vite@3.1.0+vue@3.2.39
@@ -206,8 +206,8 @@ packages:
       - supports-color
     dev: true
 
-  /@intlify/bundle-utils/3.1.0_vue-i18n@9.2.2:
-    resolution: {integrity: sha512-ghlJ0kR2cCQ8D+poKknC0Xx0ncOt3J3os7CcIAqqIWVF7k6AtGoCDnIru+YzlZcvFRNmP9wEZ7jKliojCdAWNg==}
+  /@intlify/bundle-utils/3.2.1_vue-i18n@9.2.2:
+    resolution: {integrity: sha512-rf4cLBOnbqmpXVcCdcYHilZpMt1m82syh3WLBJlZvGxN2KkH9HeHVH4+bnibF/SDXCHNh6lM6wTpS/qw+PkcMg==}
     engines: {node: '>= 12'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -265,19 +265,22 @@ packages:
     engines: {node: '>= 14'}
     dev: true
 
-  /@intlify/unplugin-vue-i18n/0.5.0_vite@3.1.0+vue-i18n@9.2.2:
-    resolution: {integrity: sha512-hjiNVZnjO4WcuV+bpGWfll+4YQmbgV2V5PUMvX/eG7Aw1iuPQk5S7LbfmEDKk8i2KYLcHR3x/1yCYk/dHvWQWQ==}
+  /@intlify/unplugin-vue-i18n/0.7.0_vite@3.1.0+vue-i18n@9.2.2:
+    resolution: {integrity: sha512-FmkQQdTsKINH9KqeKYxOlumxBLD0v6TAMac3+4iqmFTyqqE1pH5Seqta0QQBSAgsJXzsbASkEnHdlsoCC2DfNA==}
     engines: {node: '>= 14.16'}
     peerDependencies:
       petite-vue-i18n: '*'
       vue-i18n: '*'
+      vue-i18n-bridge: '*'
     peerDependenciesMeta:
       petite-vue-i18n:
         optional: true
       vue-i18n:
         optional: true
+      vue-i18n-bridge:
+        optional: true
     dependencies:
-      '@intlify/bundle-utils': 3.1.0_vue-i18n@9.2.2
+      '@intlify/bundle-utils': 3.2.1_vue-i18n@9.2.2
       '@intlify/shared': 9.3.0-beta.3
       '@rollup/pluginutils': 4.2.1
       '@vue/compiler-sfc': 3.2.39

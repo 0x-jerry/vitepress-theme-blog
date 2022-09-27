@@ -34,7 +34,7 @@
   "devDependencies": {
     "@0x-jerry/eslint-config": "^0.2.1",
     "@iconify/json": "^2.1.105",
-    "@intlify/unplugin-vue-i18n": "^0.5.0",
+    "@intlify/unplugin-vue-i18n": "^0.7.0",
     "@types/node": "^18.7.16",
     "@types/nprogress": "^0.2.0",
     "@vitejs/plugin-vue": "^3.1.0",
