@@ -20,5 +20,5 @@
       "@@/*": ["./src/*"]
     }
   },
-  "include": ["src", "vite", "scripts", "config.ts"]
+  "include": ["src", "vitepress", "scripts", "config.ts"]
 }

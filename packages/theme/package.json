@@ -18,7 +18,7 @@
   },
   "tsup": {
     "entry": [
-      "config.ts"
+      "vitepress/config.ts"
     ],
     "format": [
       "esm"
@@ -41,6 +41,7 @@
     "sass": "^1.65.1",
     "shiki": "^0.14.3",
     "unplugin-icons": "^0.16.5",
+    "unplugin-vue-components": "^0.25.1",
     "vite": "^4.4.9",
     "vitepress": "1.0.0-rc.4",
     "vue": "^3.3.4",

@@ -1,10 +1,12 @@
 import path from 'path'
 import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
+import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vitepress'
-import { createBlogPlugin } from './vite/blog'
+import { createBlogPlugin } from './blog'
 import { fileURLToPath } from 'url'
-import { highlight } from './vite/highlight'
+import { highlight } from './highlight'
 
 const __dirname = fixCurrentDir()
 
@@ -21,6 +23,11 @@ export default async () => {
           compositionOnly: true,
           include: [path.resolve(__dirname, 'locales/**')],
           strictMessage: false,
+        }),
+
+        Components({
+          // dirs: [path.join(__dirname, 'src/components')],
+          resolvers: [IconsResolver()],
         }),
 
         createBlogPlugin({ prefixPath: '/posts' }),
