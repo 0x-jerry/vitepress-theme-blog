@@ -5,6 +5,10 @@
       "path": "../packages/theme"
     },
     {
+      "name": "example",
+      "path": "../packages/exmaple"
+    },
+    {
       "name": "all",
       "path": "../"
     }
