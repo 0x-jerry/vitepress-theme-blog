@@ -1,4 +1,5 @@
 import { type Router } from 'vitepress'
+export { sleep } from '@0x-jerry/utils'
 
 export function scrollToAnchor(anchorHref: string, router: Router) {
   const url = new URL(location.href)
@@ -6,5 +7,3 @@ export function scrollToAnchor(anchorHref: string, router: Router) {
 
   router.go(url.toString())
 }
-
-export const sleep = (ts: number) => new Promise((resolve) => setTimeout(resolve, ts))

@@ -3,6 +3,8 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import Components from 'unplugin-vue-components/vite'
+import Uno from 'unocss/vite'
+import unoConfig from '../uno.config'
 import { defineConfig } from 'vitepress'
 import { createBlogPlugin } from './blog'
 import { fileURLToPath } from 'url'
@@ -25,10 +27,14 @@ export default async () => {
           strictMessage: false,
         }),
 
+        // https://github.com/antfu/unplugin-vue-components
         Components({
           // dirs: [path.join(__dirname, 'src/components')],
           resolvers: [IconsResolver()],
         }),
+
+        // https://github.com/unocss/unocss
+        Uno(unoConfig),
 
         createBlogPlugin({ prefixPath: '/posts' }),
       ],

@@ -6,6 +6,7 @@ import { locale } from './logic'
 import messages from '@intlify/unplugin-vue-i18n/messages'
 
 import './styles/main.less'
+import 'virtual:uno.css'
 
 export const theme: Theme = {
   Layout,
