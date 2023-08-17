@@ -40,7 +40,6 @@
     "sass": "^1.65.1",
     "shiki": "^0.14.3",
     "typescript": "^5.1.6",
-    "unplugin-icons": "^0.16.5",
-    "vite": "^4.4.9"
+    "unplugin-icons": "^0.16.5"
   }
 }

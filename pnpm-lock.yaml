@@ -10,25 +10,10 @@ importers:
 
   packages/example:
     dependencies:
-      shiki:
-        specifier: ^0.14.3
-        version: 0.14.3
       vitepress-theme-blog:
         specifier: workspace:*
         version: link:../theme
     devDependencies:
-      '@intlify/unplugin-vue-i18n':
-        specifier: ^0.12.2
-        version: 0.12.2(vue-i18n@9.2.2)
-      '@types/node':
-        specifier: ^20.5.0
-        version: 20.5.0
-      unplugin-icons:
-        specifier: ^0.16.5
-        version: 0.16.5
-      vite:
-        specifier: ^4.4.9
-        version: 4.4.9(@types/node@20.5.0)(less@4.2.0)(sass@1.65.1)
       vitepress:
         specifier: 1.0.0-rc.4
         version: 1.0.0-rc.4(@algolia/client-search@4.19.1)(@types/node@20.5.0)(less@4.2.0)(nprogress@0.2.0)(sass@1.65.1)(search-insights@2.7.0)
@@ -105,9 +90,6 @@ importers:
       unplugin-icons:
         specifier: ^0.16.5
         version: 0.16.5
-      vite:
-        specifier: ^4.4.9
-        version: 4.4.9(@types/node@20.5.0)(less@4.2.0)(sass@1.65.1)
 
 packages:
 

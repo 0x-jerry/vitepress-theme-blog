@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git+https://github.com/0x-jerry/blog.git"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [],
   "author": "",
   "bugs": {
@@ -13,5 +16,7 @@
   },
   "type": "module",
   "homepage": "https://github.com/0x-jerry/blog#readme",
-  "scripts": {}
+  "scripts": {
+    "dev": "npm run dev -w example"
+  }
 }
