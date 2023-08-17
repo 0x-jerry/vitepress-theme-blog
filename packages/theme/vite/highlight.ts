@@ -1,17 +1,4 @@
-import type { ThemeOption } from '@/index'
-import { defineConfigWithTheme } from 'vitepress'
 import { IThemeRegistration, getHighlighter, BUNDLED_LANGUAGES } from 'shiki'
-
-export default async () => {
-  return defineConfigWithTheme<ThemeOption>({
-    themeConfig: {
-      name: '0x-Jerry',
-    },
-    markdown: {
-      highlight: await highlight(),
-    },
-  })
-}
 
 export type ThemeOptions =
   | IThemeRegistration

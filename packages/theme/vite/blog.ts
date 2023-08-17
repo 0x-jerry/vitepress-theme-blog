@@ -2,8 +2,8 @@ import path from 'path'
 import readingTime from 'reading-time'
 import { Plugin } from 'vite'
 import { MarkdownRenderer, createMarkdownRenderer } from 'vitepress'
-import { highlight } from '../.vitepress/config'
-import {readFile, readdir} from 'fs/promises'
+import { highlight } from './highlight'
+import { readFile, readdir } from 'fs/promises'
 import type { ExcerptData } from '@blog/excerpts'
 import dayjs from 'dayjs'
 
@@ -132,7 +132,9 @@ export function createBlogPlugin(config: Partial<BlogPluginConfig>): Plugin {
       codes.push(`import comp${idx} from "${VIRTUAL_ID.PREFIX}/${item.replace(/\.md/, '.vue')}"`)
     })
 
-    const datas = await Promise.all(files.map(async (n) => (await mdExcerptToVue(path.join(srcDir, n))).data))
+    const datas = await Promise.all(
+      files.map(async (n) => (await mdExcerptToVue(path.join(srcDir, n))).data),
+    )
 
     datas.sort((a, b) => dayjs(b.date).unix() - dayjs(a.date).unix())
 

@@ -5,9 +5,6 @@ import { createI18n } from './lib/i18n'
 import { locale } from './logic'
 import messages from '@intlify/unplugin-vue-i18n/messages'
 
-// windicss layers
-import 'virtual:windi.css'
-// custom styles here
 import './styles/main.less'
 
 export const theme: Theme = {
