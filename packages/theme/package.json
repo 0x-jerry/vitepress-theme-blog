@@ -6,15 +6,25 @@
     "type": "git",
     "url": "git+https://github.com/0x-jerry/blog.git"
   },
-  "keywords": [],
-  "author": "",
   "bugs": {
     "url": "https://github.com/0x-jerry/blog/issues"
   },
   "type": "module",
   "homepage": "https://github.com/0x-jerry/blog#readme",
-  "main": "dist/index.js",
-  "types": "dist/index.ts",
+  "main": "src/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "tsup": {
+    "entry": [
+      "config.ts"
+    ],
+    "format": [
+      "esm"
+    ],
+    "clean": true
+  },
   "dependencies": {
     "@0x-jerry/utils": "^1.18.0",
     "@iconify/json": "^2.2.102",
@@ -40,6 +50,7 @@
     "@types/markdown-it": "^13.0.0",
     "@types/node": "^20.5.0",
     "@types/nprogress": "^0.2.0",
+    "tsup": "^7.2.0",
     "typescript": "^5.1.6"
   }
 }

@@ -1,12 +1,17 @@
 import type { ThemeOption } from 'vitepress-theme-blog'
-import themeBaseConfig from 'vitepress-theme-blog/config'
+import createBaseConfig from 'vitepress-theme-blog/config'
 import { defineConfigWithTheme } from 'vitepress'
 
 export default async () => {
   return defineConfigWithTheme<ThemeOption>({
-    extends: themeBaseConfig,
+    extends: await createBaseConfig(),
     themeConfig: {
       name: '0x-Jerry',
+    },
+    vite: {
+      optimizeDeps: {
+        exclude: ['vitepress-theme-blog'],
+      },
     },
   })
 }
