@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import dayjs from 'dayjs'
+import VLink from './VLink.vue'
 
 const year = dayjs().year()
 </script>

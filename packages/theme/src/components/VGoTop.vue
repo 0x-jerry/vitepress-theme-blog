@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { useWindowScroll } from '@vueuse/core'
 import { computed } from 'vue'
+import VCircle from './VCircle.vue'
+import ArrowUpBoldCircle from '~icons/mdi/arrow-up-bold-circle'
 
 function go2top() {
   window.scrollTo({
@@ -44,7 +46,7 @@ const percent = computed(() => {
       <div class="absolute top-1/2 left-1/2" transform="~ -translate-y-1/2 -translate-x-1/2">
         <v-circle color="#777" :radius="22" :stroke="2" :percent="percent" />
       </div>
-      <mdi:arrow-up-bold-circle class="relative" z="10" />
+      <arrow-up-bold-circle class="relative" z="10" />
     </span>
   </div>
 </template>

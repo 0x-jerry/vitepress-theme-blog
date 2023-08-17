@@ -7,6 +7,9 @@ import { useRoute, useRouter } from 'vitepress'
 import { isMatchRoute, routes } from './routes'
 import AboutPage from './views/About.vue'
 import { computed } from 'vue'
+import VHeader from './components/VHeader.vue'
+import VFooter from './components/VFooter.vue'
+import VGoTop from './components/VGoTop.vue'
 
 const { t } = useI18n()
 const theme = useTheme()
@@ -37,15 +40,15 @@ const isAbout = computed(() => {
   <div>
     <AboutPage v-if="isAbout"></AboutPage>
     <template v-else>
-      <v-header />
+      <VHeader></VHeader>
       <div w="full md:max-1200px" m="x-auto">
         <template v-for="route in routes">
           <component v-if="isMatchRoute(route, router.route)" :is="route.component"> </component>
         </template>
         <br />
       </div>
-      <v-footer />
-      <v-go-top />
+      <VFooter></VFooter>
+      <VGoTop></VGoTop>
     </template>
   </div>
 </template>

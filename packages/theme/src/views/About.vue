@@ -7,6 +7,9 @@ import IconEmail from '~icons/mdi/email'
 // import IconNoteBook from '~icons/mdi/notebook'
 // import IconTimeline from '~icons/mdi/timeline'
 import { useI18n } from '@@/lib/i18n'
+import VRandomImage from '@@/components/VRandomImage.vue'
+import VLink from '@@/components/VLink.vue'
+import VSentence from '@@/components/VSentence.vue'
 
 interface Menu {
   icon: Component
@@ -58,7 +61,7 @@ updateRandomImageId()
 
 <template>
   <div w="screen" h="screen" class="relative" bg="black">
-    <v-random-image w="screen" h="screen" :id="randomImageId" />
+    <VRandomImage w="screen" h="screen" :id="randomImageId"></VRandomImage>
     <div class="page-bg" @click.self="updateRandomImageId" cursor="pointer">
       <div class="relative card-bg" p="2 md:x-10 md:y-14" cursor="auto">
         <div class="relative" z="10">

@@ -12,6 +12,8 @@ import type { Component } from 'vue'
 import { useRouter } from 'vitepress'
 import { useWindowScroll } from '@vueuse/core'
 import { useI18n } from '@@/lib/i18n'
+import VLink from './VLink.vue'
+import VLogo from './VLogo.vue'
 
 const { t } = useI18n()
 

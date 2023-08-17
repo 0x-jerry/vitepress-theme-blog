@@ -1,16 +1,19 @@
 <script lang="ts" setup>
-import { HeadAttrs, useHead } from '@vueuse/head'
+import { useHead } from '@vueuse/head'
 import { computed, onMounted, ref, useAttrs, watch } from 'vue'
 import { scrollToAnchor } from '@@/utils'
 import { useRouter } from 'vitepress'
 import type { TocLink } from '@@/types'
 import type { ReadTimeResults } from 'reading-time'
+import VPostToc from './VPostToc.vue'
+import VPostLabels from './VPostLabels.vue'
+import VGiscus from './VGiscus.vue'
 
 interface PostProps {
   title: string
   date: string
   tags?: string[]
-  meta?: HeadAttrs[]
+  meta?: any[]
   read: ReadTimeResults
 }
 
