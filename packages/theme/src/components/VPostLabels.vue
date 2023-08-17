@@ -4,7 +4,7 @@ import TimeIcon from '~icons/carbon/time'
 import type { ReadTimeResults } from 'reading-time'
 import dayjs, { Dayjs } from 'dayjs'
 import { computed } from 'vue'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@@/lib/i18n'
 
 const props = defineProps<{
   read?: ReadTimeResults

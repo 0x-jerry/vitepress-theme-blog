@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@@/lib/i18n'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()

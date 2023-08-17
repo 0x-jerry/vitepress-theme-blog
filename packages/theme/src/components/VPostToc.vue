@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useWindowScroll } from '@vueuse/core'
 import { onMounted, ref, watchEffect } from 'vue'
-import type { TocLink } from '@/types'
+import type { TocLink } from '@@/types'
 
 const props = defineProps<{ toc: TocLink[] }>()
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useHead } from '@vueuse/head'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@@/lib/i18n'
 import { modules } from '@blog/events'
 
 const { t } = useI18n()

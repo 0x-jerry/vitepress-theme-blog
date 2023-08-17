@@ -17,6 +17,7 @@
   "type": "module",
   "homepage": "https://github.com/0x-jerry/blog#readme",
   "scripts": {
-    "dev": "npm run dev -w example"
+    "dev": "npm run build:config && npm run dev -w example",
+    "build:config": "npm run build -w vitepress-theme-blog"
   }
 }

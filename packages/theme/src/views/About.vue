@@ -6,7 +6,7 @@ import IconBook from '~icons/mdi/book'
 import IconEmail from '~icons/mdi/email'
 // import IconNoteBook from '~icons/mdi/notebook'
 // import IconTimeline from '~icons/mdi/timeline'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@@/lib/i18n'
 
 interface Menu {
   icon: Component

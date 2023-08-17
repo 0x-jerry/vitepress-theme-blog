@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import 'heti'
 import { useHead } from '@vueuse/head'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from './lib/i18n'
 import { useTheme } from './hooks/useTheme'
 import { useRoute, useRouter } from 'vitepress'
 import { isMatchRoute, routes } from './routes'

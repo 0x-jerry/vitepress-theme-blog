@@ -6,10 +6,10 @@ import { createBlogPlugin } from './vite/blog'
 import { fileURLToPath } from 'url'
 import { highlight } from './vite/highlight'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const __dirname = fixCurrentDir()
 
-export default async () =>
-  defineConfig({
+export default async () => {
+  return defineConfig({
     vite: {
       plugins: [
         // https://github.com/antfu/unplugin-icons
@@ -25,8 +25,24 @@ export default async () =>
 
         createBlogPlugin({ prefixPath: '/posts' }),
       ],
+      resolve: {
+        alias: {
+          '@@/': __dirname + '/src/',
+        },
+      },
     },
     markdown: {
       highlight: await highlight(),
     },
   })
+}
+
+/**
+ * when build, config.js will locate in dist folder, so import.meta.url
+ * will be xxx/dist/config.js
+ */
+function fixCurrentDir() {
+  const distDir = path.dirname(fileURLToPath(import.meta.url))
+
+  return path.resolve(distDir, '..')
+}

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { useHead } from '@vueuse/head'
 import { computed, onMounted, ref, useAttrs, watch } from 'vue'
-import { scrollToAnchor } from '@/utils'
+import { scrollToAnchor } from '@@/utils'
 import { useRoute, useRouter } from 'vitepress'
-import type { TocLink } from '@/types'
+import type { TocLink } from '@@/types'
 
 const attrs = useAttrs()
 

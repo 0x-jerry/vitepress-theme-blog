@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useHead } from '@vueuse/head'
 import dayjs, { Dayjs } from 'dayjs'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@@/lib/i18n'
 import { modules } from '@blog/excerpts/entry'
 import type { ReadTimeResults } from 'reading-time'
 

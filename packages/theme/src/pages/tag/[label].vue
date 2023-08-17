@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useHead } from '@vueuse/head'
 import { computed } from 'vue'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@@/lib/i18n'
 import { useRoute } from 'vue-router'
 import { modules } from '@blog/excerpts/entry'
 

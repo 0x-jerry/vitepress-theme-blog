@@ -11,7 +11,7 @@ import { computed } from 'vue'
 import type { Component } from 'vue'
 import { useRouter } from 'vitepress'
 import { useWindowScroll } from '@vueuse/core'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@@/lib/i18n'
 
 const { t } = useI18n()
 
