@@ -13,6 +13,9 @@ importers:
       vitepress-theme-blog:
         specifier: workspace:*
         version: link:../theme
+      vue:
+        specifier: ^3.3.4
+        version: 3.3.4
     devDependencies:
       vitepress:
         specifier: 1.0.0-rc.4

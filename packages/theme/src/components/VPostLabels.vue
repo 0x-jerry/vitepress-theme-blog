@@ -2,7 +2,7 @@
 import DateIcon from '~icons/carbon/calendar'
 import TimeIcon from '~icons/carbon/time'
 import type { ReadTimeResults } from 'reading-time'
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs, { type Dayjs } from 'dayjs'
 import { computed } from 'vue'
 import { useI18n } from '@@/lib/i18n'
 import VTag from './VTag.vue'
