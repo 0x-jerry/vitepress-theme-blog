@@ -14,7 +14,7 @@ useHead({
 <template>
   <ul>
     <li v-for="o in data" :key="o.data.title">
-      <VExcerpt v-bind="o.data" p="5" m="y-5 x-4">
+      <VExcerpt v-bind="o.data" class="p-5 my-5 mx-4">
         <component :is="o.comp"></component>
       </VExcerpt>
     </li>

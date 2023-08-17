@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "name": "theme",
+      "path": "../packages/theme"
+    },
+    {
+      "name": "all",
+      "path": "../"
+    }
+  ]
+}
