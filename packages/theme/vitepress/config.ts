@@ -44,6 +44,20 @@ export default async () => {
         },
       },
     },
+    head: [
+      // todo: add an option to enable generate rss 
+      // ['meta', { name: 'rss', content: '/rss.xml' }],
+      // ['link', { href: '/rss.xml', rel: 'alternate', title: 'RSS', type: 'application/rss+xml' }],
+      [
+        'link',
+        {
+          rel: 'stylesheet',
+          crossorigin: 'anonymous',
+          referrerpolicy: 'no-referrer',
+          href: 'https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.css',
+        },
+      ],
+    ],
     markdown: {
       highlight: await highlight(),
     },
