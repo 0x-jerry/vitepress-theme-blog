@@ -8,10 +8,5 @@ export default async () => {
     themeConfig: {
       name: '0x-Jerry',
     },
-    vite: {
-      optimizeDeps: {
-        exclude: ['vitepress-theme-blog'],
-      },
-    },
   })
 }
