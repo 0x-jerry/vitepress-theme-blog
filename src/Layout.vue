@@ -17,24 +17,10 @@ useHead({
   link: [
     { href: '/rss2.xml', rel: 'alternate', title: 'RSS', type: 'application/rss+xml' },
     {
-      rel: 'preload',
-      as: 'font',
+      rel: 'stylesheet',
       crossorigin: 'anonymous',
-      href: '//cdn.jsdelivr.net/gh/0x-jerry/static/fonts/LXGW/LXGWWenKaiMono-Regular.woff2',
-    },
-    {
-      rel: 'preload',
-      as: 'font',
-      crossorigin: 'anonymous',
-      href: '//cdn.jsdelivr.net/gh/0x-jerry/static/fonts/LXGW/LXGWWenKaiMono-Regular.woff',
-    },
-  ],
-  script: [
-    {
-      async: '',
-      defer: '',
-      'data-website-id': '11ac5c86-f341-454d-8ce8-09acd333bf07',
-      href: 'https://umami.0x-jerry.icu/umami.js',
+      referrerpolicy: 'no-referrer',
+      href: 'https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.css',
     },
   ],
 })
