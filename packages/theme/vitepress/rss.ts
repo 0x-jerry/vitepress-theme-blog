@@ -9,6 +9,8 @@ export interface RSSGenerateOption extends Omit<FeedOptions, 'id'> {
   filename: string
 }
 
+const vitepressDir = path.join(process.cwd(), '.vitepress')
+
 export async function generateFeed(conf: RSSGenerateOption) {
   const feed = new Feed({
     id: conf.origin,
@@ -20,10 +22,9 @@ export async function generateFeed(conf: RSSGenerateOption) {
     ...conf,
   })
 
-  // todo: verify
-  const r = (...segments: string[]) => path.join(process.cwd(), ...segments)
+  const joinPath = (...segments: string[]) => path.join(vitepressDir, ...segments)
 
-  const postDir = r('dist', conf.articlesPathPrefix)
+  const postDir = joinPath('dist', conf.articlesPathPrefix)
   const files = await fs.readdir(postDir)
 
   const posts: { link: string; content: string; title: string; date: Date }[] = []
@@ -58,5 +59,5 @@ export async function generateFeed(conf: RSSGenerateOption) {
 
   const rss2 = feed.rss2()
 
-  await fs.writeFile(r('dist', conf.filename), rss2)
+  await fs.writeFile(joinPath('dist', conf.filename), rss2)
 }

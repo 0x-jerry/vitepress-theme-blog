@@ -35,7 +35,7 @@ export function createBlogPlugin(config: BlogPluginConfig): Plugin {
   const srcDir = path.join(cwd, config.prefixPath)
 
   return {
-    name: 'vitepress-blog-plugin',
+    name: 'vite-plugin-blog',
 
     resolveId(source, importer) {
       if (importer?.startsWith(VIRTUAL_ID.PREFIX)) {

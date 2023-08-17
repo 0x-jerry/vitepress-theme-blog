@@ -10,7 +10,7 @@ import { createBlogPlugin, type BlogPluginConfig } from './blog'
 import { fileURLToPath } from 'url'
 import { highlight } from './highlight'
 
-const __dirname = fixCurrentDir()
+const themeDir = fixCurrentDir()
 
 interface ThemePluginOption extends BlogPluginConfig {
   // pathPrefix
@@ -34,7 +34,7 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
         VueI18n({
           runtimeOnly: false,
           compositionOnly: true,
-          include: [path.resolve(__dirname, 'locales/**')],
+          include: [path.resolve(themeDir, 'locales/**')],
           strictMessage: false,
         }),
 
@@ -51,7 +51,7 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
       ],
       resolve: {
         alias: {
-          '@@/': __dirname + '/src/',
+          '@@/': themeDir + '/src/',
         },
       },
     },
