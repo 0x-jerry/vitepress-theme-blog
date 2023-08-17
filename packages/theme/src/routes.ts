@@ -1,5 +1,5 @@
-import { Route } from 'vitepress'
-import { Component, defineComponent, h } from 'vue'
+import { type Route } from 'vitepress'
+import { type Component, defineComponent, h } from 'vue'
 import DefaultLayout from './layout/DefaultLayout.vue'
 import Posts from './pages/Index.vue'
 import Post from './pages/Post.vue'

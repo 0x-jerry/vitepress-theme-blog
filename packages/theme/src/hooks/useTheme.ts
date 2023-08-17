@@ -1,4 +1,4 @@
-import { ThemeOption } from '@@/types'
+import { type ThemeOption } from '@@/types'
 import { useData } from 'vitepress'
 
 export function useTheme() {

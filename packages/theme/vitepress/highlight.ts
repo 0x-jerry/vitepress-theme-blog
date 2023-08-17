@@ -1,10 +1,10 @@
-import { IThemeRegistration, getHighlighter, BUNDLED_LANGUAGES } from 'shiki'
+import { type IThemeRegistration, getHighlighter, BUNDLED_LANGUAGES } from 'shiki'
 
-export type ThemeOptions =
+export type ShikiThemeOptions =
   | IThemeRegistration
   | { light: IThemeRegistration; dark: IThemeRegistration }
 
-export async function highlight(theme: ThemeOptions = 'github-light') {
+export async function highlight(theme: ShikiThemeOptions = 'github-light') {
   const hasSingleTheme = typeof theme === 'string' || 'name' in theme
   const getThemeName = (themeValue: IThemeRegistration) =>
     typeof themeValue === 'string' ? themeValue : themeValue.name

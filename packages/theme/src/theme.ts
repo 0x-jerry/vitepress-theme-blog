@@ -1,5 +1,5 @@
 import { createHead } from '@vueuse/head'
-import { Theme } from 'vitepress'
+import { type Theme } from 'vitepress'
 import Layout from './Layout.vue'
 import { createI18n } from './lib/i18n'
 import { locale } from './logic'
