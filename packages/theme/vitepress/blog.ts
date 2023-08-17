@@ -6,9 +6,15 @@ import { highlight } from './highlight'
 import { readFile, readdir } from 'fs/promises'
 import type { ExcerptData } from '@blog/excerpts'
 import dayjs from 'dayjs'
+import { generateFeed, type RSSGenerateOption } from './rss'
 
 export interface BlogPluginConfig {
   prefixPath: string
+
+  /**
+   * rss config
+   */
+  rss?: Omit<RSSGenerateOption, 'articlesPathPrefix' | 'filename'>
 }
 
 const PREFIX_ID = '@blog'
@@ -19,21 +25,14 @@ const VIRTUAL_ID = {
   TAGS: PREFIX_ID + '/tags',
 } as const
 
-export function createBlogPlugin(config: Partial<BlogPluginConfig>): Plugin {
-  const opt: BlogPluginConfig = Object.assign(
-    {
-      prefixPath: '/posts',
-    },
-    config,
-  )
-
+export function createBlogPlugin(config: BlogPluginConfig): Plugin {
   let md!: MarkdownRenderer
 
   const cwd = process.cwd()
 
   const mdCache = new Map<string, { data: ExcerptData; sfc: string }>()
 
-  const srcDir = path.join(cwd, opt.prefixPath)
+  const srcDir = path.join(cwd, config.prefixPath)
 
   return {
     name: 'vitepress-blog-plugin',
@@ -43,7 +42,7 @@ export function createBlogPlugin(config: Partial<BlogPluginConfig>): Plugin {
         const isResource = /\.(jpg|png|jpeg|webp)/.test(source)
 
         if (isResource && !path.isAbsolute(source)) {
-          const prefix = path.join(cwd, opt.prefixPath)
+          const prefix = path.join(cwd, config.prefixPath)
           return path.join(prefix, source)
         }
       }
@@ -88,6 +87,18 @@ export function createBlogPlugin(config: Partial<BlogPluginConfig>): Plugin {
 
       ctx.read = () => data!.sfc
     },
+
+    async buildEnd() {
+      if (!config.rss) {
+        return
+      }
+
+      await generateFeed({
+        ...config.rss,
+        articlesPathPrefix: config.prefixPath,
+        filename: 'rss.xml',
+      })
+    },
   }
 
   async function mdExcerptToVue(file: string) {
@@ -113,7 +124,7 @@ export function createBlogPlugin(config: Partial<BlogPluginConfig>): Plugin {
       sfc,
       data: {
         ...frontmatter,
-        href: path.join(opt.prefixPath, file.replace(srcDir, '').replace('.md', '.html')),
+        href: path.join(config.prefixPath, file.replace(srcDir, '').replace('.md', '.html')),
         read,
       } as ExcerptData,
     }

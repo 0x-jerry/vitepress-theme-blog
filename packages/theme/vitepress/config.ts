@@ -6,13 +6,24 @@ import Components from 'unplugin-vue-components/vite'
 import Uno from 'unocss/vite'
 import unoConfig from '../uno.config'
 import { defineConfig } from 'vitepress'
-import { createBlogPlugin } from './blog'
+import { createBlogPlugin, type BlogPluginConfig } from './blog'
 import { fileURLToPath } from 'url'
 import { highlight } from './highlight'
 
 const __dirname = fixCurrentDir()
 
-export default async () => {
+interface ThemePluginOption extends BlogPluginConfig {
+  // pathPrefix
+}
+
+export default async (opt: Partial<ThemePluginOption> = {}) => {
+  const option: ThemePluginOption = Object.assign(
+    {
+      prefixPath: 'posts',
+    },
+    opt,
+  )
+
   return defineConfig({
     vite: {
       plugins: [
@@ -36,7 +47,7 @@ export default async () => {
         // https://github.com/unocss/unocss
         Uno(unoConfig),
 
-        createBlogPlugin({ prefixPath: '/posts' }),
+        createBlogPlugin(option),
       ],
       resolve: {
         alias: {
@@ -45,7 +56,7 @@ export default async () => {
       },
     },
     head: [
-      // todo: add an option to enable generate rss 
+      // todo: add an option to enable generate rss
       // ['meta', { name: 'rss', content: '/rss.xml' }],
       // ['link', { href: '/rss.xml', rel: 'alternate', title: 'RSS', type: 'application/rss+xml' }],
       [
