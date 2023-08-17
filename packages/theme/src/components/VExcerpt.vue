@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 import type { ReadTimeResults } from 'reading-time'
+import VCard from './VCard.vue'
+import VLink from './VLink.vue'
+import VPostLabels from './VPostLabels.vue'
 
 interface VExcerptProps {
   title: string
@@ -15,20 +18,20 @@ const props = withDefaults(defineProps<VExcerptProps>(), {
 </script>
 
 <template>
-  <v-card text="break-words">
-    <v-link :href="href">
+  <VCard text="break-words">
+    <VLink :href="href">
       <h2 text="xl blue-500">
         {{ title }}
       </h2>
-    </v-link>
+    </VLink>
     <div m="t-2 b-5">
-      <v-post-labels v-bind="props" />
+      <VPostLabels v-bind="props" />
     </div>
     <!-- <hr m="y-4" /> -->
     <div class="heti !max-w-full m-auto text-left">
       <slot />
     </div>
-  </v-card>
+  </VCard>
 </template>
 
 <style scoped>

@@ -43,14 +43,14 @@ watchEffect(() => updateToc())
 <template>
   <ul class="v-post-toc leading-relaxed" text="sm" shadow="~ md" p="4">
     <li v-for="o in toc" text="truncate">
-      <v-link :href="`#${o.id}`">
+      <VLink :href="`#${o.id}`">
         <span
           :class="[{ active: o.label === activeLabel }, `level level-${o.level}`]"
           transition="~ colors"
         >
           {{ o.label }}
         </span>
-      </v-link>
+      </VLink>
     </li>
   </ul>
 </template>

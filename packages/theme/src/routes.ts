@@ -1,7 +1,7 @@
 import { type Route } from 'vitepress'
 import { type Component, defineComponent, h } from 'vue'
 import DefaultLayout from './layout/DefaultLayout.vue'
-import Posts from './pages/Index.vue'
+import Home from './pages/Home.vue'
 import Post from './pages/Post.vue'
 import About from './pages/About.vue'
 
@@ -16,7 +16,7 @@ export const routes: RouteItem[] = [
   {
     match: '/',
     layout: DefaultLayout,
-    component: Posts,
+    component: Home,
   },
   {
     match: /^\/posts\//,

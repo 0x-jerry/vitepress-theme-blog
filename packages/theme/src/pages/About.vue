@@ -70,9 +70,9 @@ updateRandomImageId()
           </h1>
 
           <div class="leading-7" m="y-20">
-            <v-sentence>
+            <VSentence>
               <p class="leading-relaxed" text="center" font="italic" v-html="$t('motto')"></p>
-            </v-sentence>
+            </VSentence>
           </div>
 
           <ul

@@ -4,6 +4,8 @@ import { computed, onMounted, ref, useAttrs, watch } from 'vue'
 import { scrollToAnchor } from '@@/utils'
 import { useRoute, useRouter } from 'vitepress'
 import type { TocLink } from '@@/types'
+import VPostToc from '@@/components/VPostToc.vue'
+import VGiscus from '@@/components/VGiscus.vue'
 
 const attrs = useAttrs()
 
@@ -96,7 +98,7 @@ function updateToc() {
     <br />
 
     <template v-if="enableComment">
-      <v-giscus />
+      <VGiscus />
     </template>
 
     <div
@@ -107,7 +109,7 @@ function updateToc() {
       bg="white"
       xl="block"
     >
-      <v-post-toc :toc="toc" />
+      <VPostToc :toc="toc" />
     </div>
   </div>
 </template>
