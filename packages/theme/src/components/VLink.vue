@@ -37,7 +37,7 @@ const url = computed(() => props.href)
       <span>
         <slot />
       </span>
-      <line-md-external-link-rounded v-if="!hiddenIcon" m="l-1" />
+      <i-line-md-external-link-rounded v-if="!hiddenIcon" m="l-1" />
     </template>
     <template v-else>
       <slot />

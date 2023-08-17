@@ -52,5 +52,5 @@ function isMatchRoute(item: RouteItem, route: Route): boolean {
 }
 
 function withLayout(layout: Component, page: Component) {
-  return defineComponent(() => () => h(layout, null, [h(page)]))
+  return defineComponent(() => () => h(layout, null, () => h(page)))
 }
