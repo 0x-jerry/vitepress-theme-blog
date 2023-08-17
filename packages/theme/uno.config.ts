@@ -3,4 +3,4 @@ import { defineConfig, presetUno, transformerDirectives, transformerVariantGroup
 export default defineConfig({
   presets: [presetUno()],
   transformers: [transformerDirectives(), transformerVariantGroup()],
-})
+}) as any

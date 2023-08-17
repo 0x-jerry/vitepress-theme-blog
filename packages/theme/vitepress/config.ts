@@ -5,7 +5,7 @@ import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import Components from 'unplugin-vue-components/vite'
 import Uno from 'unocss/vite'
 import unoConfig from '../uno.config'
-import { defineConfig } from 'vitepress'
+import { defineConfig, type UserConfig } from 'vitepress'
 import { createBlogPlugin, type BlogPluginConfig } from './blog'
 import { fileURLToPath } from 'url'
 import { highlight } from './highlight'
@@ -72,7 +72,7 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
     markdown: {
       highlight: await highlight(),
     },
-  })
+  }) as UserConfig
 }
 
 /**
