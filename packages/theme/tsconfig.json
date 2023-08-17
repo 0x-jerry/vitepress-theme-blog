@@ -15,7 +15,7 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["vite/client", "unplugin-icons/types/vue"]
+    "types": ["unplugin-icons/types/vue"]
   },
   "include": ["src", "vite", "scripts", "config.ts"]
 }
