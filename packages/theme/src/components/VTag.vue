@@ -11,7 +11,7 @@ defineProps<{
 <template>
   <span class="v-tag">
     <slot name="icon">
-      <i m="r-1" text="gray-400">
+      <i class="mr-1 text-gray-4">
         <component :is="icon || TagIcon" class="inline-block relative -top-0.1em"></component>
       </i>
     </slot>

@@ -5,6 +5,7 @@ import { createI18n } from './lib/i18n'
 import { locale } from './logic'
 import messages from '@intlify/unplugin-vue-i18n/messages'
 
+import 'normalize.css'
 import './styles/main.less'
 import 'virtual:uno.css'
 

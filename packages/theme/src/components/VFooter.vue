@@ -6,7 +6,7 @@ const year = dayjs().year()
 </script>
 
 <template>
-  <div w="full" text="center" m="t-4 y-6">
+  <div class="w-full text-center mt-4 my-6">
     © 2017-{{ year }} @ 0x-Jerry. Built top on
     <v-link href="https://vitejs.dev/"> vite </v-link>
     and

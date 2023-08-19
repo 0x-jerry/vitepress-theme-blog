@@ -21,13 +21,13 @@ const readEstimate = computed(() => Math.ceil(props.read?.minutes || 0) + ' ' + 
 </script>
 
 <template>
-  <div text="gray-400 xs" flex="~ wrap" grid="gap-2">
-    <v-tag v-if="date" :icon="DateIcon" :content="releaseDate" />
-    <v-tag :icon="TimeIcon" :content="readEstimate" />
+  <div class="text-(gray-400 xs) flex-(~ wrap) grid-(gap-2)">
+    <VTag v-if="date" :icon="DateIcon" :content="releaseDate" />
+    <VTag :icon="TimeIcon" :content="readEstimate" />
 
-    <v-link theme="text" :href="`/tag/${o}`" v-for="o in tags || []" :key="o">
-      <v-tag :content="o" />
-    </v-link>
+    <VLink theme="text" :href="`/tag/${o}`" v-for="o in tags || []" :key="o">
+      <VTag :content="o" />
+    </VLink>
   </div>
 </template>
 

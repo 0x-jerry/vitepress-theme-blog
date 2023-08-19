@@ -32,17 +32,7 @@ const percent = computed(() => {
 
 <template>
   <div class="fixed right-0 bottom-0 transition-transform z-50" :style="iconStyle" @click="go2top">
-    <span
-      class="cursor-pointer relative"
-      text="3xl gray-400 hover:gray-900"
-      transition="~ colors"
-      bg="white"
-      border="rounded-full"
-      p="1"
-      flex="~"
-      justify="center"
-      align="items-center"
-    >
+    <span class="circle-bg">
       <div class="absolute top-1/2 left-1/2" transform="~ -translate-y-1/2 -translate-x-1/2">
         <v-circle color="#777" :radius="22" :stroke="2" :percent="percent" />
       </div>
@@ -50,3 +40,10 @@ const percent = computed(() => {
     </span>
   </div>
 </template>
+
+<style scoped>
+.circle-bg {
+  @apply cursor-pointer relative text-3xl text-gray-400 hover: text-gray-900 transition transition-colors bg-white;
+  @apply rounded-full p-1 flex justify-center items-center;
+}
+</style>
