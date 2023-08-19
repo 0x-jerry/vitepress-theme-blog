@@ -18,13 +18,13 @@ const props = withDefaults(defineProps<VExcerptProps>(), {
 </script>
 
 <template>
-  <VCard text="break-words">
+  <VCard class="break-words">
     <VLink :href="href">
-      <h2 text="xl blue-500">
+      <h2 class="text-(xl blue-5) mb-2 mt-0">
         {{ title }}
       </h2>
     </VLink>
-    <div m="t-2 b-5">
+    <div >
       <VPostLabels v-bind="props" />
     </div>
     <!-- <hr m="y-4" /> -->

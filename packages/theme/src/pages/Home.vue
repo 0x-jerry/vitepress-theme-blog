@@ -20,3 +20,13 @@ useHead({
     </li>
   </ul>
 </template>
+
+<style scoped>
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+</style>

@@ -11,8 +11,8 @@ defineProps<{
 <template>
   <span class="v-tag">
     <slot name="icon">
-      <i class="mr-1 text-gray-4">
-        <component :is="icon || TagIcon" class="inline-block relative -top-0.1em"></component>
+      <i class="mr-1 text-gray-4 flex">
+        <component :is="icon || TagIcon"></component>
       </i>
     </slot>
     <slot>
@@ -23,7 +23,7 @@ defineProps<{
 
 <style lang="less" scoped>
 .v-tag {
-  @apply px-2 py-1px  mr-1 inline-block;
-  @apply border rounded-full bg-light-400;
+  @apply px-2 py-1px  mr-1 inline-flex items-center;
+  @apply border rounded-full bg-light-7;
 }
 </style>

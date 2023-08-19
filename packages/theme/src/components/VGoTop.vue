@@ -33,10 +33,10 @@ const percent = computed(() => {
 <template>
   <div class="fixed right-0 bottom-0 transition-transform z-50" :style="iconStyle" @click="go2top">
     <span class="circle-bg">
-      <div class="absolute top-1/2 left-1/2" transform="~ -translate-y-1/2 -translate-x-1/2">
+      <div class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
         <v-circle color="#777" :radius="22" :stroke="2" :percent="percent" />
       </div>
-      <arrow-up-bold-circle class="relative" z="10" />
+      <arrow-up-bold-circle class="relative z-10" />
     </span>
   </div>
 </template>

@@ -75,19 +75,19 @@ function updateToc() {
 </script>
 
 <template>
-  <div class="v-post" p="xl:r-100px 2xl:0" w="max-800px" m="auto">
+  <div class="v-post" >
     <br />
 
-    <div text="break-words" bg="light-200" p="4 b-6 md:12 md:b-20">
-      <h1 text="2xl md:3xl center" m="r-2">
+    <div class="break-words bg-light-2 p-4 pb-6 md:p-12 md:pb-20">
+      <h1 class="text-(center 2xl md:3xl) mr-2">
         {{ route.data.title }}
       </h1>
 
-      <div m="t-3">
+      <div class="mt-3">
         <!-- <v-post-labels v-bind="props" class="justify-center" /> -->
       </div>
 
-      <hr m="y-4" />
+      <hr class="my-4" />
 
       <div class="heti text-left" ref="content">
         <!-- <slot></slot> -->
@@ -104,10 +104,6 @@ function updateToc() {
     <div
       v-if="toc.length"
       class="toc fixed top-100px right-10 hidden"
-      w="max-260px"
-      z="100"
-      bg="white"
-      xl="block"
     >
       <VPostToc :toc="toc" />
     </div>
@@ -115,7 +111,12 @@ function updateToc() {
 </template>
 
 <style lang="less" scoped>
+.v-post {
+  @apply p-(xl:r-100px 2xl:0) w-max-800px m-auto;
+}
+
 .toc {
+  @apply w-max-260px z-100 bg-white xl:block;
 }
 
 .tag {
