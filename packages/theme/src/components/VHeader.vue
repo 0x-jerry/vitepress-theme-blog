@@ -30,17 +30,17 @@ const menus = computed(() => {
     },
     {
       label: t('menu.title.tags'),
-      path: '/tags.html',
+      path: '/tags',
       icon: IconTagText,
     },
     {
       label: t('menu.title.archive'),
-      path: '/archives.html',
+      path: '/archives',
       icon: IconArchive,
     },
     {
       label: t('menu.title.about'),
-      path: '/about.html',
+      path: '/about',
       icon: IconAccount,
     },
   ]
@@ -107,7 +107,7 @@ const activeClass = computed(() => {
   @apply transition transition-shadow;
 
   @apply w-full h-50px px-4 flex items-center bg-white top-0 fixed;
-  @apply md:h-70px md:px-10;
+  @apply md: h-70px md:px-10;
 
   &.active {
     @apply shadow-lg;

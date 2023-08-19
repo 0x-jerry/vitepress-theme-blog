@@ -7,7 +7,7 @@ import VGoTop from '../components/VGoTop.vue'
 <template>
   <div>
     <VHeader></VHeader>
-    <div w="full md:max-1200px" m="x-auto">
+    <div class="w-(full md:max-1200px) mx-auto">
       <slot></slot>
       <br />
     </div>

@@ -4,8 +4,6 @@ import { ref } from 'vue'
 import IconGithub from '~icons/mdi/github'
 import IconBook from '~icons/mdi/book'
 import IconEmail from '~icons/mdi/email'
-// import IconNoteBook from '~icons/mdi/notebook'
-// import IconTimeline from '~icons/mdi/timeline'
 import { useI18n } from '@@/lib/i18n'
 import VRandomImage from '@@/components/VRandomImage.vue'
 import VLink from '@@/components/VLink.vue'
@@ -25,16 +23,6 @@ const menus: Menu[] = [
     href: '/',
     label: t('menu.title.posts'),
   },
-  // {
-  //   icon: IconNoteBook,
-  //   href: '/notes',
-  //   label: t('menu.title.notes'),
-  // },
-  // {
-  //   icon: IconTimeline,
-  //   href: '/timeline',
-  //   label: t('menu.title.timeline'),
-  // },
   {
     icon: IconGithub,
     href: 'https://github.com/0x-jerry',
@@ -60,35 +48,28 @@ updateRandomImageId()
 </script>
 
 <template>
-  <div w="screen" h="screen" class="relative" bg="black">
-    <VRandomImage w="screen" h="screen" :id="randomImageId"></VRandomImage>
-    <div class="page-bg" @click.self="updateRandomImageId" cursor="pointer">
-      <div class="relative card-bg" p="2 md:x-10 md:y-14" cursor="auto">
-        <div class="relative" z="10">
-          <h1 text="4xl center">
+  <div class="w-screen h-screen relative bg-black">
+    <VRandomImage class="w-screen h-screen" :id="randomImageId"></VRandomImage>
+    <div class="page-bg cursor-pointer" @click.self="updateRandomImageId">
+      <div class="relative card-bg p-(2 md:x-10 md:y-14) cursor-auto">
+        <div class="relative z-10">
+          <h1 class="text-(4xl center)">
             {{ $t('title.index', [$t('name')]) }}
           </h1>
 
-          <div class="leading-7" m="y-20">
+          <div class="leading-7 my-20">
             <VSentence>
-              <p class="leading-relaxed" text="center" font="italic" v-html="$t('motto')"></p>
+              <p class="leading-relaxed text-center font-italic" v-html="$t('motto')"></p>
             </VSentence>
           </div>
 
-          <ul
-            m="auto"
-            flex="~ wrap"
-            justify="center"
-            align="items-center"
-            text="2xl"
-            border="rounded-md"
-          >
-            <li m="4" v-for="(o, idx) in menus" :key="idx">
-              <VLink :href="o.href" theme="white" :hidden-icon="true" flex="col">
-                <div flex="~ inline" justify="center" w="full" h="40px">
+          <ul class="m-auto flex-(~ wrap) justify-center items-center text-2xl rounded-md">
+            <li class="mx-4" v-for="(o, idx) in menus" :key="idx">
+              <VLink :href="o.href" theme="white" :hidden-icon="true" class="flex-col">
+                <div class="flex-inline justify-center w-full h-40px">
                   <component :is="o.icon" />
                 </div>
-                <p text="sm">{{ o.label }}</p>
+                <p class="text-sm">{{ o.label }}</p>
               </VLink>
             </li>
           </ul>
@@ -99,6 +80,12 @@ updateRandomImageId()
 </template>
 
 <style lang="less" scoped>
+ul {
+  padding-left: 0;
+}
+li {
+  list-style: none;
+}
 .page-bg {
   position: absolute;
   top: 0;

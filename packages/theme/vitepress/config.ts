@@ -72,6 +72,7 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
     markdown: {
       highlight: await highlight(),
     },
+    cleanUrls: true,
   }) as UserConfig
 }
 
