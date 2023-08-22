@@ -66,8 +66,8 @@ const activeClass = computed(() => {
 </script>
 
 <template>
-  <header class="v-header z-100" :class="activeClass">
-    <div flex="~">
+  <header class="v-header" :class="activeClass">
+    <div class="flex">
       <v-link href="/" class="relative inline-block" theme="text">
         <div class="flex-inline items-center">
           <span class="w-30px md:w-40px">
@@ -104,7 +104,7 @@ const activeClass = computed(() => {
 
 <style lang="less" scoped>
 .v-header {
-  @apply transition transition-shadow;
+  @apply transition transition-shadow z-100;
 
   @apply w-full h-50px px-4 flex items-center bg-white top-0 fixed;
   @apply md: h-70px md:px-10;
