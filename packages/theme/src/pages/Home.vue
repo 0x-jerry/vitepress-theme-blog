@@ -2,7 +2,7 @@
 import { useHead } from '@vueuse/head'
 import { useI18n } from '@@/lib/i18n'
 import VExcerpt from '@@/components/VExcerpt.vue'
-import data from '@blog/excerpts'
+import { data } from '@@/data/excerpts.data'
 
 const { t } = useI18n()
 
@@ -30,3 +30,4 @@ li {
   list-style: none;
 }
 </style>
+../data/excerpts.data

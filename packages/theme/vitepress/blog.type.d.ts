@@ -1,6 +1,6 @@
-declare module '@blog/excerpts' {
-  import { Component } from 'vue'
-  import { ReadTimeResults } from 'reading-time'
+declare module '@@blog' {
+  import type { ReadTimeResults } from 'reading-time'
+  import type { FeedOptions } from 'feed'
 
   export interface ExcerptData {
     date: string
@@ -14,9 +14,29 @@ declare module '@blog/excerpts' {
     data: ExcerptData
     html: string
     url: string
-    // comp: Component
   }
 
-  var data: BlogExcerpt[]
-  export default data
+  export interface BlogPluginConfig {
+    /**
+     * @default posts
+     */
+    prefixPath: string
+
+    /**
+     * rss config
+     */
+    rss?: Omit<RSSGenerateOption, 'articlesPathPrefix' | 'filename'>
+  }
+
+  export interface RSSGenerateOption extends Omit<FeedOptions, 'id'> {
+    origin: string
+    articlesPathPrefix: string
+    filename: string
+  }
+}
+
+declare module globalThis {
+  import type { BlogPluginConfig } from '@@blog'
+
+  var BLOG_CONFIG: BlogPluginConfig
 }

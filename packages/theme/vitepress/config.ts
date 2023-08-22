@@ -6,9 +6,10 @@ import Components from 'unplugin-vue-components/vite'
 import Uno from 'unocss/vite'
 import unoConfig from '../uno.config'
 import { defineConfig, type UserConfig } from 'vitepress'
-import { createBlogPlugin, type BlogPluginConfig } from './blog'
+import { createBlogPlugin } from './blog'
 import { fileURLToPath } from 'url'
 import { highlight } from './highlight'
+import type { BlogPluginConfig } from '@@blog'
 
 const themeDir = fixCurrentDir()
 
