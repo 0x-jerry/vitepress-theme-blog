@@ -1,14 +1,14 @@
-import path from 'path'
-import readingTime from 'reading-time'
 import { type Plugin } from 'vite'
-import { type MarkdownRenderer, createMarkdownRenderer } from 'vitepress'
-import { highlight } from './highlight'
-import { readFile, readdir } from 'fs/promises'
-import type { ExcerptData } from '@blog/excerpts'
-import dayjs from 'dayjs'
 import { generateFeed, type RSSGenerateOption } from './rss'
+import { type ContentData, createContentLoader } from 'vitepress'
+import readingTime from 'reading-time'
+import type { BlogExcerpt } from '@blog/excerpts'
+import path from 'path'
 
 export interface BlogPluginConfig {
+  /**
+   * @default posts
+   */
   prefixPath: string
 
   /**
@@ -26,66 +26,31 @@ const VIRTUAL_ID = {
 } as const
 
 export function createBlogPlugin(config: BlogPluginConfig): Plugin {
-  let md!: MarkdownRenderer
-
-  const cwd = process.cwd()
-
-  const mdCache = new Map<string, { data: ExcerptData; sfc: string }>()
-
-  const srcDir = path.join(cwd, config.prefixPath)
+  let loader: {
+    watch: string | string[]
+    load: () => Promise<ContentData[]>
+  }
 
   return {
     name: 'vite-plugin-blog',
 
-    resolveId(source, importer) {
-      if (importer?.startsWith(VIRTUAL_ID.PREFIX)) {
-        const isResource = /\.(jpg|png|jpeg|webp)/.test(source)
+    configResolved() {
+      loader = createContentLoader([config.prefixPath + '/**/*.md'], {
+        includeSrc: true,
+        render: true,
+        excerpt: '<!-- more -->',
+      })
+    },
 
-        if (isResource && !path.isAbsolute(source)) {
-          const prefix = path.join(cwd, config.prefixPath)
-          return path.join(prefix, source)
-        }
-      }
-
+    resolveId(source) {
       if (source.startsWith(VIRTUAL_ID.PREFIX)) {
         return source
       }
     },
     async load(id) {
-      md ||= await createMarkdownRenderer(cwd, {
-        highlight: await highlight(),
-        frontmatter: {
-          grayMatterOptions: {
-            excerpt_separator: '<!-- more -->',
-          },
-        },
-      })
-
       if (id.startsWith(VIRTUAL_ID.EXCERPTS)) {
-        return await genExpertsData()
+        return await loadExcerpts()
       }
-
-      if (id.startsWith(VIRTUAL_ID.PREFIX)) {
-        const file = id.slice(VIRTUAL_ID.PREFIX.length)
-        const pathFile = path.join(srcDir, file.replace(/\.vue/, '.md'))
-
-        const data = mdCache.get(pathFile)
-
-        return data!.sfc
-      }
-    },
-    async handleHotUpdate(ctx) {
-      const needUpdateModules = ctx.modules.filter((n) => isBlogExcerpt(n.id))
-      const id = needUpdateModules[0]?.id
-      if (!id) {
-        return
-      }
-
-      await mdExcerptToVue(ctx.file)
-
-      const data = mdCache.get(ctx.file)
-
-      ctx.read = () => data!.sfc
     },
 
     async buildEnd() {
@@ -101,71 +66,49 @@ export function createBlogPlugin(config: BlogPluginConfig): Plugin {
     },
   }
 
-  async function mdExcerptToVue(file: string) {
-    // @ts-ignore
-    // md.__path = file
+  async function loadExcerpts() {
+    const postContents = await loader.load()
 
-    const env: any = {
-      // path: file,
-      // relativePath,
-      // cleanUrls
-    }
-
-    const src = await readFile(file, { encoding: 'utf-8' })
-    md.render(src, env)
-
-    const { frontmatter = {}, excerpt = '' } = env
-
-    const read = readingTime(excerpt)
-
-    const sfc = `<template><div>${env.excerpt}</div></template>`
-
-    const excerptData = {
-      sfc,
-      data: {
-        ...frontmatter,
-        href: path.join(config.prefixPath, file.replace(srcDir, '').replace('.md', '.html')),
-        read,
-      } as ExcerptData,
-    }
-
-    mdCache.set(file, excerptData)
-
-    return excerptData
-  }
-
-  async function genExpertsData() {
-    const files = (await readdir(srcDir)).filter((n) => n.endsWith('.md'))
-
-    const codes = []
-
-    files.forEach((item, idx) => {
-      codes.push(`import comp${idx} from "${VIRTUAL_ID.PREFIX}/${item.replace(/\.md/, '.vue')}"`)
+    const result: BlogExcerpt[] = postContents.map((n) => {
+      let html = n.excerpt || ''
+      html = fixResourceUrl(html, 'src', n.url)
+      // html = fixResourceUrl(html, 'href', n.url)
+      return {
+        html: html!,
+        url: n.url,
+        data: {
+          ...n.frontmatter,
+          title: n.frontmatter.title,
+          date: n.frontmatter.date,
+          read: readingTime(n.src || ''),
+        },
+      }
     })
 
-    const datas = await Promise.all(
-      files.map(async (n) => (await mdExcerptToVue(path.join(srcDir, n))).data),
-    )
-
-    datas.sort((a, b) => dayjs(b.date).unix() - dayjs(a.date).unix())
-
-    const dataCodes = datas
-      .map(
-        (data, idx) => `{
-        data: ${JSON.stringify(data)},
-        comp: comp${idx}
-      }`,
-      )
-      .join(',')
-
-    codes.push(`const data = [${dataCodes}];`)
-
-    codes.push(`export default data;`)
-
-    return codes.join('\n')
+    return `export default ${JSON.stringify(result)}`
   }
 }
 
-function isBlogExcerpt(id: string | null) {
-  return !!id?.startsWith(VIRTUAL_ID.PREFIX + '/')
+/**
+ * Fix resource url in home page
+ *
+ * test/img.png => posts/test/img.png
+ *
+ * @param html raw html
+ * @param attr replace attribute
+ * @param fileUrl markdown file url
+ * @returns
+ */
+function fixResourceUrl(html: string, attr: string, fileUrl: string) {
+  const r = new RegExp(`${attr}="([^"]+)"`, 'g')
+
+  return html.replaceAll(r, (src) => {
+    let source = src.slice(attr.length + 2, -1)
+
+    if (!path.isAbsolute(source)) {
+      source = path.join(fileUrl, '..', source)
+    }
+
+    return `src="${source}"`
+  })
 }

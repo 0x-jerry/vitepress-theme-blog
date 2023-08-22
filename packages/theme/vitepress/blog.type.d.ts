@@ -7,13 +7,14 @@ declare module '@blog/excerpts' {
     title: string
     tags?: string[]
     license?: string
-    href: string
     read: ReadTimeResults
   }
 
   export interface BlogExcerpt {
     data: ExcerptData
-    comp: Component
+    html: string
+    url: string
+    // comp: Component
   }
 
   var data: BlogExcerpt[]
