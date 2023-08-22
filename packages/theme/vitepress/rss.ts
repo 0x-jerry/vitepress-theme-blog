@@ -1,10 +1,15 @@
-import { Feed } from 'feed'
+import { Feed, type FeedOptions } from 'feed'
 import fs from 'fs/promises'
 import path from 'path'
 import dayjs from 'dayjs'
-import type { RSSGenerateOption } from '@@blog'
 
 const vitepressDir = path.join(process.cwd(), '.vitepress')
+
+export interface RSSGenerateOption extends Omit<FeedOptions, 'id'> {
+  origin: string
+  articlesPathPrefix: string
+  filename: string
+}
 
 export async function generateFeed(conf: RSSGenerateOption) {
   const feed = new Feed({

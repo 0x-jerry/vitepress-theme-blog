@@ -20,5 +20,5 @@
       "@@/*": ["./src/*"]
     }
   },
-  "include": ["src", "vitepress", "scripts"]
+  "include": ["src", "vitepress", "scripts", "types"]
 }

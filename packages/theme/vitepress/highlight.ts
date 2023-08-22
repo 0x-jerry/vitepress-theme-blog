@@ -4,7 +4,7 @@ export type ShikiThemeOptions =
   | IThemeRegistration
   | { light: IThemeRegistration; dark: IThemeRegistration }
 
-export async function highlight(theme: ShikiThemeOptions = 'github-light') {
+export async function createHighlight(theme: ShikiThemeOptions = 'github-light') {
   const hasSingleTheme = typeof theme === 'string' || 'name' in theme
   const getThemeName = (themeValue: IThemeRegistration) =>
     typeof themeValue === 'string' ? themeValue : themeValue.name

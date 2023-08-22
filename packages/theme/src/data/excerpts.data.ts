@@ -1,7 +1,7 @@
 import path from 'path'
 import readingTime from 'reading-time'
+import type { BlogExcerpt } from '../../types'
 import { createContentLoader } from 'vitepress'
-import type { BlogExcerpt } from '@@blog'
 
 declare const data: BlogExcerpt[]
 export { data }

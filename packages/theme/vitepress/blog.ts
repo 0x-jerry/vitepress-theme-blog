@@ -1,6 +1,17 @@
 import { type Plugin } from 'vite'
-import { generateFeed } from './rss'
-import type { BlogPluginConfig } from '@@blog'
+import { generateFeed, type RSSGenerateOption } from './rss'
+
+export interface BlogPluginConfig {
+  /**
+   * @default posts
+   */
+  prefixPath: string
+
+  /**
+   * rss config
+   */
+  rss?: Omit<RSSGenerateOption, 'articlesPathPrefix' | 'filename'>
+}
 
 export function createBlogPlugin(config: BlogPluginConfig): Plugin {
   globalThis.BLOG_CONFIG = config
