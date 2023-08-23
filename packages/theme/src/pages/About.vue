@@ -63,6 +63,10 @@ updateRandomImageId()
             </VSentence>
           </div>
 
+          <div class="description">
+            <Content></Content>
+          </div>
+
           <ul class="m-auto flex-(~ wrap) justify-center items-center text-2xl rounded-md">
             <li class="mx-4" v-for="(o, idx) in menus" :key="idx">
               <VLink :href="o.href" theme="white" :hidden-icon="true" class="flex-col">
