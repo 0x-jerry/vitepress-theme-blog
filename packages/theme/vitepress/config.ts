@@ -40,8 +40,10 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
 
         // https://github.com/antfu/unplugin-vue-components
         Components({
-          // dirs: [path.join(__dirname, 'src/components')],
+          include: ['**/*.md', '**/*.vue'],
+          dirs: ['components'],
           resolvers: [IconsResolver()],
+          dts: false,
         }),
 
         // https://github.com/unocss/unocss

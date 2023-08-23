@@ -8,11 +8,11 @@ license: CC BY-NC 4.0
 
 **This is a test**
 
-Test a aa
-
 ![](test/img.png)
 
 <!-- more -->
+
+Test a <Counter />
 
 test two
 
