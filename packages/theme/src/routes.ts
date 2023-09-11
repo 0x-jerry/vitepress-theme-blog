@@ -4,6 +4,7 @@ import DefaultLayout from './layout/DefaultLayout.vue'
 import Home from './pages/Home.vue'
 import Post from './pages/Post.vue'
 import About from './pages/About.vue'
+import NotFound from './pages/NotFound.vue'
 
 interface RouteItem {
   match: RegExp | string | ((route: Route) => boolean)
@@ -37,6 +38,8 @@ export function getRouteComponent(route: Route) {
 
     return item.layout ? withLayout(item.layout, item.component) : item.component
   }
+
+  return NotFound
 }
 
 function isMatchRoute(item: RouteItem, route: Route): boolean {
