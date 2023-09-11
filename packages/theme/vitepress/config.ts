@@ -8,7 +8,7 @@ import unoConfig from '../uno.config'
 import { defineConfig, type UserConfig } from 'vitepress'
 import { createBlogPlugin, type BlogPluginConfig } from './blog'
 import { fileURLToPath } from 'url'
-import { createHighlight } from './highlight'
+// import { createHighlight } from './highlight'
 
 const themeDir = fixCurrentDir()
 
@@ -72,7 +72,7 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
       ],
     ],
     markdown: {
-      highlight: await createHighlight(),
+      // highlight: await createHighlight(),
     },
     cleanUrls: true,
   }) as UserConfig

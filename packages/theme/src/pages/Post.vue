@@ -6,6 +6,7 @@ import { useRoute, useRouter } from 'vitepress'
 import type { TocLink } from '@@/types'
 import VPostToc from '@@/components/VPostToc.vue'
 import VGiscus from '@@/components/VGiscus.vue'
+import VPostLabels from '@@/components/VPostLabels.vue'
 
 const attrs = useAttrs()
 
@@ -84,7 +85,7 @@ function updateToc() {
       </h1>
 
       <div class="mt-3">
-        <!-- <v-post-labels v-bind="props" class="justify-center" /> -->
+        <v-post-labels v-bind="matter" class="justify-center" />
       </div>
 
       <hr class="my-4" />
@@ -122,5 +123,10 @@ function updateToc() {
 .tag {
   @apply px-2 py-1px  mr-1;
   @apply border rounded-full bg-light-400;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #d6d6d6;
 }
 </style>
