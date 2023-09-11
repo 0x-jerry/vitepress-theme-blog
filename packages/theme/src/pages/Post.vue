@@ -90,7 +90,7 @@ function updateToc() {
 
       <hr class="my-4" />
 
-      <div class="heti text-left" ref="content">
+      <div class="heti text-left m-auto" ref="content">
         <!-- <slot></slot> -->
         <Content></Content>
       </div>
