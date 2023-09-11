@@ -67,7 +67,7 @@ const activeClass = computed(() => {
 
 <template>
   <header class="v-header" :class="activeClass">
-    <div class="flex">
+    <div class="flex flex-1">
       <v-link href="/" class="relative inline-block" theme="text">
         <div class="flex-inline items-center">
           <span class="w-30px md:w-40px">
@@ -91,7 +91,7 @@ const activeClass = computed(() => {
 
       <label class="flex-inline items-center ml-2 md:ml-4">
         <component :is="langConf.icon" />
-        <select v-model="$i18n.locale">
+        <select class="ml-1" v-model="$i18n.locale">
           <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">
             {{ t('language', '', { locale }) }}
           </option>
@@ -107,7 +107,9 @@ const activeClass = computed(() => {
   @apply transition transition-shadow z-100;
 
   @apply w-full h-50px px-4 flex items-center bg-white top-0 fixed;
-  @apply md: h-70px md:px-10;
+  @apply md:h-70px md:px-10;
+
+  box-sizing: border-box;
 
   &.active {
     @apply shadow-lg;
