@@ -76,7 +76,7 @@ function updateToc() {
 </script>
 
 <template>
-  <div class="v-post" >
+  <div class="v-post">
     <br />
 
     <div class="break-words bg-light-2 p-4 pb-6 md:p-12 md:pb-20">
@@ -102,10 +102,7 @@ function updateToc() {
       <VGiscus />
     </template>
 
-    <div
-      v-if="toc.length"
-      class="toc fixed top-100px right-10 hidden"
-    >
+    <div v-if="toc.length" class="toc fixed top-100px right-10 hidden">
       <VPostToc :toc="toc" />
     </div>
   </div>
@@ -127,6 +124,18 @@ function updateToc() {
 
 hr {
   border: none;
+  max-width: 42em;
   border-top: 1px solid #d6d6d6;
+}
+</style>
+
+<style lang="less">
+.v-post {
+  div[class*='language-'] {
+    width: calc(100vw - 36px);
+    max-width: 1366px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
 }
 </style>
