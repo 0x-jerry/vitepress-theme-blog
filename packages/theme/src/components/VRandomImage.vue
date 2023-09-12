@@ -44,7 +44,7 @@ const imgUrl = computed(() => (isLoading.value ? loadingImg : url.value))
 </script>
 
 <template>
-  <img :src="imgUrl" display="inline-block" object="cover" />
+  <img :src="imgUrl" class="block object-cover" />
 </template>
 
 <style></style>
