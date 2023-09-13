@@ -8,7 +8,7 @@ const props = defineProps<{
 }>()
 
 const url = computed(() => {
-  return `https://api.0x-jerry.icu/img/random?id=${calcId()}`
+  return `https://0x-jerry.icu/api/img?i=${calcId()}`
 })
 
 function calcId() {

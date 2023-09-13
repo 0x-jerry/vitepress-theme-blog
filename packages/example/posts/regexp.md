@@ -43,7 +43,7 @@ license: CC BY-NC 4.0
 
 练习文本：
 
-```plaintext
+```txt
 abcdefghijklmnopqrstuvwxyz
 
 a bc def ghij klmno pqrstu vwxyz
