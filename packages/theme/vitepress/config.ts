@@ -8,6 +8,8 @@ import unoConfig from '../uno.config'
 import { defineConfig, type UserConfig } from 'vitepress'
 import { createBlogPlugin, type BlogPluginConfig } from './blog'
 import { fileURLToPath } from 'url'
+import readingTime from 'reading-time'
+import { readFileSync } from 'fs'
 // import { createHighlight } from './highlight'
 
 const themeDir = fixCurrentDir()
@@ -75,6 +77,10 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
       // highlight: await createHighlight(),
     },
     cleanUrls: true,
+    transformPageData(pageData, ctx) {
+      const content = readFileSync(pageData.filePath, { encoding: 'utf-8' })
+      pageData.frontmatter.read = readingTime(content || '')
+    },
   }) as UserConfig
 }
 

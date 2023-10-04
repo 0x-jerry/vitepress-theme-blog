@@ -11,6 +11,6 @@ export interface ExcerptData {
 
 export interface BlogExcerpt {
   data: ExcerptData
-  html: string
+  // html: string
   url: string
 }
