@@ -11,6 +11,7 @@ export default createContentLoader([config.prefixPath + '/**/*.md'], {
   includeSrc: true,
   transform(raw): BlogExcerpt[] {
     return raw
+      .filter(n => n.frontmatter.publish !== false)
       .map((n) => {
 
         return {

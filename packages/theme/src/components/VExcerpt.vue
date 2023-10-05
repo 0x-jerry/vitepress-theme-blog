@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<VExcerptProps>(), {
         {{ title }}
       </div>
     </VLink>
-    <div >
+    <div>
       <VPostLabels v-bind="props" />
     </div>
     <!-- <hr m="y-4" /> -->
@@ -36,7 +36,7 @@ const props = withDefaults(defineProps<VExcerptProps>(), {
 
 <style scoped>
 .tag {
-  @apply px-2 py-1px  mr-1;
+  @apply px-2 py-1px mr-1;
   @apply border rounded-full bg-light-400;
 }
 </style>
