@@ -6,7 +6,8 @@ import { useRoute, useRouter } from 'vitepress'
 import type { TocLink } from '@@/types'
 import VPostToc from '@@/components/VPostToc.vue'
 import VGiscus from '@@/components/VGiscus.vue'
-import VPostLabels from '@@/components/VPostLabels.vue'
+import VClientOnly from '@@/components/VClientOnly.vue'
+import VTitle from '@@/components/VTitle.vue'
 
 const attrs = useAttrs()
 
@@ -16,7 +17,6 @@ const route = useRoute()
 const matter = route.data.frontmatter
 
 useHead({
-  title: route.data.title,
   meta: [
     ...(matter.meta || []),
     {
@@ -77,29 +77,18 @@ function updateToc() {
 
 <template>
   <div class="v-post">
-    <br />
+    <VTitle :title="route.data.title" show-back></VTitle>
 
-    <div class="break-words bg-light-2 p-4 pb-6 md:p-12 md:pb-20">
-      <h1 class="text-(center 2xl md:3xl) mr-2">
-        {{ route.data.title }}
-      </h1>
-
-      <div class="mt-3">
-        <v-post-labels v-bind="matter" class="justify-center" />
-      </div>
-
-      <hr class="my-4" />
-
-      <div class="heti text-left m-auto" ref="content">
-        <!-- <slot></slot> -->
-        <Content></Content>
-      </div>
+    <div class="heti text-left max-w-full" ref="content">
+      <Content></Content>
     </div>
 
     <br />
 
     <template v-if="enableComment">
-      <VGiscus />
+      <VClientOnly>
+        <VGiscus />
+      </VClientOnly>
     </template>
 
     <div v-if="toc.length" class="toc fixed top-100px right-10 hidden">
@@ -126,16 +115,5 @@ hr {
   border: none;
   max-width: 42em;
   border-top: 1px solid #d6d6d6;
-}
-</style>
-
-<style lang="less">
-.v-post {
-  div[class*='language-'] {
-    width: calc(100vw - 36px);
-    max-width: 1366px;
-    left: 50%;
-    transform: translate(-50%, 0);
-  }
 }
 </style>

@@ -7,8 +7,6 @@ const loading = ref(true)
 const giscusHost = 'https://giscus.0x-jerry.icu'
 
 onMounted(() => {
-  if (import.meta.env.DEV) return
-
   if (el.value) {
     const script = createScript()
     el.value.appendChild(script)
@@ -38,13 +36,15 @@ function createScript() {
   script.async = true
 
   script.setAttribute('data-repo', '0x-jerry/blog')
-  script.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnk0MDYwMjIwOTk=')
+  script.setAttribute('data-repo-id', 'R_kgDOIMPPlA')
   script.setAttribute('data-category', 'General')
-  script.setAttribute('data-category-id', 'DIC_kwDOGDNn084B_KvZ')
+  script.setAttribute('data-category-id', 'DIC_kwDOIMPPlM4CZ4Sc')
   script.setAttribute('data-mapping', 'pathname')
+  script.setAttribute('data-strict', '0')
   script.setAttribute('data-reactions-enabled', '1')
-  script.setAttribute('data-emit-metadata', '0')
+  script.setAttribute('data-emit-metadata', '1')
   script.setAttribute('data-theme', 'preferred_color_scheme')
+  script.setAttribute('data-loading', 'lazy')
   return script
 }
 </script>
