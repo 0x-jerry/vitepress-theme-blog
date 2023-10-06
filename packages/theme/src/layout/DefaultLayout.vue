@@ -6,7 +6,9 @@ import Sidebar from './components/Sidebar.vue'
   <div>
     <Sidebar class="flex lg:(fixed left-0 top-0)"></Sidebar>
     <div class="ml-0 lg:ml-80">
-      <slot></slot>
+      <div class="flex px-4 flex-col min-h-screen lg:px-10">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
