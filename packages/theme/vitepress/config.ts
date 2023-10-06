@@ -40,10 +40,11 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
           strictMessage: false,
         }),
 
+        // todo, expose components config
         // https://github.com/antfu/unplugin-vue-components
         Components({
           include: ['**/*.md', '**/*.vue'],
-          dirs: ['components'],
+          dirs: ['components', 'posts'],
           resolvers: [IconsResolver()],
           dts: false,
         }),

@@ -1,18 +1,13 @@
 <script lang="ts" setup>
-import VHeader from '../components/VHeader.vue'
-import VFooter from '../components/VFooter.vue'
-import VGoTop from '../components/VGoTop.vue'
+import Sidebar from './components/Sidebar.vue'
 </script>
 
 <template>
   <div>
-    <VHeader></VHeader>
-    <div class="w-(full md:max-1200px) mx-auto">
+    <Sidebar class="flex lg:(fixed left-0 top-0)"></Sidebar>
+    <div class="ml-0 lg:ml-80">
       <slot></slot>
-      <br />
     </div>
-    <VFooter></VFooter>
-    <VGoTop></VGoTop>
   </div>
 </template>
 
