@@ -10,15 +10,15 @@ const title = t('title.index', [t('name')])
 </script>
 
 <template>
-  <VTitle :title="title"></VTitle>
+  <VTitle class="mb-4" :title="title"></VTitle>
   <div class="description">
     <Content></Content>
   </div>
-  <ul>
-    <li v-for="o in data" :key="o.data.title">
-      <VExcerpt v-bind="o.data" :href="o.url" class="p-5 my-5 mx-auto heti"> </VExcerpt>
-    </li>
-  </ul>
+  <div class="flex-(~ col) gap-2">
+    <template v-for="o in data" :key="o.data.title">
+      <VExcerpt v-bind="o.data" :href="o.url"> </VExcerpt>
+    </template>
+  </div>
 </template>
 
 <style scoped>

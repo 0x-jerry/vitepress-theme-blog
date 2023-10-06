@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type { ReadTimeResults } from 'reading-time'
-import VCard from './VCard.vue'
 import VLink from './VLink.vue'
-import VPostLabels from './VPostLabels.vue'
+import VTag from './VTag.vue'
+import dayjs from 'dayjs'
 
 interface VExcerptProps {
   title: string
@@ -12,26 +12,24 @@ interface VExcerptProps {
   read?: ReadTimeResults
 }
 
-const props = withDefaults(defineProps<VExcerptProps>(), {
+withDefaults(defineProps<VExcerptProps>(), {
   tags: () => [],
 })
 </script>
 
 <template>
-  <VCard class="break-words">
-    <VLink :href="href" class="mb-2 mt-0">
-      <div class="text-(xl blue-5)">
-        {{ title }}
-      </div>
-    </VLink>
-    <div>
-      <VPostLabels v-bind="props" />
+  <div class="flex-(~ col) gap-2 md:flex-row">
+    <div class="flex-(~ wrap) gap-2 items-center">
+      <VTag>{{ dayjs(date).format('YYYY-MM-DD') }}</VTag>
+      <VLink :href="href">{{ title }}</VLink>
     </div>
-    <!-- <hr m="y-4" /> -->
-    <div class="heti !max-w-full m-auto text-left">
-      <slot />
+    <div
+      v-if="tags.length"
+      class="flex-(~ wrap) gap-2 items-center border-(0 b solid gray-100) pb-4 mb-2 md:(p-0 m-0 border-none)"
+    >
+      <VTag v-for="tag in tags" :href="`/tag/${tag}`">{{ tag }}</VTag>
     </div>
-  </VCard>
+  </div>
 </template>
 
 <style scoped>

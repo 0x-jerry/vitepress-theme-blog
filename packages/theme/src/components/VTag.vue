@@ -1,29 +1,28 @@
 <script lang="ts" setup>
-import type { Component } from 'vue'
-import TagIcon from '~icons/carbon/hashtag'
-
 defineProps<{
-  icon?: Component
-  content?: string
+  href?: string
 }>()
 </script>
 
 <template>
-  <span class="v-tag">
-    <slot name="icon">
-      <i class="mr-1 text-gray-4 flex">
-        <component :is="icon || TagIcon"></component>
-      </i>
-    </slot>
-    <slot>
-      {{ content }}
-    </slot>
-  </span>
+  <a class="v-tag" :href="href">
+    <slot> </slot>
+  </a>
 </template>
 
 <style lang="less" scoped>
 .v-tag {
-  @apply px-2 py-1px  mr-1 inline-flex items-center;
-  @apply border rounded-full bg-light-7;
+  @apply border rounded text-xs px-2 font-mono border-(1 solid);
+
+  @apply border-gray-100 bg-gray-50 text-gray-500 hover:text-gray-700;
+
+  &[href] {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &.is-blue {
+    @apply border-blue-100 bg-blue-50 text-blue-500 hover:text-blue-700;
+  }
 }
 </style>
