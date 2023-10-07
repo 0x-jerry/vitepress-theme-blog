@@ -14,11 +14,15 @@ const router = useRouter()
 
 const title = computed(() => t('title.tags', [theme.value.name]))
 
-const u = new URL(location.href)
-
 const state = reactive({
-  selectedTag: u.searchParams.get('t') || '',
+  selectedTag: getInitTag(),
 })
+
+function getInitTag() {
+  if (import.meta.env.SSR) return ''
+  const u = new URL(location.href)
+  return u.searchParams.get('t') || ''
+}
 
 const tags = computed(() => {
   const tags: string[] = []

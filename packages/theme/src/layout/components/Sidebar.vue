@@ -7,6 +7,8 @@ import IconTag from '~icons/carbon/tag'
 import IconUser from '~icons/carbon/user-profile'
 import LogoGithub from '~icons/logos/github-icon'
 import VButton from '@@/components/VButton.vue'
+import VClientOnly from '@@/components/VClientOnly.vue'
+import VSearch from '@@/components/VSearch.vue'
 
 const { t } = useI18n()
 const theme = useTheme()
@@ -65,7 +67,11 @@ const linksIconMapper = {
           <component :is="linksIconMapper[key]"></component>
         </a>
       </div>
-      <div class="lg:(block w-full)"></div>
+      <div class="lg:(block w-full)">
+        <VClientOnly>
+          <VSearch></VSearch>
+        </VClientOnly>
+      </div>
       <div class="gap-2 hidden sm:(flex) lg:(flex-col w-full)">
         <a v-for="menu in menus" :href="menu.path">
           <VButton class="w-full">

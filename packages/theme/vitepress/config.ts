@@ -6,7 +6,7 @@ import Components from 'unplugin-vue-components/vite'
 import Uno from 'unocss/vite'
 import unoConfig from '../uno.config'
 import { defineConfig, type UserConfig } from 'vitepress'
-import { createBlogPlugin, type BlogPluginConfig } from './blog'
+import { postBlogGenerate, type BlogPluginConfig } from './blog'
 import { fileURLToPath } from 'url'
 import readingTime from 'reading-time'
 import { readFileSync } from 'fs'
@@ -14,17 +14,18 @@ import { readFileSync } from 'fs'
 
 const themeDir = fixCurrentDir()
 
-interface ThemePluginOption extends BlogPluginConfig {
-  // pathPrefix
-}
+interface ThemePluginOption extends BlogPluginConfig {}
 
 export default async (opt: Partial<ThemePluginOption> = {}) => {
   const option: ThemePluginOption = Object.assign(
     {
       prefixPath: 'posts',
+      search: true,
     },
     opt,
   )
+
+  globalThis.BLOG_CONFIG = option
 
   return defineConfig({
     vite: {
@@ -51,8 +52,6 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
 
         // https://github.com/unocss/unocss
         Uno(unoConfig),
-
-        createBlogPlugin(option),
       ],
       resolve: {
         alias: {
@@ -81,6 +80,9 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
     transformPageData(pageData, ctx) {
       const content = readFileSync(pageData.filePath, { encoding: 'utf-8' })
       pageData.frontmatter.read = readingTime(content || '')
+    },
+    async buildEnd(siteConfig) {
+      await postBlogGenerate(option, siteConfig)
     },
   }) as UserConfig
 }

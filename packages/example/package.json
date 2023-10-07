@@ -17,7 +17,8 @@
   "types": "src/index.ts",
   "scripts": {
     "dev": "vitepress",
-    "build": "vitepress build"
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   },
   "dependencies": {
     "vitepress-theme-blog": "workspace:*",
