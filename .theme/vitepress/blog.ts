@@ -20,10 +20,14 @@ export interface BlogPluginConfig {
   search?: boolean
 }
 
-export async function postBlogGenerate(config: BlogPluginConfig, vitepress: SiteConfig) {
+export async function postBlogGenerate(
+  config: BlogPluginConfig,
+  vitepress: SiteConfig,
+) {
   if (config.search) {
     const outDir = path.join(vitepress.root, '.vitepress', 'dist')
     await buildSearchIndex(outDir)
+    console.log('Build search index successful!')
   }
 
   if (config.rss) {
@@ -32,6 +36,7 @@ export async function postBlogGenerate(config: BlogPluginConfig, vitepress: Site
       articlesPathPrefix: config.prefixPath,
       filename: 'rss.xml',
     })
+    console.log('Build rss.xml successful!')
   }
 }
 
