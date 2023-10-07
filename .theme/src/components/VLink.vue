@@ -51,6 +51,25 @@ const url = computed(() => props.href)
   @apply break-all inline-block;
   @apply inline-flex;
   text-decoration: none;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+
+    width: 0;
+    height: 1px;
+    @apply bg-blue-5;
+    @apply transition;
+    transition-property: width;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
 
   &.disabled {
     pointer-events: none;
