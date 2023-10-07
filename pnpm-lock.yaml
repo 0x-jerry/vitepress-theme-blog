@@ -33,9 +33,6 @@ importers:
       '@vueuse/core':
         specifier: ^10.4.1
         version: 10.4.1(vue@3.3.4)
-      dayjs:
-        specifier: ^1.11.10
-        version: 1.11.10
       feed:
         specifier: ^4.2.2
         version: 4.2.2
@@ -97,6 +94,9 @@ importers:
       '@types/nprogress':
         specifier: ^0.2.1
         version: 0.2.1
+      dayjs:
+        specifier: ^1.11.10
+        version: 1.11.10
       pagefind:
         specifier: ^1.0.3
         version: 1.0.3
@@ -1252,7 +1252,7 @@ packages:
 
   /dayjs@1.11.10:
     resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
-    dev: false
+    dev: true
 
   /debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}

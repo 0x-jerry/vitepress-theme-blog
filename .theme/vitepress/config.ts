@@ -10,7 +10,12 @@ import { postBlogGenerate, type BlogPluginConfig } from './blog'
 import { fileURLToPath } from 'url'
 import readingTime from 'reading-time'
 import { readFileSync } from 'fs'
-// import { createHighlight } from './highlight'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 const themeDir = fixCurrentDir()
 
@@ -20,9 +25,9 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
   const option: ThemePluginOption = Object.assign(
     {
       prefixPath: 'posts',
-      search: true
+      search: true,
     },
-    opt
+    opt,
   )
 
   globalThis.BLOG_CONFIG = option
@@ -36,7 +41,7 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
         // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
         VueI18n({
           include: [path.resolve(themeDir, 'locales/**')],
-          strictMessage: false
+          strictMessage: false,
         }),
 
         // todo, expose components config
@@ -45,17 +50,17 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
           include: ['**/*.md', '**/*.vue'],
           dirs: ['components', 'posts'],
           resolvers: [IconsResolver()],
-          dts: false
+          dts: false,
         }),
 
         // https://github.com/unocss/unocss
-        Uno(unoConfig)
+        Uno(unoConfig),
       ],
       resolve: {
         alias: {
-          '@@/': themeDir + '/src/'
-        }
-      }
+          '@@/': themeDir + '/src/',
+        },
+      },
     },
     head: [
       // todo: add an option to enable generate rss
@@ -67,21 +72,23 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
           rel: 'stylesheet',
           crossorigin: 'anonymous',
           referrerpolicy: 'no-referrer',
-          href: 'https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.css'
-        }
-      ]
+          href: 'https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.css',
+        },
+      ],
     ],
-    markdown: {
-      // highlight: await createHighlight(),
-    },
     cleanUrls: true,
-    transformPageData(pageData, ctx) {
+    transformPageData(pageData, _ctx) {
       const content = readFileSync(pageData.filePath, { encoding: 'utf-8' })
       pageData.frontmatter.read = readingTime(content || '')
     },
     async buildEnd(siteConfig) {
+      const tz = siteConfig.site.themeConfig.timezone
+      if (tz) {
+        dayjs.tz.setDefault(tz)
+      }
+
       await postBlogGenerate(option, siteConfig)
-    }
+    },
   }) as UserConfig
 }
 

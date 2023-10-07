@@ -1,7 +1,6 @@
 import { Feed, type FeedOptions } from 'feed'
 import fs from 'fs/promises'
 import path from 'path'
-// todo, set timezone
 import dayjs from 'dayjs'
 
 const vitepressDir = path.join(process.cwd(), '.vitepress')
