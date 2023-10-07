@@ -66,11 +66,6 @@ const linksIconMapper = {
           <component :is="linksIconMapper[key]"></component>
         </a>
       </div>
-      <div class="lg:(block w-full)">
-        <ClientOnly>
-          <VSearch></VSearch>
-        </ClientOnly>
-      </div>
       <div class="gap-2 hidden sm:(flex) lg:(flex-col w-full)">
         <a v-for="menu in menus" :href="menu.path">
           <VButton class="w-full">
@@ -78,6 +73,11 @@ const linksIconMapper = {
             <span class="flex-1 hidden lg:inline-block">{{ menu.label }}</span>
           </VButton>
         </a>
+        <div class="lg:(block w-full)">
+          <ClientOnly>
+            <VSearch></VSearch>
+          </ClientOnly>
+        </div>
       </div>
     </div>
   </div>

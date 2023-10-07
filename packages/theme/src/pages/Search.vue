@@ -72,7 +72,7 @@ watch(
 <style lang="less" scoped>
 .search-input {
   @apply w-full border-(1 solid gray-3) rounded;
-  @apply text-lg;
+  @apply text-lg pl-1;
 
   &:focus {
     @apply border-(blue-4);
