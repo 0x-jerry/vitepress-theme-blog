@@ -22,22 +22,22 @@ const menus: SidebarMenu[] = [
   {
     path: '/',
     icon: IconHome,
-    label: t('menu.title.home'),
+    label: t('menu.title.home')
   },
   {
     path: '/tags',
     icon: IconTag,
-    label: t('menu.title.tags'),
+    label: t('menu.title.tags')
   },
   {
     path: '/about',
     icon: IconUser,
-    label: t('menu.title.about'),
-  },
+    label: t('menu.title.about')
+  }
 ]
 
 const linksIconMapper = {
-  github: LogoGithub,
+  github: LogoGithub
 }
 </script>
 
@@ -47,7 +47,10 @@ const linksIconMapper = {
     <div
       class="flex items-center border-(b gray-100) gap-2 px-4 bg-gray-50 w-full lg:(h-full w-72 border-(r gray-100) flex-col px-6 pb-10 overflow-auto)"
     >
-      <a href="/" class="rounded-full overflow-hidden h-2/3 md:h-4/5 lg:(h-auto w-4/5 mt-20)">
+      <a
+        href="/"
+        class="rounded-full overflow-hidden h-2/3 md:h-4/5 lg:(h-auto w-4/5 mt-20)"
+      >
         <img
           class="transition duration-1000 rotate-0 hover:rotate-360 w-full h-full object-cover aspect-[1/1]"
           :src="theme.avatar"
@@ -74,9 +77,7 @@ const linksIconMapper = {
           </VButton>
         </a>
         <div class="lg:(block w-full)">
-          <ClientOnly>
-            <VSearch></VSearch>
-          </ClientOnly>
+          <VSearch></VSearch>
         </div>
       </div>
     </div>
