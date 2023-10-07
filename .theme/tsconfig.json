@@ -15,7 +15,11 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "verbatimModuleSyntax": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["unplugin-icons/types/vue", "vite/client"],
+    "paths": {
+      "@@/*": ["./src/*"]
+    }
   },
-  "include": [".vitepress/**/*"]
+  "include": ["vitepress", "types", "src", "uno.config.ts"]
 }
