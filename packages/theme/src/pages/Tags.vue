@@ -53,7 +53,14 @@ function selectTag(tag: string) {
     <VTitle class="mb-3" :title="title" show-back></VTitle>
 
     <div class="flex-(~ wrap) gap-2 justify-center">
-      <VTag class="cursor-pointer" @click="selectTag(tag)" v-for="tag in tags"> {{ tag }}</VTag>
+      <VTag
+        class="cursor-pointer"
+        @click="selectTag(tag)"
+        v-for="tag in tags"
+        :class="{ 'is-selected': tag === state.selectedTag }"
+      >
+        {{ tag }}</VTag
+      >
     </div>
     <div class="mt-4 pt-4 border-(0 t solid gray-2) flex-(~ col) gap-2">
       <template v-for="o in artilces" :key="o.data.title">
@@ -63,4 +70,8 @@ function selectTag(tag: string) {
   </div>
 </template>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.is-selected {
+  @apply border-blue-4 bg-blue-1;
+}
+</style>
