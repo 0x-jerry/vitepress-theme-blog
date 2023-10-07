@@ -14,6 +14,7 @@ export default async () => {
       avatar: 'https://avatars.githubusercontent.com/u/14226737?v=4',
       motto: `Life was like a box of chocolates. You never know what you're gonna get.`,
       email: 'x.jerry.wang@gmail.com',
+      timezone: 'Asia/Chongqing',
       links: {
         github: 'https://github.com/0x-jerry'
       }

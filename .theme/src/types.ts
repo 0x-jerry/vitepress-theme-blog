@@ -3,6 +3,7 @@ export interface ThemeOption {
   avatar: string
   motto?: string
   email?: string
+  timezone?: string
   links?: {
     github?: string
   }
