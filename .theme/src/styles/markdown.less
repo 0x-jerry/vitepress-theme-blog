@@ -1,0 +1,78 @@
+// fixed bump up and down when hover
+a {
+  border-block-end: 1px solid transparent;
+  padding-block-end: 1px;
+}
+
+.heti {
+  font-family: 'LXGW WenKai', monospace;
+  blockquote > p {
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+
+    @apply shadow transition transition-shadow;
+    @apply hover:shadow-lg;
+  }
+}
+
+div[class*='language-'] {
+  position: relative;
+  overflow-x: auto;
+  border-radius: 4px;
+
+  .copy {
+    display: none;
+  }
+
+  .lang {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    background-color: hsl(0, 0%, 98%);
+    padding: 2px 10px 2px 13px;
+    border-bottom-left-radius: 10px;
+    @apply text-blue-500;
+  }
+}
+
+pre {
+  padding-inline-end: 45px;
+  font-size: 16px;
+
+  code {
+    display: block;
+    padding: 0 24px;
+  }
+}
+
+.code-highlight-lines {
+  position: relative;
+  // line-height: 1.2em;
+
+  > .highlight-lines {
+    position: absolute;
+    padding: 12px 0;
+    width: 100%;
+    pointer-events: none;
+
+    > .highlighted {
+      background: rgba(202, 202, 202, 0.199);
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .shiki.vp-code-dark {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .shiki.vp-code-light {
+    display: none;
+  }
+}

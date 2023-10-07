@@ -1,0 +1,50 @@
+@import './markdown.less';
+
+html,
+body {
+  @apply text-14px md:text-16px;
+  @apply text-gray-700;
+
+  font-family: 'LXGW WenKai', monospace;
+}
+
+html.dark {
+  background: #121212;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  @apply bg-blue-600 opacity-75;
+
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+}
+
+hr {
+  border-width: 0;
+  border-top-width: 1px;
+  @apply border-gray-1;
+}
+
+button {
+  appearance: none;
+  cursor: pointer;
+  @apply border-(1 solid gray-2);
+}
+
+div {
+  box-sizing: border-box;
+}

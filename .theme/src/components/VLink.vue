@@ -1,0 +1,75 @@
+<script lang="ts" setup>
+import { watchEffect, reactive, computed } from 'vue'
+
+interface VLinkProps {
+  theme?: 'blue' | 'gray' | 'white' | 'text'
+  href?: string
+  hiddenIcon?: boolean
+  disabled?: boolean
+}
+
+const props = withDefaults(defineProps<VLinkProps>(), { href: '' })
+
+const data = reactive({
+  isRelative: false,
+  isAnchor: false,
+  isEmail: false,
+  theme: '',
+})
+
+watchEffect(() => {
+  data.isRelative = !/^https?/.test(props.href)
+  data.isEmail = /^mailto:/.test(props.href)
+  data.isAnchor = props.href.startsWith('#')
+})
+
+const url = computed(() => props.href)
+</script>
+
+<template>
+  <a
+    :class="`link ${theme} ${disabled ?? false ? 'disabled' : ''}`"
+    :title="url"
+    :href="url"
+    :target="data.isEmail || !data.isRelative ? '_blank' : ''"
+  >
+    <template v-if="!data.isRelative">
+      <span>
+        <slot />
+      </span>
+    </template>
+    <template v-else>
+      <slot />
+    </template>
+  </a>
+</template>
+
+<style lang="less" scoped>
+.link {
+  @apply transition-colors;
+  @apply text-blue-500 hover:text-blue-600;
+  @apply break-all inline-block;
+  @apply inline-flex;
+  text-decoration: none;
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &.gray {
+    @apply text-gray-800 hover:text-blue-600;
+  }
+
+  &.white {
+    @apply text-light-900 hover:text-white;
+  }
+
+  &.text {
+    @apply text-gray-600 hover:text-gray-900;
+
+    &.disabled {
+      @apply text-gray-400;
+    }
+  }
+}
+</style>
