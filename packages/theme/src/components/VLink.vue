@@ -37,7 +37,6 @@ const url = computed(() => props.href)
       <span>
         <slot />
       </span>
-      <i-line-md-external-link-rounded v-if="!hiddenIcon" m="l-1" />
     </template>
     <template v-else>
       <slot />
@@ -51,6 +50,7 @@ const url = computed(() => props.href)
   @apply text-blue-500 hover:text-blue-600;
   @apply break-all inline-block;
   @apply inline-flex;
+  text-decoration: none;
 
   &.disabled {
     pointer-events: none;
