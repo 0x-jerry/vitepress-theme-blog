@@ -21,7 +21,7 @@
     "preview": "vitepress preview"
   },
   "dependencies": {
-    "vitepress-theme-blog": "workspace:*",
+    "@0x-jerry/vitepress-theme-blog": "workspace:*",
     "vue": "^3.3.4"
   },
   "devDependencies": {
