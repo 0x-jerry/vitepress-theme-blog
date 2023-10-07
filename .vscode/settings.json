@@ -1,0 +1,16 @@
+{
+  "[markdown]": {
+    "editor.quickSuggestions": {
+      "comments": true,
+      "other": true,
+      "strings": true
+    }
+  },
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.localesPaths": "locales",
+  "i18n-ally.sortKeys": true,
+  "editor.formatOnSave": true,
+  "search.exclude": {
+    "pnpm-loca.yaml": true
+  }
+}
