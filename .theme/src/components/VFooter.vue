@@ -2,7 +2,7 @@
 import dayjs from 'dayjs'
 import VLink from './VLink.vue'
 
-const year = dayjs().year()
+const year = dayjs.tz().year()
 </script>
 
 <template>

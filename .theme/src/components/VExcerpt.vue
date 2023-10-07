@@ -20,7 +20,7 @@ withDefaults(defineProps<VExcerptProps>(), {
 <template>
   <div class="flex-(~ col) gap-2 md:flex-row">
     <div class="flex-(~ wrap) gap-2 items-center">
-      <VTag>{{ dayjs(date).format('YYYY-MM-DD') }}</VTag>
+      <VTag>{{ dayjs.tz(date).format('YYYY-MM-DD') }}</VTag>
       <VLink :href="href">{{ title }}</VLink>
     </div>
     <div

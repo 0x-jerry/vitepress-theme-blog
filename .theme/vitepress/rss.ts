@@ -1,6 +1,7 @@
 import { Feed, type FeedOptions } from 'feed'
 import fs from 'fs/promises'
 import path from 'path'
+// todo, set timezone
 import dayjs from 'dayjs'
 
 const vitepressDir = path.join(process.cwd(), '.vitepress')
@@ -22,12 +23,14 @@ export async function generateFeed(conf: RSSGenerateOption) {
     ...conf,
   })
 
-  const joinPath = (...segments: string[]) => path.join(vitepressDir, ...segments)
+  const joinPath = (...segments: string[]) =>
+    path.join(vitepressDir, ...segments)
 
   const postDir = joinPath('dist', conf.articlesPathPrefix)
   const files = await fs.readdir(postDir)
 
-  const posts: { link: string; content: string; title: string; date: Date }[] = []
+  const posts: { link: string; content: string; title: string; date: Date }[] =
+    []
 
   const dateReg = /meta name="date" content="([0-9a-zA-Z.:-]+)"/
   const titleReg = /<title>(.+)?<\/title>/
@@ -37,21 +40,25 @@ export async function generateFeed(conf: RSSGenerateOption) {
 
     const link = `${conf.origin}/${conf.articlesPathPrefix}/${postTitle}`
 
-    const html = await fs.readFile(path.join(postDir, file), { encoding: 'utf-8' })
+    const html = await fs.readFile(path.join(postDir, file), {
+      encoding: 'utf-8',
+    })
 
     const date = html.match(dateReg)?.[1] || ''
 
     const title = html.match(titleReg)?.[1] || ''
 
     posts.push({
-      date: dayjs(date, 'YYYY-MM-DDTHH:mm:ss.SSS.Z').toDate(),
+      date: dayjs.tz(date).toDate(),
       link,
       content: html.replace(removeHeaderReg, ''),
       title,
     })
   }
 
-  const generatedPosts = posts.sort((a, b) => b.date.getTime() - a.date.getTime())
+  const generatedPosts = posts.sort(
+    (a, b) => b.date.getTime() - a.date.getTime(),
+  )
 
   for (const post of generatedPosts.slice(0, 40)) {
     feed.addItem(post)
