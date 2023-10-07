@@ -3,10 +3,13 @@ import { useI18n } from '@@/lib/i18n'
 import VExcerpt from '@@/components/VExcerpt.vue'
 import { data } from '@@/data/excerpts.data'
 import VTitle from '@@/components/VTitle.vue'
+import { useTheme } from '@@/hooks/useTheme'
+
+const theme = useTheme()
 
 const { t } = useI18n()
 
-const title = t('title.index', [t('name')])
+const title = t('title.index', [theme.value.name])
 </script>
 
 <template>
