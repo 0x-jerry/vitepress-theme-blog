@@ -6,6 +6,7 @@ import Post from './pages/Post.vue'
 import About from './pages/About.vue'
 import NotFound from './pages/NotFound.vue'
 import Tags from './pages/Tags.vue'
+import Search from './pages/Search.vue'
 
 interface RouteItem {
   match: RegExp | string | ((route: Route) => boolean)
@@ -40,6 +41,11 @@ export const routes: RouteItem[] = [
     layout: DefaultLayout,
     component: Tags,
   },
+  {
+    match: '/search',
+    layout: DefaultLayout,
+    component: Search,
+  },
 ]
 
 export function getRouteComponent(route: Route) {
@@ -51,7 +57,7 @@ export function getRouteComponent(route: Route) {
     return item.layout ? withLayout(item.layout, item.component) : item.component
   }
 
-  return NotFound
+  return withLayout(DefaultLayout, NotFound)
 }
 
 function isMatchRoute(item: RouteItem, route: Route): boolean {

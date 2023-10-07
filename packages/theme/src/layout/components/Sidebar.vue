@@ -43,7 +43,7 @@ const linksIconMapper = {
 </script>
 
 <template>
-  <div class="h-12 lg:h-screen">
+  <div class="sidebar h-12 lg:h-screen">
     <div class="h-full w-8 border-(r gray-100) hidden lg:block"></div>
     <div
       class="flex items-center border-(b gray-100) gap-2 px-4 bg-gray-50 w-full lg:(h-full w-72 border-(r gray-100) flex-col px-6 pb-10 overflow-auto)"

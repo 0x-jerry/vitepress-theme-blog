@@ -1,6 +1,7 @@
 WIP: Working In Progress.
 button:
   back: Go back
+  search: Search
 language: English
 menu:
   title:
@@ -26,6 +27,6 @@ title:
   tag: Tag - {0}
   tags: "{0}'s Tags"
   timeline: "{0}'s Timeline"
-
+  search: Search
 time:
   minutes: minutes

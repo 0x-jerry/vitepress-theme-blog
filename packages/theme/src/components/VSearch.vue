@@ -1,30 +1,18 @@
 <script lang="ts" setup>
-import { useHead } from '@vueuse/head'
+import VButton from './VButton.vue'
+import { useI18n } from '@@/lib/i18n'
+import { useRouter } from 'vitepress'
+import IconSearch from '~icons/carbon/search'
 
-useHead({
-  link: [
-    {
-      href: '/pagefind/pagefind-ui.css',
-      rel: 'stylesheet',
-    },
-  ],
-  script: [
-    {
-      src: '/pagefind/pagefind-ui.js',
-    },
-  ],
-})
-
-setTimeout(() => {
-  // @ts-ignore
-  new window.PagefindUI({ element: '#search', showSubResults: true })
-
-  console.log('search functon initialized!')
-}, 1000)
+const { t } = useI18n()
+const router = useRouter()
 </script>
 
 <template>
-  <div id="search"></div>
+  <VButton class="w-full" @click="router.go('/search')">
+    <IconSearch></IconSearch>
+    <span class="flex-1 hidden lg:inline-block">{{ t('button.search') }}</span>
+  </VButton>
 </template>
 
 <style lang="less" scoped></style>

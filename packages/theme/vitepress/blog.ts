@@ -38,7 +38,9 @@ export async function postBlogGenerate(config: BlogPluginConfig, vitepress: Site
 async function buildSearchIndex(publicPath: string) {
   // Create a Pagefind search index to work with
   const { index } = await pagefind.createIndex({
-    verbose: true,
+    forceLanguage: 'zh',
+    excludeSelectors: ['.sidebar'],
+    logfile: path.join(publicPath, 'seaerch-debug.log'),
   })
 
   // Index all HTML files in a directory
@@ -46,17 +48,7 @@ async function buildSearchIndex(publicPath: string) {
     path: publicPath,
   })
 
-  // Add extra content
-  // await index!.addCustomRecord({
-  //   url: '/resume.pdf',
-  //   content: 'Aenean lacinia bibendum nulla sed consectetur',
-  //   language: 'en',
-  // })
-
-  // Get the index files in-memory
-  // const { files } = await index!.getFiles()
-
-  // Or, write the index to disk
+  // write the index to disk
   await index!.writeFiles({
     outputPath: path.join(publicPath, 'pagefind'),
   })
