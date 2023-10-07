@@ -27,7 +27,7 @@ withDefaults(defineProps<VExcerptProps>(), {
       v-if="tags.length"
       class="flex-(~ wrap) gap-2 items-center border-(0 b solid gray-100) pb-4 mb-2 md:(p-0 m-0 border-none)"
     >
-      <VTag v-for="tag in tags" :href="`/tag/${tag}`">{{ tag }}</VTag>
+      <VTag v-for="tag in tags" :href="`/tags/${tag}`">{{ tag }}</VTag>
     </div>
   </div>
 </template>
