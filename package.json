@@ -17,6 +17,7 @@
   "types": "src/index.ts",
   "scripts": {
     "dev": "vitepress",
+    "build:theme": "pnpm --filter @0x-jerry/vitepress-theme-blog run build",
     "build": "vitepress build",
     "preview": "vitepress preview"
   },

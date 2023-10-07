@@ -26,6 +26,7 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm i
+      - run: pnpm run build:theme
       - run: pnpm run build
 
       - name: deploy
