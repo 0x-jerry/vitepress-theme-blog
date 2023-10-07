@@ -4,6 +4,8 @@ import { defineConfigWithTheme } from 'vitepress'
 
 export default async () => {
   return defineConfigWithTheme<ThemeOption>({
+    title: '0x-Jerry',
+    titleTemplate: ':title | Blog',
     extends: await createBaseConfig(),
     cleanUrls: true,
     ignoreDeadLinks: true,

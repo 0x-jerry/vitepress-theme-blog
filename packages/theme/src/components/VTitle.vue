@@ -1,9 +1,8 @@
 <script lang="ts" setup>
-import { useHead } from '@vueuse/head'
 import { useRouter } from 'vitepress'
 import ArrowLeft from '~icons/carbon/arrow-left'
 
-const props = defineProps<{
+defineProps<{
   title: string
   showBack?: boolean
 }>()
@@ -13,10 +12,6 @@ const router = useRouter()
 function back() {
   router.go('/')
 }
-
-useHead({
-  title: props.title,
-})
 </script>
 
 <template>

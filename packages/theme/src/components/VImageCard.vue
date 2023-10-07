@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import VClientOnly from './VClientOnly.vue'
 import VSentence from './VSentence.vue'
 </script>
 
@@ -14,9 +13,9 @@ import VSentence from './VSentence.vue'
         class="w-4/5 bg-(black opacity-10) p-4 rounded-lg backdrop-(filter blur-sm) text-(white xs) sm:(text-sm p-6) md:(p-10)"
         style="text-shadow: 0 0 2px rgb(240, 240, 240)"
       >
-        <VClientOnly>
+        <ClientOnly>
           <VSentence> </VSentence>
-        </VClientOnly>
+        </ClientOnly>
       </div>
     </div>
   </div>
