@@ -14,17 +14,22 @@ async function fetchHitokoto() {
 
 const from = computed(() => [data.value?.from, data.value?.from_who].filter(Boolean).join(' - '))
 
-if (!import.meta.env.SSR) fetchHitokoto()
+fetchHitokoto()
 </script>
 
 <template>
-  <template v-if="!isFetched">
-    <slot></slot>
-  </template>
-  <div v-else class="v-sentence text-center cursor-pointer px-4"  @click="fetchHitokoto" >
-    <p class="font-italic">「 {{ data?.hitokoto }} 」</p>
-    <br />
-    <p class="text-right">--- {{ from }}</p>
+  <div class="text-lg">
+    <div class="v-sentence text-center px-4">
+      <template v-if="!isFetched">
+        <!-- todo, add loading -->
+        <div class="loading"></div>
+      </template>
+      <template v-else>
+        <p class="font-italic">「 {{ data?.hitokoto }} 」</p>
+        <br />
+        <p class="text-right">--- {{ from }}</p>
+      </template>
+    </div>
   </div>
 </template>
 

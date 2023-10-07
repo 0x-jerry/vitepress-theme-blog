@@ -6,6 +6,7 @@ import Post from './pages/Post.vue'
 import About from './pages/About.vue'
 import NotFound from './pages/NotFound.vue'
 import Tags from './pages/Tags.vue'
+import Tag from './pages/Tag.vue'
 
 interface RouteItem {
   match: RegExp | string | ((route: Route) => boolean)
@@ -27,12 +28,18 @@ export const routes: RouteItem[] = [
   },
   {
     match: '/about',
+    layout: DefaultLayout,
     component: About,
   },
   {
     match: '/tags',
     layout: DefaultLayout,
     component: Tags,
+  },
+  {
+    match: /^\/tag\//,
+    layout: DefaultLayout,
+    component: Tag,
   },
 ]
 

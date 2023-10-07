@@ -1,82 +1,34 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
-import { ref } from 'vue'
-import IconGithub from '~icons/mdi/github'
-import IconBook from '~icons/mdi/book'
-import IconEmail from '~icons/mdi/email'
-import { useI18n } from '@@/lib/i18n'
-import VRandomImage from '@@/components/VRandomImage.vue'
-import VLink from '@@/components/VLink.vue'
+import VClientOnly from '@@/components/VClientOnly.vue'
 import VSentence from '@@/components/VSentence.vue'
+import { useTheme } from '@@/hooks/useTheme'
 
-interface Menu {
-  icon: Component
-  href: string
-  label: string
-}
-
-const { t } = useI18n()
-
-const menus: Menu[] = [
-  {
-    icon: IconBook,
-    href: '/',
-    label: t('menu.title.posts'),
-  },
-  {
-    icon: IconGithub,
-    href: 'https://github.com/0x-jerry',
-    label: t('menu.title.github'),
-  },
-  {
-    icon: IconEmail,
-    href: 'mailto:x.jerry.wang@gmail.com',
-    label: t('menu.title.email'),
-  },
-]
-
-const randomImageId = ref(1000)
-
-function updateRandomImageId() {
-  const [min, max] = [1000, 1010]
-
-  const id = min + ~~(Math.random() * (max - min))
-  randomImageId.value = id
-}
-
-updateRandomImageId()
+const theme = useTheme()
 </script>
 
 <template>
-  <div class="w-screen h-screen relative bg-black">
-    <VRandomImage class="w-screen h-screen" :id="randomImageId"></VRandomImage>
-    <div class="page-bg cursor-pointer" @click.self="updateRandomImageId">
-      <div class="relative card-bg p-(2 md:x-10 md:y-14) cursor-auto">
-        <div class="relative z-10">
-          <h1 class="text-(4xl center)">
-            {{ $t('title.index', [$t('name')]) }}
-          </h1>
+  <div class="flex-(~ col) items-center gap-4 mt-3">
+    <div class="rainbow w-full p-10">
+      <div class="heti max-w-full">
+        <Content></Content>
+      </div>
+    </div>
 
-          <div class="leading-7 my-20">
+    <div
+      class="relative border-(1 solid gray-100) bg-black"
+      style="width: 100%; aspect-ratio: 16 / 9; max-height: 500px"
+    >
+      <img class="block object-cover w-full h-full" src="https://0x-jerry.icu/api/img" />
+      <div class="w-full h-full absolute top-0 left-0 flex items-center justify-center">
+        <div
+          class="w-4/5 bg-(black opacity-10) p-4 rounded-lg backdrop-(filter blur-sm) text-(white xs) sm:(text-sm p-6) md:(p-10)"
+          style="text-shadow: 0 0 2px rgb(240, 240, 240)"
+        >
+          <VClientOnly>
             <VSentence>
-              <p class="leading-relaxed text-center font-italic" v-html="$t('motto')"></p>
+              {{ theme.motto }}
             </VSentence>
-          </div>
-
-          <div class="description">
-            <Content></Content>
-          </div>
-
-          <ul class="m-auto flex-(~ wrap) justify-center items-center text-2xl rounded-md">
-            <li class="mx-4" v-for="(o, idx) in menus" :key="idx">
-              <VLink :href="o.href" theme="white" :hidden-icon="true" class="flex-col">
-                <div class="flex-inline justify-center w-full h-40px">
-                  <component :is="o.icon" />
-                </div>
-                <p class="text-sm">{{ o.label }}</p>
-              </VLink>
-            </li>
-          </ul>
+          </VClientOnly>
         </div>
       </div>
     </div>
@@ -84,36 +36,55 @@ updateRandomImageId()
 </template>
 
 <style lang="less" scoped>
-ul {
-  padding-left: 0;
-}
-li {
-  list-style: none;
-}
-.page-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.1);
+:root {
+  --angle: 45deg;
+  --opacity: 0.5;
 }
 
-.card-bg {
-  background: rgba(0, 0, 0, 0.1);
-  color: white;
-  text-shadow: 0 0 2px rgb(240, 240, 240);
-  box-shadow: 0 0 2px rgb(255, 255, 255);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 20px;
-  overflow: hidden;
-  max-width: 80%;
-  width: 700px;
+.rainbow {
+  --border-size: 0.3rem;
+  border: var(--border-size) solid transparent;
 
-  @apply backdrop-filter backdrop-blur-md;
+  /* Paint an image in the border */
+  border-image: conic-gradient(
+      from var(--angle),
+      #d53e33 0deg 90deg,
+      #fbb300 90deg 180deg,
+      #377af5 180deg 270deg,
+      #399953 270deg 360deg
+    )
+    1 stretch;
+  background: rgb(255 255 255 / var(--opacity));
+}
+
+/* Animate when Houdini is available */
+@supports (background: paint(houdini)) {
+  @property --opacity {
+    syntax: '<number>';
+    initial-value: 0.5;
+    inherits: false;
+  }
+
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @keyframes opacityChange {
+    to {
+      --opacity: 1;
+    }
+  }
+
+  @keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  .rainbow {
+    animation: rotate 4s linear infinite, opacityChange 3s infinite alternate;
+  }
 }
 </style>
