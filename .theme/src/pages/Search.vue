@@ -2,7 +2,7 @@
 import VTitle from '@@/components/VTitle.vue'
 import { useI18n } from '@@/lib/i18n'
 import { useRouter } from 'vitepress'
-import { reactive, shallowRef, watch } from 'vue'
+import { onMounted, reactive, shallowRef, watch } from 'vue'
 
 const { t } = useI18n()
 
@@ -16,7 +16,7 @@ const pagefind = shallowRef()
 // workaround for loading pagefind js
 const getPageFindJs = Function(`return import("/pagefind/pagefind.js")`)
 
-init()
+onMounted(init)
 
 async function init() {
   pagefind.value = await getPageFindJs()
@@ -52,7 +52,11 @@ watch(
   <div>
     <VTitle class="mb-3" show-back :title="t('title.search')"></VTitle>
     <div class="mb-3">
-      <input class="search-input" v-model="state.input" placeholder="Give me something to search" />
+      <input
+        class="search-input"
+        v-model="state.input"
+        placeholder="Give me something to search"
+      />
     </div>
     <div class="flex-(~ col) gap-3">
       <div v-for="result in state.results">
