@@ -2,7 +2,6 @@
 title: VitePress Mismatch 错误
 date: 2023-10-08T03:18:46.760Z
 tags: [vitepress]
-publish: false
 ---
 
 [Vitepress] 迎来了 RC 阶段，相信 ~~不久~~ 就会迎来 Stable 版本。于此，之前一直挖的坑，也是时候填上了。
