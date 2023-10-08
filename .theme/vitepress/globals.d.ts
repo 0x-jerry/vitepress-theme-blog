@@ -1,5 +1,5 @@
-declare module globalThis {
-  import type { BlogPluginConfig } from './blog'
+import type { BlogPluginConfig } from './blog'
 
+declare global {
   var BLOG_CONFIG: BlogPluginConfig
 }

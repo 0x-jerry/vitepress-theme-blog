@@ -11,9 +11,7 @@ export default createContentLoader([config.prefixPath + '/**/*.md'], {
   includeSrc: true,
   transform(raw): BlogExcerpt[] {
     return raw
-      .filter(n => n.frontmatter.publish !== false)
       .map((n) => {
-
         return {
           url: n.url,
           data: {
@@ -21,6 +19,7 @@ export default createContentLoader([config.prefixPath + '/**/*.md'], {
             title: n.frontmatter.title,
             date: n.frontmatter.date,
             read: readingTime(n.src || ''),
+            publish: n.frontmatter.publish ?? true,
           },
         }
       })

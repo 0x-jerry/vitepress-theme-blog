@@ -1,15 +1,11 @@
 <script lang="ts" setup>
-import type { ReadTimeResults } from 'reading-time'
 import VLink from './VLink.vue'
 import VTag from './VTag.vue'
 import dayjs from 'dayjs'
+import type { ExcerptData } from '../../types'
 
-interface VExcerptProps {
-  title: string
+interface VExcerptProps extends ExcerptData {
   href: string
-  date: Date | string
-  tags?: string[]
-  read?: ReadTimeResults
 }
 
 withDefaults(defineProps<VExcerptProps>(), {
@@ -28,6 +24,7 @@ withDefaults(defineProps<VExcerptProps>(), {
       class="flex-(~ wrap) gap-2 items-center border-(0 b solid gray-100) pb-4 mb-2 md:(p-0 m-0 border-none)"
     >
       <VTag v-for="tag in tags" :href="`/tags/${tag}`">{{ tag }}</VTag>
+      <VTag v-if="!publish" class="is-red">Unpluinshed</VTag>
     </div>
   </div>
 </template>

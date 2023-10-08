@@ -7,6 +7,7 @@ export interface ExcerptData {
   tags?: string[]
   license?: string
   read: ReadTimeResults
+  publish?: boolean
 }
 
 export interface BlogExcerpt {

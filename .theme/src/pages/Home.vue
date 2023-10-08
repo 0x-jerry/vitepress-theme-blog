@@ -4,12 +4,17 @@ import VExcerpt from '@@/components/VExcerpt.vue'
 import { data } from '@@/data/excerpts.data'
 import VTitle from '@@/components/VTitle.vue'
 import { useTheme } from '@@/hooks/useTheme'
+import { computed } from 'vue'
 
 const theme = useTheme()
 
 const { t } = useI18n()
 
 const title = t('title.index', [theme.value.name])
+
+const articles = computed(() =>
+  import.meta.env.DEV ? data : data.filter((n) => n.data.publish),
+)
 </script>
 
 <template>
@@ -18,7 +23,7 @@ const title = t('title.index', [theme.value.name])
     <Content></Content>
   </div>
   <div class="flex-(~ col) gap-2">
-    <template v-for="o in data" :key="o.data.title">
+    <template v-for="o in articles" :key="o.data.title">
       <VExcerpt v-bind="o.data" :href="o.url"> </VExcerpt>
     </template>
   </div>

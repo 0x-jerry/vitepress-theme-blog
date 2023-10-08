@@ -24,5 +24,9 @@ defineProps<{
   &.is-blue {
     @apply border-blue-100 bg-blue-50 text-blue-500 hover:text-blue-700;
   }
+
+  &.is-red {
+    @apply border-red-100 bg-red-50 text-red-500 hover:text-red-700;
+  }
 }
 </style>
