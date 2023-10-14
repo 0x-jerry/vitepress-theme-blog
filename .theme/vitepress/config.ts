@@ -89,6 +89,9 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
 
       await postBlogGenerate(option, siteConfig)
     },
+    markdown: {
+      headers: {},
+    },
   }) as UserConfig
 }
 

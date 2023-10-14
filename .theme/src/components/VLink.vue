@@ -47,7 +47,7 @@ const url = computed(() => props.href)
 <style lang="less" scoped>
 .link {
   @apply transition-colors;
-  @apply text-blue-500 hover:text-blue-600;
+  @apply text-blue-500;
   @apply break-all inline-block;
   @apply inline-flex;
   text-decoration: none;
@@ -65,7 +65,9 @@ const url = computed(() => props.href)
     transition-property: width;
   }
 
+  &.is-active,
   &:hover {
+    @apply text-blue-600;
     &::before {
       width: 100%;
     }

@@ -3,29 +3,42 @@ import { computed, useAttrs } from 'vue'
 import { useRoute } from 'vitepress'
 import VGiscus from '@@/components/VGiscus.vue'
 import VTitle from '@@/components/VTitle.vue'
+import VArticleNav from '@@/components/VArticleNav.vue'
 
 const attrs = useAttrs()
 
 const route = useRoute()
 
 const enableComment = computed(() => attrs.comment ?? true)
+
+const headers = computed(() => route.data.headers)
 </script>
 
 <template>
   <div class="v-post">
     <VTitle :title="route.data.title" show-back></VTitle>
 
-    <div class="heti text-left max-w-full" ref="content">
-      <Content></Content>
+    <div class="flex">
+      <div class="post-content flex-1">
+        <div class="heti text-left max-w-full" ref="content">
+          <Content></Content>
+        </div>
+
+        <br />
+
+        <template v-if="enableComment">
+          <ClientOnly>
+            <VGiscus />
+          </ClientOnly>
+        </template>
+      </div>
+      <div class="post-nav w-0 xl:w-300px">
+        <VArticleNav
+          class="sticky top-70px relative"
+          :headers="headers"
+        ></VArticleNav>
+      </div>
     </div>
-
-    <br />
-
-    <template v-if="enableComment">
-      <ClientOnly>
-        <VGiscus />
-      </ClientOnly>
-    </template>
   </div>
 </template>
 
