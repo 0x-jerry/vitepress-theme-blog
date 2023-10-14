@@ -32,7 +32,7 @@ const headers = computed(() => route.data.headers)
           </ClientOnly>
         </template>
       </div>
-      <div class="post-nav w-0 xl:w-300px">
+      <div class="post-nav w-0 xl:w-300px" v-if="headers.length">
         <VArticleNav
           class="sticky top-70px relative"
           :headers="headers"
