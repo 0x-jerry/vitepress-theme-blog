@@ -60,7 +60,7 @@
     "unplugin-icons": "^0.17.1",
     "unplugin-vue-components": "^0.25.2",
     "vite": "^5.0.0",
-    "vitepress": "1.0.0-rc.25",
+    "vitepress": "1.0.0-rc.29",
     "vue": "^3.3.6",
     "vue-i18n": "^9.5.0"
   },
