@@ -101,8 +101,8 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
       tsup:
-        specifier: ^7.2.0
-        version: 7.2.0(postcss@8.4.31)(typescript@5.2.2)
+        specifier: ^8.0.0
+        version: 8.0.0(postcss@8.4.31)(typescript@5.2.2)
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
@@ -347,7 +347,6 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/android-arm@0.18.20:
@@ -364,7 +363,6 @@ packages:
     cpu: [arm]
     os: [android]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/android-x64@0.18.20:
@@ -381,7 +379,6 @@ packages:
     cpu: [x64]
     os: [android]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/darwin-arm64@0.18.20:
@@ -398,7 +395,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/darwin-x64@0.18.20:
@@ -415,7 +411,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/freebsd-arm64@0.18.20:
@@ -432,7 +427,6 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/freebsd-x64@0.18.20:
@@ -449,7 +443,6 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-arm64@0.18.20:
@@ -466,7 +459,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-arm@0.18.20:
@@ -483,7 +475,6 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-ia32@0.18.20:
@@ -500,7 +491,6 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-loong64@0.18.20:
@@ -517,7 +507,6 @@ packages:
     cpu: [loong64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-mips64el@0.18.20:
@@ -534,7 +523,6 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-ppc64@0.18.20:
@@ -551,7 +539,6 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-riscv64@0.18.20:
@@ -568,7 +555,6 @@ packages:
     cpu: [riscv64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-s390x@0.18.20:
@@ -585,7 +571,6 @@ packages:
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/linux-x64@0.18.20:
@@ -602,7 +587,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/netbsd-x64@0.18.20:
@@ -619,7 +603,6 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/openbsd-x64@0.18.20:
@@ -636,7 +619,6 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/sunos-x64@0.18.20:
@@ -653,7 +635,6 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/win32-arm64@0.18.20:
@@ -670,7 +651,6 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/win32-ia32@0.18.20:
@@ -687,7 +667,6 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@esbuild/win32-x64@0.18.20:
@@ -704,7 +683,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@iconify/json@2.2.132:
@@ -916,7 +894,6 @@ packages:
     cpu: [arm]
     os: [android]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@rollup/rollup-android-arm64@4.4.1:
@@ -924,7 +901,6 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@rollup/rollup-darwin-arm64@4.4.1:
@@ -932,7 +908,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@rollup/rollup-darwin-x64@4.4.1:
@@ -940,7 +915,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@rollup/rollup-linux-arm-gnueabihf@4.4.1:
@@ -948,7 +922,6 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@rollup/rollup-linux-arm64-gnu@4.4.1:
@@ -956,7 +929,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@rollup/rollup-linux-arm64-musl@4.4.1:
@@ -964,7 +936,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@rollup/rollup-linux-x64-gnu@4.4.1:
@@ -972,7 +943,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@rollup/rollup-linux-x64-musl@4.4.1:
@@ -980,7 +950,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@rollup/rollup-win32-arm64-msvc@4.4.1:
@@ -988,7 +957,6 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@rollup/rollup-win32-ia32-msvc@4.4.1:
@@ -996,7 +964,6 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@rollup/rollup-win32-x64-msvc@4.4.1:
@@ -1004,7 +971,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@types/estree@1.0.3:
@@ -1487,13 +1453,13 @@ packages:
     dependencies:
       fill-range: 7.0.1
 
-  /bundle-require@4.0.2(esbuild@0.18.20):
+  /bundle-require@4.0.2(esbuild@0.19.5):
     resolution: {integrity: sha512-jwzPOChofl67PSTW2SGubV9HBQAhhR2i6nskiOThauo9dzwDUgOWQScFVaJkjEfYX+UXiD+LEx8EblQMc2wIag==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     peerDependencies:
       esbuild: '>=0.17'
     dependencies:
-      esbuild: 0.18.20
+      esbuild: 0.19.5
       load-tsconfig: 0.2.5
     dev: true
 
@@ -1667,7 +1633,6 @@ packages:
       '@esbuild/win32-arm64': 0.19.5
       '@esbuild/win32-ia32': 0.19.5
       '@esbuild/win32-x64': 0.19.5
-    dev: false
 
   /escodegen@2.1.0:
     resolution: {integrity: sha512-2NlIDTwUWJN0mRPQOdtQBzbUHvdGY2P1VXSyU83Q3xKxM7WHX2Ql8dKq782Q9TgQUNOLEzEYu9bzLNj1q88I5w==}
@@ -2467,7 +2432,6 @@ packages:
       '@rollup/rollup-win32-ia32-msvc': 4.4.1
       '@rollup/rollup-win32-x64-msvc': 4.4.1
       fsevents: 2.3.3
-    dev: false
 
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
@@ -2657,15 +2621,18 @@ packages:
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
-  /tsup@7.2.0(postcss@8.4.31)(typescript@5.2.2):
-    resolution: {integrity: sha512-vDHlczXbgUvY3rWvqFEbSqmC1L7woozbzngMqTtL2PGBODTtWlRwGDDawhvWzr5c1QjKe4OAKqJGfE1xeXUvtQ==}
-    engines: {node: '>=16.14'}
+  /tsup@8.0.0(postcss@8.4.31)(typescript@5.2.2):
+    resolution: {integrity: sha512-9rOGn8LsFn2iAg2pCB1jnH7ygVuGjlzIomjw0jKXUxAii3iL5cXgm0jZMPKfFH1bSAjQovJ1DUVPSw+oDuIu8A==}
+    engines: {node: '>=18'}
     hasBin: true
     peerDependencies:
+      '@microsoft/api-extractor': ^7.36.0
       '@swc/core': ^1
       postcss: ^8.4.12
-      typescript: '>=4.1.0'
+      typescript: '>=4.5.0'
     peerDependenciesMeta:
+      '@microsoft/api-extractor':
+        optional: true
       '@swc/core':
         optional: true
       postcss:
@@ -2673,18 +2640,18 @@ packages:
       typescript:
         optional: true
     dependencies:
-      bundle-require: 4.0.2(esbuild@0.18.20)
+      bundle-require: 4.0.2(esbuild@0.19.5)
       cac: 6.7.14
       chokidar: 3.5.3
       debug: 4.3.4
-      esbuild: 0.18.20
+      esbuild: 0.19.5
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
       postcss: 8.4.31
       postcss-load-config: 4.0.1(postcss@8.4.31)
       resolve-from: 5.0.0
-      rollup: 3.29.4
+      rollup: 4.4.1
       source-map: 0.8.0-beta.0
       sucrase: 3.34.0
       tree-kill: 1.2.2
