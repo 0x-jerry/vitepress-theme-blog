@@ -59,13 +59,17 @@ div[class*='language-'] {
   overflow-x: auto;
   border-radius: 4px;
 
+  border: 1px solid #eee;
+  box-shadow: 0 0 10px #eee;
+  margin: 10px;
+
   .copy {
     display: none;
   }
 
   .lang {
     position: absolute;
-    top: 12px;
+    top: 0px;
     right: 0;
     background-color: hsl(0, 0%, 98%);
     padding: 2px 10px 2px 13px;
@@ -101,13 +105,25 @@ pre {
 }
 
 @media (prefers-color-scheme: light) {
-  .shiki.vp-code-dark {
-    display: none;
+  .shiki,
+  .shiki span {
+    color: var(--shiki-light) !important;
+    background-color: var(--shiki-light-bg) !important;
+    /* Optional, if you also want font styles */
+    font-style: var(--shiki-light-font-style) !important;
+    font-weight: var(--shiki-light-font-weight) !important;
+    text-decoration: var(--shiki-light-text-decoration) !important;
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  .shiki.vp-code-light {
-    display: none;
+  .shiki,
+  .shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    /* Optional, if you also want font styles */
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
   }
 }
