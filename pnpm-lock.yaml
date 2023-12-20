@@ -17,7 +17,7 @@ importers:
     devDependencies:
       vitepress:
         specifier: 1.0.0-rc.32
-        version: 1.0.0-rc.32(@algolia/client-search@4.20.0)(@types/node@20.9.4)(less@4.2.0)(nprogress@0.2.0)(postcss@8.4.31)(sass@1.69.5)(search-insights@2.11.0)(typescript@5.3.2)
+        version: 1.0.0-rc.32(@algolia/client-search@4.20.0)(@types/node@20.9.4)(less@4.2.0)(nprogress@0.2.0)(postcss@8.4.32)(sass@1.69.5)(search-insights@2.11.0)(typescript@5.3.2)
 
   .theme:
     dependencies:
@@ -28,8 +28,8 @@ importers:
         specifier: ^2.2.145
         version: 2.2.145
       '@intlify/unplugin-vue-i18n':
-        specifier: ^1.5.0
-        version: 1.5.0(vue-i18n@9.7.1)
+        specifier: ^2.0.0
+        version: 2.0.0(vue-i18n@9.7.1)
       '@vueuse/core':
         specifier: ^10.6.1
         version: 10.6.1(vue@3.3.8)
@@ -62,7 +62,7 @@ importers:
         version: 0.14.5
       unocss:
         specifier: ^0.58.0
-        version: 0.58.0(postcss@8.4.31)(vite@5.0.2)
+        version: 0.58.0(postcss@8.4.32)(vite@5.0.2)
       unplugin-icons:
         specifier: ^0.18.0
         version: 0.18.1
@@ -74,7 +74,7 @@ importers:
         version: 5.0.2(@types/node@20.9.4)(less@4.2.0)(sass@1.69.5)
       vitepress:
         specifier: 1.0.0-rc.32
-        version: 1.0.0-rc.32(@algolia/client-search@4.20.0)(@types/node@20.9.4)(less@4.2.0)(nprogress@0.2.0)(postcss@8.4.31)(sass@1.69.5)(search-insights@2.11.0)(typescript@5.3.2)
+        version: 1.0.0-rc.32(@algolia/client-search@4.20.0)(@types/node@20.9.4)(less@4.2.0)(nprogress@0.2.0)(postcss@8.4.32)(sass@1.69.5)(search-insights@2.11.0)(typescript@5.3.2)
       vue:
         specifier: ^3.3.8
         version: 3.3.8(typescript@5.3.2)
@@ -102,7 +102,7 @@ importers:
         version: 1.0.4
       tsup:
         specifier: ^8.0.1
-        version: 8.0.1(postcss@8.4.31)(typescript@5.3.2)
+        version: 8.0.1(postcss@8.4.32)(typescript@5.3.2)
       typescript:
         specifier: ^5.3.2
         version: 5.3.2
@@ -888,8 +888,8 @@ packages:
     engines: {node: '>= 16'}
     dev: false
 
-  /@intlify/unplugin-vue-i18n@1.5.0(vue-i18n@9.7.1):
-    resolution: {integrity: sha512-jW0MCCdwxybxcwjEfCunAcKjVoxyO3i+cnLL6v+MNGRLUHqrpELF6zQAJUhgAK2afhY7mCliy8RxTFWKdXm26w==}
+  /@intlify/unplugin-vue-i18n@2.0.0(vue-i18n@9.7.1):
+    resolution: {integrity: sha512-1oKvm92L9l2od2H9wKx2ZvR4tzn7gUtd7bPLI7AWUmm7U9H1iEypndt5d985ypxGsEs0gToDaKTrytbBIJwwSg==}
     engines: {node: '>= 14.16'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -905,8 +905,8 @@ packages:
     dependencies:
       '@intlify/bundle-utils': 7.4.0(vue-i18n@9.7.1)
       '@intlify/shared': 9.7.1
-      '@rollup/pluginutils': 5.0.5
-      '@vue/compiler-sfc': 3.3.8
+      '@rollup/pluginutils': 5.1.0
+      '@vue/compiler-sfc': 3.3.12
       debug: 4.3.4
       fast-glob: 3.3.2
       js-yaml: 4.1.0
@@ -1233,7 +1233,7 @@ packages:
       sirv: 2.0.3
     dev: false
 
-  /@unocss/postcss@0.58.0(postcss@8.4.31):
+  /@unocss/postcss@0.58.0(postcss@8.4.32):
     resolution: {integrity: sha512-2hAwLbfUFqysi8FN1cn3xkHy5GhLMlYy6W4NrAZ2ws7F2MKpsCT2xCj7dT5cI2tW8ulD2YoVbKH15dBhNsMNUA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -1245,7 +1245,7 @@ packages:
       css-tree: 2.3.1
       fast-glob: 3.3.2
       magic-string: 0.30.5
-      postcss: 8.4.31
+      postcss: 8.4.32
     dev: false
 
   /@unocss/preset-attributify@0.58.0:
@@ -2667,6 +2667,7 @@ packages:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+    dev: false
 
   /nanoid@3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
@@ -2847,7 +2848,7 @@ packages:
       mlly: 1.4.2
       pathe: 1.1.1
 
-  /postcss-load-config@4.0.2(postcss@8.4.31):
+  /postcss-load-config@4.0.2(postcss@8.4.32):
     resolution: {integrity: sha512-bSVhyJGL00wMVoPUzAVAnbEoWyqRxkjv64tUl427SKnPrENtq6hJwUojroMz2VB+Q1edmi4IfrAPpami5VVgMQ==}
     engines: {node: '>= 14'}
     peerDependencies:
@@ -2860,7 +2861,7 @@ packages:
         optional: true
     dependencies:
       lilconfig: 3.0.0
-      postcss: 8.4.31
+      postcss: 8.4.32
       yaml: 2.3.4
     dev: true
 
@@ -2871,6 +2872,7 @@ packages:
       nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: false
 
   /postcss@8.4.32:
     resolution: {integrity: sha512-D/kj5JNu6oo2EIy+XL/26JEDTlIbB8hw85G8StOE6L74RQAVVP5rej6wxCNqyMbR4RkPfqvezVbPw81Ngd6Kcw==}
@@ -3181,7 +3183,7 @@ packages:
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
-  /tsup@8.0.1(postcss@8.4.31)(typescript@5.3.2):
+  /tsup@8.0.1(postcss@8.4.32)(typescript@5.3.2):
     resolution: {integrity: sha512-hvW7gUSG96j53ZTSlT4j/KL0q1Q2l6TqGBFc6/mu/L46IoNWqLLUzLRLP1R8Q7xrJTmkDxxDoojV5uCVs1sVOg==}
     engines: {node: '>=18'}
     hasBin: true
@@ -3208,8 +3210,8 @@ packages:
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
-      postcss: 8.4.31
-      postcss-load-config: 4.0.2(postcss@8.4.31)
+      postcss: 8.4.32
+      postcss-load-config: 4.0.2(postcss@8.4.32)
       resolve-from: 5.0.0
       rollup: 4.5.1
       source-map: 0.8.0-beta.0
@@ -3268,7 +3270,7 @@ packages:
       unist-util-is: 6.0.0
       unist-util-visit-parents: 6.0.1
 
-  /unocss@0.58.0(postcss@8.4.31)(vite@5.0.2):
+  /unocss@0.58.0(postcss@8.4.32)(vite@5.0.2):
     resolution: {integrity: sha512-MSPRHxBqWN+1AHGV+J5uUy4//e6ZBK6O+ISzD0qrXcCD/GNtxk1+lYjOK2ltkUiKX539+/KF91vNxzhhwEf+xA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -3284,7 +3286,7 @@ packages:
       '@unocss/cli': 0.58.0
       '@unocss/core': 0.58.0
       '@unocss/extractor-arbitrary-variants': 0.58.0
-      '@unocss/postcss': 0.58.0(postcss@8.4.31)
+      '@unocss/postcss': 0.58.0(postcss@8.4.32)
       '@unocss/preset-attributify': 0.58.0
       '@unocss/preset-icons': 0.58.0
       '@unocss/preset-mini': 0.58.0
@@ -3481,7 +3483,7 @@ packages:
       fsevents: 2.3.3
     dev: false
 
-  /vitepress@1.0.0-rc.32(@algolia/client-search@4.20.0)(@types/node@20.9.4)(less@4.2.0)(nprogress@0.2.0)(postcss@8.4.31)(sass@1.69.5)(search-insights@2.11.0)(typescript@5.3.2):
+  /vitepress@1.0.0-rc.32(@algolia/client-search@4.20.0)(@types/node@20.9.4)(less@4.2.0)(nprogress@0.2.0)(postcss@8.4.32)(sass@1.69.5)(search-insights@2.11.0)(typescript@5.3.2):
     resolution: {integrity: sha512-yf00Skn5BGP+YOQvTbSrB5s9qEb/cV+i+wM5rw+mlaxcIYtK+ORvyBEYZLvKogs7OO70TppJtixb4ofeo5K7HA==}
     hasBin: true
     peerDependencies:
@@ -3504,7 +3506,7 @@ packages:
       mark.js: 8.11.1
       minisearch: 6.3.0
       mrmime: 1.0.1
-      postcss: 8.4.31
+      postcss: 8.4.32
       shikiji: 0.9.2
       shikiji-transformers: 0.9.2
       vite: 5.0.10(@types/node@20.9.4)(less@4.2.0)(sass@1.69.5)
