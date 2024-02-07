@@ -1,6 +1,4 @@
 import path from 'path'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import Components from 'unplugin-vue-components/vite'
 import Uno from 'unocss/vite'
@@ -13,6 +11,7 @@ import { readFileSync } from 'fs'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
+import devtools from 'vite-plugin-vue-devtools'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -35,9 +34,6 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
   return defineConfig({
     vite: {
       plugins: [
-        // https://github.com/antfu/unplugin-icons
-        Icons(),
-
         // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
         VueI18n({
           include: [path.resolve(themeDir, 'locales/**')],
@@ -49,12 +45,13 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
         Components({
           include: ['**/*.md', '**/*.vue'],
           dirs: ['components', 'posts'],
-          resolvers: [IconsResolver()],
           dts: false,
         }),
 
         // https://github.com/unocss/unocss
         Uno(unoConfig),
+
+        devtools(),
       ],
       resolve: {
         alias: {

@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useRouter } from 'vitepress'
-import ArrowLeft from '~icons/carbon/arrow-left'
 
 defineProps<{
   title: string
@@ -19,7 +18,7 @@ function back() {
     <div class="flex items-center gap-3 text-xl lg:text-2xl">
       <a v-if="showBack" class="cursor-pointer flex" @click="back">
         <span class="inline-flex text-lg bg-gray-100 p-1 rounded">
-          <ArrowLeft></ArrowLeft>
+          <i class="i-carbon-arrow-left"></i>
         </span>
       </a>
       <slot>{{ title }} </slot>

@@ -16,7 +16,7 @@
     "strictNullChecks": true,
     "verbatimModuleSyntax": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["unplugin-icons/types/vue", "vite/client"],
+    "types": ["vite/client"],
     "paths": {
       "@@/*": ["./src/*"]
     }

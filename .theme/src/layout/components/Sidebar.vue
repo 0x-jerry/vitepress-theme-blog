@@ -1,11 +1,6 @@
 <script lang="ts" setup>
 import { useTheme } from '@@/hooks/useTheme'
 import { useI18n } from '@@/lib/i18n'
-import type { Component } from 'vue'
-import IconHome from '~icons/carbon/home'
-import IconTag from '~icons/carbon/tag'
-import IconUser from '~icons/carbon/user-profile'
-import LogoGithub from '~icons/logos/github-icon'
 import VButton from '@@/components/VButton.vue'
 import VSearch from '@@/components/VSearch.vue'
 
@@ -15,29 +10,29 @@ const theme = useTheme()
 interface SidebarMenu {
   label: string
   path: string
-  icon: Component
+  icon: string
 }
 
 const menus: SidebarMenu[] = [
   {
     path: '/',
-    icon: IconHome,
-    label: t('menu.title.home')
+    icon: 'i-carbon-home',
+    label: t('menu.title.home'),
   },
   {
     path: '/tags',
-    icon: IconTag,
-    label: t('menu.title.tags')
+    icon: 'i-carbon-tag',
+    label: t('menu.title.tags'),
   },
   {
     path: '/about',
-    icon: IconUser,
-    label: t('menu.title.about')
-  }
+    icon: 'i-carbon-user',
+    label: t('menu.title.about'),
+  },
 ]
 
 const linksIconMapper = {
-  github: LogoGithub
+  github: 'i-logos-github-icon',
 }
 </script>
 
@@ -66,13 +61,13 @@ const linksIconMapper = {
       ></div>
       <div class="lg:mt-2">
         <a v-for="(value, key) in theme.links" :href="value" target="_blank">
-          <component :is="linksIconMapper[key]"></component>
+          <i :class="linksIconMapper[key]"></i>
         </a>
       </div>
       <div class="gap-2 hidden sm:(flex) lg:(flex-col w-full)">
         <a v-for="menu in menus" :href="menu.path">
           <VButton class="w-full">
-            <component :is="menu.icon"></component>
+            <i :class="menu.icon"></i>
             <span class="flex-1 hidden lg:inline-block">{{ menu.label }}</span>
           </VButton>
         </a>

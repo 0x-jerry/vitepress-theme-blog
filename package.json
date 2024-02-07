@@ -23,9 +23,10 @@
   },
   "dependencies": {
     "@0x-jerry/vitepress-theme-blog": "workspace:*",
-    "vue": "^3.4.5"
+    "vue": "^3.4.15"
   },
   "devDependencies": {
+    "@iconify/json": "^2.2.180",
     "vitepress": "1.0.0-rc.42"
   }
 }
