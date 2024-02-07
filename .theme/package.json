@@ -55,7 +55,7 @@
     "nprogress": "^0.2.0",
     "reading-time": "^1.5.0",
     "sass": "^1.69.7",
-    "shiki": "^0.14.7",
+    "shiki": "^1.0.0",
     "unocss": "^0.58.3",
     "unplugin-icons": "^0.18.1",
     "unplugin-vue-components": "^0.26.0",
