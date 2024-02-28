@@ -66,7 +66,7 @@
     "vue-i18n": "^9.9.1"
   },
   "devDependencies": {
-    "@0x-jerry/x-release": "^0.4.0",
+    "@0x-jerry/x-release": "^1.0.0",
     "@types/markdown-it": "^13.0.7",
     "@types/node": "^20.11.21",
     "@types/nprogress": "^0.2.3",
