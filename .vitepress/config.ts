@@ -4,9 +4,16 @@ import { defineConfigWithTheme } from 'vitepress'
 
 export default async () => {
   return defineConfigWithTheme<ThemeOption>({
+    extends: await createBaseConfig({
+      pwa: {
+        manifest: {
+          name: '0x-Jerry | Blog',
+          description: "0x-Jerry's Blog"
+        }
+      }
+    }),
     title: '0x-Jerry',
     titleTemplate: ':title | Blog',
-    extends: await createBaseConfig(),
     cleanUrls: true,
     ignoreDeadLinks: true,
     themeConfig: {

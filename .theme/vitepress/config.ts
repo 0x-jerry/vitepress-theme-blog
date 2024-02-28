@@ -3,7 +3,7 @@ import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import Components from 'unplugin-vue-components/vite'
 import Uno from 'unocss/vite'
 import unoConfig from '../uno.config'
-import { defineConfig, type UserConfig } from 'vitepress'
+import { defineConfig } from 'vitepress'
 import { postBlogGenerate, type BlogPluginConfig } from './blog'
 import { fileURLToPath } from 'url'
 import readingTime from 'reading-time'
@@ -12,13 +12,16 @@ import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 import devtools from 'vite-plugin-vue-devtools'
+import { withPwa, type PwaOptions } from '@vite-pwa/vitepress'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
 const themeDir = fixCurrentDir()
 
-interface ThemePluginOption extends BlogPluginConfig {}
+interface ThemePluginOption extends BlogPluginConfig {
+  pwa?: PwaOptions
+}
 
 export default async (opt: Partial<ThemePluginOption> = {}) => {
   const option: ThemePluginOption = Object.assign(
@@ -31,7 +34,8 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
 
   globalThis.BLOG_CONFIG = option
 
-  return defineConfig({
+  const conf: any = defineConfig({
+    pwa: option.pwa,
     vite: {
       plugins: [
         // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
@@ -89,7 +93,9 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
     markdown: {
       headers: {},
     },
-  }) as UserConfig
+  })
+
+  return withPwa(conf)
 }
 
 /**
