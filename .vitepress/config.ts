@@ -8,7 +8,36 @@ export default async () => {
       pwa: {
         manifest: {
           name: '0x-Jerry | Blog',
-          description: "0x-Jerry's Blog"
+          description: "0x-Jerry's Blog",
+          icons: [
+            {
+              src: 'pwa-192x192.png',
+              sizes: '192x192'
+            },
+            {
+              src: 'favicon.svg',
+              sizes: '512x512',
+              purpose: 'maskable'
+            },
+            {
+              src: 'favicon.svg',
+              sizes: '512x512',
+              purpose: 'any'
+            }
+          ],
+          theme_color: '#ffffff',
+          screenshots: [
+            {
+              src: 'pwa-192x192.png',
+              sizes: '192x192',
+              form_factor: 'wide'
+            },
+            {
+              src: 'pwa-192x192.png',
+              sizes: '192x192',
+              form_factor: 'narrow'
+            }
+          ]
         }
       }
     }),

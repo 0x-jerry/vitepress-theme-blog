@@ -95,7 +95,7 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
     },
   })
 
-  return withPwa(conf)
+  return withPwa(conf) as any
 }
 
 /**
