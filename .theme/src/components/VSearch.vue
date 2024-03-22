@@ -10,7 +10,6 @@ const router = useRouter()
 <template>
   <VButton class="w-full" @click="router.go('/search')">
     <i class="i-carbon-search"></i>
-    <IconSearch></IconSearch>
     <span class="flex-1 hidden lg:inline-block">{{ t('button.search') }}</span>
   </VButton>
 </template>

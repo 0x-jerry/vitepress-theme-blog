@@ -17,7 +17,7 @@
   "types": "src/index.ts",
   "scripts": {
     "dev": "vitepress",
-    "build:theme": "pnpm --filter @0x-jerry/vitepress-theme-blog run build",
+    "build:theme": "npm -C .theme run build",
     "build": "vitepress build",
     "preview": "vitepress preview"
   },
@@ -26,7 +26,7 @@
     "vue": "^3.4.21"
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.189",
+    "@iconify/json": "^2.2.194",
     "vitepress": "1.0.0"
   }
 }
