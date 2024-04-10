@@ -44,12 +44,14 @@
   },
   "dependencies": {
     "@0x-jerry/utils": "^2.1.2",
-    "@intlify/unplugin-vue-i18n": "^4.0.0",
+    "@rollup/plugin-yaml": "^4.1.2",
     "@vite-pwa/vitepress": "^0.4.0",
     "@vueuse/core": "^10.9.0",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
     "heti": "^0.9.4",
+    "i18next": "^23.11.1",
+    "i18next-vue": "^4.0.0",
     "less": "^4.2.0",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
@@ -60,8 +62,7 @@
     "vite": "^5.2.8",
     "vite-plugin-vue-devtools": "^7.0.25",
     "vitepress": "1.1.0",
-    "vue": "^3.4.21",
-    "vue-i18n": "^9.11.0"
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "@0x-jerry/x-release": "^1.0.0",

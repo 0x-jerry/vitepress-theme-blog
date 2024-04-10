@@ -20,13 +20,13 @@ motto: >-
 name: 0x-Jerry
 not-found: Not found
 title:
-  archive: "{0}'s archive"
-  index: "{0}'s Blog"
-  notes: "{0}'s Notes"
-  posts: "{0}'s Posts"
-  tag: Tag - {0}
-  tags: "{0}'s Tags"
-  timeline: "{0}'s Timeline"
+  archive: "{{0}}'s archive"
+  index: "{{0}}'s Blog"
+  notes: "{{0}}'s Notes"
+  posts: "{{0}}'s Posts"
+  tag: Tag - {{0}}
+  tags: "{{0}}'s Tags"
+  timeline: "{{0}}'s Timeline"
   search: Search
 time:
   minutes: minutes

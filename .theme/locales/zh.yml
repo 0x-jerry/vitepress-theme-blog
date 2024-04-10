@@ -20,11 +20,11 @@ not-found: 丢失了
 time:
   minutes: 分钟
 title:
-  archive: '{0} 的归档'
-  index: '{0} 的博客'
-  notes: '{0} 的笔记'
-  posts: '{0} 的文章'
-  tag: 标签 - {0}
-  tags: '{0} 的标签'
-  timeline: '{0} 的世界线'
+  archive: '{{0}} 的归档'
+  index: '{{0}} 的博客'
+  notes: '{{0}} 的笔记'
+  posts: '{{0}} 的文章'
+  tag: 标签 - {{0}}
+  tags: '{{0}} 的标签'
+  timeline: '{{0}} 的世界线'
   search: 搜索

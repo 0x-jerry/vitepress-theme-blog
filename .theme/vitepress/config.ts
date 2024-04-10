@@ -1,5 +1,4 @@
 import path from 'path'
-import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import Components from 'unplugin-vue-components/vite'
 import Uno from 'unocss/vite'
 import unoConfig from '../uno.config'
@@ -13,6 +12,7 @@ import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 import devtools from 'vite-plugin-vue-devtools'
 import { withPwa, type PwaOptions } from '@vite-pwa/vitepress'
+import yaml from '@rollup/plugin-yaml'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -38,12 +38,6 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
     pwa: option.pwa,
     vite: {
       plugins: [
-        // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
-        VueI18n({
-          include: [path.resolve(themeDir, 'locales/**')],
-          strictMessage: false,
-        }),
-
         // todo, expose components config
         // https://github.com/antfu/unplugin-vue-components
         Components({
@@ -54,6 +48,8 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
 
         // https://github.com/unocss/unocss
         Uno(unoConfig),
+
+        yaml() as any,
 
         devtools(),
       ],
