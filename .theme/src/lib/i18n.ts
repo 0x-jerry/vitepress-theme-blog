@@ -18,7 +18,6 @@ export const install: Plugin = async (app) => {
       return [_k, locale]
     }),
   )
-  console.log('i18n', _locales)
 
   await i18next.init({
     resources: {
