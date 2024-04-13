@@ -14,7 +14,7 @@ export default defineConfig({
     presetUno(),
     presetBrand({
       brand: {
-        primary: 'cyan',
+        primary: 'rose',
         gray: 'gray',
       },
     }),

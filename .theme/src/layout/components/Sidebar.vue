@@ -3,6 +3,7 @@ import { useTheme } from '@@/hooks/useTheme'
 import { useI18n } from '@@/lib/i18n'
 import VButton from '@@/components/VButton.vue'
 import VSearch from '@@/components/VSearch.vue'
+import VChangeBrand from '@@/components/VChangeBrand.vue'
 
 const { t } = useI18n()
 const theme = useTheme()
@@ -51,6 +52,9 @@ const linksIconMapper = {
           :src="theme.avatar"
         />
       </a>
+      <div class="tools py-2 w-full flex justify-center">
+        <VChangeBrand></VChangeBrand>
+      </div>
       <div class="text-xl whitespace-nowrap flex-1 md:flex-none lg:(text-3xl)">
         {{ theme.name }}
       </div>
