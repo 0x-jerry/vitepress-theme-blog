@@ -40,7 +40,7 @@ const linksIconMapper = {
   <div class="sidebar h-12 lg:h-screen">
     <div class="h-full w-8 border-(r gray-100) hidden lg:block"></div>
     <div
-      class="flex items-center border-(b gray-100) gap-2 px-4 bg-gray-50 w-full lg:(h-full w-72 border-(r gray-100) flex-col px-6 pb-10 overflow-auto)"
+      class="flex items-center border-(b gray-100) gap-2 px-4 bg-bGray-50 w-full lg:(h-full w-72 border-(r gray-100) flex-col px-6 pb-10 overflow-auto)"
     >
       <a
         href="/"
@@ -55,7 +55,7 @@ const linksIconMapper = {
         {{ theme.name }}
       </div>
       <div
-        class="hidden text-gray-400 text-xs flex-(1 shrink-10) md:(block) lg:(my-2 flex-none)"
+        class="hidden text-bGray-400 text-xs flex-(1 shrink-10) md:(block) lg:(my-2 flex-none)"
         v-if="theme.motto"
         v-html="theme.motto"
       ></div>

@@ -14,15 +14,15 @@ defineProps<{
 .v-tag {
   @apply border rounded text-xs px-2 font-mono border-(1 solid);
 
-  @apply border-gray-100 bg-gray-50 text-gray-500 hover:text-gray-700;
+  @apply border-bGray-100 bg-bGray-50 text-bGray-500 hover:text-bGray-700;
 
   &[href] {
     cursor: pointer;
     text-decoration: none;
   }
 
-  &.is-blue {
-    @apply border-blue-100 bg-blue-50 text-blue-500 hover:text-blue-700;
+  &.is-bPrimary {
+    @apply border-bPrimary-100 bg-bPrimary-50 text-bPrimary-500 hover:text-bPrimary-700;
   }
 
   &.is-red {

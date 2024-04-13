@@ -47,7 +47,7 @@ const url = computed(() => props.href)
 <style lang="less" scoped>
 .link {
   @apply transition-colors;
-  @apply text-blue-500;
+  @apply text-bPrimary-500;
   @apply break-all inline-block;
   @apply inline-flex;
   text-decoration: none;
@@ -60,14 +60,14 @@ const url = computed(() => props.href)
 
     width: 0;
     height: 1px;
-    @apply bg-blue-5;
+    @apply bg-bPrimary-5;
     @apply transition;
     transition-property: width;
   }
 
   &.is-active,
   &:hover {
-    @apply text-blue-600;
+    @apply text-bPrimary-600;
     &::before {
       width: 100%;
     }
@@ -78,7 +78,7 @@ const url = computed(() => props.href)
   }
 
   &.gray {
-    @apply text-gray-800 hover:text-blue-600;
+    @apply text-bGray-800 hover:text-bPrimary-600;
   }
 
   &.white {
@@ -86,10 +86,10 @@ const url = computed(() => props.href)
   }
 
   &.text {
-    @apply text-gray-600 hover:text-gray-900;
+    @apply text-bGray-600 hover:text-bGray-900;
 
     &.disabled {
-      @apply text-gray-400;
+      @apply text-bGray-400;
     }
   }
 }

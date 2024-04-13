@@ -72,6 +72,6 @@ function selectTag(tag: string) {
 
 <style lang="less" scoped>
 .is-selected {
-  @apply border-blue-4 bg-blue-1;
+  @apply border-bPrimary-4 bg-bPrimary-1;
 }
 </style>

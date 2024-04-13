@@ -7,7 +7,11 @@ const locales = import.meta.glob('../../locales/*.yml', {
 })
 
 export function useI18n() {
-  return useTranslation()
+  const { t } = useTranslation()
+
+  return {
+    t: (...args: any) => t(...args),
+  }
 }
 
 export const install: Plugin = async (app) => {
