@@ -17,6 +17,7 @@
   "types": "src/index.ts",
   "scripts": {
     "dev": "vitepress",
+    "dev:theme": "npm -C .theme run dev",
     "build:theme": "npm -C .theme run build",
     "build": "vitepress build",
     "preview": "vitepress preview"
