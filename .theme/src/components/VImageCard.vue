@@ -15,7 +15,7 @@ import VSentence from './VSentence.vue'
       class="w-full h-full absolute top-0 left-0 flex items-center justify-center"
     >
       <div
-        class="w-4/5 bg-(black opacity-10) p-4 rounded-lg backdrop-(filter blur-sm) text-(white xs) sm:(text-sm p-6) xl:(p-10)"
+        class="w-4/5 bg-(black opacity-10) rounded-lg backdrop-(filter blur-sm) text-(white sm)"
         style="text-shadow: 0 0 2px rgb(240, 240, 240)"
       >
         <ClientOnly>

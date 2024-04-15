@@ -12,7 +12,9 @@ async function fetchHitokoto() {
   isFetched.value = true
 }
 
-const from = computed(() => [data.value?.from, data.value?.from_who].filter(Boolean).join(' - '))
+const from = computed(() =>
+  [data.value?.from, data.value?.from_who].filter(Boolean).join(' - '),
+)
 
 fetchHitokoto()
 </script>
@@ -26,7 +28,6 @@ fetchHitokoto()
       </template>
       <template v-else>
         <p class="font-italic">「 {{ data?.hitokoto }} 」</p>
-        <br />
         <p class="text-right">--- {{ from }}</p>
       </template>
     </div>
