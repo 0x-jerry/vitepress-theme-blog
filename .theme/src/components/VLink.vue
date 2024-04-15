@@ -5,7 +5,7 @@ interface VLinkProps {
   theme?: 'gray' | 'white' | 'text' | 'primary'
   href?: string
   hiddenIcon?: boolean
-  disabled?: boolean
+  active?: boolean
 }
 
 const props = withDefaults(defineProps<VLinkProps>(), { href: '' })
@@ -28,7 +28,7 @@ const url = computed(() => props.href)
 
 <template>
   <a
-    :class="`link ${theme} ${disabled ?? false ? 'disabled' : ''}`"
+    :class="['link', theme, { 'is-active': active }]"
     :title="url"
     :href="url"
     :target="data.isEmail || !data.isRelative ? '_blank' : ''"
@@ -78,18 +78,14 @@ const url = computed(() => props.href)
   }
 
   &.gray {
-    @apply text-bGray-800 hover:text-bPrimary-600;
-  }
+    @apply text-bGray-800;
 
-  &.white {
-    @apply text-light-900 hover:text-white;
-  }
-
-  &.text {
-    @apply text-bGray-600 hover:text-bGray-900;
-
-    &.disabled {
-      @apply text-bGray-400;
+    &.is-active,
+    &:hover {
+      @apply text-bPrimary-600;
+      &::before {
+        width: 100%;
+      }
     }
   }
 }
