@@ -38,44 +38,44 @@ const linksIconMapper = {
 </script>
 
 <template>
-  <div class="sidebar h-12 lg:h-screen">
-    <div class="h-full w-8 border-(r gray-100) hidden lg:block"></div>
+  <div class="sidebar h-12 xl:h-screen">
+    <div class="h-full w-8 border-(r gray-100) hidden xl:block"></div>
     <div
-      class="flex items-center border-(b gray-100) gap-2 px-4 bg-bGray-50 w-full lg:(h-full w-72 border-(r gray-100) flex-col px-6 pb-10 overflow-auto)"
+      class="flex items-center border-(b gray-100) gap-2 px-4 bg-bGray-50 w-full xl:(h-full w-72 border-(r gray-100) flex-col px-6 pb-10 overflow-auto)"
     >
       <a
         href="/"
-        class="rounded-full overflow-hidden h-2/3 md:h-4/5 lg:(h-auto w-4/5 mt-20)"
+        class="rounded-full overflow-hidden h-2/3 xl:h-4/5 xl:(h-auto w-4/5 mt-20)"
       >
         <img
           class="transition duration-1000 rotate-0 hover:rotate-360 w-full h-full object-cover aspect-1"
           :src="theme.avatar"
         />
       </a>
-      <div class="tools py-2 w-full justify-center hidden md:flex">
+      <div class="tools py-2 w-full justify-center hidden xl:flex">
         <VChangeBrand></VChangeBrand>
       </div>
-      <div class="text-xl whitespace-nowrap flex-1 md:flex-none lg:(text-3xl)">
+      <div class="text-xl whitespace-nowrap flex-1 xl:flex-none xl:(text-3xl)">
         {{ theme.name }}
       </div>
       <div
-        class="hidden text-bGray-400 text-xs flex-(1 shrink-10) md:(block) lg:(my-2 flex-none)"
+        class="hidden text-bGray-400 text-xs flex-(1 shrink-10) xl:(block) xl:(my-2 flex-none)"
         v-if="theme.motto"
         v-html="theme.motto"
       ></div>
-      <div class="lg:mt-2">
+      <div class="xl:mt-2">
         <a v-for="(value, key) in theme.links" :href="value" target="_blank">
           <i :class="linksIconMapper[key]"></i>
         </a>
       </div>
-      <div class="gap-2 hidden sm:(flex) lg:(flex-col w-full)">
+      <div class="gap-2 hidden sm:(flex) xl:(flex-col w-full)">
         <a v-for="menu in menus" :href="menu.path">
           <VButton class="w-full">
             <i :class="menu.icon"></i>
-            <span class="flex-1 hidden lg:inline-block">{{ menu.label }}</span>
+            <span class="flex-1 hidden xl:inline-block">{{ menu.label }}</span>
           </VButton>
         </a>
-        <div class="lg:(block w-full)">
+        <div class="xl:(block w-full)">
           <VSearch></VSearch>
         </div>
       </div>

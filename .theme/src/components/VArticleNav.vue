@@ -31,4 +31,14 @@ li {
     margin-top: 4px;
   }
 }
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  ul {
+    padding-left: 1rem;
+  }
+}
 </style>

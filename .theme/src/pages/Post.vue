@@ -4,6 +4,8 @@ import { useRoute } from 'vitepress'
 import VGiscus from '@@/components/VGiscus.vue'
 import VTitle from '@@/components/VTitle.vue'
 import VArticleNav from '@@/components/VArticleNav.vue'
+import { useWindowScroll } from '@vueuse/core'
+import { toFixed } from '@0x-jerry/utils'
 
 const attrs = useAttrs()
 
@@ -12,6 +14,13 @@ const route = useRoute()
 const enableComment = computed(() => attrs.comment ?? true)
 
 const headers = computed(() => route.data.headers)
+
+const { y } = useWindowScroll()
+
+const percentage = computed(() => {
+  const h = document.documentElement.scrollHeight - window.innerHeight
+  return toFixed((y.value / h) * 100, 2) + '%'
+})
 </script>
 
 <template>
@@ -19,7 +28,7 @@ const headers = computed(() => route.data.headers)
     <VTitle :title="route.data.title" show-back></VTitle>
 
     <div class="flex">
-      <div class="post-content flex-1 w-0">
+      <div class="post-content flex-1 w-0 px-1">
         <div class="heti text-left max-w-full" ref="content">
           <Content></Content>
         </div>
@@ -32,19 +41,39 @@ const headers = computed(() => route.data.headers)
           </ClientOnly>
         </template>
       </div>
-      <div class="post-nav w-0 xl:w-300px" v-if="headers.length">
-        <VArticleNav
-          class="sticky top-70px relative"
-          :headers="headers"
-        ></VArticleNav>
+      <div class="post-nav" v-if="headers.length">
+        <VArticleNav :headers="headers" />
       </div>
     </div>
   </div>
 </template>
 
 <style lang="less" scoped>
-.v-post {
-  @apply p-(xl:r-100px 2xl:0) w-max-800px m-auto;
+.post-nav {
+  @apply w-300px hidden xl:block;
+
+  position: fixed;
+  top: 50%;
+  transform: translate(720px, -50%);
+  padding-left: 1rem;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 0;
+
+    width: 1px;
+    height: 100%;
+    @apply bg-bGray-2;
+  }
+
+  &::after {
+    z-index: 1;
+    height: v-bind('percentage');
+    @apply bg-bPrimary;
+  }
 }
 
 .toc {

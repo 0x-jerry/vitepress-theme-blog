@@ -14,14 +14,14 @@ withDefaults(defineProps<VExcerptProps>(), {
 </script>
 
 <template>
-  <div class="flex-(~ col) gap-2 md:flex-row">
+  <div class="flex-(~ col) gap-2 xl:flex-row">
     <div class="flex-(~ wrap) gap-2 items-center">
       <VTag>{{ dayjs.tz(date).format('YYYY-MM-DD') }}</VTag>
       <VLink :href="href">{{ title }}</VLink>
     </div>
     <div
       v-if="tags.length"
-      class="flex-(~ wrap) gap-2 items-center border-(0 b solid gray-100) pb-4 mb-2 md:(p-0 m-0 border-none)"
+      class="flex-(~ wrap) gap-2 items-center border-(0 b solid gray-100) pb-4 mb-2 xl:(p-0 m-0 border-none)"
     >
       <VTag v-for="tag in tags" :href="`/tags/${tag}`">{{ tag }}</VTag>
       <VTag v-if="!publish" class="is-red">Unpluinshed</VTag>

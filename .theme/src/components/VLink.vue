@@ -2,7 +2,7 @@
 import { watchEffect, reactive, computed } from 'vue'
 
 interface VLinkProps {
-  theme?: 'blue' | 'gray' | 'white' | 'text'
+  theme?: 'gray' | 'white' | 'text' | 'primary'
   href?: string
   hiddenIcon?: boolean
   disabled?: boolean
