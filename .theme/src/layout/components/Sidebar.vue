@@ -48,11 +48,11 @@ const linksIconMapper = {
         class="rounded-full overflow-hidden h-2/3 md:h-4/5 lg:(h-auto w-4/5 mt-20)"
       >
         <img
-          class="transition duration-1000 rotate-0 hover:rotate-360 w-full h-full object-cover aspect-[1/1]"
+          class="transition duration-1000 rotate-0 hover:rotate-360 w-full h-full object-cover aspect-1"
           :src="theme.avatar"
         />
       </a>
-      <div class="tools py-2 w-full flex justify-center">
+      <div class="tools py-2 w-full justify-center hidden md:flex">
         <VChangeBrand></VChangeBrand>
       </div>
       <div class="text-xl whitespace-nowrap flex-1 md:flex-none lg:(text-3xl)">
