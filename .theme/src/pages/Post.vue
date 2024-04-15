@@ -18,7 +18,9 @@ const headers = computed(() => route.data.headers)
 const { y } = useWindowScroll()
 
 const percentage = computed(() => {
-  const h = document.documentElement.scrollHeight - window.innerHeight
+  if (import.meta.env.SSR) return 0
+
+  const h = document.documentElement.scrollHeight || 0 - window.innerHeight
   return toFixed((y.value / h) * 100, 2) + '%'
 })
 </script>
@@ -35,14 +37,14 @@ const percentage = computed(() => {
 
         <br />
 
-        <template v-if="enableComment">
-          <ClientOnly>
-            <VGiscus />
-          </ClientOnly>
-        </template>
+        <ClientOnly>
+          <VGiscus v-if="enableComment" />
+        </ClientOnly>
       </div>
       <div class="post-nav" v-if="headers.length">
-        <VArticleNav :headers="headers" />
+        <ClientOnly>
+          <VArticleNav :headers="headers" />
+        </ClientOnly>
       </div>
     </div>
   </div>
