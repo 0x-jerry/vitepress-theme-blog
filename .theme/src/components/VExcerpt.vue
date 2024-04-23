@@ -3,14 +3,17 @@ import VLink from './VLink.vue'
 import VTag from './VTag.vue'
 import dayjs from 'dayjs'
 import type { ExcerptData } from '../../types'
+import { computed } from 'vue';
 
 interface VExcerptProps extends ExcerptData {
   href: string
 }
 
-withDefaults(defineProps<VExcerptProps>(), {
+const props = withDefaults(defineProps<VExcerptProps>(), {
   tags: () => [],
 })
+
+const restTags = computed(() => props.tags.slice(2))
 </script>
 
 <template>
@@ -19,11 +22,10 @@ withDefaults(defineProps<VExcerptProps>(), {
       <VTag>{{ dayjs.tz(date).format('YYYY-MM-DD') }}</VTag>
       <VLink :href="href">{{ title }}</VLink>
     </div>
-    <div
-      v-if="tags.length"
-      class="flex-(~ wrap) gap-2 items-center border-(0 b solid gray-100) pb-4 mb-2 xl:(p-0 m-0 border-none)"
-    >
-      <VTag v-for="tag in tags" :href="`/tags/${tag}`">{{ tag }}</VTag>
+    <div v-if="tags.length" class="pb-4 mb-2 xl:(p-0 m-0 border-none)" flex="~ warp gap-2 items-center"
+      border="0 b solid bGray-1">
+      <VTag v-for="tag in tags.slice(0, 2)" :href="`/tags/${tag}`">{{ tag }}</VTag>
+      <VTag v-if="restTags.length > 0" :title="restTags.join(', ')">+{{ restTags.length }}</VTag>
       <VTag v-if="!publish" class="is-red">Unpluinshed</VTag>
     </div>
   </div>
