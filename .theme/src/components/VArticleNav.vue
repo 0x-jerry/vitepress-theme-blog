@@ -3,19 +3,28 @@ import { type Header } from 'vitepress'
 import NavComp from './VArticleNav.vue'
 import VLink from './VLink.vue'
 import { useEventListener } from '@vueuse/core'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const props = defineProps<{
   headers: Header[]
+  active?: Header
+  child?: boolean
 }>()
 
 const activeAnchor = ref<Header>()
-
-useEventListener('scroll', () => {
-  activeAnchor.value = calcTheLatestAnchor(props.headers)
-})
-
 const checkOffsetTop = 200
+
+useEventListener('scroll', caclActiveAnchor)
+
+onMounted(caclActiveAnchor)
+
+function caclActiveAnchor() {
+  if (props.child) {
+    return
+  }
+
+  activeAnchor.value = calcTheLatestAnchor(props.headers)
+}
 
 function calcTheLatestAnchor(headers: Header[]): Header | undefined {
   for (const header of [...headers].reverse()) {
@@ -38,15 +47,10 @@ function calcTheLatestAnchor(headers: Header[]): Header | undefined {
 <template>
   <ul class="v-article-nav">
     <li v-for="header in headers" class="truncate">
-      <VLink
-        class="inline!"
-        :href="header.link"
-        theme="gray"
-        :active="activeAnchor === header"
-      >
+      <VLink class="inline!" :href="header.link" theme="gray" :active="(active || activeAnchor) === header">
         {{ header.title }}
       </VLink>
-      <NavComp v-if="header.children" :headers="header.children" />
+      <NavComp v-if="header.children" :headers="header.children" :active="activeAnchor" child />
     </li>
   </ul>
 </template>

@@ -20,7 +20,7 @@ const { y } = useWindowScroll()
 const percentage = computed(() => {
   if (import.meta.env.SSR) return 0
 
-  const h = document.documentElement.scrollHeight || 0 - window.innerHeight
+  const h = (document.documentElement.scrollHeight || 0) - window.innerHeight
   return toFixed((y.value / h) * 100, 2) + '%'
 })
 </script>
@@ -83,7 +83,7 @@ const percentage = computed(() => {
 }
 
 .tag {
-  @apply px-2 py-1px  mr-1;
+  @apply px-2 py-1px mr-1;
   @apply border rounded-full bg-light-400;
 }
 
