@@ -23,7 +23,7 @@ import Sidebar from './components/Sidebar.vue'
   .sidebar {
     @apply transition;
     transform: translate(calc(-100% - 2rem), -40px);
-    opacity: 0.1;
+    opacity: 0.05;
     filter: blur(2px) grayscale(1);
 
     &:hover {
