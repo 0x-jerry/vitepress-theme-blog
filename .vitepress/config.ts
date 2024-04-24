@@ -1,5 +1,6 @@
 import type { ThemeOption } from '@0x-jerry/vitepress-theme-blog'
-import createBaseConfig from '@0x-jerry/vitepress-theme-blog/config'
+// import createBaseConfig from '@0x-jerry/vitepress-theme-blog/config'
+import createBaseConfig from '../.theme/vitepress/config'
 import { defineConfigWithTheme } from 'vitepress'
 
 export default async () => {
