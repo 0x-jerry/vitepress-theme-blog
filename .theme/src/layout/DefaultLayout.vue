@@ -21,7 +21,17 @@ import Sidebar from './components/Sidebar.vue'
 <style lang="less" scoped>
 @media (min-width: 1280px) {
   .sidebar {
-    transform: translateX(calc(-100% - 2rem));
+    @apply transition;
+    transform: translate(calc(-100% - 2rem), -40px);
+    opacity: 0.1;
+    filter: blur(2px) grayscale(1);
+
+    &:hover {
+      transform: translate(calc(-100% - 2rem), 0);
+      opacity: 1;
+      filter: none;
+    }
   }
 }
+
 </style>
