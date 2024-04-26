@@ -7,41 +7,39 @@
 
   figure {
     position: relative;
-    height: 400px;
     z-index: 1;
-    margin: 2rem 0 5rem;
-
-    &::before,
-    img {
-      width: 100vw;
-      height: 100%;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
+    margin: 2rem 0;
+    left: 50%;
+    margin-left: -50vw;
 
     &::before {
+      position: absolute;
+      top: -1px;
+      left: 0;
+
+      display: block;
+      width: 100vw;
+      height: calc(100% - 29px);
+
       content: '';
-      background: rgb(235, 235, 235);
 
       border: 1px solid gray;
-      @apply border-bGray-3;
+      @apply border-bGray-1 bg-bGray-50;
     }
 
     img {
+      max-width: 100vw;
+      max-height: 60vh;
+
+      display: block;
+      position: relative;
       object-fit: scale-down;
+      object-position: center;
       z-index: 1;
     }
 
     figcaption {
-      position: absolute;
-      width: 100vw;
-      text-align: center;
-      left: 50%;
-      bottom: 0;
-      transform: translate(-50%, calc(100% + 1rem));
-
+      margin-top: .5rem;
       @apply text-bGray-5;
     }
   }
