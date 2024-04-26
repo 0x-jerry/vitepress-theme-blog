@@ -88,6 +88,10 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
     },
     markdown: {
       headers: {},
+      theme: {
+        dark: 'vitesse-dark',
+        light: 'vitesse-light',
+      }
     },
   })
 
