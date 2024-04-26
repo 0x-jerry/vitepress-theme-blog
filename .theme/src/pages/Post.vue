@@ -4,6 +4,7 @@ import { useRoute } from 'vitepress'
 import VGiscus from '@@/components/VGiscus.vue'
 import VTitle from '@@/components/VTitle.vue'
 import VArticleNav from '@@/components/VArticleNav.vue'
+import LayoutRightSlot from '@@/layout/components/LayoutRightSlot.vue'
 import { useWindowScroll } from '@vueuse/core'
 import { toFixed } from '@0x-jerry/utils'
 
@@ -41,11 +42,11 @@ const percentage = computed(() => {
           <VGiscus v-if="enableComment" />
         </ClientOnly>
       </div>
-      <div class="post-nav" v-if="headers.length">
-        <ClientOnly>
+      <LayoutRightSlot v-if="headers.length">
+        <div class="post-nav" :style="{ '--scroll-progress': percentage }">
           <VArticleNav :headers="headers" />
-        </ClientOnly>
-      </div>
+        </div>
+      </LayoutRightSlot>
     </div>
   </div>
 </template>
@@ -56,7 +57,7 @@ const percentage = computed(() => {
 
   position: fixed;
   top: 50%;
-  transform: translate(720px, -50%);
+  transform: translate(1rem, -50%);
   padding-left: 1rem;
 
   &::before,
@@ -73,23 +74,8 @@ const percentage = computed(() => {
 
   &::after {
     z-index: 1;
-    height: v-bind('percentage');
+    height: var(--scroll-progress, 0px);
     @apply bg-bPrimary;
   }
-}
-
-.toc {
-  @apply w-max-260px z-100 bg-white xl:block;
-}
-
-.tag {
-  @apply px-2 py-1px mr-1;
-  @apply border rounded-full bg-light-400;
-}
-
-hr {
-  border: none;
-  max-width: 42em;
-  border-top: 1px solid #d6d6d6;
 }
 </style>
