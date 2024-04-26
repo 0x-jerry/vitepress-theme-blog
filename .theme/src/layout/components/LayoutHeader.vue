@@ -32,14 +32,13 @@ const menus: SidebarMenu[] = [
   },
 ]
 
-const linksIconMapper = {
+const linksIconMapper: Record<string, string> = {
   github: 'i-logos-github-icon',
 }
 </script>
 
 <template>
-  <div class="sidebar h-12 xl:h-screen">
-    <div class="h-full w-8 border-(r gray-100) hidden xl:block"></div>
+  <div class="h-12 xl:h-screen">
     <div
       class="flex items-center border-(b gray-100) gap-2 px-4 bg-bGray-50 w-full xl:(h-full w-72 border-(r gray-100) flex-col px-6 pb-10 overflow-auto)"
     >
