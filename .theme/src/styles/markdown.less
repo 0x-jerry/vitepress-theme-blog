@@ -9,23 +9,40 @@
     position: relative;
     height: 400px;
     z-index: 1;
-    margin: 1rem 0;
+    margin: 2rem 0 5rem;
 
+    &::before,
     img {
-      display: block;
-      object-fit: cover;
       width: 100vw;
       height: 100%;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+    }
 
-      box-shadow: 0 0 5px 3px #eee;
+    &::before {
+      content: '';
+      background: rgb(235, 235, 235);
+
+      border: 1px solid gray;
+      @apply border-bGray-3;
+    }
+
+    img {
+      object-fit: scale-down;
+      z-index: 1;
     }
 
     figcaption {
-      display: none;
+      position: absolute;
+      width: 100vw;
+      text-align: center;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, calc(100% + 1rem));
+
+      @apply text-bGray-5;
     }
   }
 

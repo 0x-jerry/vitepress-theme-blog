@@ -29,7 +29,7 @@ license: CC BY-NC 4.0
 
 [生成 token 地址](https://github.com/settings/tokens)
 
-![gen-new-token](./hexo-git-travis/gen-new-token.png)
+![Generate new token](./hexo-git-travis/gen-new-token.png)
 
 生成新的 token 之后，在 travis 对应的仓库里面设置环境变量
 
