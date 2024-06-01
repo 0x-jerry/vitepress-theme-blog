@@ -2,7 +2,6 @@
 title: gRPC 在 JS 中的应用
 date: 2022-04-28T15:13:02.588Z
 tags: [gRPC, TypeScript]
-publish: true
 ---
 
 简单记录一下在 NodeJS 中折腾 gRPC Client 端的相关事情。

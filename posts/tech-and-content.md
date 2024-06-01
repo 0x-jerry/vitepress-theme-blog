@@ -2,7 +2,6 @@
 title: 对内容与技术的思考
 date: 2021-12-01T01:58:48.000Z
 tags: [Think, Diary]
-publish: true
 ---
 
 对于稍微有点洁癖的技术人来说，总是想不断的改善现有的 Code、UI/UX，却忽略了更具有价值的东西 --- 内容。
