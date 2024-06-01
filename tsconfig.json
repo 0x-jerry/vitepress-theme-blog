@@ -17,5 +17,5 @@
     "verbatimModuleSyntax": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": [".vitepress/**/*"]
+  "include": [".vitepress/**/*", "components", "posts", "drafts"]
 }
