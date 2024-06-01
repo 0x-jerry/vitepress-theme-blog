@@ -13,7 +13,7 @@ import timezone from 'dayjs/plugin/timezone'
 import devtools from 'vite-plugin-vue-devtools'
 import { withPwa, type PwaOptions } from '@vite-pwa/vitepress'
 import yaml from '@rollup/plugin-yaml'
-import {figure}from '@mdit/plugin-figure'
+import { figure } from '@mdit/plugin-figure'
 
 dayjs.extend(utc)
 dayjs.extend(timezone)
@@ -90,14 +90,15 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
     markdown: {
       headers: {},
       image: {
-        lazyLoading: true
+        lazyLoading: true,
       },
       theme: {
         dark: 'vitesse-dark',
         light: 'vitesse-light',
       },
       config(md) {
-          md.use(figure)
+        // @ts-ignore
+        md.use(figure)
       },
     },
   })
