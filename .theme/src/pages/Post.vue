@@ -12,7 +12,7 @@ const attrs = useAttrs()
 
 const route = useRoute()
 
-const enableComment = computed(() => attrs.comment ?? true)
+const enableComment = computed(() => attrs.comment ?? import.meta.env.PROD)
 
 const headers = computed(() => route.data.headers)
 

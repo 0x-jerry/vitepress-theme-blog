@@ -22,7 +22,7 @@ export const routes: RouteItem[] = [
     component: Home,
   },
   {
-    match: /^\/posts\//,
+    match: /^\/(post|draft)s?\//,
     layout: DefaultLayout,
     component: Post,
   },
