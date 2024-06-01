@@ -1,12 +1,11 @@
 <script lang="ts" setup>
-import { CSSProperties, computed } from 'vue'
-
-export type IframeData = string
+import { type CSSProperties, computed } from 'vue'
+import IframePreview, { type IFramePreviewProps } from './IframePreview.vue'
 
 const props = withDefaults(
   defineProps<{
     type?: 'iframe'
-    data: IframeData
+    data: IFramePreviewProps
     width?: number | string
     height?: number | string
     aspect?: string
@@ -30,7 +29,7 @@ const style = computed(() => {
 </script>
 
 <template>
-  <iframe :src="data" :style="style" frameborder="0"></iframe>
+  <IframePreview :style="style" v-bind="data" />
 </template>
 
 <style lang="less" scoped></style>

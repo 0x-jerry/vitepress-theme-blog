@@ -1,7 +1,7 @@
 .heti {
   font-family: 'LXGW WenKai', monospace;
 
-  blockquote>p {
+  blockquote > p {
     margin: 0;
   }
 
@@ -41,11 +41,10 @@
     }
 
     figcaption {
-      margin-top: .5rem;
+      margin-top: 0.5rem;
       @apply text-bGray-5;
     }
   }
-
 
   a {
     border-block-end: 0px solid transparent;
@@ -85,6 +84,32 @@
   .header-anchor {
     &::after {
       content: '#';
+    }
+  }
+
+  .custom-block {
+    border-radius: 16px;
+    padding: 16px;
+    margin: 16px 0;
+    @apply bg-bGray-1;
+
+    .custom-block-title {
+      margin-bottom: 8px;
+      font-weight: bolder;
+      @apply text-base;
+    }
+
+    p {
+      margin: 0;
+      @apply text-sm;
+    }
+
+    &.tip {
+      @apply bg-bGray-1;
+
+      .custom-block-title {
+        @apply text-bGray-7;
+      }
     }
   }
 }
@@ -129,7 +154,6 @@ div[class*='language-'] {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
-
 
   .highlighted {
     display: inline-block;

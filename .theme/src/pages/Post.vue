@@ -30,7 +30,7 @@ const percentage = computed(() => {
   <div class="v-post">
     <VTitle :title="route.data.title" show-back></VTitle>
 
-    <div class="flex">
+    <div class="flex mt-4">
       <div class="post-content flex-1 w-0 px-4 xl:px-2">
         <div class="heti text-left max-w-full" ref="content">
           <Content></Content>
