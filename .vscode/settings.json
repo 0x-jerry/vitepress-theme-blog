@@ -14,5 +14,6 @@
   "i18n-ally.sortKeys": true,
   "search.exclude": {
     "pnpm-loca.yaml": true
-  }
+  },
+  "vite.vitepressAutoRouting": true
 }
