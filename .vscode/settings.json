@@ -15,5 +15,5 @@
   "search.exclude": {
     "pnpm-loca.yaml": true
   },
-  "vp.baseDir": ""
+  "vp.autoStart": true
 }
