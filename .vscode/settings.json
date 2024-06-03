@@ -15,5 +15,5 @@
   "search.exclude": {
     "pnpm-loca.yaml": true
   },
-  "vite.vitepressAutoRouting": true
+  "vp.baseDir": ""
 }
