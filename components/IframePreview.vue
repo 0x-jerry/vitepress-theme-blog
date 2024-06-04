@@ -60,9 +60,10 @@ const iframeStyle = computed(() => {
   width: 100%;
   text-align: center;
   transform: translateY(calc(100% + 8px));
+  @apply text-sm;
 
   a {
-    @apply text-bGray-4 hover:text-bPrimary-5;
+    @apply text-bGray-5 hover:text-bPrimary-5;
   }
 }
 </style>
