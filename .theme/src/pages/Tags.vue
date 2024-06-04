@@ -53,8 +53,8 @@ function selectTag(tag: string) {
         v-for="tag in tags"
         :class="{ 'is-selected': tag === query.t }"
       >
-        {{ tag }}</VTag
-      >
+        {{ tag }}
+      </VTag>
     </div>
     <div class="mt-4 pt-4 border-(0 t solid gray-2) flex-(~ col) gap-2">
       <template v-for="o in artilces" :key="o.data.title">
