@@ -13,7 +13,9 @@ const props = withDefaults(defineProps<VExcerptProps>(), {
   tags: () => [],
 })
 
-const restTags = computed(() => props.tags.slice(2))
+const showTagCount = 3
+
+const restTags = computed(() => props.tags.slice(showTagCount))
 </script>
 
 <template>
@@ -22,9 +24,9 @@ const restTags = computed(() => props.tags.slice(2))
       <VTag>{{ dayjs.tz(date).format('YYYY-MM-DD') }}</VTag>
       <VLink :href="href">{{ title }}</VLink>
     </div>
-    <div v-if="tags.length" class="pb-4 mb-2 xl:(p-0 m-0 border-none)" flex="~ warp gap-2 items-center"
+    <div v-if="tags.length" class="pb-4 mb-2 xl:(p-0 m-0 border-none)" flex="~ gap-2 items-center"
       border="0 b solid bGray-1">
-      <VTag v-for="tag in tags.slice(0, 2)" :href="`/tags/${tag}`">{{ tag }}</VTag>
+      <VTag v-for="tag in tags.slice(0, showTagCount)" :href="`/tags?t=${tag}`">{{ tag }}</VTag>
       <VTag v-if="restTags.length > 0" :title="restTags.join(', ')">+{{ restTags.length }}</VTag>
       <VTag v-if="!publish" class="is-red">Unpluinshed</VTag>
     </div>
