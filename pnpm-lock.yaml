@@ -16,8 +16,8 @@ importers:
         version: 3.4.27(typescript@5.4.5)
     devDependencies:
       vitepress:
-        specifier: 1.2.2
-        version: 1.2.2(@algolia/client-search@4.23.3)(@types/node@20.13.0)(less@4.2.0)(nprogress@0.2.0)(postcss@8.4.38)(sass@1.77.4)(search-insights@2.14.0)(typescript@5.4.5)
+        specifier: 1.2.3
+        version: 1.2.3(@algolia/client-search@4.23.3)(@types/node@20.13.0)(less@4.2.0)(nprogress@0.2.0)(postcss@8.4.38)(sass@1.77.4)(search-insights@2.14.0)(typescript@5.4.5)
 
   .theme:
     dependencies:
@@ -79,8 +79,8 @@ importers:
         specifier: ^7.2.1
         version: 7.2.1(rollup@2.79.1)(vite@5.2.12)(vue@3.4.27)
       vitepress:
-        specifier: 1.2.2
-        version: 1.2.2(@algolia/client-search@4.23.3)(@types/node@20.13.0)(less@4.2.0)(nprogress@0.2.0)(postcss@8.4.38)(sass@1.77.4)(search-insights@2.14.0)(typescript@5.4.5)
+        specifier: 1.2.3
+        version: 1.2.3(@algolia/client-search@4.23.3)(@types/node@20.13.0)(less@4.2.0)(nprogress@0.2.0)(postcss@8.4.38)(sass@1.77.4)(search-insights@2.14.0)(typescript@5.4.5)
       vue:
         specifier: ^3.4.27
         version: 3.4.27(typescript@5.4.5)
@@ -2372,13 +2372,13 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@shikijs/core@1.6.1:
-    resolution: {integrity: sha512-CqYyepN4SnBopaoXYwng4NO8riB5ask/LTCkhOFq+GNGtr2X+aKeD767eYdqYukeixEUvv4bXdyTYVaogj7KBw==}
+  /@shikijs/core@1.6.2:
+    resolution: {integrity: sha512-guW5JeDzZ7uwOjTfCOFZ2VtVXk5tmkMzBYbKGfXsmAH1qYOej49L5jQDcGmwd6/OgvpmWhzO2GNJkQIFnbwLPQ==}
 
-  /@shikijs/transformers@1.6.1:
-    resolution: {integrity: sha512-m/h2Dh99XWvTzHL8MUQmEnrB+/gxDljIfgDNR00Zg941KENqORx8Hi9sKpGYjCgXoEJKASZlEMQdPnkHj9/8aQ==}
+  /@shikijs/transformers@1.6.2:
+    resolution: {integrity: sha512-ndqTWyHnxmsLkowhKWTam26opw8hg5a34y6FAUG/Xf6E49n3MM//nenKxXiWpPYkNPl1KZnYXB1k+Ia46wjOZg==}
     dependencies:
-      shiki: 1.6.1
+      shiki: 1.6.2
 
   /@surma/rollup-plugin-off-main-thread@2.2.3:
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
@@ -5004,10 +5004,10 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  /shiki@1.6.1:
-    resolution: {integrity: sha512-1Pu/A1rtsG6HZvQm4W0NExQ45e02og+rPog7PDaFDiMumZgOYnZIu4JtGQeAIfMwdbKSjJQoCUr79vDLKUUxWA==}
+  /shiki@1.6.2:
+    resolution: {integrity: sha512-X3hSm5GzzBd/BmPmGfkueOUADLyBoZo1ojYQXhd+NU2VJn458yt4duaS0rVzC+WtqftSV7mTVvDw+OB9AHi3Eg==}
     dependencies:
-      '@shikijs/core': 1.6.1
+      '@shikijs/core': 1.6.2
 
   /side-channel@1.0.6:
     resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
@@ -5710,8 +5710,8 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
-  /vitepress@1.2.2(@algolia/client-search@4.23.3)(@types/node@20.13.0)(less@4.2.0)(nprogress@0.2.0)(postcss@8.4.38)(sass@1.77.4)(search-insights@2.14.0)(typescript@5.4.5):
-    resolution: {integrity: sha512-uZ3nXR5NY4nYj3RJWCo5jev9qlNZAQo5SUXu1U0QSUx84cUm/o7hCTDVjZ4njVSVui+PsV1oAbdQOg8ygbaf4w==}
+  /vitepress@1.2.3(@algolia/client-search@4.23.3)(@types/node@20.13.0)(less@4.2.0)(nprogress@0.2.0)(postcss@8.4.38)(sass@1.77.4)(search-insights@2.14.0)(typescript@5.4.5):
+    resolution: {integrity: sha512-GvEsrEeNLiDE1+fuwDAYJCYLNZDAna+EtnXlPajhv/MYeTjbNK6Bvyg6NoTdO1sbwuQJ0vuJR99bOlH53bo6lg==}
     hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4
@@ -5724,8 +5724,8 @@ packages:
     dependencies:
       '@docsearch/css': 3.6.0
       '@docsearch/js': 3.6.0(@algolia/client-search@4.23.3)(search-insights@2.14.0)
-      '@shikijs/core': 1.6.1
-      '@shikijs/transformers': 1.6.1
+      '@shikijs/core': 1.6.2
+      '@shikijs/transformers': 1.6.2
       '@types/markdown-it': 14.1.1
       '@vitejs/plugin-vue': 5.0.5(vite@5.2.12)(vue@3.4.27)
       '@vue/devtools-api': 7.2.1(vue@3.4.27)
@@ -5736,7 +5736,7 @@ packages:
       mark.js: 8.11.1
       minisearch: 6.3.0
       postcss: 8.4.38
-      shiki: 1.6.1
+      shiki: 1.6.2
       vite: 5.2.12(@types/node@20.13.0)(less@4.2.0)(sass@1.77.4)
       vue: 3.4.27(typescript@5.4.5)
     transitivePeerDependencies:
