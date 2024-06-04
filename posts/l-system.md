@@ -1,5 +1,5 @@
 ---
-title: 用分形学生成一棵树
+title: 浅识 L-System
 date: 2024-06-01 12:24:29
 tags: [fractal, l-system]
 ---
@@ -14,7 +14,7 @@ tags: [fractal, l-system]
 鼠标移入上面图中，可显示生成动画
 :::
 
-接下来，就记录一下，如何实现这样的一棵树。在实现的过程中，需要用到 [L-System]，所以先来了解一下什么是 [L-System]。
+接下来，就记录一下，如何实现这样的一棵树。在实现的过程中，需要用到 [L-System]，所以就来了解一下什么是 [L-System] 吧。
 
 ## L-System
 
