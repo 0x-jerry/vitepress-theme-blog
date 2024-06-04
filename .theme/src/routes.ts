@@ -1,6 +1,5 @@
 import { type Route } from 'vitepress'
-import { type Component, defineComponent, h } from 'vue'
-import DefaultLayout from './layout/DefaultLayout.vue'
+import { type Component } from 'vue'
 import Home from './pages/Home.vue'
 import Post from './pages/Post.vue'
 import About from './pages/About.vue'
@@ -18,32 +17,26 @@ interface RouteItem {
 export const routes: RouteItem[] = [
   {
     match: '/',
-    layout: DefaultLayout,
     component: Home,
   },
   {
     match: /^\/(post|draft)s?\//,
-    layout: DefaultLayout,
     component: Post,
   },
   {
     match: '/about',
-    layout: DefaultLayout,
     component: About,
   },
   {
     match: '/tags',
-    layout: DefaultLayout,
     component: Tags,
   },
   {
     match: /^\/tags\//,
-    layout: DefaultLayout,
     component: Tags,
   },
   {
     match: '/search',
-    layout: DefaultLayout,
     component: Search,
   },
 ]
@@ -54,10 +47,10 @@ export function getRouteComponent(route: Route) {
       continue
     }
 
-    return item.layout ? withLayout(item.layout, item.component) : item.component
+    return item.component
   }
 
-  return withLayout(DefaultLayout, NotFound)
+  return NotFound
 }
 
 function isMatchRoute(item: RouteItem, route: Route): boolean {
@@ -70,8 +63,4 @@ function isMatchRoute(item: RouteItem, route: Route): boolean {
   }
 
   return item.match(route)
-}
-
-function withLayout(layout: Component, page: Component) {
-  return defineComponent(() => () => h(layout, null, () => h(page)))
 }

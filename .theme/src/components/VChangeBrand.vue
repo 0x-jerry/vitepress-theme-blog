@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { rand } from '@vueuse/core'
 import VIcon from './VIcon.vue'
-// todo, check why
-//@ts-ignore
 import { changeBrand } from '@0x-jerry/unocss-preset-brand/runtime'
 
 const grayColors = ['Slate', 'Gray', 'Zinc', 'Neutral', 'Stone'].map((n) =>

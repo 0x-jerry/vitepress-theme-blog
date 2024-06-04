@@ -3,6 +3,7 @@ import { useRoute } from 'vitepress'
 import { getRouteComponent } from './routes'
 import { useTheme } from './hooks/useTheme'
 import dayjs from 'dayjs'
+import DefaultLayout from './layout/DefaultLayout.vue'
 
 const route = useRoute()
 
@@ -14,7 +15,9 @@ if (theme.value.timezone) {
 </script>
 
 <template>
-  <component :is="getRouteComponent(route)"> </component>
+  <DefaultLayout>
+    <component :is="getRouteComponent(route)"> </component>
+  </DefaultLayout>
 </template>
 
 <style lang="less"></style>
