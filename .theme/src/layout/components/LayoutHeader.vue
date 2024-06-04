@@ -2,7 +2,6 @@
 import { useTheme } from '@@/hooks/useTheme'
 import { useI18n } from '@@/lib/i18n'
 import VButton from '@@/components/VButton.vue'
-import VSearch from '@@/components/VSearch.vue'
 import VChangeBrand from '@@/components/VChangeBrand.vue'
 
 const { t } = useI18n()
@@ -29,6 +28,11 @@ const menus: SidebarMenu[] = [
     path: '/about',
     icon: 'i-carbon-user',
     label: t('menu.title.about'),
+  },
+  {
+    path: '/search',
+    icon: 'i-carbon-search',
+    label: t('button.search'),
   },
 ]
 
@@ -69,14 +73,12 @@ const linksIconMapper: Record<string, string> = {
       </div>
       <div class="gap-2 hidden sm:(flex) xl:(flex-col w-full)">
         <a v-for="menu in menus" :href="menu.path">
-          <VButton class="w-full">
+          <!-- ignore button click event, otherwise this will refresh the page -->
+          <VButton class="w-full pointer-events-none">
             <i :class="menu.icon"></i>
             <span class="flex-1 hidden xl:inline-block">{{ menu.label }}</span>
           </VButton>
         </a>
-        <div class="xl:(block w-full)">
-          <VSearch></VSearch>
-        </div>
       </div>
     </div>
   </div>
