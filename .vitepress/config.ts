@@ -12,7 +12,7 @@ export default async () => {
           description: "0x-Jerry's Blog",
           icons: [
             {
-              src: 'pwa-192x192.png',
+              src: 'pwa-192x192.webp',
               sizes: '192x192'
             },
             {
@@ -29,12 +29,12 @@ export default async () => {
           theme_color: '#ffffff',
           screenshots: [
             {
-              src: 'pwa-192x192.png',
+              src: 'pwa-192x192.webp',
               sizes: '192x192',
               form_factor: 'wide'
             },
             {
-              src: 'pwa-192x192.png',
+              src: 'pwa-192x192.webp',
               sizes: '192x192',
               form_factor: 'narrow'
             }
