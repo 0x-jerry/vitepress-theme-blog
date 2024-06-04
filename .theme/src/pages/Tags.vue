@@ -3,26 +3,17 @@ import VTag from '@@/components/VTag.vue'
 import VTitle from '@@/components/VTitle.vue'
 import { useTheme } from '@@/hooks/useTheme'
 import { useI18n } from '@@/lib/i18n'
-import { computed, reactive } from 'vue'
+import { computed } from 'vue'
 import { data } from '@@/data/excerpts.data'
 import VExcerpt from '@@/components/VExcerpt.vue'
-import { useRouter, useRoute } from 'vitepress'
+import { useUrlSearchParams } from '@vueuse/core'
 
 const { t } = useI18n()
 const theme = useTheme()
-const router = useRouter()
-const route = useRoute()
 
 const title = computed(() => t('title.tags', [theme.value.name]))
 
-const state = reactive({
-  selectedTag: getInitTag(),
-})
-
-function getInitTag() {
-  const u = new URL(route.path, 'https://example.com')
-  return u.searchParams.get('t') || ''
-}
+const query = useUrlSearchParams<{ t: string }>()
 
 const tags = computed(() => {
   const tags: string[] = []
@@ -35,21 +26,19 @@ const tags = computed(() => {
 })
 
 const artilces = computed(() => {
-  if (!state.selectedTag) {
+  if (!query.t) {
     return data
   }
 
-  return data.filter((n) => n.data.tags?.includes(state.selectedTag))
+  return data.filter((n) => n.data.tags?.includes(query.t))
 })
 
 function selectTag(tag: string) {
-  if (state.selectedTag === tag) {
-    state.selectedTag = ''
+  if (query.t === tag) {
+    query.t = ''
   } else {
-    state.selectedTag = tag
+    query.t = tag
   }
-
-  router.go(`/tags?t=${tag}`)
 }
 </script>
 
@@ -62,7 +51,7 @@ function selectTag(tag: string) {
         class="cursor-pointer"
         @click="selectTag(tag)"
         v-for="tag in tags"
-        :class="{ 'is-selected': tag === state.selectedTag }"
+        :class="{ 'is-selected': tag === query.t }"
       >
         {{ tag }}</VTag
       >
