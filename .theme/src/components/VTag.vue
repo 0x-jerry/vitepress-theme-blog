@@ -12,6 +12,7 @@ defineProps<{
 
 <style lang="less" scoped>
 .v-tag {
+  white-space: pre;
   @apply border rounded text-sm px-2 font-mono border-(1 solid);
 
   @apply border-bGray-100 bg-bGray-50 text-bGray-500 hover:text-bGray-700;

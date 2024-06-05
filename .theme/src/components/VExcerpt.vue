@@ -21,13 +21,13 @@ withDefaults(defineProps<VExcerptProps>(), {
       <VTag>{{ dayjs.tz(date).format('YYYY-MM-DD') }}</VTag>
       <VLink :href="href">{{ title }}</VLink>
     </div>
-    <VAutoResize v-if="tags.length" :list="tags"
-      inner-class="pb-4 mb-2 xl:(p-0 m-0 border-none) flex gap-2 items-center border-(0 b solid bGray-1)">
+    <VAutoResize class="border-(0 b solid bGray-1) mb-2 pb-2 xl:(border-0 mb-0 pb-0)" v-if="tags.length" :list="tags"
+      inner-class="xl:(p-0 m-0 border-none) flex gap-2 items-center">
       <template #default="{ item: tag }">
         <VTag :href="`/tags?t=${tag}`">{{ tag }}</VTag>
       </template>
       <template #collapsed="{ items }">
-        <VTag>+{{ items.length }}</VTag>
+        <VTag :title="items.join(',')">+{{ items.length }}</VTag>
       </template>
     </VAutoResize>
   </div>
