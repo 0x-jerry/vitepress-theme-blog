@@ -10,10 +10,6 @@ tags: [fractal, l-system]
 
 <v-embed :data="{ title: 'Fractal Tree', url: 'https://0x-jerry.github.io/visual-experiment/#/fractal-tree'}" />
 
-::: tip
-鼠标移入上面图中，可显示生成动画
-:::
-
 接下来，就记录一下，如何实现这样的一棵树。在实现的过程中，需要用到 [L-System]，所以就来了解一下什么是 [L-System] 吧。
 
 ## L-System
