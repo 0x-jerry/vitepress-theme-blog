@@ -2,7 +2,7 @@ import { type Theme } from 'vitepress'
 import Layout from './Layout.vue'
 import { install as installI18n } from './lib/i18n'
 
-import 'heti'
+import 'heti/umd/heti.min.css'
 import 'normalize.css'
 import './styles/main.less'
 import 'uno.css'
