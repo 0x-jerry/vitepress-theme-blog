@@ -8,7 +8,6 @@ exports.default = {
       'title: $1',
       'date: ' + new Date().toISOString(),
       'tags: [$2]',
-      'publish: false',
       '---',
       ''
     ],
