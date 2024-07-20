@@ -34,6 +34,15 @@ const percentage = computed(() => {
       <div class="post-content flex-1 w-0 px-4 xl:px-2">
         <div class="heti text-left max-w-full" ref="content">
           <Content></Content>
+
+          <div class="pt-6">
+            <div class="text-center c-bPrimary-2 text-6xl relative">
+              <span> 完 </span>
+              <span
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inline-block size-1.8em border-(2 dashed bPrimary-1) rounded-full"
+              />
+            </div>
+          </div>
         </div>
 
         <br />
