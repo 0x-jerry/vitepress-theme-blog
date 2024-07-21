@@ -45,6 +45,7 @@
   "dependencies": {
     "@0x-jerry/unocss-preset-brand": "^0.1.4",
     "@0x-jerry/utils": "^2.4.2",
+    "@0x-jerry/vue-kit": "^2.0.4",
     "@iconify-json/carbon": "^1.1.36",
     "@iconify-json/logos": "^1.1.43",
     "@mdit/plugin-figure": "^0.12.0",
