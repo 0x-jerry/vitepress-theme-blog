@@ -48,7 +48,7 @@ const percentage = computed(() => {
         <br />
 
         <ClientOnly>
-          <VGiscus v-if="enableComment" />
+          <VGiscus class="mt-8" v-if="enableComment" />
         </ClientOnly>
       </div>
       <LayoutRightSlot v-if="headers.length">
