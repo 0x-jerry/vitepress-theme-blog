@@ -10,7 +10,6 @@ import { readFileSync } from 'fs'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
-import devtools from 'vite-plugin-vue-devtools'
 import yaml from '@rollup/plugin-yaml'
 import { figure } from '@mdit/plugin-figure'
 
@@ -47,8 +46,6 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
         Uno(unoConfig),
 
         yaml() as any,
-
-        devtools(),
       ],
       resolve: {
         alias: {

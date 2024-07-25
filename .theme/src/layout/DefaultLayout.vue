@@ -8,7 +8,7 @@ import LayoutHeader from './components/LayoutHeader.vue'
     <div class="left flex-1 text-right" id="layout-content-left">
       <LayoutHeader class="sidebar"></LayoutHeader>
     </div>
-    <div class="flex flex-col min-h-screen px-2 xl:px-0 w-full xl:w-700px">
+    <div class="flex flex-col min-h-screen px-2 xl:px-0 w-700px mx-auto xl:mx-0">
       <div class="flex-1">
         <slot></slot>
       </div>
