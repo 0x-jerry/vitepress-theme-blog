@@ -106,16 +106,25 @@
   h3,
   h4,
   h5 {
-    scroll-margin-top: 60px;
+    scroll-margin-top: 40px;
 
     &:target {
       @apply c-bPrimary-6;
     }
-  }
 
-  .header-anchor {
-    &::after {
-      content: '#';
+    .header-anchor {
+      &::after {
+        content: '#';
+        opacity: 0;
+        @apply transition;
+        transition-property: opacity;
+      }
+    }
+
+    &:hover {
+      .header-anchor::after {
+        opacity: 100;
+      }
     }
   }
 

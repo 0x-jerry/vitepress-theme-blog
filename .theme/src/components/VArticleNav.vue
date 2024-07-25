@@ -14,11 +14,11 @@ const props = defineProps<{
 const activeAnchor = ref<Header>()
 const checkOffsetTop = 200
 
-useEventListener('scroll', caclActiveAnchor)
+useEventListener('scroll', calcActiveAnchor)
 
-onMounted(caclActiveAnchor)
+onMounted(calcActiveAnchor)
 
-function caclActiveAnchor() {
+function calcActiveAnchor() {
   if (props.child) {
     return
   }
