@@ -26,7 +26,7 @@
 
       border: 1px solid gray;
       @apply border-bGray-1 bg-bGray-50 bg-op-40;
-      
+
       @apply backdrop-blur-2px;
     }
 
@@ -44,6 +44,7 @@
     figcaption {
       margin-top: 0.5rem;
       @apply text-bGray-5;
+
       a {
         @apply text-bGray-5;
       }
@@ -96,6 +97,18 @@
     &::after {
       content: '`';
       font-weight: bold;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    scroll-margin-top: 60px;
+
+    &:target {
+      @apply c-bPrimary-6;
     }
   }
 
