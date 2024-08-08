@@ -15,6 +15,10 @@ body {
   // scroll-behavior: smooth;
 }
 
+*::selection {
+  @apply text-bPrimary-6 bg-bPrimary-50;
+}
+
 html.dark {
   background: #121212;
 }
@@ -29,7 +33,7 @@ img {
 }
 
 #nprogress .bar {
-  @apply bg-bPrimary-600 opacity-75;
+  @apply bg-bPrimary-6 opacity-75;
 
   position: fixed;
   z-index: 1031;

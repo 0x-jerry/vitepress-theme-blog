@@ -15,7 +15,7 @@ defineProps<{
   white-space: pre;
   @apply border rounded text-sm px-2 font-mono border-(1 solid);
 
-  @apply border-bGray-100 bg-bGray-50 text-bGray-500 hover:text-bGray-700;
+  @apply border-bGray-1 bg-bGray-50 text-bGray-5 hover:text-bGray-7;
 
   &[href] {
     cursor: pointer;
@@ -23,11 +23,11 @@ defineProps<{
   }
 
   &.is-bPrimary {
-    @apply border-bPrimary-100 bg-bPrimary-50 text-bPrimary-500 hover:text-bPrimary-700;
+    @apply border-bPrimary-1 bg-bPrimary-50 text-bPrimary-5 hover:text-bPrimary-7;
   }
 
   &.is-red {
-    @apply border-red-100 bg-red-50 text-red-500 hover:text-red-700;
+    @apply border-red-1 bg-red-50 text-red-5 hover:text-red-7;
   }
 }
 </style>
