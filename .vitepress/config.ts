@@ -4,7 +4,13 @@ import { defineConfigWithTheme } from 'vitepress'
 
 export default async () => {
   const conf = defineConfigWithTheme<ThemeOption>({
-    extends: await createBaseConfig(),
+    extends: await createBaseConfig({
+      rss: {
+        copyright: '',
+        title: '0x-Jerry\'s Blog',
+        origin: 'https://blog.0x-jerry.icu',
+      },
+    }),
     title: '0x-Jerry',
     titleTemplate: ':title | Blog',
     cleanUrls: true,

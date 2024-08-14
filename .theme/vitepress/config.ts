@@ -2,7 +2,7 @@ import path from 'path'
 import Components from 'unplugin-vue-components/vite'
 import Uno from 'unocss/vite'
 import unoConfig from '../uno.config'
-import { defineConfig, type UserConfig } from 'vitepress'
+import { defineConfig, type HeadConfig, type UserConfig } from 'vitepress'
 import { postBlogGenerate, type BlogPluginConfig } from './blog'
 import { fileURLToPath } from 'url'
 import readingTime from 'reading-time'
@@ -31,6 +31,23 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
 
   globalThis.BLOG_CONFIG = option
 
+  const extraHeads: HeadConfig[] = []
+
+  if (option.rss) {
+    extraHeads.push(
+      ['meta', { name: 'rss', content: '/rss.xml' }],
+      [
+        'link',
+        {
+          href: '/rss.xml',
+          rel: 'alternate',
+          title: 'RSS',
+          type: 'application/rss+xml',
+        },
+      ],
+    )
+  }
+
   const conf = defineConfig({
     vite: {
       plugins: [
@@ -54,9 +71,7 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
       },
     },
     head: [
-      // todo: add an option to enable generate rss
-      // ['meta', { name: 'rss', content: '/rss.xml' }],
-      // ['link', { href: '/rss.xml', rel: 'alternate', title: 'RSS', type: 'application/rss+xml' }],
+      ...extraHeads,
       [
         'link',
         {
@@ -71,6 +86,23 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
     transformPageData(pageData, _ctx) {
       const content = readFileSync(pageData.filePath, { encoding: 'utf-8' })
       pageData.frontmatter.read = readingTime(content || '')
+    },
+    transformHead(context) {
+      const headers: HeadConfig[] = []
+
+      const frontmatter = context.pageData.frontmatter
+
+      if (frontmatter.date) {
+        headers.push([
+          'meta',
+          {
+            name: 'date',
+            content: frontmatter.date,
+          },
+        ])
+      }
+
+      return headers
     },
     async buildEnd(siteConfig) {
       const tz = siteConfig.site.themeConfig.timezone
