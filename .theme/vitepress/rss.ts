@@ -33,13 +33,11 @@ export async function generateFeed(conf: RSSGenerateOption) {
     []
 
   for (const file of files) {
-    const postTitle = file.replace(/\.html$/, '')
+    const postSlug = file.replace(/\.html$/, '')
 
-    const link = `${conf.origin}/${conf.articlesPathPrefix}/${postTitle}`
+    const link = `${conf.origin}/${conf.articlesPathPrefix}/${postSlug}`
 
-    const html = await fs.readFile(path.join(postDir, file), {
-      encoding: 'utf-8',
-    })
+    const html = await fs.readFile(path.join(postDir, file), 'utf-8')
 
     const $ = cheerioLoad(html)
 

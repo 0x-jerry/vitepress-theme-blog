@@ -12,7 +12,7 @@ export default async () => {
       },
     }),
     title: '0x-Jerry',
-    titleTemplate: ':title | Blog',
+    titleTemplate: ':title',
     cleanUrls: true,
     ignoreDeadLinks: true,
     themeConfig: {
