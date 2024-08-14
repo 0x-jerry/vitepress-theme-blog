@@ -63,7 +63,7 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
           rel: 'stylesheet',
           crossorigin: 'anonymous',
           referrerpolicy: 'no-referrer',
-          href: 'https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.css',
+          href: 'https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.min.css',
         },
       ],
     ],
