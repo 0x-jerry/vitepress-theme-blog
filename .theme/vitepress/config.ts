@@ -72,13 +72,15 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
     },
     head: [
       ...extraHeads,
+      // https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/?utm_source=lighthouse&utm_medium=lr
       [
         'link',
         {
-          rel: 'stylesheet',
           crossorigin: 'anonymous',
           referrerpolicy: 'no-referrer',
-          href: 'https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/style.min.css',
+          rel: 'preload',
+          onload: "this.onload=null;this.rel='stylesheet'",
+          href: 'https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/lxgwwenkai-regular.min.css',
         },
       ],
     ],
