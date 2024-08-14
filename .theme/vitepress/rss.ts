@@ -29,8 +29,7 @@ export async function generateFeed(conf: RSSGenerateOption) {
   const postDir = joinPath('dist', conf.articlesPathPrefix)
   const files = await fs.readdir(postDir)
 
-  const posts: { link: string; content: string; title: string; date: Date }[] =
-    []
+  const posts: FeedItemData[] = []
 
   for (const file of files) {
     const postSlug = file.replace(/\.html$/, '')
@@ -70,4 +69,11 @@ export async function generateFeed(conf: RSSGenerateOption) {
   const rss2 = feed.rss2()
 
   await fs.writeFile(joinPath('dist', conf.filename), rss2)
+}
+
+interface FeedItemData {
+  link: string
+  content: string
+  title: string
+  date: Date
 }
