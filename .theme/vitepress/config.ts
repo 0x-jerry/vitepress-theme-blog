@@ -72,18 +72,6 @@ export default async (opt: Partial<ThemePluginOption> = {}) => {
     },
     head: [
       ...extraHeads,
-      // https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/?utm_source=lighthouse&utm_medium=lr
-      [
-        'link',
-        {
-          crossorigin: 'anonymous',
-          referrerpolicy: 'no-referrer',
-          rel: 'preload',
-          as: 'style',
-          onload: "this.onload=null;this.rel='stylesheet'",
-          href: 'https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-webfont/1.7.0/lxgwwenkai-regular.min.css',
-        },
-      ],
     ],
     cleanUrls: true,
     transformPageData(pageData, _ctx) {
