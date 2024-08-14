@@ -2,6 +2,7 @@ import { Feed, type FeedOptions } from 'feed'
 import fs from 'fs/promises'
 import path from 'path'
 import dayjs from 'dayjs'
+import { load as cheerioLoad } from 'cheerio'
 
 const vitepressDir = path.join(process.cwd(), '.vitepress')
 
@@ -31,9 +32,6 @@ export async function generateFeed(conf: RSSGenerateOption) {
   const posts: { link: string; content: string; title: string; date: Date }[] =
     []
 
-  const dateReg = /meta name="date" content="([0-9a-zA-Z.:-]+)"/
-  const titleReg = /<title>(.+)?<\/title>/
-  const removeHeaderReg = /<header.+<\/header>/
   for (const file of files) {
     const postTitle = file.replace(/\.html$/, '')
 
@@ -43,14 +41,22 @@ export async function generateFeed(conf: RSSGenerateOption) {
       encoding: 'utf-8',
     })
 
-    const date = html.match(dateReg)?.[1] || ''
+    const $ = cheerioLoad(html)
 
-    const title = html.match(titleReg)?.[1] || ''
+    const date = $('meta[name=date]').attr('content')
+
+    const title = $('title').text()
+
+    {
+      // remove sidebar
+      $('#layout-content-left').remove()
+      $('#layout-content-right').remove()
+    }
 
     posts.push({
       date: dayjs.tz(date).toDate(),
       link,
-      content: html.replace(removeHeaderReg, ''),
+      content: $.html(),
       title,
     })
   }
