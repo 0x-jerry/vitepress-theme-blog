@@ -50,7 +50,7 @@
     "@iconify-json/logos": "^1.1.44",
     "@mdit/plugin-figure": "^0.13.0",
     "@rollup/plugin-yaml": "^4.1.2",
-    "@vueuse/core": "^10.11.1",
+    "@vueuse/core": "^11.0.0",
     "cheerio": "^1.0.0",
     "dayjs": "^1.11.12",
     "feed": "^4.2.2",
