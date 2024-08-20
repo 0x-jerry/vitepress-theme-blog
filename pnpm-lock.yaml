@@ -64,8 +64,8 @@ importers:
         specifier: ^23.12.3
         version: 23.12.3
       i18next-vue:
-        specifier: ^4.0.0
-        version: 4.0.0(i18next@23.12.3)(vue@3.4.37(typescript@5.5.4))
+        specifier: ^5.0.0
+        version: 5.0.0(i18next@23.12.3)(vue@3.4.37(typescript@5.5.4))
       less:
         specifier: ^4.2.0
         version: 4.2.0
@@ -1555,11 +1555,11 @@ packages:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
 
-  i18next-vue@4.0.0:
-    resolution: {integrity: sha512-yaKWMyFGweyA4EF7JXSGRAvZQ1CJTKjim0iPBsSjFQuuI6lK7cJf6dWK7uO9leB2EnB5JPd8UVtYLTjHXlCVPw==}
+  i18next-vue@5.0.0:
+    resolution: {integrity: sha512-8jlctdGSKws9fcFlGlFOQRKCQQdUTKSs4D9pbZ6iitpzHQzQSVTdeDPvrjxLomsTjLK65W+MUGW6cwavAMGo9w==}
     peerDependencies:
       i18next: '>=23'
-      vue: ^3.3.4
+      vue: ^3.4.38
 
   i18next@23.12.3:
     resolution: {integrity: sha512-DyigQmrR10V9U2N6pjhbfahW13GY7n8BQD9swN09JuRRropgsksWVi4vRLeex0Qf7zCPnBfIqQfhcBzdZBQBYw==}
@@ -3816,7 +3816,7 @@ snapshots:
 
   human-signals@2.1.0: {}
 
-  i18next-vue@4.0.0(i18next@23.12.3)(vue@3.4.37(typescript@5.5.4)):
+  i18next-vue@5.0.0(i18next@23.12.3)(vue@3.4.37(typescript@5.5.4)):
     dependencies:
       i18next: 23.12.3
       vue: 3.4.37(typescript@5.5.4)
