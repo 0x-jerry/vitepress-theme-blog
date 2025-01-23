@@ -26,7 +26,7 @@ importers:
         version: 0.1.4
       '@0x-jerry/utils':
         specifier: ^3.0.0
-        version: 3.0.0
+        version: 3.0.2
       '@0x-jerry/vue-kit':
         specifier: ^2.1.0
         version: 2.1.0(typescript@5.5.4)
@@ -114,7 +114,7 @@ importers:
         version: 0.2.3
       tsup:
         specifier: ^8.2.4
-        version: 8.2.4(jiti@1.21.6)(postcss@8.4.41)(tsx@4.17.0)(typescript@5.5.4)(yaml@2.5.0)
+        version: 8.2.4(jiti@1.21.7)(postcss@8.4.41)(tsx@4.17.0)(typescript@5.5.4)(yaml@2.5.0)
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
@@ -131,8 +131,8 @@ packages:
   '@0x-jerry/utils@2.5.0':
     resolution: {integrity: sha512-kap/xFuwwaCF0ZbIzujBsZWIC4AdqYdOqhAlw/SCmEjm6yCS6XY/25RfRPz930DoNOrQ/nqshVgEuRFiM71ZjQ==}
 
-  '@0x-jerry/utils@3.0.0':
-    resolution: {integrity: sha512-a0b38xFszEj2+O2wv96LWl2MyRLmApOzIb8NxZRFWtC0SWXzQcfkXxNs06RfMo5MAxFXyxSQWUtw0tLIdnobiw==}
+  '@0x-jerry/utils@3.0.2':
+    resolution: {integrity: sha512-tY1EfOS4T74ek31OqKL5mR4qQGqMI906TpHS4q3QYVdQ9r1UNPUlHRmnng5YhupVFC0A2k8FcLy9BkpYASBL+g==}
 
   '@0x-jerry/vue-kit@2.1.0':
     resolution: {integrity: sha512-uxxeiZWx8LgRzZddWKW/+0kjOlNh0k+XXno3KGGcsgYYE9Zoj79M3tpLNtS19SnaphfYaROjxm2N1N1vk+2/qQ==}
@@ -1631,6 +1631,10 @@ packages:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
 
+  jiti@1.21.7:
+    resolution: {integrity: sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==}
+    hasBin: true
+
   jiti@2.0.0-beta.2:
     resolution: {integrity: sha512-c+PHQZakiQuMKbnhvrjZUvrK6E/AfmTOf4P+E3Y4FNVHcNMX9e/XrnbEvO+m4wS6ZjsvhHh/POQTlfy8uXFc0A==}
     hasBin: true
@@ -1767,13 +1771,13 @@ packages:
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
 
-  nanoid@3.3.7:
-    resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
+  nanoid@3.3.8:
+    resolution: {integrity: sha512-WNLf5Sd8oZxOm+TzppcYk8gVOgP+l58xNy58D0nbUnOxOWRWvlcCV4kUF7ltmI6PsrLl/BgKEyS4mqsGChFN0w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@5.0.7:
-    resolution: {integrity: sha512-oLxFY2gd2IqnjcYyOXD8XGCftpGtZP2AbHbOkthDkvRywH5ayNtPVy9YlOPcHckXzbLTCHpkb7FB+yuxKV13pQ==}
+  nanoid@5.0.9:
+    resolution: {integrity: sha512-Aooyr6MXU6HpvvWXKoVoXwKMs/KyVakWwg7xQfv5/S/RIgJMy0Ifa45H9qqYy7pTCszrHzP21Uk4PZq2HpEM8Q==}
     engines: {node: ^18 || >=20}
     hasBin: true
 
@@ -1868,6 +1872,9 @@ packages:
 
   picocolors@1.0.1:
     resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
+
+  picocolors@1.1.1:
+    resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
   picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
@@ -2334,14 +2341,14 @@ snapshots:
   '@0x-jerry/utils@2.5.0':
     dependencies:
       fflate: 0.8.2
-      nanoid: 5.0.7
+      nanoid: 5.0.9
       picocolors: 1.0.1
 
-  '@0x-jerry/utils@3.0.0':
+  '@0x-jerry/utils@3.0.2':
     dependencies:
       fflate: 0.8.2
-      nanoid: 5.0.7
-      picocolors: 1.0.1
+      nanoid: 5.0.9
+      picocolors: 1.1.1
 
   '@0x-jerry/vue-kit@2.1.0(typescript@5.5.4)':
     dependencies:
@@ -2484,7 +2491,7 @@ snapshots:
   '@babel/code-frame@7.24.7':
     dependencies:
       '@babel/highlight': 7.24.7
-      picocolors: 1.0.1
+      picocolors: 1.1.1
 
   '@babel/compat-data@7.25.2': {}
 
@@ -2609,7 +2616,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.7
       chalk: 2.4.2
       js-tokens: 4.0.0
-      picocolors: 1.0.1
+      picocolors: 1.1.1
 
   '@babel/parser@7.25.3':
     dependencies:
@@ -3854,7 +3861,7 @@ snapshots:
       debug: 4.3.6
       esbuild: 0.23.0
       jiti: 2.0.0-beta.2
-      jiti-v1: jiti@1.21.6
+      jiti-v1: jiti@1.21.7
       pathe: 1.1.2
       pkg-types: 1.1.3
       tsx: 4.17.0
@@ -3892,6 +3899,8 @@ snapshots:
       '@pkgjs/parseargs': 0.11.0
 
   jiti@1.21.6: {}
+
+  jiti@1.21.7: {}
 
   jiti@2.0.0-beta.2: {}
 
@@ -4012,9 +4021,9 @@ snapshots:
       object-assign: 4.1.1
       thenify-all: 1.6.0
 
-  nanoid@3.3.7: {}
+  nanoid@3.3.8: {}
 
-  nanoid@5.0.7: {}
+  nanoid@5.0.9: {}
 
   needle@3.3.1:
     dependencies:
@@ -4102,6 +4111,8 @@ snapshots:
 
   picocolors@1.0.1: {}
 
+  picocolors@1.1.1: {}
+
   picomatch@2.3.1: {}
 
   picomatch@4.0.2: {}
@@ -4117,19 +4128,19 @@ snapshots:
       mlly: 1.7.1
       pathe: 1.1.2
 
-  postcss-load-config@6.0.1(jiti@1.21.6)(postcss@8.4.41)(tsx@4.17.0)(yaml@2.5.0):
+  postcss-load-config@6.0.1(jiti@1.21.7)(postcss@8.4.41)(tsx@4.17.0)(yaml@2.5.0):
     dependencies:
       lilconfig: 3.1.2
     optionalDependencies:
-      jiti: 1.21.6
+      jiti: 1.21.7
       postcss: 8.4.41
       tsx: 4.17.0
       yaml: 2.5.0
 
   postcss@8.4.41:
     dependencies:
-      nanoid: 3.3.7
-      picocolors: 1.0.1
+      nanoid: 3.3.8
+      picocolors: 1.1.1
       source-map-js: 1.2.0
 
   preact@10.23.2: {}
@@ -4327,7 +4338,7 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  tsup@8.2.4(jiti@1.21.6)(postcss@8.4.41)(tsx@4.17.0)(typescript@5.5.4)(yaml@2.5.0):
+  tsup@8.2.4(jiti@1.21.7)(postcss@8.4.41)(tsx@4.17.0)(typescript@5.5.4)(yaml@2.5.0):
     dependencies:
       bundle-require: 5.0.0(esbuild@0.23.0)
       cac: 6.7.14
@@ -4339,7 +4350,7 @@ snapshots:
       globby: 11.1.0
       joycon: 3.1.1
       picocolors: 1.0.1
-      postcss-load-config: 6.0.1(jiti@1.21.6)(postcss@8.4.41)(tsx@4.17.0)(yaml@2.5.0)
+      postcss-load-config: 6.0.1(jiti@1.21.7)(postcss@8.4.41)(tsx@4.17.0)(yaml@2.5.0)
       resolve-from: 5.0.0
       rollup: 4.20.0
       source-map: 0.8.0-beta.0
@@ -4444,7 +4455,7 @@ snapshots:
     dependencies:
       browserslist: 4.23.3
       escalade: 3.1.2
-      picocolors: 1.0.1
+      picocolors: 1.1.1
 
   vite@5.4.0(@types/node@22.2.0)(less@4.2.0)(sass@1.77.8):
     dependencies:
