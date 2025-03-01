@@ -1,6 +1,6 @@
 import {
   defineConfig,
-  presetUno,
+  presetWind3,
   transformerDirectives,
   transformerVariantGroup,
   presetIcons,
@@ -12,7 +12,7 @@ import { presetBrand } from '@0x-jerry/unocss-preset-brand'
 export default defineConfig({
   presets: [
     presetIcons(),
-    presetUno(),
+    presetWind3(),
     presetAttributify(),
     presetBrand({
       brand: {
