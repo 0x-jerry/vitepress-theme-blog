@@ -1,47 +1,53 @@
 <script lang="ts" setup>
-import { rand } from '@vueuse/core'
+import { rand, useLocalStorage } from '@vueuse/core'
 import VIcon from './VIcon.vue'
 import { changeBrand } from '@0x-jerry/unocss-preset-brand/runtime'
 
-const grayColors = ['Slate', 'Gray', 'Zinc', 'Neutral', 'Stone'].map((n) =>
-  n.toLowerCase(),
-)
+const grayColors = ['slate', 'gray', 'zinc', 'neutral', 'stone']
+
 const colors = [
-  'Red',
-  'Orange',
-  'Amber',
-  'Yellow',
-  'Lime',
-  'Green',
-  'Emerald',
-  'Teal',
-  'Cyan',
-  'Sky',
-  'Blue',
-  'Indigo',
-  'Violet',
-  'Purple',
-  'Fuchsia',
-  'Pink',
-  'Rose',
-].map((n) => n.toLowerCase())
+  'red',
+  'orange',
+  'amber',
+  'yellow',
+  'lime',
+  'green',
+  'emerald',
+  'teal',
+  'cyan',
+  'sky',
+  'blue',
+  'indigo',
+  'violet',
+  'purple',
+  'fuchsia',
+  'pink',
+  'rose',
+]
+
+const brand = useLocalStorage('brand-config', {
+  primary: 'rose',
+  gray: 'gray'
+})
+
+
+changeBrand(brand.value)
 
 function randomBrand() {
   const gray = grayColors[rand(0, grayColors.length)]
   const primary = colors[rand(0, colors.length)]
-  changeBrand({
+  brand.value = {
     gray,
-    primary,
-  })
+    primary
+  }
+
+  changeBrand(brand.value)
 }
 </script>
 
 <template>
-  <VIcon
-    class="i-carbon:color-palette cursor-pointer hover:text-bPrimary"
-    title="Change brand color"
-    @click="randomBrand"
-  />
+  <VIcon class="i-carbon:color-palette cursor-pointer hover:text-bPrimary" title="Change brand color"
+    @click="randomBrand" />
 </template>
 
 <style lang="less" scoped></style>
